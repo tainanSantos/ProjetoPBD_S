@@ -15,6 +15,7 @@ public class Principal {
     public final String LOGIN_PANE = "Login.fxml";
     public final String CADASTRO_PANE = "CadastroPessoa.fxml";
     public final String PESQUISA = "Pesquisa.fxml";
+    public final String CONFIGURACOES = "Configuracoes.fxml";
 
     @FXML
     public AnchorPane anchorPanePrincipal;
@@ -37,8 +38,9 @@ public class Principal {
         Main.stageLogin().show();
     }
 
-    public void deslogar() throws IOException {
-
+    public void configuracoesGerais() throws IOException {
+        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
+        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
     }
 
     public void pesquisa() throws IOException {
