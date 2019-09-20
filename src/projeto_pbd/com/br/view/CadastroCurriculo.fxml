@@ -20,8 +20,8 @@
       </Label>
       <GridPane hgap="10.0" layoutX="20.0" layoutY="67.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="114.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="446.0" minWidth="10.0" prefWidth="446.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="185.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="572.0" minWidth="10.0" prefWidth="565.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,7 +42,7 @@
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <TableView layoutX="124.0" layoutY="202.0" prefHeight="268.0" prefWidth="760.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <TableView layoutX="124.0" layoutY="202.0" prefHeight="304.0" prefWidth="760.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columns>
           <TableColumn prefWidth="75.0" text="codigo" />
           <TableColumn prefWidth="75.0" text="nome" />
@@ -54,23 +54,23 @@
       </TableView>
       <Button layoutX="518.0" layoutY="460.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Salvar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" />
       <Button layoutX="417.0" layoutY="460.0" mnemonicParsing="false" text="Cancelar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="110.0" />
-      <Label layoutX="20.0" layoutY="208.0" text="disciplinas do curriculo ">
+      <Label layoutX="20.0" layoutY="173.0" text="disciplinas do curriculo ">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="195.0" layoutY="209.0" text="(escolha as disciplinas a serem alocadas no curriculo)">
+      <Label layoutX="195.0" layoutY="174.0" text="(escolha as disciplinas a serem alocadas no curriculo)">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <TextField layoutX="20.0" layoutY="243.0" prefHeight="26.0" prefWidth="398.0" promptText="pesquisar disciplina" AnchorPane.leftAnchor="20.0" />
-      <Label layoutX="441.0" layoutY="238.0" text="nessa parte eu vou clicar na disciplina que aparece na tabela">
+      <TextField layoutX="20.0" layoutY="208.0" prefHeight="26.0" prefWidth="398.0" promptText="pesquisar disciplina" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="441.0" layoutY="203.0" text="nessa parte eu vou clicar na disciplina que aparece na tabela">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
-      <Label layoutX="441.0" layoutY="251.0" text="uma segunda tela vai abrir perguntando se eu desejom add a disciplina X ">
+      <Label layoutX="441.0" layoutY="216.0" text="uma segunda tela vai abrir perguntando se eu desejom add a disciplina X ">
          <font>
             <Font size="9.0" />
          </font>

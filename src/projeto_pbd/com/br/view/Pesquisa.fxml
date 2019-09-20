@@ -28,8 +28,8 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxAlunosOutro" layoutX="198.0" layoutY="66.0" onAction="#setarTabelaPesquisa" prefHeight="30.0" prefWidth="192.0" promptText=" tipo pessoa" style="-fx-background-color: #F5F5F5;" AnchorPane.leftAnchor="20.0" />
-      <TableView fx:id="tableViewOutros" layoutX="56.0" layoutY="103.0" prefHeight="365.0" prefWidth="600.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
+      <ComboBox fx:id="comboBoxAlunosOutro" layoutX="198.0" layoutY="66.0" onAction="#setarTabelaPesquisa" prefHeight="30.0" prefWidth="192.0" promptText=" buscar por" style="-fx-background-color: #F5F5F5;" AnchorPane.leftAnchor="20.0" />
+      <TableView fx:id="tableViewOutros" layoutX="56.0" layoutY="103.0" prefHeight="365.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
          <columns>
             <TableColumn prefWidth="75.0" text="nª identificaçao" />
             <TableColumn prefWidth="75.0" text="nome do funcionario (a)" />
@@ -41,6 +41,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ComboBox fx:id="comboBoxTipoPessoa" layoutX="449.0" layoutY="66.0" prefHeight="30.0" prefWidth="192.0" promptText="nao implementado" style="-fx-background-color: #F5F5F5;" AnchorPane.leftAnchor="230.0" />
    </children>
 </AnchorPane>

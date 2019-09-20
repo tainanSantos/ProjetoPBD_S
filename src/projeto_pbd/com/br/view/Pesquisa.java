@@ -29,7 +29,7 @@ public class Pesquisa implements Initializable {
             this.tableViewOutros.setVisible(false);
             this.tableViewAluno.setVisible(true);
         }
-        if(comboBoxAlunosOutro.getSelectionModel().getSelectedIndex() == 1){
+        if(comboBoxAlunosOutro.getSelectionModel().getSelectedIndex() != 0){
             this.tableViewAluno.setVisible(false);
             this.tableViewOutros.setVisible(true);
         }
@@ -37,7 +37,10 @@ public class Pesquisa implements Initializable {
 
     public void carregarComboBox(){
         alunoOutroList.add("aluno");
-        alunoOutroList.add("outros");
+        alunoOutroList.add("pedagogo");
+        alunoOutroList.add("pessoa");
+        alunoOutroList.add("professor");
+        alunoOutroList.add("responsável");
         comboBoxAlunosOutro.setItems(FXCollections.observableArrayList(alunoOutroList));
     }
 
