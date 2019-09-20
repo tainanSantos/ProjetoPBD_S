@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.CadastroDisciplina">
    <children>
-      <GridPane hgap="10.0" layoutX="20.0" layoutY="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <GridPane hgap="10.0" layoutX="20.0" layoutY="64.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="136.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.0" minWidth="10.0" prefWidth="383.0" />
@@ -25,7 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigo">
+            <Label contentDisplay="TOP" text="codigo">
                <font>
                   <Font size="10.0" />
                </font>
@@ -50,7 +50,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TableView layoutX="20.0" layoutY="271.0" prefHeight="306.0" prefWidth="860.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <TableView layoutX="20.0" layoutY="271.0" prefHeight="290.0" prefWidth="960.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columns>
           <TableColumn prefWidth="75.0" text="codigo" />
           <TableColumn prefWidth="75.0" text="disciplina" />
@@ -61,12 +61,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="20.0" layoutY="256.0" text="Disciplinas Cadastrdas no Sistema">
+      <Label layoutX="20.0" layoutY="216.0" text="Disciplinas Cadastradas no Sistema" AnchorPane.leftAnchor="20.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <GridPane layoutX="26.0" layoutY="131.0" prefHeight="60.0" prefWidth="487.0" AnchorPane.leftAnchor="20.0">
+      <GridPane layoutX="20.0" layoutY="125.0" prefHeight="60.0" prefWidth="487.0" AnchorPane.leftAnchor="20.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -83,7 +83,7 @@
             <ComboBox fx:id="comboboxProfessoresCadastrados" editable="true" prefHeight="26.0" prefWidth="490.0" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button alignment="CENTER" layoutX="804.0" layoutY="163.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Salvar" AnchorPane.rightAnchor="20.0" />
-      <Button layoutX="708.0" layoutY="163.0" mnemonicParsing="false" text="Cancelar" AnchorPane.rightAnchor="116.0" />
+      <Button alignment="CENTER" layoutX="886.0" layoutY="162.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" text="Salvar" AnchorPane.rightAnchor="20.0" />
+      <Button layoutX="796.0" layoutY="163.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" text="Cancelar" AnchorPane.rightAnchor="128.0" />
    </children>
 </AnchorPane>
