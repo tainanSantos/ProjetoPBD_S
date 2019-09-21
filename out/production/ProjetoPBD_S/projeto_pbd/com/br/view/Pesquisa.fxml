@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="625.0" prefWidth="1365.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Pesquisa">
+<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Pesquisa">
    <children>
       <TableView fx:id="tableViewAluno" layoutX="46.0" layoutY="93.0" prefHeight="365.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
         <columns>
@@ -22,7 +23,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="335.0" promptText="pesquisa" AnchorPane.leftAnchor="20.0" />
+      <TextField layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="335.0" promptText="pesquisa" AnchorPane.leftAnchor="20.0">
+         <cursor>
+            <Cursor fx:constant="WAIT" />
+         </cursor></TextField>
       <Label layoutX="363.0" layoutY="22.0" text="pesquisa generica em tempo real ">
          <font>
             <Font size="10.0" />

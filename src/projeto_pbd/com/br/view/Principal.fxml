@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="principal" prefHeight="700.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Principal">
+<AnchorPane id="principal" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Principal">
    <children>
-      <MenuBar layoutY="87.0" prefHeight="35.0" prefWidth="1380.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
+      <MenuBar blendMode="EXCLUSION" layoutY="87.0" prefHeight="35.0" prefWidth="1380.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
         <menus>
           <Menu id="inicio" mnemonicParsing="false" text="     Inicio     ">
             <items>
@@ -20,8 +22,9 @@
           </Menu>
           <Menu id="cadastro" mnemonicParsing="false" text="    Cadastro   ">
             <items>
-              <MenuItem id="cadastrar  pessoa" mnemonicParsing="false" onAction="#cadastrarPessoa" text="Cadastro Pessoa" />
+              <MenuItem id="cadastro aluno" mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastro Aluno" />
                   <MenuItem id="cadastrar  curriculo" mnemonicParsing="false" onAction="#cadastrarCurriculo" text="Cadastro Curriculo" />
+                  <MenuItem id="cadastro funcionario" mnemonicParsing="false" onAction="#cadastrarFuncionario" text="Cadastro Funcionário" />
                   <MenuItem id="cadastrar  disciplina" mnemonicParsing="false" onAction="#cadastrarDisciplina" text="Cadastro Disciplina" />
             </items>
           </Menu>
@@ -42,11 +45,16 @@
         <AnchorPane fx:id="anchorPanePrincipal" prefHeight="0.0" prefWidth="0.0" />
          </content>
       </ScrollPane>
-      <Label layoutX="690.0" layoutY="25.0" prefHeight="82.0" prefWidth="381.0" text="   ARGUS - acad" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="999.0" AnchorPane.topAnchor="0.0">
+      <Label layoutX="690.0" layoutY="25.0" prefHeight="82.0" prefWidth="381.0" text="   ARGUS - acad" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="1268.0" layoutY="21.0" mnemonicParsing="false" onAction="#logar" prefHeight="35.0" prefWidth="98.0" text="User" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="21.0" />
+      <ComboBox blendMode="EXCLUSION" layoutX="1178.0" layoutY="19.0" prefHeight="35.0" prefWidth="102.0" promptText="Login" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <Pane layoutX="366.0" layoutY="-45.0" prefHeight="26.0" prefWidth="1300.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <effect>
+            <DropShadow color="#616060" />
+         </effect>
+      </Pane>
    </children>
 </AnchorPane>

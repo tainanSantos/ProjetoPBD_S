@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="417.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Login">
    <children>
-      <ImageView fitHeight="456.0" fitWidth="611.0" opacity="0.29" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="456.0" fitWidth="611.0" opacity="0.12" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../img/argusLogoLogin.png" />
          </image>
@@ -20,7 +20,7 @@
          <children>
             <Label layoutX="133.0" layoutY="67.0" text="Login" AnchorPane.leftAnchor="130.0">
                <font>
-                  <Font size="36.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Label>
             <Label layoutX="133.0" layoutY="152.0" text="e-mail" AnchorPane.leftAnchor="130.0">
@@ -35,10 +35,10 @@
                </font>
             </Label>
             <TextField layoutX="133.0" layoutY="235.0" prefHeight="26.0" prefWidth="337.0" AnchorPane.leftAnchor="130.0" />
-            <Button layoutX="134.0" layoutY="276.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="39.0" prefWidth="86.0" text="Entrar" AnchorPane.leftAnchor="130.0" />
-            <Label layoutX="130.0" layoutY="379.0" text="esqueceu sua senha? " textFill="#6341d3" AnchorPane.leftAnchor="130.0">
+            <Button blendMode="EXCLUSION" layoutX="134.0" layoutY="276.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="39.0" prefWidth="86.0" text="Entrar" AnchorPane.leftAnchor="130.0" />
+            <Label layoutX="130.0" layoutY="379.0" text="esqueceu sua senha? " textFill="#d17841" AnchorPane.leftAnchor="130.0">
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font size="10.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />

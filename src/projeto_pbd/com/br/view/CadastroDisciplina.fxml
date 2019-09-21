@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.CadastroDisciplina">
+<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.CadastroDisciplina">
    <children>
       <GridPane hgap="10.0" layoutX="20.0" layoutY="64.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columnConstraints>
@@ -83,7 +83,7 @@
             <ComboBox fx:id="comboboxProfessoresCadastrados" editable="true" prefHeight="26.0" prefWidth="490.0" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button alignment="CENTER" layoutX="886.0" layoutY="162.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" text="Salvar" AnchorPane.rightAnchor="20.0" />
-      <Button layoutX="796.0" layoutY="163.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" text="Cancelar" AnchorPane.rightAnchor="128.0" />
+      <Button alignment="CENTER" blendMode="EXCLUSION" layoutX="886.0" layoutY="162.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Salvar" AnchorPane.rightAnchor="20.0" />
+      <Button blendMode="EXCLUSION" layoutX="758.0" layoutY="163.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Cancelar" AnchorPane.rightAnchor="138.0" />
    </children>
 </AnchorPane>

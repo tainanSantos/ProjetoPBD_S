@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Principal {
 
-    public final String CADASTRO_PESSOA = "CadastroPessoa.fxml";
+    public final String CADASTRO_PESSOA = "CadastroAluno.fxml";
     public final String CADASTRO_CURRICULO = "CadastroCurriculo.fxml";
     public final String CADASTRO_DISCIPLINA = "CadastroDisciplina.fxml";
     public final String PESQUISA = "Pesquisa.fxml";
@@ -31,15 +31,22 @@ public class Principal {
      */
 
 
-    public void cadastrarPessoa() throws IOException {
+    public void cadastrarAluno() throws IOException {
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
         this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_PESSOA)));
 
     }
 
+
     public void  cadastrarCurriculo() throws IOException {
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
         this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_CURRICULO)));
+    }
+
+
+    public void cadastrarFuncionario(){
+//        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
+//        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(?????)));
     }
 
     public void cadastrarDisciplina() throws IOException {

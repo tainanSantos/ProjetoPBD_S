@@ -62,9 +62,9 @@
          </children>
       </GridPane>
       <Label layoutX="18.0" layoutY="150.0" text="Resultado" AnchorPane.leftAnchor="20.0" />
-      <Button layoutX="460.0" layoutY="201.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Confirmar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0" />
+      <Button blendMode="EXCLUSION" layoutX="460.0" layoutY="201.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Confirmar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0" />
       <Label layoutX="105.0" layoutY="150.0" text="..." />
-      <Button layoutX="341.0" layoutY="201.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Cancelar" AnchorPane.bottomAnchor="20.0" />
+      <Button blendMode="EXCLUSION" layoutX="341.0" layoutY="201.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Cancelar" AnchorPane.bottomAnchor="20.0" />
       <GridPane hgap="10.0" layoutX="30.0" layoutY="87.0" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="75.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
