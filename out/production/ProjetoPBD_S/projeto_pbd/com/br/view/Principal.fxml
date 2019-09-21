@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="principal" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Principal">
    <children>
-      <MenuBar blendMode="EXCLUSION" layoutY="87.0" prefHeight="35.0" prefWidth="1380.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
+      <MenuBar blendMode="EXCLUSION" layoutY="74.0" prefHeight="48.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
         <menus>
           <Menu id="inicio" mnemonicParsing="false" text="     Inicio     ">
             <items>
@@ -50,11 +48,11 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <ComboBox blendMode="EXCLUSION" layoutX="1178.0" layoutY="19.0" prefHeight="35.0" prefWidth="102.0" promptText="Login" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
-      <Pane layoutX="366.0" layoutY="-45.0" prefHeight="26.0" prefWidth="1300.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <effect>
-            <DropShadow color="#616060" />
-         </effect>
-      </Pane>
+      <MenuButton blendMode="EXCLUSION" layoutX="1155.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="23.0">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#informacoesUsuario" text="Informações do Usuário" />
+          <MenuItem mnemonicParsing="false" onAction="#sairDoSistema" text="Sair" />
+        </items>
+      </MenuButton>
    </children>
 </AnchorPane>

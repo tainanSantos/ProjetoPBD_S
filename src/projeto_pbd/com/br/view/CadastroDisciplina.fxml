@@ -47,7 +47,7 @@
       </GridPane>
       <Label layoutX="20.0" layoutY="37.0" text="Cadastro Disciplina" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <TableView layoutX="20.0" layoutY="271.0" prefHeight="290.0" prefWidth="960.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
