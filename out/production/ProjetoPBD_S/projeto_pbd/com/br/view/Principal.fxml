@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="principal" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.Principal">
+<AnchorPane id="principal" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Principal">
    <children>
       <MenuBar blendMode="EXCLUSION" layoutY="74.0" prefHeight="48.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
         <menus>
@@ -26,16 +26,21 @@
                   <MenuItem id="cadastrar  disciplina" mnemonicParsing="false" onAction="#cadastrarDisciplina" text="Cadastro Disciplina" />
             </items>
           </Menu>
-          <Menu id="configuraçoes" mnemonicParsing="false" text=" Configurações ">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#configuracoesGerais" text="Configurações Gerais" />
-            </items>
-          </Menu>
             <Menu id=" area do aluno" mnemonicParsing="false" text="     Area do Aluno      ">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#informacoesDiscente" text="Infoemações do Discente" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Area do Funcionário">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+          <Menu id="configuraçoes" mnemonicParsing="false" text=" Configurações ">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#configuracoesGerais" text="Configurações Gerais" />
+            </items>
+          </Menu>
         </menus>
       </MenuBar>
       <ScrollPane layoutX="84.0" layoutY="119.0" prefHeight="581.0" prefWidth="1380.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
@@ -48,7 +53,7 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <MenuButton blendMode="EXCLUSION" layoutX="1155.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="23.0">
+      <MenuButton alignment="CENTER" blendMode="EXCLUSION" contentDisplay="CENTER" focusTraversable="false" layoutX="1155.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="23.0">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#informacoesUsuario" text="Informações do Usuário" />
           <MenuItem mnemonicParsing="false" onAction="#sairDoSistema" text="Sair" />

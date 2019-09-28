@@ -6,13 +6,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.CadastroDisciplina">
+<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroDisciplina">
    <children>
       <GridPane hgap="10.0" layoutX="20.0" layoutY="64.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columnConstraints>
@@ -66,9 +68,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <GridPane layoutX="20.0" layoutY="125.0" prefHeight="60.0" prefWidth="487.0" AnchorPane.leftAnchor="20.0">
+      <GridPane hgap="20.0" layoutX="20.0" layoutY="125.0" prefHeight="60.0" prefWidth="594.0" AnchorPane.leftAnchor="20.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="10.0" prefWidth="476.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="11.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -81,9 +84,15 @@
                </font>
             </Label>
             <ComboBox fx:id="comboboxProfessoresCadastrados" editable="true" prefHeight="26.0" prefWidth="490.0" GridPane.rowIndex="1" />
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#cadastraNovoProfessor" text="Novo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button alignment="CENTER" blendMode="EXCLUSION" layoutX="886.0" layoutY="162.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Salvar" AnchorPane.rightAnchor="20.0" />
       <Button blendMode="EXCLUSION" layoutX="758.0" layoutY="163.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Cancelar" AnchorPane.rightAnchor="138.0" />
+      <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="228.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/disciplinasIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

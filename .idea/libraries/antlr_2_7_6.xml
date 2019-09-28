@@ -1,0 +1,32 @@
+<component name="libraryTable">
+  <library name="antlr-2.7.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bibliotecas/antlr-2.7.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/c3p0-0.9.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/cglib-nodep-2.1_3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/commons-codec-1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/commons-collections-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/commons-logging-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/controlsfx-8.40.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/ejb3-persistence.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/hibernate-annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/hibernate3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/hibernate-commons-annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/hibernate-entitymanager.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/hibernate-validator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/javassist.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/javassist-3.18.0-ga.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/jboss-archive-browsing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/jfoenix.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/jfxswt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/jta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/log4j-1.2.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/mysql-connector-java-8.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/mysql-connector-java-8.0.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/xstream-1.4.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

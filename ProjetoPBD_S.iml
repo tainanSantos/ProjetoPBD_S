@@ -8,5 +8,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="itextpdf-5.4.5" level="project" />
+    <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="postgresql-9.3-1103.jdbc3" level="project" />
+    <orderEntry type="library" name="hibernate-jpa-2.0-api-1.0.1.Final" level="project" />
+    <orderEntry type="library" name="hibernate-jpa-2.1-api-1.0.0.Final" level="project" />
+    <orderEntry type="library" name="antlr-2.7.6" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.8" level="project" />
   </component>
 </module>

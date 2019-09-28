@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.view.CadastroFuncionario">
+<AnchorPane prefHeight="550.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroFuncionario">
    <children>
       <Label layoutX="44.0" layoutY="31.0" text="Cadastro Funcionário" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0">
          <font>
@@ -159,8 +164,81 @@
                   <TextField prefHeight="26.0" prefWidth="127.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button blendMode="EXCLUSION" layoutX="1234.0" layoutY="421.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="103.0" text="proximo" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button blendMode="EXCLUSION" layoutX="1234.0" layoutY="421.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="proximo" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <Label layoutX="680.0" layoutY="19.0" text="especificações do cadastro" AnchorPane.leftAnchor="680.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <GridPane hgap="10.0" layoutX="680.0" layoutY="50.0" prefHeight="60.0" prefWidth="469.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.0" minWidth="10.0" prefWidth="282.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="202.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="10.0" prefWidth="124.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="cpf">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="orgão espeditor" GridPane.columnIndex="2" />
+                  <TextField GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="rg" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" layoutX="680.0" layoutY="120.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="221.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="10.0" prefWidth="399.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="numero da matricula">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="e-mail acadêmico" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <TextField GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <Group layoutX="680.0" layoutY="251.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="professor">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="s" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="108.0" mnemonicParsing="false" text="pedagogo" toggleGroup="$s">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </Group>
+            <Label layoutX="680.0" layoutY="216.0" text="tipo de usurio cadastrado">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -168,5 +246,10 @@
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
+      <ImageView fitHeight="45.0" fitWidth="61.0" layoutX="245.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="27.0">
+         <image>
+            <Image url="@../img/funcionario.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
