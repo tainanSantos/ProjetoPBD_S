@@ -36,6 +36,7 @@ public class CadastroDisciplina {
     }
 
     public void cadastraNovoProfessor() throws IOException {
-        Main.genericaStage (Main.CADASTRO_FUNCIONARIO).show ();
+        Stage stage = Main.genericaStage (Main.CADASTRO_FUNCIONARIO);
+        stage.show ();
     }
 }

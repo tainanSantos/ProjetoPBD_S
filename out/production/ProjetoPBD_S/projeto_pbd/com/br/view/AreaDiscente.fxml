@@ -59,7 +59,7 @@
                   <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button blendMode="EXCLUSION" layoutX="1171.0" layoutY="30.0" mnemonicParsing="false" text="Adicionar Notas" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+            <Button blendMode="EXCLUSION" layoutX="1171.0" layoutY="30.0" mnemonicParsing="false" onAction="#infromacoesDiscente" text="Infoemaçoes" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
          </children>
       </AnchorPane>
       <Label layoutX="56.0" layoutY="38.0" text="Area do Aluno" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0">
