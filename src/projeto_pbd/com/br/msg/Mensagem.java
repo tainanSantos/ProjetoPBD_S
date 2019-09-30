@@ -1,6 +1,9 @@
 package projeto_pbd.com.br.msg;
 
+import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogEvent;
+import javafx.stage.WindowEvent;
 
 public class Mensagem {
 
@@ -25,7 +28,15 @@ public class Mensagem {
             alert.setTitle(null);
             alert.setHeaderText(null);
             alert.setContentText(mensagemString);
+            alert.getButtonTypes ();
             alert.show();
+            alert.setOnCloseRequest (new EventHandler<DialogEvent> ( ) {
+                @Override
+                public void handle(DialogEvent event) {
+//                    return alert.getOnCloseRequest ();
+                }
+            });
+
         }
 
         public static void mensagemConfirmacao(String mensagemString) {

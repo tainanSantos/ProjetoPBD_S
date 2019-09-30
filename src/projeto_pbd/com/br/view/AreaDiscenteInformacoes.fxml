@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="1330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaDiscenteInformacoes">
    <children>
-      <TableView layoutX="167.0" layoutY="176.0" prefHeight="354.0" prefWidth="1290.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="176.0">
+      <TableView layoutX="167.0" layoutY="139.0" prefHeight="340.0" prefWidth="1290.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
         <columns>
           <TableColumn prefWidth="75.0" text="ano " />
           <TableColumn prefWidth="75.0" text="semestre" />
@@ -168,7 +168,20 @@
             </Label>
          </children>
       </GridPane>
-      <Button blendMode="EXCLUSION" layoutX="865.0" layoutY="136.0" mnemonicParsing="false" onAction="#acompanhamentoPedagogico" text="Acompanhamento Pedagógico" />
-      <Button blendMode="EXCLUSION" layoutX="1093.0" layoutY="136.0" mnemonicParsing="false" onAction="#adicionarNotas" prefHeight="26.0" prefWidth="217.0" text="Adcionar Notas" />
+      <GridPane hgap="20.0" layoutX="132.0" layoutY="122.0" prefHeight="30.0" prefWidth="693.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#acompanhamentoPedagogico" prefHeight="26.0" prefWidth="220.0" text="Acompanhamento Pedagógico" />
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#gerarHostoricoPDF" prefHeight="26.0" prefWidth="220.0" text="Gerra Histórico pdf" GridPane.columnIndex="2" />
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#adicionarNotas" prefHeight="26.0" prefWidth="220.0" text="Adcionar Notas" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

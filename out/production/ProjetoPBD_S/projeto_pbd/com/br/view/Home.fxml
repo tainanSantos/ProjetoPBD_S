@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home" />
+<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
+   <children>
+      <Pane layoutX="815.0" layoutY="-257.0" prefHeight="714.0" prefWidth="400.0" rotate="130.2" style="-fx-background-color: #800000; -fx-background-radius: 20;" />
+      <Pane layoutX="131.0" layoutY="109.0" prefHeight="285.0" prefWidth="546.0" style="-fx-background-color: #800000; -fx-background-radius: 20;">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor></Pane>
+      <Label focusTraversable="false" layoutX="176.0" layoutY="156.0" text="ARGUS" textFill="#d3d0a6">
+         <font>
+            <Font name="System Bold" size="120.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+      <Label focusTraversable="false" layoutX="176.0" layoutY="272.0" text="acad" textFill="#96a172">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+   </children>
+</AnchorPane>

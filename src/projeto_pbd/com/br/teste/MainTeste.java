@@ -19,6 +19,16 @@ public class MainTeste {
         EntityManagerFactory enf = Persistence.createEntityManagerFactory ("Tainan");
         EntityManager em = enf.createEntityManager ();
 
+        EntityManagerFactory enfEndereco = Persistence.createEntityManagerFactory ("Tainan");
+        EntityManager emEndereco = enfEndereco.createEntityManager ();
+
+        Endereco endereco = new Endereco ("casa","rua 12",1,"222222");
+        emEndereco.getTransaction ().begin ();
+        em.persist (endereco);
+        emEndereco.getTransaction ().commit ();
+        emEndereco.close ();
+        enfEndereco.close ();
+
         em.getTransaction ().begin ();
         em.persist (usuarioSoPraTeste);
         em.getTransaction ().commit ();

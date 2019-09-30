@@ -10,15 +10,17 @@ public abstract class Pessoa {
     private String naturalidade;
     private Endereco endereco;
 
-    public String getNome() {
-        return nome;
-    }
 
     public Pessoa() {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.naturalidade = naturalidade;
         this.endereco = endereco;
+    }
+
+
+    public String getNome() {
+        return nome;
     }
 
     public void setNome(String nome) {

@@ -7,6 +7,7 @@
         <!-- Lista de entidades -->
 
         <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>
+        <class>projeto_pbd.com.br.teste.Endereco</class>
 
         <properties>
             <!-- Propriedades JDBC -->

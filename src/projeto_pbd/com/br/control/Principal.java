@@ -6,17 +6,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.WindowEvent;
 import projeto_pbd.Main;
+import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
-public class Principal {
+public class Principal implements Initializable {
 
     // perceba que o control fora da pasta view
     // deixa a trasição entre telas um pouco mais lenta
@@ -28,19 +32,27 @@ public class Principal {
     public static final String PESQUISA = "../view/Home.fxml";
     public static final String CONFIGURACOES = "../view/Configuracoes.fxml";
     public static final String RELATORIO_DISCENTE = "../view/AreaDiscente.fxml";
+    public static final String AREA_DO_FUNCIONARIO = "../view/AreaFuncionario.fxml";
 
     @FXML
     private ComboBox comboBoxLogin;
     private ArrayList arrayListLogin = new ArrayList ();
-
     @FXML
     private AnchorPane anchorPanePrincipal;
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            pesquisa ();
+        } catch (IOException e) {
+            e.printStackTrace ( );
+        }
+    }
+
+
     public void informacoesUsuario() throws IOException{
-        Main.STAGE.setScene (new Scene (FXMLLoader.load(getClass().getResource(CADASTRO_ALUNO))));
-        Main.STAGE.setOnCloseRequest(new EventHandler<WindowEvent> () {public void handle(WindowEvent event) { }});
-        Main.STAGE.show ();
+        Mensagem.mensagemErro ("Não implementado, ainda!");
     }
 
 
@@ -121,6 +133,10 @@ public class Principal {
         this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(RELATORIO_DISCENTE)));
     }
 
+    public void informacoesFuncionario() throws IOException {
+        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
+        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_FUNCIONARIO)));
+    }
 
 
 

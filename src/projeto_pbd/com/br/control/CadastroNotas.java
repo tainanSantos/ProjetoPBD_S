@@ -5,8 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import projeto_pbd.Main;
+import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
 
@@ -34,9 +34,9 @@ public class CadastroNotas {
     public void adicionarNota() throws IOException {
 
         // fazer antes a validação dos campos
-
-       Stage stage =  Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES);
-       stage.show ();
+        Mensagem.mensagemSucesso ("Nota Cadastrada Com Sucesso!");
+        Stage stage =  Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES);
+        stage.show ();
     }
 
     public void cancelar() throws IOException {

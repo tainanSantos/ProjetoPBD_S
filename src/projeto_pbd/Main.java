@@ -22,6 +22,7 @@ public class Main extends Application {
 	public static final String AREA_DISCENTE_INFORMACOES = "com/br/view/AreaDiscenteInformacoes.fxml";
 	public static final String CONFIGURACOES = "com/br/view/Configuracoes.fxml";
 	public static final String RELATORIO_DISCENTE = "com/br/view/AreaDiscente.fxml";
+	public static final String AREA_DISCENTE_ACOMPANHAMENTO_PEDAGOGICO = "com/br/view/AreaDiscenteAcompPedag.fxml";
 
 	public static  Stage STAGE = new Stage(); // usar sempre que for abrir uma nova tela
 	public static  Stage STAGE_PRINCIPAL = new Stage();
