@@ -17,12 +17,14 @@ public class Main extends Application {
 	public static final String CADASTRO_ALUNO = "com/br/view/CadastroAluno.fxml";
 	public static final String CADASTRO_CURRICULO = "com/br/view/CadastroCurriculo.fxml";
 	public static final String CADASTRO_DISCIPLINA = "com/br/view/CadastroDisciplina.fxml";
-	public static final String CADASTRO_FUNCIONARIO = "com/br/view/CadastroFuncionario.fxml";
+	public static final String CADASTRO_FUNCIONARIO = "com/br/view/CadastroProfessor.fxml";
 	public static final String CADASTRO_NOTAS = "com/br/view/CadastroNotas.fxml";
 	public static final String AREA_DISCENTE_INFORMACOES = "com/br/view/AreaDiscenteInformacoes.fxml";
 	public static final String CONFIGURACOES = "com/br/view/Configuracoes.fxml";
 	public static final String RELATORIO_DISCENTE = "com/br/view/AreaDiscente.fxml";
 	public static final String AREA_DISCENTE_ACOMPANHAMENTO_PEDAGOGICO = "com/br/view/AreaDiscenteAcompPedag.fxml";
+	public static final String CADASTRAR_USUARIO_DO_SISTEMA = "com/br/view/CadastrarUsuarioDoSistema.fxml";
+
 
 	public static  Stage STAGE = new Stage(); // usar sempre que for abrir uma nova tela
 	public static  Stage STAGE_PRINCIPAL = new Stage();
@@ -40,9 +42,10 @@ public class Main extends Application {
 
 	public static Stage stagePrincipal() throws IOException {
 		STAGE_PRINCIPAL.setScene(new Scene(
-				FXMLLoader.load(Main.class.getResource(PRINCIPLA_PANE))));
+				FXMLLoader.load(Main.class.getResource (PRINCIPLA_PANE))));
 		STAGE.setOnCloseRequest(new EventHandler<WindowEvent>() {
-			public void handle(WindowEvent event) {System.exit(0);}});
+			public void handle(WindowEvent event) {
+			    System.exit(0);}});
 		return  STAGE_PRINCIPAL;
 	}
 

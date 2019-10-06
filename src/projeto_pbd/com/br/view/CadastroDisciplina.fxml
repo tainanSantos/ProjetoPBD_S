@@ -52,7 +52,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="20.0" layoutY="271.0" prefHeight="290.0" prefWidth="960.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <TableView layoutX="20.0" layoutY="271.0" prefHeight="290.0" prefWidth="960.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columns>
           <TableColumn prefWidth="75.0" text="codigo" />
           <TableColumn prefWidth="75.0" text="disciplina" />

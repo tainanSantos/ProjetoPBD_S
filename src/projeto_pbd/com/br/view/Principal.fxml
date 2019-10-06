@@ -24,8 +24,8 @@
             <items>
               <MenuItem id="cadastro aluno" mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastro Aluno" />
                   <MenuItem id="cadastrar  curriculo" mnemonicParsing="false" onAction="#cadastrarCurriculo" text="Cadastro Curriculo" />
-                  <MenuItem id="cadastro funcionario" mnemonicParsing="false" onAction="#cadastrarFuncionario" text="Cadastro Funcionário" />
                   <MenuItem id="cadastrar  disciplina" mnemonicParsing="false" onAction="#cadastrarDisciplina" text="Cadastro Disciplina" />
+                  <MenuItem id="cadastro professor " mnemonicParsing="false" onAction="#cadastrarFuncionario" text="Cadastro Professor " />
             </items>
           </Menu>
             <Menu id=" area do aluno" mnemonicParsing="false" text="     Area do Aluno      ">
@@ -50,16 +50,22 @@
         <AnchorPane fx:id="anchorPanePrincipal" prefHeight="0.0" prefWidth="0.0" />
          </content>
       </ScrollPane>
-      <Label layoutX="690.0" layoutY="25.0" prefHeight="82.0" prefWidth="381.0" text="   ARGUS - acad" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="labelArgusAcad" layoutX="1.0" layoutY="2.0" prefHeight="83.0" prefWidth="420.0" text="   ARGUS " AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="2.0">
          <font>
-            <Font name="System Bold" size="40.0" />
+            <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <MenuButton alignment="CENTER" blendMode="EXCLUSION" contentDisplay="CENTER" focusTraversable="false" layoutX="1155.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="23.0">
+      <MenuButton fx:id="usuarioButton" alignment="CENTER" blendMode="EXCLUSION" contentDisplay="CENTER" focusTraversable="false" layoutX="1155.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="23.0">
         <items>
+            <MenuItem mnemonicParsing="false" onAction="#cadastrarUsuarioDoSistema" text="Cadastrar Usuário" />
           <MenuItem mnemonicParsing="false" onAction="#informacoesUsuario" text="Informações do Usuário" />
           <MenuItem mnemonicParsing="false" onAction="#sairDoSistema" text="Sair" />
         </items>
       </MenuButton>
+      <Label layoutX="259.0" layoutY="2.0" prefHeight="83.0" prefWidth="124.0" text="- acad" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="2.0">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

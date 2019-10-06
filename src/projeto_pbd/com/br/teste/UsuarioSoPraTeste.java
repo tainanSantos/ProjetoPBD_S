@@ -8,9 +8,8 @@ public class UsuarioSoPraTeste {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    @Column
+//    @Column(name = 'loginn') // caso eu queira remear a questão do cadastro
     private String login;
-    @Column
     private String senha;
 
 

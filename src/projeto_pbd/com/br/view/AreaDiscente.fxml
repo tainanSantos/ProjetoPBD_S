@@ -16,7 +16,7 @@
    <children>
       <AnchorPane id="tabela" layoutX="48.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
          <children>
-            <TableView layoutX="161.0" layoutY="83.0" prefHeight="377.0" prefWidth="1320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
+            <TableView layoutX="161.0" layoutY="83.0" prefHeight="377.0" prefWidth="1320.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="curriculo" />
                 <TableColumn prefWidth="75.0" text="nome" />

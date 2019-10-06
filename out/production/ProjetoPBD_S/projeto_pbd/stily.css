@@ -83,7 +83,7 @@
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
-    -fx-background-color:   #2D75E8;
+    -fx-background-color:   #A52A2A;
 }
 .table-view .column-header .label{
 

@@ -2,32 +2,32 @@ package projeto_pbd.com.br.modell;
 
 public class Endereco {
 
-    private int idEndereco;
+    private int id;
     private String logradouro;
     private String numero;
     private String complemento;
     private String bairro;
     private String cidade;
     private String uf;
-    private String telefone1;
-    private String telefone2; //não obrigatório
-    private String observacoes;
+    private String cep;
 
-    public Endereco(){
 
-    }
-
-    public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade,
-                    String uf, String telefone1, String telefone2, String observacoes) {
+    public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, String uf, String cep) {
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
-        this.telefone1 = telefone1;
-        this.telefone2 = telefone2;
-        this.observacoes = observacoes;
+        this.cep = cep;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLogradouro() {
@@ -78,52 +78,25 @@ public class Endereco {
         this.uf = uf;
     }
 
-    public String getTelefone1() {
-        return telefone1;
+    public String getCep() {
+        return cep;
     }
 
-    public void setTelefone1(String telefone1) {
-        this.telefone1 = telefone1;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
-
-    public String getTelefone2() {
-        return telefone2;
-    }
-
-    public void setTelefone2(String telefone2) {
-        this.telefone2 = telefone2;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
-    public int getIdEndereco() {
-        return idEndereco;
-    }
-
-    public void setIdEndereco(int idEndereco) {
-        this.idEndereco = idEndereco;
-    }
-
 
     @Override
     public String toString() {
         return "Endereco{" +
-                "idEndereco=" + idEndereco +
+                "id=" + id +
                 ", logradouro='" + logradouro + '\'' +
                 ", numero='" + numero + '\'' +
                 ", complemento='" + complemento + '\'' +
                 ", bairro='" + bairro + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", uf='" + uf + '\'' +
-                ", telefone1='" + telefone1 + '\'' +
-                ", telefone2='" + telefone2 + '\'' +
-                ", observacoes='" + observacoes + '\'' +
+                ", cep='" + cep + '\'' +
                 '}';
     }
 }

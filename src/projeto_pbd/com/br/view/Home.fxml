@@ -29,5 +29,20 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
       </Label>
+      <Label layoutX="14.0" layoutY="493.0" text="Empresa especializada em tecnoligia no pajeú e região">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="507.0" text="contato: (87) 98117-8222">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="521.0" text="e-mail: tstecnologi@gmail.com">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="631.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroUsuarioDoSistema">
+
+    <children>
+        <Label layoutX="44.0" layoutY="31.0" text="Cadastro Usuário" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <AnchorPane id="cadastro aluno" fx:id="anchorpaneCadastroUser1" layoutX="20.0" layoutY="47.0" prefHeight="564.0" prefWidth="680.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+            <children>
+                <GridPane hgap="10.0" layoutY="9.0" prefHeight="116.0" prefWidth="608.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="405.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="260.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Nome">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="nomeFuncionario" prefHeight="26.0" prefWidth="439.0" GridPane.rowIndex="1" />
+                        <Label text="Data de Nascimento" GridPane.columnIndex="1">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="naturalidadeFuncionario" prefHeight="26.0" prefWidth="58.0" GridPane.rowIndex="3" />
+                        <Label text="Naturalidade" GridPane.rowIndex="2">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="dataNasFuncionario" promptText="     /     /" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Label layoutY="156.0" text="Endereço" AnchorPane.leftAnchor="0.0">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <GridPane layoutY="300.0" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="CEP">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="cepFuncionario" promptText="00000-000" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <GridPane hgap="10.0" layoutY="411.0" prefHeight="60.0" prefWidth="420.0" AnchorPane.leftAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="203.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="207.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Telefone 1">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <Label text="Telefone 2" GridPane.columnIndex="1">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="telefoneUmFuncionario" GridPane.rowIndex="1" />
+                        <TextField fx:id="telefoneDoisFuncionario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <GridPane hgap="10.0" layoutY="175.0" prefHeight="60.0" prefWidth="608.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.0" minWidth="10.0" prefWidth="327.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="91.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="231.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Logradouro ">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="logradouroFuncionario" prefHeight="26.0" prefWidth="209.0" GridPane.rowIndex="1" />
+                        <Label text="Numero" GridPane.columnIndex="1">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="numeroLogragouroFuncionario" prefHeight="26.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Complemento" GridPane.columnIndex="2">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="complementoLogradouroFuncionario" prefHeight="26.0" prefWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <GridPane hgap="10.0" layoutY="237.0" prefHeight="60.0" prefWidth="608.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Bairro">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="bairroFuncionario" prefHeight="26.0" prefWidth="189.0" GridPane.rowIndex="1" />
+                        <Label text="Cidade" GridPane.columnIndex="1">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="cidadeFuncionario" prefHeight="26.0" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="UF" GridPane.columnIndex="2">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="ufFuncionario" prefHeight="26.0" prefWidth="127.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Group layoutX="680.0" layoutY="295.0" />
+            <Button blendMode="EXCLUSION" layoutX="528.0" layoutY="430.0" mnemonicParsing="false" onAction="#proximatelaCadastroUsuarioDoSistema" prefHeight="26.0" prefWidth="134.0" text="Proximo" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label layoutY="512.0" text="Tipo de Acesso">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutY="388.0" text="Conatato" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboboxTipoFunacionario" layoutX="5.0" layoutY="502.0" prefHeight="26.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label layoutX="130.0" layoutY="514.0" text="selecione o tipo de acesso a ser cadastrado no sistema">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="anchorpaneCadastroUser2" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Pane layoutX="243.0" layoutY="-31.0" prefHeight="334.0" prefWidth="500.0" style="-fx-background-color: A52A2A; -fx-background-radius: 20;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <effect>
+                  <DropShadow color="#615d5d" />
+               </effect>
+            </Pane>
+            <GridPane layoutX="19.0" layoutY="54.0" prefHeight="216.0" prefWidth="413.0" AnchorPane.leftAnchor="40.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="e-mail">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="senha" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="repetir senha" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <TextField GridPane.rowIndex="1" />
+                  <TextField GridPane.rowIndex="3" />
+                  <TextField prefWidth="413.0" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+            <Label layoutX="39.0" layoutY="31.0" text="dados de acesso" AnchorPane.leftAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Group layoutX="404.0" layoutY="479.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button blendMode="EXCLUSION" layoutX="124.0" mnemonicParsing="false" onAction="#salvarCaradastroUsuario" prefHeight="26.0" prefWidth="110.0" text="Salvar" />
+                  <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#voltarTelaAnterioCadastroUsuario" prefHeight="26.0" prefWidth="110.0" text="Voltar" />
+               </children>
+            </Group>
+         </children></AnchorPane>
+    </children>
+
+
+</AnchorPane>

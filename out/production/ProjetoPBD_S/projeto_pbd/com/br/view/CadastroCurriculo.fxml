@@ -43,7 +43,7 @@
                   <Font size="9.0" />
                </font>
             </Label>
-            <TableView layoutY="119.0" prefHeight="217.0" prefWidth="1320.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <TableView layoutY="119.0" prefHeight="217.0" prefWidth="1320.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="codigo" />
                 <TableColumn prefWidth="322.0" text="nome" />

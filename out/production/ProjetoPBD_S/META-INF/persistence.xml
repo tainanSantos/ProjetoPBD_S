@@ -6,8 +6,16 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <!-- Lista de entidades -->
 
+
+<!--        PARA TESTES-->
         <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>
-        <class>projeto_pbd.com.br.teste.Endereco</class>
+        <class>projeto_pbd.com.br.teste.PessoaTeste</class>
+        <class>projeto_pbd.com.br.teste.FuncionarioTeste</class>
+
+
+<!--        ENDIDADEES DO SISTEMA        -->
+
+
 
         <properties>
             <!-- Propriedades JDBC -->
