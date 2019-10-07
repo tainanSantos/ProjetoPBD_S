@@ -8,12 +8,26 @@
 
 
 <!--        PARA TESTES-->
-        <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>
-        <class>projeto_pbd.com.br.teste.PessoaTeste</class>
-        <class>projeto_pbd.com.br.teste.FuncionarioTeste</class>
+<!--        <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>-->
+<!--        <class>projeto_pbd.com.br.teste.PessoaTeste</class>-->
+<!--        <class>projeto_pbd.com.br.teste.FuncionarioTeste</class>-->
 
 
 <!--        ENDIDADEES DO SISTEMA        -->
+        <class>projeto_pbd.com.br.modell.AcompanhamentoPedagogico</class>
+        <class>projeto_pbd.com.br.modell.Aluno</class>
+        <class>projeto_pbd.com.br.modell.Curriculo</class>
+        <class>projeto_pbd.com.br.modell.Disciplina</class>
+        <class>projeto_pbd.com.br.modell.Endereco</class>
+        <class>projeto_pbd.com.br.modell.Nota</class>
+        <class>projeto_pbd.com.br.modell.Pedagogo</class>
+        <class>projeto_pbd.com.br.modell.Pessoa</class>
+        <class>projeto_pbd.com.br.modell.Professor</class>
+        <class>projeto_pbd.com.br.modell.Responsavel</class>
+        <class>projeto_pbd.com.br.modell.Telefone</class>
+        <class>projeto_pbd.com.br.modell.Turma</class>
+        <class>projeto_pbd.com.br.modell.Usuario</class>
+
 
 
 

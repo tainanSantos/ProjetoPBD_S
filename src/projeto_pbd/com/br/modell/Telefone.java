@@ -1,9 +1,6 @@
 package projeto_pbd.com.br.modell;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Telefone {
@@ -14,6 +11,12 @@ public class Telefone {
     private String numeroUm;
     private String numeroDois;
 
+    @OneToOne(mappedBy = "usuario")
+    private Usuario usuario;
+
+    public Telefone(){
+
+    }
 
     public Telefone(String numeroUm, String numeroDois) {
         this.numeroUm = numeroUm;

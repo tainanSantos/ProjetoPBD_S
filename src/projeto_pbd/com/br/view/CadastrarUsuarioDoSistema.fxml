@@ -218,9 +218,9 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.rowIndex="1" />
-                  <TextField GridPane.rowIndex="3" />
-                  <TextField prefWidth="413.0" GridPane.rowIndex="5" />
+                  <TextField fx:id="email" GridPane.rowIndex="1" />
+                  <TextField fx:id="senhaUm" GridPane.rowIndex="3" />
+                  <TextField fx:id="senhaDoisConfirmar" prefWidth="413.0" GridPane.rowIndex="5" />
                </children>
             </GridPane>
             <Label layoutX="39.0" layoutY="31.0" text="dados de acesso" AnchorPane.leftAnchor="40.0">
