@@ -14,6 +14,7 @@ import projeto_pbd.com.br.modell.Usuario;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -23,7 +24,14 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     @FXML
     private ComboBox comboboxTipoFunacionario;
-    private List listTipoFuncionario = new ArrayList();
+    private List listTipoFuncionario = new ArrayList(Arrays.asList (new String[]{
+            "Adiminstração","Direção ","Coordenação Pedagogica", "Secretaria"}));
+
+    @FXML
+    private ComboBox comboboxUF;
+    private List listUfs = new ArrayList (Arrays.asList (new String[]{"AC", "AL", "" +
+            "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
+            "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
     @FXML
     private AnchorPane anchorpaneCadastroUser1;
@@ -63,34 +71,25 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     public CadastroUsuarioDoSistema(){
         this.fachadaUsuario = new FachadaUsuario ();
+
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         carregarComboboxTipoFunacionario();
+        carregarComboboXListUF ();
     }
 
 
     public void carregarComboboxTipoFunacionario(){
-        this.listTipoFuncionario.add ("Adiminstração");
-        this.listTipoFuncionario.add ("Direção ");
-        this.listTipoFuncionario.add ("Coordenação Pedagogica");
-        this.listTipoFuncionario.add ("Secretaria");
         this.comboboxTipoFunacionario.setItems (FXCollections.observableArrayList (this.listTipoFuncionario));
     }
 
-
-    public void proximatelaCadastroUsuarioDoSistema(){
-        this.anchorpaneCadastroUser1.setVisible (false);
-        this.anchorpaneCadastroUser2.setVisible (true);
+    private void carregarComboboXListUF() {
+        this.comboboxUF.setItems (FXCollections.observableArrayList (this.listUfs));
     }
 
-
-    public void voltarTelaAnterioCadastroUsuario(){
-        this.anchorpaneCadastroUser1.setVisible (true);
-        this.anchorpaneCadastroUser2.setVisible (false);
-    }
 
 
     public void salvarCaradastroUsuario(){
@@ -108,7 +107,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
         endereco.setComplemento (complementoLogradouroFuncionario.getText ());
         endereco.setLogradouro (logradouroFuncionario.getText ());
         endereco.setNumero (numeroLogragouroFuncionario.getText ());
-        endereco.setUf (ufFuncionario.getText ());
+        endereco.setUf (comboboxUF.getPromptText ());
 
         usuario.setEndereco (endereco);
 

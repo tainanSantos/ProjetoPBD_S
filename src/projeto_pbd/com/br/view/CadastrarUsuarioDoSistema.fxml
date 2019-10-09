@@ -5,15 +5,13 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroUsuarioDoSistema">
+<AnchorPane prefHeight="547.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroUsuarioDoSistema">
 
     <children>
         <Label layoutX="44.0" layoutY="31.0" text="Cadastro Usuário" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -21,9 +19,9 @@
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <AnchorPane id="cadastro aluno" fx:id="anchorpaneCadastroUser1" layoutX="20.0" layoutY="47.0" prefHeight="564.0" prefWidth="680.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+        <AnchorPane id="cadastro aluno" fx:id="anchorpaneCadastroUser1" layoutX="20.0" layoutY="47.0" prefHeight="493.0" prefWidth="1020.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
             <children>
-                <GridPane hgap="10.0" layoutY="9.0" prefHeight="116.0" prefWidth="608.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <GridPane hgap="10.0" layoutY="40.0" prefHeight="116.0" prefWidth="522.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="472.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="405.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="260.0" />
@@ -40,7 +38,7 @@
                                 <Font size="10.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="nomeFuncionario" prefHeight="26.0" prefWidth="439.0" GridPane.rowIndex="1" />
+                        <TextField fx:id="nomeFuncionario" prefHeight="26.0" prefWidth="439.0" promptText="fulando de tal" GridPane.rowIndex="1" />
                         <Label text="Data de Nascimento" GridPane.columnIndex="1">
                             <font>
                                 <Font size="10.0" />
@@ -55,12 +53,12 @@
                         <TextField fx:id="dataNasFuncionario" promptText="     /     /" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
-                <Label layoutY="156.0" text="Endereço" AnchorPane.leftAnchor="0.0">
+                <Label layoutY="189.0" text="Endereço" AnchorPane.leftAnchor="0.0">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
                 </Label>
-                <GridPane layoutY="300.0" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0">
+                <GridPane layoutY="333.0" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -77,7 +75,7 @@
                         <TextField fx:id="cepFuncionario" promptText="00000-000" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
-                <GridPane hgap="10.0" layoutY="411.0" prefHeight="60.0" prefWidth="420.0" AnchorPane.leftAnchor="0.0">
+                <GridPane hgap="10.0" layoutX="594.0" layoutY="38.0" prefHeight="60.0" prefWidth="420.0" AnchorPane.leftAnchor="600.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="203.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="207.0" />
@@ -97,11 +95,11 @@
                                 <Font size="10.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="telefoneUmFuncionario" GridPane.rowIndex="1" />
-                        <TextField fx:id="telefoneDoisFuncionario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="telefoneUmFuncionario" promptText="(00) 00000-0000" GridPane.rowIndex="1" />
+                        <TextField fx:id="telefoneDoisFuncionario" promptText="(00) 00000-0000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
-                <GridPane hgap="10.0" layoutY="175.0" prefHeight="60.0" prefWidth="608.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <GridPane hgap="10.0" layoutY="208.0" prefHeight="60.0" prefWidth="542.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="472.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.0" minWidth="10.0" prefWidth="327.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="91.0" />
@@ -132,7 +130,7 @@
                         <TextField fx:id="complementoLogradouroFuncionario" prefHeight="26.0" prefWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
-                <GridPane hgap="10.0" layoutY="237.0" prefHeight="60.0" prefWidth="608.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <GridPane hgap="10.0" layoutY="270.0" prefHeight="60.0" prefWidth="542.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="472.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -160,47 +158,34 @@
                                 <Font size="10.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="ufFuncionario" prefHeight="26.0" prefWidth="127.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="comboboxUF" prefHeight="26.0" prefWidth="199.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
                 <Group layoutX="680.0" layoutY="295.0" />
-            <Button blendMode="EXCLUSION" layoutX="528.0" layoutY="430.0" mnemonicParsing="false" onAction="#proximatelaCadastroUsuarioDoSistema" prefHeight="26.0" prefWidth="134.0" text="Proximo" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Label layoutY="512.0" text="Tipo de Acesso">
+            <Button blendMode="EXCLUSION" layoutX="528.0" layoutY="430.0" mnemonicParsing="false" onAction="#salvarCaradastroUsuario" prefHeight="37.0" prefWidth="160.0" text="Salvar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label layoutY="429.0" text="Tipo de Acesso" AnchorPane.leftAnchor="0.0">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutY="388.0" text="Conatato" AnchorPane.leftAnchor="0.0">
+            <Label layoutX="594.0" layoutY="21.0" text="Conatato" AnchorPane.leftAnchor="600.0">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <ComboBox fx:id="comboboxTipoFunacionario" layoutX="5.0" layoutY="502.0" prefHeight="26.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-            <Label layoutX="130.0" layoutY="514.0" text="selecione o tipo de acesso a ser cadastrado no sistema">
+            <ComboBox fx:id="comboboxTipoFunacionario" layoutY="460.0" prefHeight="26.0" prefWidth="255.0" AnchorPane.leftAnchor="0.0" />
+            <Label layoutX="116.0" layoutY="430.0" text="selecione o tipo de acesso a ser cadastrado no sistema">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="anchorpaneCadastroUser2" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
-         <children>
-            <Pane layoutX="243.0" layoutY="-31.0" prefHeight="334.0" prefWidth="500.0" style="-fx-background-color: A52A2A; -fx-background-radius: 20;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <effect>
-                  <DropShadow color="#615d5d" />
-               </effect>
-            </Pane>
-            <GridPane layoutX="19.0" layoutY="54.0" prefHeight="216.0" prefWidth="413.0" AnchorPane.leftAnchor="40.0">
+            <GridPane layoutX="600.0" layoutY="169.0" prefHeight="60.0" prefWidth="420.0" AnchorPane.leftAnchor="600.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="e-mail">
@@ -208,33 +193,26 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <Label text="senha" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Label>
-                  <Label text="repetir senha" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="email" GridPane.rowIndex="1" />
-                  <TextField fx:id="senhaUm" GridPane.rowIndex="3" />
-                  <TextField fx:id="senhaDoisConfirmar" prefWidth="413.0" GridPane.rowIndex="5" />
+                  <TextField fx:id="email" promptText="email@gmail.com" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Label layoutX="39.0" layoutY="31.0" text="dados de acesso" AnchorPane.leftAnchor="40.0">
+            <Label layoutX="600.0" layoutY="145.0" text="Dados de Acesso" AnchorPane.leftAnchor="600.0">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Group layoutX="404.0" layoutY="479.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <Button blendMode="EXCLUSION" layoutX="124.0" mnemonicParsing="false" onAction="#salvarCaradastroUsuario" prefHeight="26.0" prefWidth="110.0" text="Salvar" />
-                  <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#voltarTelaAnterioCadastroUsuario" prefHeight="26.0" prefWidth="110.0" text="Voltar" />
-               </children>
-            </Group>
-         </children></AnchorPane>
+            <Label layoutX="601.0" layoutY="261.0" text="Senha Padrão:">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="601.0" layoutY="275.0" text="Primiero + três primeiros digitos do cpf do usuário.">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
     </children>
 
 

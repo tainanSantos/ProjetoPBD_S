@@ -23,11 +23,11 @@ public class Principal implements Initializable {
     public static final String CADASTRO_CURRICULO = "../view/CadastroCurriculo.fxml";
     public static final String CADASTRO_DISCIPLINA = "../view/CadastroDisciplina.fxml";
     public static final String CADASTRO_PROFESSOR_PEDAGOGO= "../view/CadastroProfessor.fxml";
-    public static final String CADASTRO_FUNCIONARIO= "../view/CadastroProfessor.fxml";
-    public static final String PESQUISA = "../view/Home.fxml";
+    public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessor.fxml";
+    public static final String HOME = "../view/Home.fxml";
     public static final String CONFIGURACOES = "../view/Configuracoes.fxml";
     public static final String RELATORIO_DISCENTE = "../view/AreaDiscente.fxml";
-    public static final String AREA_DO_FUNCIONARIO = "../view/AreaFuncionario.fxml";
+    public static final String AREA_DO_FUNCIONARIO = "../view/AreaProfessor.fxml";
     public static final String CADASTRAR_USUARIO_DO_SISTEMA = "../view/CadastrarUsuarioDoSistema.fxml";
 
     @FXML
@@ -50,7 +50,7 @@ public class Principal implements Initializable {
         labelArgusAcad.setTooltip (new Tooltip ("Sistema para Escola de Ensiono Funadamental e Médio"));
 
         try {
-            pesquisa ();
+            home ();
         } catch (IOException e) {
             e.printStackTrace ( );
         }
@@ -72,43 +72,12 @@ public class Principal implements Initializable {
 
 
 
-    public void cadastrarAluno() throws IOException {
-
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_ALUNO)));
-//        FXMLLoader loader = new FXMLLoader ();
-//        loader.setLocation (getClass().getResource(CADASTRO_ALUNO));
-//        Parent root = loader.load ();
-//
-//        this.anchorPanePrincipal.getChildren().add(root);
-//
-//        root.translateXProperty ().set(Main.stagePrincipal ().getScene ().getWidth ());
-//
-////        root.translateYProperty ().set(Main.stagePrincipal ().getScene ().getHeight ());
-//
-//        Timeline timeL = new Timeline ();
-//        KeyValue kv = new KeyValue (root.translateXProperty (), 0, Interpolator.EASE_IN);
-//
-//        KeyFrame kf = new KeyFrame (Duration.seconds (1), kv);
-//
-//        timeL.getKeyFrames ().add (kf);
-//        timeL.setOnFinished (e -> {
-////            this.anchorPanePrincipal.getChildren().clear();
-//        });
-//
-//        timeL.play ();
-    }
-
 
     public void  cadastrarCurriculo() throws IOException {
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
         this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_CURRICULO)));
     }
 
-    public void cadastrarFuncionario() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_FUNCIONARIO)));
-    }
 
     public void cadastrarDisciplina() throws IOException {
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
@@ -124,9 +93,9 @@ public class Principal implements Initializable {
         this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
     }
 
-    public void pesquisa() throws IOException {
+    public void home() throws IOException {
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(PESQUISA)));
+        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
     }
 
     public void informacoesDiscente() throws IOException {

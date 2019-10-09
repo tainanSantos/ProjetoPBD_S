@@ -6,11 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 public class Professor extends Pessoa {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     private int id;
     private String cpf;
     private String rg;

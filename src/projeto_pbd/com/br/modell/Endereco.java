@@ -2,11 +2,8 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
-@Entity
 public class Endereco {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String logradouro;
     private String numero;
@@ -15,7 +12,6 @@ public class Endereco {
     private String cidade;
     private String uf;
     private String cep;
-    @OneToOne(mappedBy = "endereco")
     private Pessoa pessoa;
 
     public Endereco() {

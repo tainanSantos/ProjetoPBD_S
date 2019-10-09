@@ -6,15 +6,15 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import java.util.Date;
 
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Pessoa {
 
     private String nome;
     private String dataNascimento; // TALVEZ DE ERRO AQUI
     private String naturalidade;
 
-    @OneToOne
-    @JoinColumn(name = "idEndereco")
+//    @OneToOne
+//    @JoinColumn(name = "idEndereco")
     private Endereco endereco;
 
 

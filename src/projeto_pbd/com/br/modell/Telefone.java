@@ -2,16 +2,13 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
-@Entity
 public class Telefone {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     private int id;
     private String numeroUm;
     private String numeroDois;
 
-    @OneToOne(mappedBy = "usuario")
     private Usuario usuario;
 
     public Telefone(){

@@ -1,12 +1,8 @@
 package projeto_pbd.com.br.control;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import projeto_pbd.Main;
 
 import java.io.IOException;
@@ -36,7 +32,7 @@ public class CadastroDisciplina {
     }
 
     public void cadastraNovoProfessor() throws IOException {
-        Stage stage = Main.genericaStage (Main.CADASTRO_FUNCIONARIO);
+        Stage stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
         stage.show ();
     }
 }

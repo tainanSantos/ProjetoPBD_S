@@ -12,6 +12,8 @@ import projeto_pbd.com.br.msg.Mensagem;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CadastroProfessor implements Initializable {
@@ -55,11 +57,17 @@ public class CadastroProfessor implements Initializable {
     @FXML
     private TextField areaDeFormacaoFuncionario;
     @FXML
+    private ComboBox comboboxUfPorfessor;
+    private List listUfsProf = new ArrayList (Arrays.asList (new String[]{"AC", "AL", "" +
+            "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
+            "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        this.comboboxUfPorfessor.setItems (FXCollections.observableArrayList (this.listUfsProf));
     }
 
 
@@ -70,6 +78,8 @@ public class CadastroProfessor implements Initializable {
     public void salvarCadastroFuncionario(){
         Mensagem.mensagemSucesso ("Cadastro Realizado com sucesso!");
     }
+
+
 
 
 }

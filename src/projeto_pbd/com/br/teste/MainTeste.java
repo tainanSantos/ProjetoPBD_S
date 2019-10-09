@@ -25,9 +25,9 @@ public class MainTeste {
         EntityManager em = enf.createEntityManager ();
 
       
-//        em.getTransaction ().begin ();
+        em.getTransaction ().begin ();
 //        em.persist (funcionarioTeste);
-//        em.getTransaction ().commit ();
+        em.getTransaction ().commit ();
 
         em.close ();
         enf.close ();

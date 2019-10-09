@@ -20,4 +20,11 @@ public class AreaDiscente {
         Stage stage = Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES);
         stage.show ();
     }
+
+    public void cadastrarNovoAluno() throws IOException {
+        Stage stage = Main.genericaStage (Main.CADASTRO_ALUNO);
+        stage.show ();
+    }
+
+
 }

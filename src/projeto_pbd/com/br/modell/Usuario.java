@@ -2,15 +2,13 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
-@Entity
 public class Usuario extends  Pessoa {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
 
-    @OneToOne
-    @JoinColumn(name = "idTelefone")
+    private int id;
+//
+//    @OneToOne
+//    @JoinColumn(name = "idTelefone")
     private Telefone telefone;
 
     private String email;
