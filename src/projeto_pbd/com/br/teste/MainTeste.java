@@ -1,11 +1,8 @@
 package projeto_pbd.com.br.teste;
 
-import org.apache.commons.codec.digest.DigestUtils;
-import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.dao.GenericDao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 
 public class MainTeste {
 
@@ -17,20 +14,13 @@ public class MainTeste {
 //        funcionarioTeste.setNome ("Tainan Santos Silva");
 
 
-        String pass = DigestUtils.md5Hex ("123");
-//        usuarioSoPraTeste.setSenha (pass);
+////        String pass = DigestUtils.md5Hex ("123");
+////        usuarioSoPraTeste.setSenha (pass);
 
 
-        EntityManagerFactory enf = Persistence.createEntityManagerFactory ("Tainan");
-        EntityManager em = enf.createEntityManager ();
+//        GenericDao genericDao = new GenericDao ();
 
-      
-        em.getTransaction ().begin ();
-//        em.persist (funcionarioTeste);
-        em.getTransaction ().commit ();
-
-        em.close ();
-        enf.close ();
+//        genericDao.persit (funcionarioTeste);
 
     }
 }

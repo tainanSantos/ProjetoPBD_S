@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="antlr-2.7.7 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/hibernate/antlr-2.7.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

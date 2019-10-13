@@ -5,7 +5,6 @@ import projeto_pbd.com.br.modell.Pessoa;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
 public abstract class PessoaTeste {
 
     private String nome;
@@ -47,5 +46,3 @@ public abstract class PessoaTeste {
                 '}';
     }
 }
-
-

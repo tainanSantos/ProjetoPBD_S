@@ -1,24 +1,28 @@
 package projeto_pbd.com.br.modell;
 
 
-import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
-import java.util.Date;
+import javax.persistence.*;
 
-//@MappedSuperclass
+
+@MappedSuperclass
 public abstract class Pessoa {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
+
 
     private String nome;
     private String dataNascimento; // TALVEZ DE ERRO AQUI
     private String naturalidade;
 
-//    @OneToOne
-//    @JoinColumn(name = "idEndereco")
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
 
+
     public Pessoa() {
+
     }
 
 
@@ -26,8 +30,10 @@ public abstract class Pessoa {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.naturalidade = naturalidade;
-        this.endereco = endereco;
+//        this.endereco = endereco;
     }
+
+
 
     public String getNome() {
         return nome;
@@ -53,21 +59,29 @@ public abstract class Pessoa {
         this.naturalidade = naturalidade;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+//    public Endereco getEndereco() {
+//        return endereco;
+//    }
+//
+//    public void setEndereco(Endereco endereco) {
+//        this.endereco = endereco;
+//    }
+
+    public int getId() {
+        return id;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", dataNascimento=" + dataNascimento +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
                 ", naturalidade='" + naturalidade + '\'' +
-                ", endereco=" + endereco +
+//                ", endereco=" + endereco +
                 '}';
     }
 }

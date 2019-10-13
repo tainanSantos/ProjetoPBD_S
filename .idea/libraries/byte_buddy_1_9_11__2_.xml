@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="byte-buddy-1.9.11 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/hibernate/byte-buddy-1.9.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

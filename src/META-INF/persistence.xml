@@ -1,52 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-    <!-- Unidade de persistencia -->
-    <persistence-unit name="Tainan" transaction-type="RESOURCE_LOCAL">
-        <!-- Implementação do JPA -->
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <!-- Lista de entidades -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+                     version="2.0">
+
+            <persistence-unit name="tainan" transaction-type="RESOURCE_LOCAL">
+                <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 
-        PARA TESTES
-        <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>
-        <class>projeto_pbd.com.br.teste.PessoaTeste</class>
-        <class>projeto_pbd.com.br.teste.FuncionarioTeste</class>
+                <!--        <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>-->
+                <!--        <class>projeto_pbd.com.br.teste.PessoaTeste</class>-->
+<!--                <class>projeto_pbd.com.br.teste.FuncionarioTeste</class>-->
 
 
-<!--        ENDIDADEES DO SISTEMA        -->
-<!--        <class>projeto_pbd.com.br.modell.AcompanhamentoPedagogico</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Aluno</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Curriculo</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Disciplina</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Endereco</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Nota</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Pedagogo</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Pessoa</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Professor</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Responsavel</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Telefone</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Turma</class>-->
-<!--        <class>projeto_pbd.com.br.modell.Usuario</class>-->
-
+                <!--        ENDIDADES DO SISTEMA        -->
+                <!--        <class>projeto_pbd.com.br.modell.AcompanhamentoPedagogico</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Aluno</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Curriculo</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Disciplina</class>-->
+                <class>projeto_pbd.com.br.modell.Endereco</class>
+                <!--        <class>projeto_pbd.com.br.modell.Nota</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Pedagogo</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Pessoa</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Professor</class>-->
+                <!--        <class>projeto_pbd.com.br.modell.Responsavel</class>-->
+                <class>projeto_pbd.com.br.modell.Telefone</class>
+                <!--        <class>projeto_pbd.com.br.modell.Turma</class>-->
+                <class>projeto_pbd.com.br.modell.Usuario</class>
 
 
 
-        <properties>
-            <!-- Propriedades JDBC -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/projeto_pbd" />
-            <property name="hibernate.connection.user" value="postgres" />
-            <property name="hibernate.connection.password" value="postgres" />
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+                <properties>
 
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-<!--            <property name="PersistenceExceptionhibernate.format_sql" value="false" />-->
-            <property name="hibernate.use_sql_comments" value="false" />
-<!--            <property name="hibernate.jdbc.wrap_result_sets" value="false" />-->
-<!--            <property name="hibernate.hibernate.cache.use_query_cache" value="true" />-->
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-        </properties>
-    </persistence-unit>
-</persistence>
+
+                    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+                    <property name="hibernate.hbm2ddl.auto" value="update"/>
+                    <property name="hibernate.show_sql" value="true"/>
+                    <property name="hibernate.format_sql" value="true"/>
+
+                    <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+                    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto_pbd"/>
+                    <property name="javax.persistence.jdbc.user" value="postgres"/>
+                    <property name="javax.persistence.jdbc.password" value="postgres"/>
+
+
+
+
+                </properties>
+            </persistence-unit>
+        </persistence>

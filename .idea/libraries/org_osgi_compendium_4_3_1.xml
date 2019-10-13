@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.osgi.compendium-4.3.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bibliotecas/org.osgi.compendium-4.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/bibliotecas/org.osgi.compendium-4.3.1.jar!/OSGI-OPT/src" />
+    </SOURCES>
+  </library>
+</component>

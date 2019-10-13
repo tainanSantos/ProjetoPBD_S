@@ -2,23 +2,27 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
+@Entity
 public class Telefone {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    private String numeroUm;
-    private String numeroDois;
+    private String tipo;
+    private String numero;
 
-    private Usuario usuario;
 
     public Telefone(){
 
     }
 
-    public Telefone(String numeroUm, String numeroDois) {
-        this.numeroUm = numeroUm;
-        this.numeroDois = numeroDois;
+
+    public Telefone(String tipo, String numero) {
+        this.tipo = tipo;
+        this.numero = numero;
     }
+
 
     public int getId() {
         return id;
@@ -28,29 +32,29 @@ public class Telefone {
         this.id = id;
     }
 
-    public String getNumeroUm() {
-        return numeroUm;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setNumeroUm(String numeroUm) {
-        this.numeroUm = numeroUm;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getNumeroDois() {
-        return numeroDois;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setNumeroDois(String numeroDois) {
-        this.numeroDois = numeroDois;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
-
 
     @Override
     public String toString() {
         return "Telefone{" +
                 "id=" + id +
-                ", numeroUm='" + numeroUm + '\'' +
-                ", numeroDois='" + numeroDois + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", numero='" + numero + '\'' +
                 '}';
     }
+
 }

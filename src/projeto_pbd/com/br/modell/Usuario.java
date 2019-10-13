@@ -1,44 +1,48 @@
 package projeto_pbd.com.br.modell;
 
-import javax.persistence.*;
 
+
+import javax.persistence.*;
+import java.util.ArrayList;
+
+
+@Entity
 public class Usuario extends  Pessoa {
 
 
-    private int id;
-//
-//    @OneToOne
-//    @JoinColumn(name = "idTelefone")
-    private Telefone telefone;
+
 
     private String email;
     private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio
+    private String tipoDeAcesso;
+    private String cpf;
+
+
+    private ArrayList<Telefone> telefones;
+
 
     public Usuario() {
+
     }
 
-    public Usuario(Telefone telefone, String email, String senha) {
-        this.telefone = telefone;
+
+    public Usuario(String nome, String dataNascimento, String naturalidade, Endereco endereco, String email,
+                   String senha, String tipoDeAcesso, String cpf) {
+        super (nome, dataNascimento, naturalidade, endereco);
         this.email = email;
         this.senha = senha;
+        this.tipoDeAcesso = tipoDeAcesso;
+        this.cpf = cpf;
     }
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Telefone getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Telefone telefone) {
-        this.telefone = telefone;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getEmail() {
         return email;
@@ -56,13 +60,52 @@ public class Usuario extends  Pessoa {
         this.senha = senha;
     }
 
+    public String getTipoDeAcesso() {
+        return tipoDeAcesso;
+    }
+
+    public void setTipoDeAcesso(String tipoDeAcesso) {
+        this.tipoDeAcesso = tipoDeAcesso;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+//    @Override
+//    public int getId() {
+//        return id;
+//    }
+//
+//    @Override
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    public ArrayList<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(ArrayList<Telefone> telefones) {
+        this.telefones = telefones;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Usuario{" +
-                "id=" + id +
-                ", telefone=" + telefone +
-                ", email='" + email + '\'' +
+                "email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
+                ", tipoDeAcesso='" + tipoDeAcesso + '\'' +
+                ", cpf='" + cpf + '\'' +
                 '}';
     }
+
 }

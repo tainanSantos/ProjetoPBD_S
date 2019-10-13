@@ -7,6 +7,6 @@ import javax.persistence.Id;
 
 public class Responsavel extends Pessoa {
 
-
     private int id;
+
 }

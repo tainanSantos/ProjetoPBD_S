@@ -19,7 +19,7 @@
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <AnchorPane id="cadastro aluno" fx:id="anchorpaneCadastroUser1" layoutX="20.0" layoutY="47.0" prefHeight="493.0" prefWidth="1020.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+        <AnchorPane id="cadastro aluno" layoutX="20.0" layoutY="47.0" prefHeight="493.0" prefWidth="1020.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
             <children>
                 <GridPane hgap="10.0" layoutY="40.0" prefHeight="116.0" prefWidth="522.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="472.0">
                     <columnConstraints>
@@ -51,6 +51,12 @@
                             </font>
                         </Label>
                         <TextField fx:id="dataNasFuncionario" promptText="     /     /" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="cpf" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cpfFuncionario" promptText="     .     .     -" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
                 <Label layoutY="189.0" text="Endereço" AnchorPane.leftAnchor="0.0">
@@ -132,9 +138,9 @@
                 </GridPane>
                 <GridPane hgap="10.0" layoutY="270.0" prefHeight="60.0" prefWidth="542.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="472.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="207.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="236.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="85.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -206,7 +212,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label layoutX="601.0" layoutY="275.0" text="Primiero + três primeiros digitos do cpf do usuário.">
+            <Label layoutX="601.0" layoutY="275.0" text="primiero nome + 2 ultimos digitos do cpf do usuário.">
                <font>
                   <Font size="10.0" />
                </font>

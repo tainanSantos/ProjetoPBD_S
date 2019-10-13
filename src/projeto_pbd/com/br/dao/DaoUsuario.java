@@ -10,12 +10,12 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario salvarUsuario(Usuario usuario) {
 
-        EntityManager em = ConnectionFactory.getConnectionFactory ();
-
-        em.getTransaction ().begin ();
-        em.persist (usuario);
-        em.getTransaction ().commit ();
-        em.close ();
+//        EntityManager em = ConnectionFactory.getConnectionFactory ();
+//
+//        em.getTransaction ().begin ();
+//        em.persist (usuario);
+//        em.getTransaction ().commit ();
+//        em.close ();
 
         return null;
     }

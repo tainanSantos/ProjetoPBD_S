@@ -5,18 +5,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import projeto_pbd.com.br.dao.GenericDao;
 import projeto_pbd.com.br.fachada.FachadaUsuario;
 import projeto_pbd.com.br.fachada.IFachadaUsuario;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.util.MaskFieldUtil;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CadastroUsuarioDoSistema implements Initializable {
 
@@ -34,13 +32,13 @@ public class CadastroUsuarioDoSistema implements Initializable {
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
     @FXML
-    private AnchorPane anchorpaneCadastroUser1;
-    @FXML
     private TextField nomeFuncionario;
     @FXML
     private TextField naturalidadeFuncionario;
     @FXML
     private TextField dataNasFuncionario;
+    @FXML
+    private TextField cpfFuncionario;
     @FXML
     private TextField cepFuncionario;
     @FXML
@@ -58,18 +56,12 @@ public class CadastroUsuarioDoSistema implements Initializable {
     @FXML
     private TextField cidadeFuncionario;
     @FXML
-    private TextField ufFuncionario;
-    @FXML
-    private AnchorPane anchorpaneCadastroUser2;
-    @FXML
     private TextField email;
-    @FXML
-    private TextField senhaUm;
-    @FXML
-    private TextField senhaDoisConfirmar;
+
 
 
     public CadastroUsuarioDoSistema(){
+
         this.fachadaUsuario = new FachadaUsuario ();
 
     }
@@ -77,28 +69,32 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        carregarComboboxTipoFunacionario();
-        carregarComboboXListUF ();
-    }
 
-
-    public void carregarComboboxTipoFunacionario(){
         this.comboboxTipoFunacionario.setItems (FXCollections.observableArrayList (this.listTipoFuncionario));
-    }
-
-    private void carregarComboboXListUF() {
         this.comboboxUF.setItems (FXCollections.observableArrayList (this.listUfs));
-    }
 
+        MaskFieldUtil.foneField (telefoneUmFuncionario);
+        MaskFieldUtil.foneField (telefoneDoisFuncionario);
+        MaskFieldUtil.dateField (dataNasFuncionario);
+        MaskFieldUtil.cepField (cepFuncionario);
+        MaskFieldUtil.cpfField (cpfFuncionario);
+
+
+
+    }
 
 
     public void salvarCaradastroUsuario(){
+
 
         Usuario usuario = new Usuario ();
 
         usuario.setNome (nomeFuncionario.getText ());
         usuario.setNaturalidade (naturalidadeFuncionario.getText ());
         usuario.setDataNascimento (dataNasFuncionario.getText ());
+        usuario.setCpf (cpfFuncionario.getText ());
+        usuario.setSenha (senhaPadrao ());
+        usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
 
         Endereco endereco = new Endereco ();
         endereco.setBairro (bairroFuncionario.getText ());
@@ -107,24 +103,44 @@ public class CadastroUsuarioDoSistema implements Initializable {
         endereco.setComplemento (complementoLogradouroFuncionario.getText ());
         endereco.setLogradouro (logradouroFuncionario.getText ());
         endereco.setNumero (numeroLogragouroFuncionario.getText ());
-        endereco.setUf (comboboxUF.getPromptText ());
+        endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
 
-        usuario.setEndereco (endereco);
+//        usuario.setEndereco (endereco);
 
-        Telefone telefone = new Telefone ();
-        telefone.setNumeroUm (telefoneUmFuncionario.getText ());
-        telefone.setNumeroDois (telefoneDoisFuncionario.getText ());
 
-        usuario.setTelefone (telefone);
+        Telefone telefone1 = new Telefone ();
+        telefone1.setNumero (telefoneUmFuncionario.getText ());
+        Telefone telefone2 = new Telefone ();
+        telefone1.setNumero (telefoneDoisFuncionario.getText ());
+
+//        Set<Telefone> telefones = new HashSet<Telefone> ();
+
+        ArrayList<Telefone> telefones = new ArrayList<> ();
+
+        telefones.add (telefone1);
+        telefones.add (telefone2);
+
+
+        usuario.setTelefones (telefones);
+
 
         usuario.setEmail (email.getText ());
-        usuario.setSenha (senhaUm.getText ());
 
+        GenericDao genericDao = new GenericDao ();
 
-        this.fachadaUsuario.salvarUsuario (usuario);
+        genericDao.persit (endereco);
+        genericDao.persit (usuario);
 
+    }
 
+    public String senhaPadrao(){
+        String[] senhatemp = this.nomeFuncionario.getText ().split (" ");
+        String cpftemp = this.cpfFuncionario.getText ();
+        String primeirosDisgitosCpf = cpftemp.substring (cpftemp.length ()-2);
 
+        String senhaPadrao = senhatemp[0]+""+primeirosDisgitosCpf;
+
+        return  senhaPadrao;
     }
 
 }

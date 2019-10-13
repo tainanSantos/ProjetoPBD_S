@@ -28,5 +28,9 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <excluded>
+      <root url="jar://$PROJECT_DIR$/bibliotecas/antlr-2.7.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bibliotecas/c3p0-0.9.1.2.jar!/" />
+    </excluded>
   </library>
 </component>

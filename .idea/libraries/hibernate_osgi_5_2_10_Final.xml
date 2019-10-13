@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hibernate-osgi-5.2.10.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bibliotecas/hibernate-osgi-5.2.10.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

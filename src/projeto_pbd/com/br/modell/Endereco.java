@@ -2,8 +2,12 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
+@Entity
 public class Endereco {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String logradouro;
     private String numero;
@@ -12,9 +16,9 @@ public class Endereco {
     private String cidade;
     private String uf;
     private String cep;
-    private Pessoa pessoa;
 
     public Endereco() {
+
     }
 
     public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, String uf, String cep) {
@@ -26,6 +30,7 @@ public class Endereco {
         this.uf = uf;
         this.cep = cep;
     }
+
 
     public int getId() {
         return id;
@@ -90,6 +95,7 @@ public class Endereco {
     public void setCep(String cep) {
         this.cep = cep;
     }
+
 
     @Override
     public String toString() {
