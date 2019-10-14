@@ -17,11 +17,13 @@ public class Endereco {
     private String uf;
     private String cep;
 
+
     public Endereco() {
 
     }
 
-    public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, String uf, String cep) {
+    public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade,
+                    String uf, String cep) {
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;

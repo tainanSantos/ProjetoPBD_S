@@ -5,8 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Pedagogo extends Pessoa {
+public class Pedagogo {
 
     private int id;
+
 
 }

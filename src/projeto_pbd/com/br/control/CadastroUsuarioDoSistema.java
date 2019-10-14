@@ -6,8 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import projeto_pbd.com.br.dao.GenericDao;
-import projeto_pbd.com.br.fachada.FachadaUsuario;
-import projeto_pbd.com.br.fachada.IFachadaUsuario;
+import projeto_pbd.com.br.facade.FachadaUsuario;
+import projeto_pbd.com.br.facade.IFachadaUsuario;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
@@ -89,9 +89,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
         Usuario usuario = new Usuario ();
 
-        usuario.setNome (nomeFuncionario.getText ());
-        usuario.setNaturalidade (naturalidadeFuncionario.getText ());
-        usuario.setDataNascimento (dataNasFuncionario.getText ());
+//        usuario.setNome (nomeFuncionario.getText ());
+//        usuario.setNaturalidade (naturalidadeFuncionario.getText ());
+//        usuario.setDataNascimento (dataNasFuncionario.getText ());
         usuario.setCpf (cpfFuncionario.getText ());
         usuario.setSenha (senhaPadrao ());
         usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
@@ -121,11 +121,10 @@ public class CadastroUsuarioDoSistema implements Initializable {
         telefones.add (telefone2);
 
 
-        usuario.setTelefones (telefones);
-
+//        usuario.setTelefones (telefones);
+//        usuario.setEndereco (endereco);
 
         usuario.setEmail (email.getText ());
-
         GenericDao genericDao = new GenericDao ();
 
         genericDao.persit (endereco);

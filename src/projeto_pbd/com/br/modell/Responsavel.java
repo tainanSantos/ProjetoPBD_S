@@ -5,8 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Responsavel extends Pessoa {
+public class Responsavel {
 
     private int id;
+
 
 }

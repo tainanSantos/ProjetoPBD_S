@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Professor extends Pessoa {
+public class Professor  {
 
 
     private int id;
@@ -16,5 +16,6 @@ public class Professor extends Pessoa {
     private String numMatricula;
     private String emailAcad;
     private String areaFormacao;
+
 
 }

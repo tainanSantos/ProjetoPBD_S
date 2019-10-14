@@ -1,4 +1,4 @@
-package projeto_pbd.com.br.fachada;
+package projeto_pbd.com.br.facade;
 
 import projeto_pbd.com.br.modell.Usuario;
 

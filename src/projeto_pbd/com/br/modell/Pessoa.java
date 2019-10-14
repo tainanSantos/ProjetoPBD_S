@@ -7,6 +7,7 @@ import javax.persistence.*;
 @MappedSuperclass
 public abstract class Pessoa {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
@@ -17,8 +18,8 @@ public abstract class Pessoa {
     private String naturalidade;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="idEndereco")
     private Endereco endereco;
-
 
 
     public Pessoa() {
@@ -26,14 +27,13 @@ public abstract class Pessoa {
     }
 
 
-    public Pessoa(String nome, String dataNascimento, String naturalidade, Endereco endereco) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.naturalidade = naturalidade;
-//        this.endereco = endereco;
+    public int getId() {
+        return id;
     }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -59,29 +59,11 @@ public abstract class Pessoa {
         this.naturalidade = naturalidade;
     }
 
-//    public Endereco getEndereco() {
-//        return endereco;
-//    }
-//
-//    public void setEndereco(Endereco endereco) {
-//        this.endereco = endereco;
-//    }
-
-    public int getId() {
-        return id;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                ", nome='" + nome + '\'' +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", naturalidade='" + naturalidade + '\'' +
-//                ", endereco=" + endereco +
-                '}';
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }

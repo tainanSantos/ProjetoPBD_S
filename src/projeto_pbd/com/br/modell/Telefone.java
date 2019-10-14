@@ -2,12 +2,12 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Telefone {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String tipo;
     private String numero;

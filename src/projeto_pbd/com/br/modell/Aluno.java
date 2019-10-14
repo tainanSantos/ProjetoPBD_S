@@ -6,10 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
-public class Aluno extends Pessoa {
+public class Aluno {
 
     private int id;
     private Nota nota;
+
 
 
 }
