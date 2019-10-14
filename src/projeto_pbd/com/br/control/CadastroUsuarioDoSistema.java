@@ -6,8 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import projeto_pbd.com.br.dao.GenericDao;
-import projeto_pbd.com.br.facade.FachadaUsuario;
-import projeto_pbd.com.br.facade.IFachadaUsuario;
+import projeto_pbd.com.br.facade.*;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
@@ -18,7 +17,9 @@ import java.util.*;
 
 public class CadastroUsuarioDoSistema implements Initializable {
 
-    private IFachadaUsuario fachadaUsuario;
+    private IFacadeUsuario fachadaUsuario;
+    private IFacadeEndereco facadeEndereco;
+    private IFacadeTelefone facadeTelefone;
 
     @FXML
     private ComboBox comboboxTipoFunacionario;
@@ -62,7 +63,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     public CadastroUsuarioDoSistema(){
 
-        this.fachadaUsuario = new FachadaUsuario ();
+        this.fachadaUsuario = new FacadeUsuario ();
+        this.facadeEndereco = new FacadeEndereco ();
+        this.facadeTelefone = new FacadeTelefone ();
 
     }
 
@@ -89,9 +92,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
         Usuario usuario = new Usuario ();
 
-//        usuario.setNome (nomeFuncionario.getText ());
-//        usuario.setNaturalidade (naturalidadeFuncionario.getText ());
-//        usuario.setDataNascimento (dataNasFuncionario.getText ());
+        usuario.setNome (nomeFuncionario.getText ());
+        usuario.setNaturalidade (naturalidadeFuncionario.getText ());
+        usuario.setDataNascimento (dataNasFuncionario.getText ());
         usuario.setCpf (cpfFuncionario.getText ());
         usuario.setSenha (senhaPadrao ());
         usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
@@ -105,30 +108,31 @@ public class CadastroUsuarioDoSistema implements Initializable {
         endereco.setNumero (numeroLogragouroFuncionario.getText ());
         endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
 
-//        usuario.setEndereco (endereco);
-
 
         Telefone telefone1 = new Telefone ();
         telefone1.setNumero (telefoneUmFuncionario.getText ());
         Telefone telefone2 = new Telefone ();
         telefone1.setNumero (telefoneDoisFuncionario.getText ());
 
-//        Set<Telefone> telefones = new HashSet<Telefone> ();
 
         ArrayList<Telefone> telefones = new ArrayList<> ();
-
         telefones.add (telefone1);
         telefones.add (telefone2);
 
 
+        this.facadeEndereco.save (endereco);
+
+
 //        usuario.setTelefones (telefones);
 //        usuario.setEndereco (endereco);
-
-        usuario.setEmail (email.getText ());
-        GenericDao genericDao = new GenericDao ();
-
-        genericDao.persit (endereco);
-        genericDao.persit (usuario);
+//
+//        usuario.setEmail (email.getText ());
+//
+//
+//        GenericDao genericDao = new GenericDao ();
+//
+//        genericDao.persit (endereco);
+//        genericDao.persit (usuario);
 
     }
 

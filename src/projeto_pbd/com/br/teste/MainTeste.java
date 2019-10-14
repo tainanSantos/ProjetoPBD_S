@@ -1,37 +1,40 @@
 package projeto_pbd.com.br.teste;
 
 import projeto_pbd.com.br.dao.GenericDao;
+import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
+
+import java.util.ArrayList;
 
 
 public class MainTeste {
 
     public static void main(String[] args) {
 
+        EnderecoTeste enderecoTeste = new EnderecoTeste ();
 
-//        FuncionarioTeste funcionarioTeste = new FuncionarioTeste ();
-//        funcionarioTeste.setCpf ("111.333.222-55");
-//        funcionarioTeste.setNome ("Tainan Santos Silva");
+        enderecoTeste.setNumeroCasa ("455");
+        enderecoTeste.setRua ("Rua15");
 
+        PessoaTeste pessoaTeste = new PessoaTeste ();
 
-////        String pass = DigestUtils.md5Hex ("123");
-////        usuarioSoPraTeste.setSenha (pass);
+        pessoaTeste.setCpf ("1236544");
+        pessoaTeste.setNome ("Tainan");
+        pessoaTeste.setEnderecoTeste (enderecoTeste);
 
+        TelefonesTeste telefonesTeste = new TelefonesTeste ();
+        telefonesTeste.setNumerio ("4444444444");
+        TelefonesTeste telefonesTeste2 = new TelefonesTeste ();
+        telefonesTeste2.setNumerio ("5555555555");
+
+        ArrayList<TelefonesTeste> telefones = new ArrayList<> ();
+        telefones.add (telefonesTeste);
+        telefones.add (telefonesTeste2);
+
+        pessoaTeste.setTelefones (telefones);
 
         GenericDao genericDao = new GenericDao ();
-
-//        genericDao.persit (funcionarioTeste);
-
-
-        Usuario usuario = new Usuario ();
-
-        usuario.setSenha ("123456");
-        usuario.setCpf ("123456");
-        usuario.setNome ("Tainan");
-        usuario.setDataNascimento ("20101995");
-        usuario.setTipoDeAcesso ("ADM");
-
-        genericDao.persit (usuario);
+        genericDao.persit (pessoaTeste);
 
     }
 }

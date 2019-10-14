@@ -3,8 +3,6 @@ package projeto_pbd.com.br.dao;
 import projeto_pbd.com.br.modell.Telefone;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.List;
 
 public class DaoTelefone implements IDaoTelefone {
@@ -13,8 +11,7 @@ public class DaoTelefone implements IDaoTelefone {
     @Override
     public Telefone save(Telefone telefone) {
 
-        EntityManager em = Conection.getEntityManager ();
-
+        EntityManager em = new Conection().getEntityManager ();
 
         try {
             em.getTransaction ().begin ();
@@ -37,7 +34,7 @@ public class DaoTelefone implements IDaoTelefone {
     @Override
     public Telefone findById(int id) {
 
-        EntityManager em = Conection.getEntityManager ();
+        EntityManager em = new Conection().getEntityManager ();
 
         Telefone telefone = null;
 
@@ -55,7 +52,7 @@ public class DaoTelefone implements IDaoTelefone {
     @Override
     public List<Telefone> findAll() {
 
-        EntityManager em = Conection.getEntityManager ();
+        EntityManager em = new Conection().getEntityManager ();
         List<Telefone> telefones = null;
 
         try {
@@ -72,7 +69,7 @@ public class DaoTelefone implements IDaoTelefone {
     @Override
     public Telefone remove(int id) {
 
-        EntityManager em = Conection.getEntityManager ();
+        EntityManager em = new Conection().getEntityManager ();
         Telefone telefone = null;
 
         try {

@@ -1,10 +1,10 @@
-package projeto_pbd.com.br.business;
+package projeto_pbd.com.br.facade;
 
 import projeto_pbd.com.br.modell.Usuario;
 
 import java.util.List;
 
-public interface IBusinessUsuario {
+public interface IFacadeUsuario {
 
     public Usuario save(Usuario usuario);
 

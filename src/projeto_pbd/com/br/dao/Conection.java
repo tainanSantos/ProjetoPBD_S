@@ -6,10 +6,16 @@ import javax.persistence.Persistence;
 
 public class Conection {
 
-    private static EntityManagerFactory enf = Persistence.createEntityManagerFactory ("tainan");
+    private EntityManagerFactory enf;
 
-    public static EntityManager getEntityManager(){
-        return enf.createEntityManager ();
+
+    public Conection(){
+        this.enf = Persistence.createEntityManagerFactory ("tainan");
     }
+
+    public EntityManager getEntityManager(){
+        return this.enf.createEntityManager ();
+    }
+
 
 }

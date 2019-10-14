@@ -1,33 +1,39 @@
 package projeto_pbd.com.br.teste;
 
-import projeto_pbd.com.br.modell.Pessoa;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import projeto_pbd.com.br.modell.Telefone;
 
-public abstract class PessoaTeste {
+import javax.persistence.*;
+import java.util.ArrayList;
+
+@Entity
+public class PessoaTeste {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
 
     private String nome;
     private String cpf;
 
+    @OneToOne
+    @JoinColumn(name="idEdereco")
+    private EnderecoTeste enderecoTeste;
 
-    public PessoaTeste(){
+    @OneToMany( mappedBy="pessoa" )
+    private ArrayList<TelefonesTeste> telefones;
 
+
+    public PessoaTeste() {
     }
 
 
-    public PessoaTeste(String nome, String cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
+    public int getId() {
+        return id;
     }
 
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -38,11 +44,27 @@ public abstract class PessoaTeste {
         this.nome = nome;
     }
 
-    @Override
-    public String toString() {
-        return "PessoaTeste{" +
-                "nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                '}';
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public EnderecoTeste getEnderecoTeste() {
+        return enderecoTeste;
+    }
+
+    public void setEnderecoTeste(EnderecoTeste enderecoTeste) {
+        this.enderecoTeste = enderecoTeste;
+    }
+
+    public ArrayList<TelefonesTeste> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(ArrayList<TelefonesTeste> telefones) {
+        this.telefones = telefones;
     }
 }

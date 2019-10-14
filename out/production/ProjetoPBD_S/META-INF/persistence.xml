@@ -8,9 +8,9 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 
-        <!--        <class>projeto_pbd.com.br.teste.UsuarioSoPraTeste</class>-->
-        <!--        <class>projeto_pbd.com.br.teste.PessoaTeste</class>-->
-<!--                <class>projeto_pbd.com.br.teste.FuncionarioTeste</class>-->
+                <class>projeto_pbd.com.br.teste.TelefonesTeste</class>
+                <class>projeto_pbd.com.br.teste.PessoaTeste</class>
+                <class>projeto_pbd.com.br.teste.EnderecoTeste</class>
 
 
         <!--        ENDIDADES DO SISTEMA        -->
@@ -26,7 +26,7 @@
         <!--        <class>projeto_pbd.com.br.modell.Responsavel</class>-->
 <!--        <class>projeto_pbd.com.br.modell.Telefone</class>-->
         <!--        <class>projeto_pbd.com.br.modell.Turma</class>-->
-        <class>projeto_pbd.com.br.modell.Usuario</class>
+<!--        <class>projeto_pbd.com.br.modell.Usuario</class>-->
 
 
 

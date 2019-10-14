@@ -1,9 +1,11 @@
 package projeto_pbd.com.br.modell;
 
+import projeto_pbd.com.br.teste.TelefonesTeste;
+
 import javax.persistence.*;
 
 //@Entity
-public class Telefone {
+public class Telefone extends TelefonesTeste {
 
 
 //    @Id
@@ -11,6 +13,10 @@ public class Telefone {
     private int id;
     private String tipo;
     private String numero;
+
+//    @ManyToOne
+//    @Column(name = "idUsuario")
+    private Usuario usuario;
 
 
     public Telefone(){

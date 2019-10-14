@@ -2,13 +2,10 @@ package projeto_pbd.com.br.modell;
 
 
 
-import projeto_pbd.com.br.teste.PessoaTeste;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 
 
-@Entity
+//@Entity
 public class Usuario extends Pessoa{
 
     private String email;
@@ -16,7 +13,7 @@ public class Usuario extends Pessoa{
     private String tipoDeAcesso;
     private String cpf;
 
-    @OneToMany
+//    @Transient
     private ArrayList<Telefone> telefones;
 
 

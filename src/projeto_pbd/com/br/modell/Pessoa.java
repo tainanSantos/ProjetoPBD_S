@@ -4,12 +4,12 @@ package projeto_pbd.com.br.modell;
 import javax.persistence.*;
 
 
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Pessoa {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
 
@@ -17,8 +17,8 @@ public abstract class Pessoa {
     private String dataNascimento; // TALVEZ DE ERRO AQUI
     private String naturalidade;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="idEndereco")
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="idEndereco")
     private Endereco endereco;
 
 

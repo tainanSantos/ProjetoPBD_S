@@ -2,7 +2,6 @@ package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Telefone;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IDaoTelefone {

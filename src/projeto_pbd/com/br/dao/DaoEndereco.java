@@ -1,24 +1,28 @@
 package projeto_pbd.com.br.dao;
 
-import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Endereco;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.List;
 
-public class DaoUsuario implements IDaoUsuario {
+public class DaoEndereco implements IDaoEndereco{
 
 
     @Override
-    public Usuario save(Usuario usuario) {
-        EntityManager em = new Conection().getEntityManager ();
+    public Endereco save(Endereco endereco) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("tainan");
+        EntityManager em = emf.createEntityManager ();
 
         try {
             em.getTransaction ().begin ();
 
-            if(usuario.getId () == 0){ // inserir
-                em.persist (usuario);
+            if(endereco.getId () == 0){ // inserir
+                em.persist (endereco);
             }else { // atualizar
-                em.merge (usuario);
+                em.merge (endereco);
             }
             em.getTransaction ( ).commit ();  // comando de salvar
         }catch (Exception e ){
@@ -26,52 +30,59 @@ public class DaoUsuario implements IDaoUsuario {
         }finally {
             em.close (); // fecha conexão
         }
-        return usuario;    }
+        return endereco;
+    }
+
 
     @Override
-    public Usuario findById(int id) {
+    public Endereco findById(int id) {
+
         EntityManager em = new Conection().getEntityManager ();
 
-        Usuario usuario = null;
+        Endereco endereco = null;
 
         try {
-            usuario = em.find (Usuario.class,id);
+            endereco = em.find (Endereco.class,id);
         }catch (Exception e ){
             em.getTransaction ().rollback ();
         }finally {
             em.close (); // fecha conexão
         }
-        return usuario;    }
+        return endereco;
+    }
 
     @Override
-    public List<Usuario> findAll() {
+    public List<Endereco> findAll() {
         EntityManager em = new Conection().getEntityManager ();
-        List<Usuario> usuarios = null;
+        List<Endereco> enderecos = null;
 
         try {
-            usuarios = em.createQuery ("from Usuario").getResultList ();
+            enderecos = em.createQuery ("from Endereco").getResultList ();
         }catch (Exception e ){
             em.getTransaction ().rollback ();
         }finally {
             em.close (); // fecha conexão
         }
 
-        return usuarios;    }
+        return enderecos;
+    }
+
+
 
     @Override
-    public Usuario remove(int id) {
+    public Endereco remove(int id) {
         EntityManager em = new Conection().getEntityManager ();
-        Usuario usuario = null;
+        Endereco endereco = null;
 
         try {
-            usuario = em.find (Usuario.class, id);
+            endereco = em.find (Endereco.class, id);
             em.getTransaction ().begin ();
-            em.remove (usuario);
+            em.remove (endereco);
             em.getTransaction ().commit ();
         }catch (Exception e ){
             em.getTransaction ().rollback ();
         }finally {
             em.close (); // fecha conexão
         }
-        return usuario;    }
+        return endereco;    }
 }
