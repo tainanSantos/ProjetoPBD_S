@@ -3,11 +3,13 @@ package projeto_pbd.com.br.teste;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator (name = "enderecoteste_seq", sequenceName = "enderecoteste_seq",
+        allocationSize = 1,initialValue = 1)
 public class EnderecoTeste {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "enderecoteste_seq")
     private int id;
     private String rua;
     private String numeroCasa;

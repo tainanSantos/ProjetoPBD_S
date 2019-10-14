@@ -4,17 +4,18 @@ import javax.persistence.*;
 
 
 @Entity
+@SequenceGenerator (name = "telefoneteste_seq", sequenceName = "telefoneteste_seq",
+        initialValue = 1, allocationSize = 1)
 public class TelefonesTeste {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "telefoneteste_seq")
     private int id;
     private String numerio;
-
     @ManyToOne
-    @JoinColumn(name = "idPessoaTeste")
-    private PessoaTeste pessoa;
+    @JoinColumn(name = "pessoateste_id")
+    private PessoaTeste pessoaTeste;
 
 
     public TelefonesTeste() {
@@ -37,5 +38,11 @@ public class TelefonesTeste {
         this.numerio = numerio;
     }
 
+    public PessoaTeste getPessoaTeste() {
+        return pessoaTeste;
+    }
 
+    public void setPessoaTeste(PessoaTeste pessoaTeste) {
+        this.pessoaTeste = pessoaTeste;
+    }
 }

@@ -5,23 +5,25 @@ import projeto_pbd.com.br.modell.Telefone;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@SequenceGenerator (name = "pessoateste_seq", sequenceName = "pessoateste_seq",
+        initialValue = 1, allocationSize = 1)
 public class PessoaTeste {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoateste_seq")
     private int id;
 
     private String nome;
     private String cpf;
 
-    @OneToOne
-    @JoinColumn(name="idEdereco")
+    @OneToOne(cascade = CascadeType.ALL)
     private EnderecoTeste enderecoTeste;
 
-    @OneToMany( mappedBy="pessoa" )
-    private ArrayList<TelefonesTeste> telefones;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaTeste")
+    private List<TelefonesTeste> telefones;
 
 
     public PessoaTeste() {
@@ -60,11 +62,11 @@ public class PessoaTeste {
         this.enderecoTeste = enderecoTeste;
     }
 
-    public ArrayList<TelefonesTeste> getTelefones() {
+    public List<TelefonesTeste> getTelefones() {
         return telefones;
     }
 
-    public void setTelefones(ArrayList<TelefonesTeste> telefones) {
+    public void setTelefones(List<TelefonesTeste> telefones) {
         this.telefones = telefones;
     }
 }

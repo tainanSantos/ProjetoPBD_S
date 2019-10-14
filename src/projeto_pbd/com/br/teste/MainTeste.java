@@ -5,6 +5,7 @@ import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainTeste {
@@ -12,7 +13,6 @@ public class MainTeste {
     public static void main(String[] args) {
 
         EnderecoTeste enderecoTeste = new EnderecoTeste ();
-
         enderecoTeste.setNumeroCasa ("455");
         enderecoTeste.setRua ("Rua15");
 
@@ -27,11 +27,13 @@ public class MainTeste {
         TelefonesTeste telefonesTeste2 = new TelefonesTeste ();
         telefonesTeste2.setNumerio ("5555555555");
 
-        ArrayList<TelefonesTeste> telefones = new ArrayList<> ();
+        List<TelefonesTeste> telefones = new ArrayList<> ();
         telefones.add (telefonesTeste);
         telefones.add (telefonesTeste2);
 
         pessoaTeste.setTelefones (telefones);
+        telefonesTeste.setPessoaTeste (pessoaTeste);
+        telefonesTeste2.setPessoaTeste (pessoaTeste);
 
         GenericDao genericDao = new GenericDao ();
         genericDao.persit (pessoaTeste);
