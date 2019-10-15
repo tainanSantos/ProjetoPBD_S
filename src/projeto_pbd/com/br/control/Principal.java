@@ -22,8 +22,8 @@ public class Principal implements Initializable {
     public static final String CADASTRO_ALUNO = "../view/CadastroAluno.fxml";
     public static final String CADASTRO_CURRICULO = "../view/CadastroCurriculo.fxml";
     public static final String CADASTRO_DISCIPLINA = "../view/CadastroDisciplina.fxml";
-    public static final String CADASTRO_PROFESSOR_PEDAGOGO= "../view/CadastroProfessor.fxml";
-    public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessor.fxml";
+    public static final String CADASTRO_PROFESSOR_PEDAGOGO= "../view/CadastroProfessorPedagogo.fxml";
+    public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessorPedagogo.fxml";
     public static final String HOME = "../view/Home.fxml";
     public static final String CONFIGURACOES = "../view/Configuracoes.fxml";
     public static final String RELATORIO_DISCENTE = "../view/AreaDiscente.fxml";

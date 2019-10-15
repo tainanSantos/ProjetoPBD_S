@@ -16,58 +16,70 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CadastroProfessor implements Initializable {
+public class CadastroProfessorPedagogo implements Initializable {
+
+    private AnchorPane salvarCadastroFuncionario;
 
     @FXML
-    private AnchorPane anchorpaneCadastroAluno;
+    private AnchorPane graduacaoText;
+
     @FXML
-    private TextField nomeFuncionario;
+    private TextField nomeText;
+
     @FXML
-    private TextField naturalidadeFuncionario;
+    private TextField naturalidadeText;
+
     @FXML
-    private TextField dataNasFuncionario;
+    private TextField dataText;
+
     @FXML
-    private TextField cepFuncionario;
+    private TextField cpfText;
+
     @FXML
-    private TextField telefoneUmFuncionario;
+    private TextField cepText;
+
     @FXML
-    private TextField telefoneDoisFuncionario;
+    private TextField telefoneUmText;
+
     @FXML
-    private TextField logradouroFuncionario;
+    private TextField telefoneDoisText;
+
     @FXML
-    private TextField numeroLogragouroFuncionario;
+    private TextField logradouroText;
+
     @FXML
-    private TextField complementoLogradouroFuncionario;
+    private TextField numeroText;
+
     @FXML
-    private TextField bairroFuncionario;
+    private TextField complementoText;
+
     @FXML
-    private TextField cidadeFuncionario;
+    private TextField bairroText;
+
     @FXML
-    private TextField ufFuncionario;
+    private TextField cidadeText;
+
     @FXML
-    private TextField cpfFuncionario;
-    @FXML
-    private TextField orgaoEspeditoRgFuncionario;
-    @FXML
-    private TextField reFuncionario;
-    @FXML
-    private TextField numeroMatriculaFuncionario;
-    @FXML
-    private TextField emailAcademicoFuncionario;
+    private ComboBox<?> comboboxUf;
+
     @FXML
     private TextField areaDeFormacaoFuncionario;
+
     @FXML
-    private ComboBox comboboxUfPorfessor;
+    private ComboBox comboboxTipoCadastro;
+
     private List listUfsProf = new ArrayList (Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
-
+    private List listTipoCadastro = new ArrayList(Arrays.asList (new String[]{"Professor", "Pedagogo"}));
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        this.comboboxUfPorfessor.setItems (FXCollections.observableArrayList (this.listUfsProf));
+        this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
+        this.comboboxTipoCadastro.setItems (FXCollections.observableArrayList (this.listTipoCadastro));
+
     }
 
 
@@ -75,8 +87,12 @@ public class CadastroProfessor implements Initializable {
 
 
 
-    public void salvarCadastroFuncionario(){
+    public void salvarCadastro(){
+
+
+
         Mensagem.mensagemSucesso ("Cadastro Realizado com sucesso!");
+
     }
 
 

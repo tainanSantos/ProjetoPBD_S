@@ -4,29 +4,25 @@ import projeto_pbd.com.br.teste.TelefonesTeste;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
+@SequenceGenerator (name = "telefone_seq", sequenceName = "telefone_seq",
+        initialValue = 1, allocationSize = 1)
 public class Telefone extends TelefonesTeste {
 
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "telefone_seq")
     private int id;
     private String tipo;
     private String numero;
 
-//    @ManyToOne
-//    @Column(name = "idUsuario")
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
 
     public Telefone(){
 
-    }
-
-
-    public Telefone(String tipo, String numero) {
-        this.tipo = tipo;
-        this.numero = numero;
     }
 
 
@@ -54,13 +50,11 @@ public class Telefone extends TelefonesTeste {
         this.numero = numero;
     }
 
-    @Override
-    public String toString() {
-        return "Telefone{" +
-                "id=" + id +
-                ", tipo='" + tipo + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
+    public Usuario getUsuario() {
+        return usuario;
     }
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

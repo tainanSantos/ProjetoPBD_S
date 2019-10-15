@@ -3,18 +3,18 @@ package projeto_pbd.com.br.teste;
 import javax.persistence.*;
 
 
-@Entity
-@SequenceGenerator (name = "telefoneteste_seq", sequenceName = "telefoneteste_seq",
-        initialValue = 1, allocationSize = 1)
+//@Entity
+//@SequenceGenerator (name = "telefoneteste_seq", sequenceName = "telefoneteste_seq",
+//        initialValue = 1, allocationSize = 1)
 public class TelefonesTeste {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "telefoneteste_seq")
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "telefoneteste_seq")
     private int id;
     private String numerio;
-    @ManyToOne
-    @JoinColumn(name = "pessoateste_id")
+//    @ManyToOne
+//    @JoinColumn(name = "pessoateste_id")
     private PessoaTeste pessoaTeste;
 
 

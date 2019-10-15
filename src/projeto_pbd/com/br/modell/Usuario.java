@@ -1,25 +1,49 @@
 package projeto_pbd.com.br.modell;
 
+/*
+ima interface só para implementar tudo
+*/
+
+import projeto_pbd.com.br.teste.PessoaTeste;
+
+import javax.persistence.*;
+import java.util.List;
 
 
-import java.util.ArrayList;
+
+@Entity
+@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq",
+        initialValue = 1, allocationSize = 1)
+public class Usuario extends Pessoa {
 
 
-//@Entity
-public class Usuario extends Pessoa{
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
+    private int id;
     private String email;
     private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio
     private String tipoDeAcesso;
     private String cpf;
 
-//    @Transient
-    private ArrayList<Telefone> telefones;
+
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private List<Telefone> telefones;
 
 
     public Usuario() {
     }
 
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -53,13 +77,11 @@ public class Usuario extends Pessoa{
         this.cpf = cpf;
     }
 
-    public ArrayList<Telefone> getTelefones() {
+    public List<Telefone> getTelefones() {
         return telefones;
     }
 
-    public void setTelefones(ArrayList<Telefone> telefones) {
+    public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
-
-
 }

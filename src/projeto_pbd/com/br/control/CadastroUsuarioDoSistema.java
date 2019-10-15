@@ -5,8 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import projeto_pbd.com.br.dao.GenericDao;
-import projeto_pbd.com.br.facade.*;
+import projeto_pbd.com.br.façade.*;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
@@ -18,8 +17,6 @@ import java.util.*;
 public class CadastroUsuarioDoSistema implements Initializable {
 
     private IFacadeUsuario fachadaUsuario;
-    private IFacadeEndereco facadeEndereco;
-    private IFacadeTelefone facadeTelefone;
 
     @FXML
     private ComboBox comboboxTipoFunacionario;
@@ -64,8 +61,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
     public CadastroUsuarioDoSistema(){
 
         this.fachadaUsuario = new FacadeUsuario ();
-        this.facadeEndereco = new FacadeEndereco ();
-        this.facadeTelefone = new FacadeTelefone ();
 
     }
 
@@ -98,6 +93,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
         usuario.setCpf (cpfFuncionario.getText ());
         usuario.setSenha (senhaPadrao ());
         usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
+        usuario.setEmail (email.getText ());
 
         Endereco endereco = new Endereco ();
         endereco.setBairro (bairroFuncionario.getText ());
@@ -112,29 +108,22 @@ public class CadastroUsuarioDoSistema implements Initializable {
         Telefone telefone1 = new Telefone ();
         telefone1.setNumero (telefoneUmFuncionario.getText ());
         Telefone telefone2 = new Telefone ();
-        telefone1.setNumero (telefoneDoisFuncionario.getText ());
+        telefone2.setNumero (telefoneDoisFuncionario.getText ());
 
-
-        ArrayList<Telefone> telefones = new ArrayList<> ();
+        List<Telefone> telefones = new ArrayList<> ();
         telefones.add (telefone1);
         telefones.add (telefone2);
 
+        usuario.setEndereco (endereco);
+        usuario.setTelefones (telefones);
+        telefone1.setUsuario (usuario);
+        telefone2.setUsuario (usuario);
 
-        this.facadeEndereco.save (endereco);
-
-
-//        usuario.setTelefones (telefones);
-//        usuario.setEndereco (endereco);
-//
-//        usuario.setEmail (email.getText ());
-//
-//
-//        GenericDao genericDao = new GenericDao ();
-//
-//        genericDao.persit (endereco);
-//        genericDao.persit (usuario);
+        this.fachadaUsuario.save (usuario);
 
     }
+
+
 
     public String senhaPadrao(){
         String[] senhatemp = this.nomeFuncionario.getText ().split (" ");

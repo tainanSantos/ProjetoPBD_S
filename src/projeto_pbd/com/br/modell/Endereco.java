@@ -2,12 +2,14 @@ package projeto_pbd.com.br.modell;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
+@SequenceGenerator (name = "endereco_seq", sequenceName = "endereco_seq",
+        allocationSize = 1,initialValue = 1)
 public class Endereco {
 
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_seq")
     private int id;
     private String logradouro;
     private String numero;
@@ -20,17 +22,6 @@ public class Endereco {
 
     public Endereco() {
 
-    }
-
-    public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade,
-                    String uf, String cep) {
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.uf = uf;
-        this.cep = cep;
     }
 
 
@@ -96,20 +87,5 @@ public class Endereco {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Endereco{" +
-                "id=" + id +
-                ", logradouro='" + logradouro + '\'' +
-                ", numero='" + numero + '\'' +
-                ", complemento='" + complemento + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", uf='" + uf + '\'' +
-                ", cep='" + cep + '\'' +
-                '}';
     }
 }

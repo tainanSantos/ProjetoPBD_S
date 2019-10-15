@@ -4,21 +4,15 @@ package projeto_pbd.com.br.modell;
 import javax.persistence.*;
 
 
-//@MappedSuperclass
+@MappedSuperclass
 public abstract class Pessoa {
-
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
 
 
     private String nome;
     private String dataNascimento; // TALVEZ DE ERRO AQUI
     private String naturalidade;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="idEndereco")
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
 
@@ -26,14 +20,6 @@ public abstract class Pessoa {
 
     }
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

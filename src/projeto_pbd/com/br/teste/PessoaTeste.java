@@ -1,28 +1,25 @@
 package projeto_pbd.com.br.teste;
 
 
-import projeto_pbd.com.br.modell.Telefone;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@SequenceGenerator (name = "pessoateste_seq", sequenceName = "pessoateste_seq",
-        initialValue = 1, allocationSize = 1)
+//@Entity
+//@SequenceGenerator (name = "pessoateste_seq", sequenceName = "pessoateste_seq",
+//        initialValue = 1, allocationSize = 1)
 public class PessoaTeste {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoateste_seq")
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoateste_seq")
     private int id;
 
     private String nome;
     private String cpf;
 
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     private EnderecoTeste enderecoTeste;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaTeste")
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaTeste")
     private List<TelefonesTeste> telefones;
 
 

@@ -17,7 +17,7 @@ public class Main extends Application {
 	public static final String CADASTRO_ALUNO = "com/br/view/CadastroAluno.fxml";
 	public static final String CADASTRO_CURRICULO = "com/br/view/CadastroCurriculo.fxml";
 	public static final String CADASTRO_DISCIPLINA = "com/br/view/CadastroDisciplina.fxml";
-	public static final String CADASTRO_PROFESSOR = "com/br/view/CadastroProfessor.fxml";
+	public static final String CADASTRO_PROFESSOR = "com/br/view/CadastroProfessorPedagogo.fxml";
 	public static final String CADASTRO_NOTAS = "com/br/view/CadastroNotas.fxml";
 	public static final String AREA_DISCENTE_INFORMACOES = "com/br/view/AreaDiscenteInformacoes.fxml";
 	public static final String CONFIGURACOES = "com/br/view/Configuracoes.fxml";

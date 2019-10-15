@@ -1,4 +1,4 @@
-package projeto_pbd.com.br.facade;
+package projeto_pbd.com.br.façade;
 
 import projeto_pbd.com.br.business.BusinessUsuario;
 import projeto_pbd.com.br.business.IBusinessUsuario;
