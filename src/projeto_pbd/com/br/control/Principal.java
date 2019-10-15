@@ -27,7 +27,7 @@ public class Principal implements Initializable {
     public static final String HOME = "../view/Home.fxml";
     public static final String CONFIGURACOES = "../view/Configuracoes.fxml";
     public static final String RELATORIO_DISCENTE = "../view/AreaDiscente.fxml";
-    public static final String AREA_DO_FUNCIONARIO = "../view/AreaProfessor.fxml";
+    public static final String AREA_DO_FUNCIONARIO = "../view/AreaProfessorPedagogo.fxml";
     public static final String CADASTRAR_USUARIO_DO_SISTEMA = "../view/CadastrarUsuarioDoSistema.fxml";
 
     @FXML
@@ -58,6 +58,8 @@ public class Principal implements Initializable {
 
 
     public void cadastrarUsuarioDoSistema() throws IOException {
+        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
+        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
         Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
     }
 

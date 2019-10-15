@@ -180,7 +180,7 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="areaDeFormacaoFuncionario" prefHeight="26.0" prefWidth="471.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="graduacaoText" prefHeight="26.0" prefWidth="471.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Label layoutX="579.0" layoutY="24.0" text="Contato" AnchorPane.leftAnchor="580.0">

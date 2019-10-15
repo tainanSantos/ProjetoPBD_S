@@ -64,4 +64,20 @@ public class Telefone extends TelefonesTeste {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    public Pedagogo getPedagogo() {
+        return pedagogo;
+    }
+
+    public void setPedagogo(Pedagogo pedagogo) {
+        this.pedagogo = pedagogo;
+    }
 }

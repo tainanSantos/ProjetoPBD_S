@@ -19,7 +19,7 @@
         <class>projeto_pbd.com.br.modell.Endereco</class>
 
 <!--        PROFESSOR E PEDAGOGO-->
-        <class>projeto_pbd.com.br.modell.Pedagogo</class>
+<!--        <class>projeto_pbd.com.br.modell.Pedagogo</class>-->
         <class>projeto_pbd.com.br.modell.Professor</class>
 
 

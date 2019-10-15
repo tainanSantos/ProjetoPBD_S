@@ -3,17 +3,15 @@ package projeto_pbd.com.br.modell;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@SequenceGenerator(name = "pedagogo_seq", sequenceName = "pedagogo_seq",
-        initialValue = 1, allocationSize = 1)
-public class Pedagogo {
+//@Entity
+//@SequenceGenerator(name = "pedagogo_seq", sequenceName = "pedagogo_seq",
+//        initialValue = 1, allocationSize = 1)
+public class Pedagogo extends Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedagogo_seq")
     private int id;
-    private String nome;
-    private String dataNascomento;
-    private String naturalidade;
+    private String graduacao;
     private String cpf;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedagogo")
@@ -32,28 +30,12 @@ public class Pedagogo {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getGraduacao() {
+        return graduacao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDataNascomento() {
-        return dataNascomento;
-    }
-
-    public void setDataNascomento(String dataNascomento) {
-        this.dataNascomento = dataNascomento;
-    }
-
-    public String getNaturalidade() {
-        return naturalidade;
-    }
-
-    public void setNaturalidade(String naturalidade) {
-        this.naturalidade = naturalidade;
+    public void setGraduacao(String graduacao) {
+        this.graduacao = graduacao;
     }
 
     public String getCpf() {

@@ -13,9 +13,7 @@ public class Professor extends Pessoa  {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "professor_seq")
     private int id;
-    private String nome;
-    private String dataNascomento;
-    private String naturalidade;
+    private String graduacao;
     private String cpf;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
@@ -34,34 +32,6 @@ public class Professor extends Pessoa  {
         this.id = id;
     }
 
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDataNascomento() {
-        return dataNascomento;
-    }
-
-    public void setDataNascomento(String dataNascomento) {
-        this.dataNascomento = dataNascomento;
-    }
-
-    @Override
-    public String getNaturalidade() {
-        return naturalidade;
-    }
-
-    @Override
-    public void setNaturalidade(String naturalidade) {
-        this.naturalidade = naturalidade;
-    }
-
     public String getCpf() {
         return cpf;
     }
@@ -69,4 +39,22 @@ public class Professor extends Pessoa  {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
+
+    public String getGraduacao() {
+        return graduacao;
+    }
+
+    public void setGraduacao(String graduacao) {
+        this.graduacao = graduacao;
+    }
+
+
 }
