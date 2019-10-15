@@ -20,6 +20,13 @@ public class Telefone extends TelefonesTeste {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    private Professor professor;
+    @ManyToOne
+    @JoinColumn(name = "pedagogo_id")
+    private Pedagogo pedagogo;
+
 
     public Telefone(){
 

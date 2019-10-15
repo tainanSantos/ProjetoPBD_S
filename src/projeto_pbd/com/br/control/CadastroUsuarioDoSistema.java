@@ -119,6 +119,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
         telefone1.setUsuario (usuario);
         telefone2.setUsuario (usuario);
 
+        // implemntar no busines  aquestão de validação de campos agora
+        // não permitir redudancia de dados como cpfs e emails iguais
+        // mudar a data d.o tipo Strig para o tipo date
         this.fachadaUsuario.save (usuario);
 
     }

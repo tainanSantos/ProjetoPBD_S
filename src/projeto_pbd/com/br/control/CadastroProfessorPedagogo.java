@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import projeto_pbd.com.br.msg.Mensagem;
+import projeto_pbd.com.br.util.MaskFieldUtil;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -79,6 +80,13 @@ public class CadastroProfessorPedagogo implements Initializable {
 
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
         this.comboboxTipoCadastro.setItems (FXCollections.observableArrayList (this.listTipoCadastro));
+
+
+        MaskFieldUtil.dateField (this.dataText);
+        MaskFieldUtil.cpfField (this.cpfText);
+        MaskFieldUtil.cepField (this.cepText);
+        MaskFieldUtil.foneField (this.telefoneUmText);
+        MaskFieldUtil.foneField (this.telefoneDoisText);
 
     }
 

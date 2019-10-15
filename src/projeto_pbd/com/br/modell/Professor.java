@@ -1,14 +1,25 @@
 package projeto_pbd.com.br.modell;
 
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@SequenceGenerator(name = "professor_seq", sequenceName = "professor_seq",
+        initialValue = 1, allocationSize = 1)
 public class Professor extends Pessoa  {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "professor_seq")
     private int id;
     private String nome;
     private String dataNascomento;
     private String naturalidade;
     private String cpf;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
+    private List<Telefone> telefones;
 
 
     public Professor() {
