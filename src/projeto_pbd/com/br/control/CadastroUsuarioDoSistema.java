@@ -89,7 +89,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
         usuario.setNome (nomeFuncionario.getText ());
         usuario.setNaturalidade (naturalidadeFuncionario.getText ());
-        usuario.setDataNascimento (dataNasFuncionario.getText ());
+        usuario.setDataNascimento ((Date) dataNasFuncionario.getUserData ());
         usuario.setCpf (cpfFuncionario.getText ());
         usuario.setSenha (senhaPadrao ());
         usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());

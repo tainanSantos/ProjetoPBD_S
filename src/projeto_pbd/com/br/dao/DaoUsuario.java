@@ -15,7 +15,7 @@ public class DaoUsuario implements IDaoUsuario {
         try {
             em.getTransaction ().begin ();
 
-            if(usuario.getId () == 0){ // inserir
+            if(usuario.getId () == null){ // inserir
                 em.persist (usuario);
             }else { // atualizar
                 em.merge (usuario);

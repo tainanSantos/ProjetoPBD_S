@@ -2,17 +2,27 @@ package projeto_pbd.com.br.modell;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @MappedSuperclass
 public abstract class Pessoa {
 
-
+    @Id
+    @GeneratedValue(generator = "generic_id")
+    private Integer id;
+    
     private String nome;
-    private String dataNascimento; // TALVEZ DE ERRO AQUI
+
+    @Temporal (TemporalType.DATE)
+    private Date dataNascimento; // TALVEZ DE ERRO AQUI
+
     private String naturalidade;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
     private Endereco endereco;
 
 
@@ -20,6 +30,14 @@ public abstract class Pessoa {
 
     }
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -29,11 +47,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

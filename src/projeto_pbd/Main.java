@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import projeto_pbd.com.br.util.ObjetctUtil;
 
 public class Main extends Application {
 
@@ -17,7 +18,8 @@ public class Main extends Application {
 	public static final String CADASTRO_ALUNO = "com/br/view/CadastroAluno.fxml";
 	public static final String CADASTRO_CURRICULO = "com/br/view/CadastroCurriculo.fxml";
 	public static final String CADASTRO_DISCIPLINA = "com/br/view/CadastroDisciplina.fxml";
-	public static final String CADASTRO_PROFESSOR = "com/br/view/CadastroProfessorPedagogo.fxml";
+	public static final String CADASTRO_PROFESSOR = "com/br/view/CadastroProfessor.fxml";
+	public static final String CADASTRO_PEDAGOGO = "com/br/view/CadastroPedagogo.fxml";
 	public static final String CADASTRO_NOTAS = "com/br/view/CadastroNotas.fxml";
 	public static final String AREA_DISCENTE_INFORMACOES = "com/br/view/AreaDiscenteInformacoes.fxml";
 	public static final String CONFIGURACOES = "com/br/view/Configuracoes.fxml";
@@ -60,6 +62,16 @@ public class Main extends Application {
 
 
 	public static Stage genericaStage(String caminho) throws IOException {
+		STAGE.setScene(new Scene(
+				FXMLLoader.load(Main.class.getResource (caminho))));
+		STAGE.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			public void handle(WindowEvent event) { STAGE.close();
+				ObjetctUtil.setObject (null);
+			}});
+		return STAGE;
+	}
+
+	public static Stage genericaStageComParametro(String caminho, Object object) throws IOException {
 		STAGE.setScene(new Scene(
 				FXMLLoader.load(Main.class.getResource (caminho))));
 		STAGE.setOnCloseRequest(new EventHandler<WindowEvent>() {

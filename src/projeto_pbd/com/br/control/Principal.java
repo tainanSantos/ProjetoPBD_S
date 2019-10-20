@@ -22,12 +22,13 @@ public class Principal implements Initializable {
     public static final String CADASTRO_ALUNO = "../view/CadastroAluno.fxml";
     public static final String CADASTRO_CURRICULO = "../view/CadastroCurriculo.fxml";
     public static final String CADASTRO_DISCIPLINA = "../view/CadastroDisciplina.fxml";
-    public static final String CADASTRO_PROFESSOR_PEDAGOGO= "../view/CadastroProfessorPedagogo.fxml";
-    public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessorPedagogo.fxml";
+    public static final String CADASTRO_PROFESSOR_PEDAGOGO= "../view/CadastroProfessor.fxml";
+    public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessor.fxml";
     public static final String HOME = "../view/Home.fxml";
     public static final String CONFIGURACOES = "../view/Configuracoes.fxml";
     public static final String RELATORIO_DISCENTE = "../view/AreaDiscente.fxml";
-    public static final String AREA_DO_FUNCIONARIO = "../view/AreaProfessorPedagogo.fxml";
+    public static final String AREA_DO_PROFESSOR = "../view/AreaProfessor.fxml";
+    public static final String AREA_DO_PEDAGOGO = "../view/AreaPedagogo.fxml";
     public static final String CADASTRAR_USUARIO_DO_SISTEMA = "../view/CadastrarUsuarioDoSistema.fxml";
 
     @FXML
@@ -105,9 +106,14 @@ public class Principal implements Initializable {
         this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(RELATORIO_DISCENTE)));
     }
 
-    public void informacoesFuncionario() throws IOException {
+    public void informacoesProfessor() throws IOException {
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_FUNCIONARIO)));
+        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
+    }
+
+    public  void informacoesPedagogo() throws IOException {
+        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
+        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PEDAGOGO)));
     }
 
 }

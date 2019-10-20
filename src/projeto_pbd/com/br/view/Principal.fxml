@@ -12,7 +12,7 @@
 
 <AnchorPane id="principal" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Principal">
    <children>
-      <Pane layoutX="753.0" layoutY="-191.0" prefHeight="306.0" prefWidth="184.0" rotate="-77.5" style="-fx-background-color: #A52A2A; -fx-background-radius: 20;" AnchorPane.rightAnchor="200.0" />
+      <Pane layoutX="753.0" layoutY="-191.0" prefHeight="306.0" prefWidth="184.0" rotate="-77.5" style="-fx-background-color: #4B0082 zz; -fx-background-radius: 20;" AnchorPane.rightAnchor="200.0" />
       <MenuBar blendMode="EXCLUSION" layoutY="74.0" prefHeight="48.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
         <menus>
           <Menu id="inicio" mnemonicParsing="false" text="     Inicio     ">
@@ -31,9 +31,10 @@
                   <MenuItem mnemonicParsing="false" onAction="#informacoesDiscente" text="Infoemações do Discente" />
                </items>
             </Menu>
-            <Menu id="area do Professor" mnemonicParsing="false" text="   Professor    ">
+            <Menu id="area do Mestre" mnemonicParsing="false" text="   Mestre    ">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#informacoesFuncionario" text="Informações do Professor" />
+                <MenuItem mnemonicParsing="false" onAction="#informacoesProfessor" text="Área do Professor" />
+                  <MenuItem mnemonicParsing="false" onAction="#informacoesPedagogo" text="Área do Pedagogo" />
               </items>
             </Menu>
           <Menu id="configuraçoes" mnemonicParsing="false" text="   Configurações  ">

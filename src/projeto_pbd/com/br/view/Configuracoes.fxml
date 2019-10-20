@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Configuracoes">
@@ -40,5 +41,6 @@
             <Button blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Redefinir " />
          </children>
       </Group>
+      <Pane layoutX="825.0" layoutY="-247.0" prefHeight="714.0" prefWidth="400.0" rotate="105.4" style="-fx-background-color: #4B0082 ; -fx-background-radius: 20;" />
    </children>
 </AnchorPane>

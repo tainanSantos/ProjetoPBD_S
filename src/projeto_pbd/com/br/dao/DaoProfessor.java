@@ -1,7 +1,6 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Professor;
-import projeto_pbd.com.br.modell.Usuario;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -17,7 +16,7 @@ public class DaoProfessor implements IDaoProfessor{
         try {
             em.getTransaction ().begin ();
 
-            if(professor.getId () == 0){ // inserir
+            if(professor.getId () == null){ // inserir
                 em.persist (professor);
             }else { // atualizar
                 em.merge (professor);
@@ -30,6 +29,7 @@ public class DaoProfessor implements IDaoProfessor{
         }
         return professor;
     }
+
 
     @Override
     public Professor findById(int id) {
@@ -47,6 +47,7 @@ public class DaoProfessor implements IDaoProfessor{
         return professor;
     }
 
+
     @Override
     public List<Professor> findAll() {
         EntityManager em = new Conection().getEntityManager ();
@@ -55,13 +56,14 @@ public class DaoProfessor implements IDaoProfessor{
         try {
             professores = em.createQuery ("from Professor").getResultList ();
         }catch (Exception e ){
-            em.getTransaction ().rollback ();
+
         }finally {
             em.close (); // fecha conexão
         }
 
         return professores;
     }
+
 
     @Override
     public Professor remove(int id) {
@@ -78,5 +80,8 @@ public class DaoProfessor implements IDaoProfessor{
         }finally {
             em.close (); // fecha conexão
         }
-        return professor;     }
+        return professor;
+    }
+
+
 }

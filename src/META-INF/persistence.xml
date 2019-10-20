@@ -14,6 +14,7 @@
 
 
 <!--        USUARIO QUE TERA ACESSO AO SISTEMA-->
+        <class>projeto_pbd.com.br.modell.Pessoa</class>
         <class>projeto_pbd.com.br.modell.Telefone</class>
         <class>projeto_pbd.com.br.modell.Usuario</class>
         <class>projeto_pbd.com.br.modell.Endereco</class>

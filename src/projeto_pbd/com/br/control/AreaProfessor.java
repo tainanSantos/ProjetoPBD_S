@@ -1,21 +1,21 @@
 package projeto_pbd.com.br.control;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.LineInputStream;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import projeto_pbd.Main;
+import projeto_pbd.com.br.façade.FacadePedagogo;
 import projeto_pbd.com.br.façade.FacadeProfessor;
+import projeto_pbd.com.br.façade.IFacadePedagogo;
 import projeto_pbd.com.br.façade.IFacadeProfessor;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.modell.Telefone;
+import projeto_pbd.com.br.util.ObjetctUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,12 +24,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AreaProfessorPedagogo implements Initializable {
+public class AreaProfessor implements Initializable {
 
     private IFacadeProfessor facadeProfessor;
+    private IFacadePedagogo facadePedagogo;
 
     @FXML
-    private TableView educandoTable;
+    private TableView<Professor> educandoTable;
     @FXML
     private TableColumn nomeColum;
     @FXML
@@ -38,25 +39,26 @@ public class AreaProfessorPedagogo implements Initializable {
     private TableColumn naturalidadeColum;
     @FXML
     private TextField pesquisaText;
-    @FXML
-    private ComboBox comboboxProfessorPedagogo;
+
 
     List listEducando = new ArrayList (Arrays.asList ("Professores", "Pedagogos"));
 
 
 
-    public AreaProfessorPedagogo() {
+    public AreaProfessor() {
         this.facadeProfessor = new FacadeProfessor ();
-
+        this.facadePedagogo = new FacadePedagogo ();
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.comboboxProfessorPedagogo.setItems (FXCollections.observableArrayList (this.listEducando));
-        carregarTable ();
 
-    }
+        educandoTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> seteducandoTable(newValue));
+
+   }
+
 
 
     public void cadastrarNovoProfessor() throws IOException {
@@ -65,29 +67,37 @@ public class AreaProfessorPedagogo implements Initializable {
     }
 
 
-    public void carregarTable(){
+    public void atualizarTabela(){
+            carregarTable (this.facadeProfessor.findAll ()); //professores
+    }
+
+
+    public void carregarTable(List  arrayList){
 
         List<Professor> professors = new ArrayList<> ();
-        professors.addAll ( this.facadeProfessor.findAll ());
-
-        for(Professor professor : professors){
-            System.out.println (professor.getNome () );
-
-//            for (Telefone telefone : professor.getTelefones ()){
-//                System.out.println (telefone.getNumero ());
-//
-//            }
-
-//            System.out.println (professor.getEndereco ().getCidade ());
-//            System.out.println (professor.getEndereco ().getCep ());
-
-        }
-
+        professors.addAll (arrayList);
         nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
         educandoTable.setItems (FXCollections.observableArrayList (professors));
 
-
     }
+
+
+    public void seteducandoTable(Professor professor){
+
+        this.educandoTable.setOnMouseClicked(event -> {
+            if(event.getClickCount() == 2) {
+                ObjetctUtil.setObject (professor);
+                Stage stage = null;
+                try {
+                    stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
+                    stage.show ();
+                } catch (IOException e) {
+                    e.printStackTrace ( );
+                }
+            }
+        });
+    }
+
 }

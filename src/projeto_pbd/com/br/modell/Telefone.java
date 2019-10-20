@@ -5,26 +5,27 @@ import projeto_pbd.com.br.teste.TelefonesTeste;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator (name = "telefone_seq", sequenceName = "telefone_seq",
-        initialValue = 1, allocationSize = 1)
 public class Telefone extends TelefonesTeste {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "telefone_seq")
-    private int id;
+    @GeneratedValue
+    private Integer id;
+    @Column
     private String tipo;
+    @Column
     private String numero;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "professor_id")
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Professor professor;
-    @ManyToOne
-    @JoinColumn(name = "pedagogo_id")
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Pedagogo pedagogo;
 
 
@@ -33,11 +34,11 @@ public class Telefone extends TelefonesTeste {
     }
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

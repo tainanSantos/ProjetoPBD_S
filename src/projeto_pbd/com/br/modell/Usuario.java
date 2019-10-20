@@ -12,23 +12,20 @@ import java.util.List;
 
 
 @Entity
-@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq",
-        initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "generic_id")
 public class Usuario extends Pessoa {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
-    private int id;
     private String email;
     private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio
     private String tipoDeAcesso;
     private String cpf;
 
-
-
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "usuario",
+            fetch = FetchType.EAGER
+    )
     private List<Telefone> telefones;
 
 
@@ -36,14 +33,6 @@ public class Usuario extends Pessoa {
     }
 
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;

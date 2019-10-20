@@ -3,20 +3,25 @@ package projeto_pbd.com.br.modell;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator (name = "endereco_seq", sequenceName = "endereco_seq",
-        allocationSize = 1,initialValue = 1)
 public class Endereco {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_seq")
-    private int id;
+    @GeneratedValue
+    private Integer id;
+    @Column
     private String logradouro;
+    @Column
     private String numero;
+    @Column
     private String complemento;
+    @Column
     private String bairro;
+    @Column
     private String cidade;
+    @Column
     private String uf;
+    @Column
     private String cep;
 
 
@@ -25,11 +30,11 @@ public class Endereco {
     }
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

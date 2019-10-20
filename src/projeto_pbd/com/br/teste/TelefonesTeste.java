@@ -1,7 +1,5 @@
 package projeto_pbd.com.br.teste;
 
-import javax.persistence.*;
-
 
 //@Entity
 //@SequenceGenerator (name = "telefoneteste_seq", sequenceName = "telefoneteste_seq",
@@ -22,7 +20,7 @@ public class TelefonesTeste {
     }
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
