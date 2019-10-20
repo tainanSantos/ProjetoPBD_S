@@ -3,7 +3,9 @@ package projeto_pbd.com.br.business;
 import projeto_pbd.com.br.dao.DaoDisciplina;
 import projeto_pbd.com.br.dao.IDaoDisciplina;
 import projeto_pbd.com.br.modell.Disciplina;
+import projeto_pbd.com.br.msg.Mensagem;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 public class BusinessDisciplina implements IBusinessDisciplina {
@@ -16,7 +18,14 @@ public class BusinessDisciplina implements IBusinessDisciplina {
 
     @Override
     public Disciplina save(Disciplina disciplina) {
-        return this.daoDisciplina.save (disciplina);
+
+        try {
+            return this.daoDisciplina.save (disciplina);
+        }catch (PersistenceException e){
+            Mensagem.mensagemErro ("Erro! Nenhum professor foi Selecionado");
+        }finally {
+            return null;
+        }
     }
 
     @Override

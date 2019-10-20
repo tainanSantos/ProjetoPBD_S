@@ -3,6 +3,7 @@ package projeto_pbd.com.br.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 
 public class Conection {
 
@@ -10,10 +11,11 @@ public class Conection {
 
 
     public Conection(){
-        this.enf = Persistence.createEntityManagerFactory ("tainan");
+
     }
 
-    public EntityManager getEntityManager(){
+    public EntityManager getEntityManager() throws PersistenceException {
+        this.enf = Persistence.createEntityManagerFactory ("tainan");
         return this.enf.createEntityManager ();
     }
 

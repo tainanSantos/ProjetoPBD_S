@@ -20,9 +20,26 @@ public class Professor extends Pessoa  {
     private List<Telefone> telefones;
 
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "professor",
+            fetch = FetchType.EAGER
+    )
+
+    private List<Disciplina> disciplinas;
+
+
     public Professor() {
     }
 
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
 
     public String getCpf() {
         return cpf;

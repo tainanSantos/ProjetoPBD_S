@@ -3,13 +3,14 @@ package projeto_pbd.com.br.dao;
 import projeto_pbd.com.br.modell.Disciplina;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 public class DaoDisciplina implements IDaoDisciplina {
 
 
     @Override
-    public Disciplina save(Disciplina disciplina) {
+    public Disciplina save(Disciplina disciplina) throws PersistenceException {
         EntityManager em = new Conection().getEntityManager ();
 
         try {

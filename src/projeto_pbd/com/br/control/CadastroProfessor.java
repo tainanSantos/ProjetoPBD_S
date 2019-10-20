@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.FacadeProfessor;
 import projeto_pbd.com.br.façade.IFacadeProfessor;
+import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.modell.Telefone;
@@ -149,6 +150,7 @@ public class CadastroProfessor implements Initializable {
         telefone1.setNumero (telefoneDoisText.getText ());
 
         List<Telefone> telefones = new ArrayList (Arrays.asList (new Telefone[]{telefone, telefone1}));
+        List<Disciplina> disciplinas =  new ArrayList<> ();
 
         professor.setCpf (cpfText.getText ());
         professor.setDataNascimento ((Date) dataText.getUserData ());
@@ -160,6 +162,8 @@ public class CadastroProfessor implements Initializable {
         telefone.setProfessor (professor);
         telefone1.setProfessor (professor);
         professor.setTelefones (telefones);
+        professor.setDisciplinas (disciplinas);
+
 
         this.facadeProfessor.save (professor);
 

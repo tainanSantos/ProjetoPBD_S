@@ -1,8 +1,6 @@
 package projeto_pbd.com.br.modell;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Disciplina {
@@ -13,7 +11,10 @@ public class Disciplina {
     private String codigo;
     private String nome;
     private double cargaHoaria;
-//    private Professor professor;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Professor professor;
+
     private String statusAluno;
 
     public Disciplina(){
@@ -52,13 +53,13 @@ public class Disciplina {
         this.cargaHoaria = cargaHoaria;
     }
 
-//    public Professor getProfessor() {
-//        return professor;
-//    }
-//
-//    public void setProfessor(Professor professor) {
-//        this.professor = professor;
-//    }
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
 
     public String getStatusAluno() {
         return statusAluno;
