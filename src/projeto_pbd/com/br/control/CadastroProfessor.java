@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.FacadeProfessor;
 import projeto_pbd.com.br.façade.IFacadeProfessor;
@@ -16,6 +17,7 @@ import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 import projeto_pbd.com.br.util.ObjetctUtil;
 
+import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.*;
 
@@ -161,7 +163,13 @@ public class CadastroProfessor implements Initializable {
 
         this.facadeProfessor.save (professor);
 
-        Main.STAGE.close ();
+        Stage stage = null;
+        stage = Main.STAGE;
+        stage.getOnCloseRequest ().handle (
+                new javafx.stage.WindowEvent (
+                        stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
+        stage.close ();
+
         ObjetctUtil.setObject (null);
         Mensagem.mensagemSucesso (mensagem);
     }
@@ -170,7 +178,12 @@ public class CadastroProfessor implements Initializable {
     public void deletarCadastro(){
         Professor professor = (Professor) ObjetctUtil.getObject ();
         this.facadeProfessor.remove (professor.getId ());
-        Main.STAGE.close ();
+        Stage stage = null;
+        stage = Main.STAGE;
+        stage.getOnCloseRequest ().handle (
+                new javafx.stage.WindowEvent (
+                        stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
+        stage.close ();
         Mensagem.mensagemSucesso ("Removido com sucesso!");
 
     }

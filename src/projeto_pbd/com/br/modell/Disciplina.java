@@ -1,15 +1,22 @@
 package projeto_pbd.com.br.modell;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Disciplina {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     private String codigo;
     private String nome;
     private double cargaHoaria;
-    private Professor professor;
-    private boolean statusAluno;
+//    private Professor professor;
+    private String statusAluno;
 
-    private Disciplina(){
+    public Disciplina(){
 
     }
 
@@ -45,19 +52,19 @@ public class Disciplina {
         this.cargaHoaria = cargaHoaria;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
+//    public Professor getProfessor() {
+//        return professor;
+//    }
+//
+//    public void setProfessor(Professor professor) {
+//        this.professor = professor;
+//    }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    public boolean isStatusAluno() {
+    public String getStatusAluno() {
         return statusAluno;
     }
 
-    public void setStatusAluno(boolean statusAluno) {
+    public void setStatusAluno(String statusAluno) {
         this.statusAluno = statusAluno;
     }
 }

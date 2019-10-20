@@ -31,9 +31,7 @@ public class Principal implements Initializable {
     public static final String AREA_DO_PEDAGOGO = "../view/AreaPedagogo.fxml";
     public static final String CADASTRAR_USUARIO_DO_SISTEMA = "../view/CadastrarUsuarioDoSistema.fxml";
 
-    @FXML
-    private ComboBox comboBoxLogin;
-    private ArrayList arrayListLogin = new ArrayList ();
+
     @FXML
     private AnchorPane anchorPanePrincipal;
 

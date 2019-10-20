@@ -13,17 +13,17 @@ public class Curriculo {
     *       EM
     * */
 
-    private int id;
+    private Integer id;
     private ArrayList<Disciplina> disciplinas;
 
     // se ele passou ou não de ano
     private boolean statusSemester;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -33,5 +33,13 @@ public class Curriculo {
 
     public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    public boolean isStatusSemester() {
+        return statusSemester;
+    }
+
+    public void setStatusSemester(boolean statusSemester) {
+        this.statusSemester = statusSemester;
     }
 }

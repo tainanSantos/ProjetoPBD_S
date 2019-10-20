@@ -32,6 +32,11 @@ public class Main extends Application {
 	public static  Stage STAGE_PRINCIPAL = new Stage();
 
 
+	/*
+		"Não existe segredo. Apenas chegue antes, saia depois, faça mais do que te pedem e confie 100% em si mesmo"
+		- Cristiano Ronaldo
+	*/
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 

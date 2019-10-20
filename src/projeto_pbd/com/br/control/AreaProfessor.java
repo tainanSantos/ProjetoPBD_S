@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -8,13 +9,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.FacadePedagogo;
 import projeto_pbd.com.br.façade.FacadeProfessor;
 import projeto_pbd.com.br.façade.IFacadePedagogo;
 import projeto_pbd.com.br.façade.IFacadeProfessor;
 import projeto_pbd.com.br.modell.Professor;
-import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.util.ObjetctUtil;
 
 import java.io.IOException;
@@ -62,7 +63,13 @@ public class AreaProfessor implements Initializable {
 
 
     public void cadastrarNovoProfessor() throws IOException {
-        Stage stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
+        Stage stage = null;
+        stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                atualizarTabela ();
+            }});
         stage.show ();
     }
 
@@ -92,6 +99,11 @@ public class AreaProfessor implements Initializable {
                 Stage stage = null;
                 try {
                     stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
+                    stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                        @Override
+                        public void handle(WindowEvent event) {
+                            atualizarTabela ();
+                        }});
                     stage.show ();
                 } catch (IOException e) {
                     e.printStackTrace ( );
