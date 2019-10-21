@@ -1,7 +1,9 @@
 package projeto_pbd.com.br.modell;
 
-import java.util.ArrayList;
 
+import javax.persistence.*;
+
+@Entity
 public class Curriculo {
 
     /*
@@ -13,11 +15,25 @@ public class Curriculo {
     *       EM
     * */
 
+    @Id
+    @GeneratedValue
     private Integer id;
-    private ArrayList<Disciplina> disciplinas;
+    private String codigo;
+    private String nome;
+//    @ManyToOne
+//    private Aluno aluno;
 
-    // se ele passou ou não de ano
-    private boolean statusSemester;
+
+    public Curriculo() {
+    }
+
+//    public Aluno getAluno() {
+//        return aluno;
+//    }
+//
+//    public void setAluno(Aluno aluno) {
+//        this.aluno = aluno;
+//    }
 
     public Integer getId() {
         return id;
@@ -27,19 +43,21 @@ public class Curriculo {
         this.id = id;
     }
 
-    public ArrayList<Disciplina> getDisciplinas() {
-        return disciplinas;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public boolean isStatusSemester() {
-        return statusSemester;
+    public String getNome() {
+        return nome;
     }
 
-    public void setStatusSemester(boolean statusSemester) {
-        this.statusSemester = statusSemester;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+
 }

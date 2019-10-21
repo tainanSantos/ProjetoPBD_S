@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,6 +56,8 @@ public class AreaProfessor implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        carregarTable ();
+
         educandoTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> seteducandoTable(newValue));
 
@@ -69,25 +72,20 @@ public class AreaProfessor implements Initializable {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                atualizarTabela ();
+                carregarTable ();
             }});
         stage.show ();
     }
 
 
-    public void atualizarTabela(){
-            carregarTable (this.facadeProfessor.findAll ()); //professores
-    }
+
+    public void carregarTable( ){
 
 
-    public void carregarTable(List  arrayList){
-
-        List<Professor> professors = new ArrayList<> ();
-        professors.addAll (arrayList);
         nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
-        educandoTable.setItems (FXCollections.observableArrayList (professors));
+        educandoTable.setItems (FXCollections.observableArrayList (this.facadeProfessor.findAll ()));
 
     }
 
@@ -103,7 +101,7 @@ public class AreaProfessor implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent event) {
-                            atualizarTabela ();
+                            carregarTable ();
                         }});
                     stage.show ();
                 } catch (IOException e) {
@@ -113,4 +111,7 @@ public class AreaProfessor implements Initializable {
         });
     }
 
+    public void atualizarTabela() {
+        carregarTable ();
+    }
 }

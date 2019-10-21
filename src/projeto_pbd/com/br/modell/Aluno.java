@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
+//@Entity
 public class Aluno extends  Pessoa{
 
 
@@ -13,6 +14,8 @@ public class Aluno extends  Pessoa{
     private String cpf;
     private Curriculo curriculo;
 
+    public Aluno() {
+    }
 
     public String getCpf() {
         return cpf;

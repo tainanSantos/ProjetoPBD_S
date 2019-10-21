@@ -190,3 +190,4 @@ public class CadastroProfessor implements Initializable {
     }
 
 }
+

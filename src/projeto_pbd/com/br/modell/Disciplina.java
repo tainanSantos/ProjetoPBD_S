@@ -15,6 +15,9 @@ public class Disciplina {
     @ManyToOne
     private Professor professor;
 
+    @ManyToOne
+    private Curriculo curriculo;
+
     private String statusAluno;
 
     public Disciplina(){
@@ -22,7 +25,13 @@ public class Disciplina {
     }
 
 
+    public Curriculo getCurriculo() {
+        return curriculo;
+    }
 
+    public void setCurriculo(Curriculo curriculo) {
+        this.curriculo = curriculo;
+    }
 
     public Integer getId() {
         return id;

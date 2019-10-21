@@ -49,7 +49,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <TextField fx:id="professorPesquisaText" onAction="#buscarProfessor" promptText="pesquisar" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="professorPesquisaText" editable="false" onAction="#buscarProfessor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Label layoutX="20.0" layoutY="37.0" text="Cadastro Disciplina" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">

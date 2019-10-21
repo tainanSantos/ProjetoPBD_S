@@ -18,7 +18,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button blendMode="EXCLUSION" layoutX="1188.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastrarNovoProfessor" prefHeight="26.0" prefWidth="132.0" text="Novo" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
+            <Button fx:id="novoCadastroButton" blendMode="EXCLUSION" layoutX="1188.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastrarNovoProfessor" prefHeight="26.0" prefWidth="132.0" text="Novo" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
                <effect>
                   <DropShadow />
                </effect></Button>
@@ -33,7 +33,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button blendMode="EXCLUSION" layoutX="1028.0" layoutY="31.0" mnemonicParsing="false" onAction="#atualizarTabela" prefHeight="26.0" prefWidth="132.0" text="Atualizar" />
+            <Button fx:id="atualizarButton" blendMode="EXCLUSION" layoutX="1028.0" layoutY="31.0" mnemonicParsing="false" onAction="#atualizarTabela" prefHeight="26.0" prefWidth="132.0" text="Atualizar" />
             <TextField fx:id="pesquisaText" layoutX="-31.0" layoutY="31.0" prefHeight="26.0" prefWidth="532.0" promptText="pesquisar" AnchorPane.leftAnchor="0.0" />
          </children>
       </AnchorPane>

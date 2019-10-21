@@ -65,6 +65,9 @@ public class CadastroDisciplina implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        carregraTabela ();
+
         this.disciplinasTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> setCamposTableDisciplina(newValue));
 
@@ -74,8 +77,6 @@ public class CadastroDisciplina implements Initializable {
 
 
     public void setCamposTableDisciplina(Disciplina disciplina){
-
-
 
         this.codigoText.setText (disciplina.getCodigo ());
         this.disciplinaText.setText (disciplina.getNome ());

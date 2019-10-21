@@ -1,8 +1,10 @@
 package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -30,6 +32,10 @@ public class AreaPedagogo implements Initializable {
     private IFacadePedagogo facadePedagogo;
 
     @FXML
+    private Button novoCadastroButton;
+    @FXML
+    private Button atualizarButton;
+    @FXML
     private TableView<Pedagogo> educandoTable;
     @FXML
     private TableColumn nomeColum;
@@ -51,6 +57,8 @@ public class AreaPedagogo implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        carregarTable ();
+
         educandoTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> seteducandoTable(newValue));
    }
@@ -63,19 +71,15 @@ public class AreaPedagogo implements Initializable {
     }
 
 
-    public void atualizarTabela(){
-            carregarTable (this.facadePedagogo.findAll ()); //professores
-    }
 
 
-    public void carregarTable(List  arrayList){
 
-        List<Pedagogo> pedagogos = new ArrayList<> ();
-        pedagogos.addAll (arrayList);
+    public void carregarTable(){
+
         nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
-        this.educandoTable.setItems (FXCollections.observableArrayList (pedagogos));
+        this.educandoTable.setItems (FXCollections.observableArrayList (this.facadePedagogo.findAll ()));
 
     }
 
@@ -96,4 +100,7 @@ public class AreaPedagogo implements Initializable {
         });
     }
 
+    public void atualizarTabela() {
+        carregarTable ();
+    }
 }

@@ -15,7 +15,7 @@ public class DaoAluno implements IDaoAluno {
         try {
             em.getTransaction ().begin ();
 
-            if(aluno.getId () == 0){ // inserir
+            if(aluno.getId () == null){ // inserir
                 em.persist (aluno);
             }else { // atualizar
                 em.merge (aluno);
