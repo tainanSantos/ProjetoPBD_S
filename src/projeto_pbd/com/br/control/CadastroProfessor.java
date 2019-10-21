@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.FacadeProfessor;
 import projeto_pbd.com.br.façade.IFacadeProfessor;
-import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.modell.Telefone;
@@ -18,7 +17,6 @@ import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 import projeto_pbd.com.br.util.ObjetctUtil;
 
-import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.*;
 
@@ -150,7 +148,6 @@ public class CadastroProfessor implements Initializable {
         telefone1.setNumero (telefoneDoisText.getText ());
 
         List<Telefone> telefones = new ArrayList (Arrays.asList (new Telefone[]{telefone, telefone1}));
-        List<Disciplina> disciplinas =  new ArrayList<> ();
 
         professor.setCpf (cpfText.getText ());
         professor.setDataNascimento ((Date) dataText.getUserData ());
@@ -162,7 +159,6 @@ public class CadastroProfessor implements Initializable {
         telefone.setProfessor (professor);
         telefone1.setProfessor (professor);
         professor.setTelefones (telefones);
-        professor.setDisciplinas (disciplinas);
 
 
         this.facadeProfessor.save (professor);
@@ -172,9 +168,9 @@ public class CadastroProfessor implements Initializable {
         stage.getOnCloseRequest ().handle (
                 new javafx.stage.WindowEvent (
                         stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
+        ObjetctUtil.setObject (null);
         stage.close ();
 
-        ObjetctUtil.setObject (null);
         Mensagem.mensagemSucesso (mensagem);
     }
 
@@ -187,6 +183,7 @@ public class CadastroProfessor implements Initializable {
         stage.getOnCloseRequest ().handle (
                 new javafx.stage.WindowEvent (
                         stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
+        ObjetctUtil.setObject (null);
         stage.close ();
         Mensagem.mensagemSucesso ("Removido com sucesso!");
 

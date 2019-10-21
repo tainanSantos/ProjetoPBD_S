@@ -10,6 +10,7 @@ import projeto_pbd.com.br.façade.FacadeProfessor;
 import projeto_pbd.com.br.façade.IFacadeDisciplina;
 import projeto_pbd.com.br.façade.IFacadeProfessor;
 import projeto_pbd.com.br.modell.Disciplina;
+import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.net.URL;
@@ -20,6 +21,7 @@ public class CadastroDisciplina implements Initializable {
     private IFacadeProfessor facadeProfessor;
     private IFacadeDisciplina facadeDisciplina;
     private Disciplina disciplina;
+    private Professor professor;
 
     @FXML
     private TextField codigoText;
@@ -46,14 +48,10 @@ public class CadastroDisciplina implements Initializable {
     private TableColumn cargaHorariaColumm;
 
     @FXML
-    private TableColumn professorColumm;
+    private TableView<Professor> professoresCadastradosTable;
 
     @FXML
-    private ComboBox comboboxProfessoresCadastrados;
-
-    @FXML
-    private Spinner iconeAtualizar;
-
+    private TableColumn professoresCadastradosColumm;
 
 
 
@@ -61,23 +59,37 @@ public class CadastroDisciplina implements Initializable {
         this.facadeProfessor = new FacadeProfessor ();
         this.facadeDisciplina = new FacadeDisciplina ();
         this.disciplina = new Disciplina ();
+        this.professor = new Professor ();
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.disciplinasTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> setCamposTable(newValue));
+                (observable, oldValue, newValue) -> setCamposTableDisciplina(newValue));
+
+        this.professoresCadastradosTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> setCamposTableProfessor(newValue));
     }
 
 
-    public void setCamposTable(Disciplina disciplina){
+    public void setCamposTableDisciplina(Disciplina disciplina){
+
+
 
         this.codigoText.setText (disciplina.getCodigo ());
         this.disciplinaText.setText (disciplina.getNome ());
         this.cargaHorariaText.setText (String.valueOf (disciplina.getCargaHoaria ()));
-
+        if (disciplina.getProfessor () != null)
+            this.professorPesquisaText.setText (disciplina.getProfessor ().getNome ());
+        else this.professorPesquisaText.setText (null);
         setDisciplina (disciplina);
+    }
+
+    public void setCamposTableProfessor(Professor professor){
+
+        this.professorPesquisaText.setText (professor.getNome ());
+        setProfessor (professor);
     }
 
 
@@ -86,28 +98,37 @@ public class CadastroDisciplina implements Initializable {
         codigoColumm.setCellValueFactory(new PropertyValueFactory<> ("codigo"));
         disciplinaColumm.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         cargaHorariaColumm.setCellValueFactory(new PropertyValueFactory<> ("cargaHoaria"));
-//        professorColumm.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
         disciplinasTable.setItems (FXCollections.observableArrayList (this.facadeDisciplina.findAll ()));
+
+        professoresCadastradosColumm.setCellValueFactory(new PropertyValueFactory<> ("nome"));
+        professoresCadastradosTable.setItems (FXCollections.observableArrayList (this.facadeProfessor.findAll ()));
     }
 
 
     public void salvarDisciplinas() {
-        Disciplina disciplina =  new Disciplina ();
-        if (getDisciplina ()!=null)disciplina = getDisciplina ();
-        disciplina.setNome (disciplinaText.getText ());
-        disciplina.setCargaHoaria (Double.parseDouble (cargaHorariaText.getText ()));
-        disciplina.setCodigo (codigoText.getText ());
-//        disciplina.setProfessor (???)
-        this.facadeDisciplina.save (disciplina);
+        Disciplina d =  new Disciplina ();
+        String mensagem = "Salvo com Sucesso!";
+        if (getDisciplina ()!=null){
+            d = getDisciplina ();
+            if (getProfessor ()!=null) d.setProfessor (getProfessor ());
+            mensagem = "Dados Atualizados com Sucesso!";
+        }
+        d.setNome (disciplinaText.getText ());
+        d.setCargaHoaria (Double.parseDouble (cargaHorariaText.getText ()));
+        d.setCodigo (codigoText.getText ());
+        this.facadeDisciplina.save (d);
         novoCadastro ();
-
+        Mensagem.mensagemSucesso (mensagem);
     }
+
 
     public void novoCadastro(){
         this.codigoText.setText (null);
         this.disciplinaText.setText (null);
         this.cargaHorariaText.setText (null);
+        this.professorPesquisaText.setText (null);
         setDisciplina (null);
+        setProfessor (null);
         carregraTabela ();
     }
 
@@ -117,6 +138,7 @@ public class CadastroDisciplina implements Initializable {
         else Mensagem.mensagemErro ("Selecione Antes Uma Disciplina");
         novoCadastro ();
     }
+
 
     public void buscarProfessor(){
 
@@ -129,5 +151,13 @@ public class CadastroDisciplina implements Initializable {
 
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 }

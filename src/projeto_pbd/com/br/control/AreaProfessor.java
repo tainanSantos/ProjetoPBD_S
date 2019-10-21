@@ -63,6 +63,7 @@ public class AreaProfessor implements Initializable {
 
 
     public void cadastrarNovoProfessor() throws IOException {
+        ObjetctUtil.setObject (null);
         Stage stage = null;
         stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {

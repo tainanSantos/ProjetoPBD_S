@@ -12,7 +12,7 @@ public class Disciplina {
     private String nome;
     private double cargaHoaria;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Professor professor;
 
     private String statusAluno;
@@ -20,6 +20,9 @@ public class Disciplina {
     public Disciplina(){
 
     }
+
+
+
 
     public Integer getId() {
         return id;
