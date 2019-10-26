@@ -16,7 +16,6 @@ import java.util.*;
 
 public class CadastroUsuarioDoSistema implements Initializable {
 
-    private IFacadeUsuario fachadaUsuario;
 
     @FXML
     private ComboBox comboboxTipoFunacionario;
@@ -60,7 +59,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     public CadastroUsuarioDoSistema(){
 
-        this.fachadaUsuario = new FacadeUsuario ();
 
     }
 
@@ -122,7 +120,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
         // implemntar no busines  aquestão de validação de campos agora
         // não permitir redudancia de dados como cpfs e emails iguais
         // mudar a data d.o tipo Strig para o tipo date
-        this.fachadaUsuario.save (usuario);
+        Facade.getInstance ().saveUsuario (usuario);
 
     }
 

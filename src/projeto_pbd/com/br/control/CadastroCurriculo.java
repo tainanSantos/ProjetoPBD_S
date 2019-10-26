@@ -2,33 +2,20 @@ package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.business.BusinessCurriculo;
-import projeto_pbd.com.br.business.IBusinessCurriculo;
-import projeto_pbd.com.br.business.IBusinessDisciplina;
-import projeto_pbd.com.br.façade.FacadeCurriculo;
-import projeto_pbd.com.br.façade.FacadeDisciplina;
-import projeto_pbd.com.br.façade.IFacadeCurriculo;
-import projeto_pbd.com.br.façade.IFacadeDisciplina;
+import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
 import projeto_pbd.com.br.modell.Disciplina;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class CadastroCurriculo implements Initializable {
+public class CadastroCurriculo  {
 
-
-    private IFacadeDisciplina facadeDisciplina;
-    private IFacadeCurriculo facadeCurriculo;
     private Disciplina disciplina;
     private Curriculo curriculo;
 
@@ -58,18 +45,20 @@ public class CadastroCurriculo implements Initializable {
     private TableColumn deisciplinasCadastradasColumm;
 
 
+
     public CadastroCurriculo() {
 
-       this.facadeCurriculo = new FacadeCurriculo ();
-       this.facadeDisciplina = new FacadeDisciplina ();
        this.disciplina = new Disciplina ();
        this.curriculo = new Curriculo ();
 
     }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+
+    // se der erro foi aqui que eu modifiquei
+    // so implmentar a Interface Initializabel novamente e sobreescrever o método
+    @FXML
+    public void initialize() {
 
         carregarTabelas ();
 
@@ -102,19 +91,17 @@ public class CadastroCurriculo implements Initializable {
 
     public void carregarTabelas(){
         deisciplinasCadastradasColumm.setCellValueFactory(new PropertyValueFactory<> ("nome"));
-        disciplinasTable.setItems (FXCollections.observableArrayList (this.facadeDisciplina.findAll ()));
+        disciplinasTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllDisciplina ()));
 
         codigoCurriculoColumm.setCellValueFactory(new PropertyValueFactory<> ("codigo"));
         nomeCurriculoColumm.setCellValueFactory(new PropertyValueFactory<> ("nome"));
-        curriculoTable.setItems (FXCollections.observableArrayList (this.facadeCurriculo.findAll ()));
+        curriculoTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllCurriculo ()));
     }
 
 
     @FXML
     void apagarCurriculo() {
-        if (getCurriculo ()!=null) this.facadeCurriculo.remove (getDisciplina ().getCurriculo ().getId ());
         carregarTabelas ();
-
     }
 
     @FXML
@@ -128,8 +115,8 @@ public class CadastroCurriculo implements Initializable {
         }
         curriculo_novo.setCodigo (codigoText.getText ());
         curriculo_novo.setNome (nomeCurriculoText.getText ());
-        this.facadeCurriculo.save (curriculo_novo);
-        this.facadeDisciplina.save (getDisciplina ());
+        Facade.getInstance ().saveCurriculo (curriculo_novo);
+        Facade.getInstance ().saveDisciplina (getDisciplina ());
         novoCurriculo ();
     }
 

@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import projeto_pbd.com.br.façade.FacadeAluno;
-import projeto_pbd.com.br.façade.IFacadeAluno;
 import projeto_pbd.com.br.modell.Aluno;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
@@ -21,7 +19,6 @@ import java.util.ResourceBundle;
 
 public class CadastroAluno implements Initializable {
 
-    private IFacadeAluno facadeAluno;
     private Aluno aluno;
 
     @FXML
@@ -57,7 +54,6 @@ public class CadastroAluno implements Initializable {
 
 
     public CadastroAluno() {
-        this.facadeAluno = new FacadeAluno ();
         aluno = new Aluno ();
 
     }

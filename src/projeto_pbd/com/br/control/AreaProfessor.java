@@ -1,7 +1,6 @@
 package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,10 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.façade.FacadePedagogo;
-import projeto_pbd.com.br.façade.FacadeProfessor;
-import projeto_pbd.com.br.façade.IFacadePedagogo;
-import projeto_pbd.com.br.façade.IFacadeProfessor;
+import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.util.ObjetctUtil;
 
@@ -27,9 +23,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AreaProfessor implements Initializable {
-
-    private IFacadeProfessor facadeProfessor;
-    private IFacadePedagogo facadePedagogo;
 
     @FXML
     private TableView<Professor> educandoTable;
@@ -44,13 +37,6 @@ public class AreaProfessor implements Initializable {
 
 
     List listEducando = new ArrayList (Arrays.asList ("Professores", "Pedagogos"));
-
-
-
-    public AreaProfessor() {
-        this.facadeProfessor = new FacadeProfessor ();
-        this.facadePedagogo = new FacadePedagogo ();
-    }
 
 
     @Override
@@ -85,7 +71,7 @@ public class AreaProfessor implements Initializable {
         nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
-        educandoTable.setItems (FXCollections.observableArrayList (this.facadeProfessor.findAll ()));
+        educandoTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllProfessor ()));
 
     }
 

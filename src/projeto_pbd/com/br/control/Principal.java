@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.control;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,9 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.msg.Mensagem;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -26,15 +27,36 @@ public class Principal implements Initializable {
     public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessor.fxml";
     public static final String HOME = "../view/Home.fxml";
     public static final String CONFIGURACOES = "../view/Configuracoes.fxml";
-    public static final String RELATORIO_DISCENTE = "../view/AreaDiscente.fxml";
+    public static final String AREA_DISCENTE = "../view/AreaDiscente.fxml";
     public static final String AREA_DO_PROFESSOR = "../view/AreaProfessor.fxml";
     public static final String AREA_DO_PEDAGOGO = "../view/AreaPedagogo.fxml";
     public static final String CADASTRAR_USUARIO_DO_SISTEMA = "../view/CadastrarUsuarioDoSistema.fxml";
 
 
     @FXML
-    private AnchorPane anchorPanePrincipal;
+    private MenuItem homeMenuItem;
+    @FXML
+    private MenuItem cacadastroCurriculoMenuItem;
+    @FXML
+    private MenuItem cadastroSisciplinaMenuItem;
+    @FXML
+    private MenuItem areaAlunoMenuItem;
+    @FXML
+    private MenuItem areaProfessorMenuItem;
+    @FXML
+    private MenuItem areaPedagogoMenuItem;
+    @FXML
+    private MenuItem configuracoeMenuItem;
 
+    @FXML
+    private MenuItem cadastroUasuarioMenuItem;
+    @FXML
+    private MenuItem areaUsuarioMenuItem;
+    @FXML
+    private MenuItem sairUsuarioMenuItem;
+
+    @FXML
+    private AnchorPane anchorPanePrincipal;
     @FXML
     private MenuButton usuarioButton;
     @FXML
@@ -49,69 +71,56 @@ public class Principal implements Initializable {
         labelArgusAcad.setTooltip (new Tooltip ("Sistema para Escola de Ensiono Funadamental e Médio"));
 
         try {
-            home ();
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
         } catch (IOException e) {
             e.printStackTrace ( );
         }
     }
 
 
-    public void cadastrarUsuarioDoSistema() throws IOException {
+    public void actionEvent(ActionEvent event) throws IOException {
+
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
-        Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
-    }
 
-    public void informacoesUsuario() throws IOException{
-        Mensagem.mensagemErro ("Não implementado, ainda!");
-    }
+        if (event.getSource () == cadastroSisciplinaMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_DISCIPLINA)));
+        }
+        if (event.getSource () == cacadastroCurriculoMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_CURRICULO)));
+        }
+        if (event.getSource () == areaAlunoMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DISCENTE)));
+        }
+        if (event.getSource () == areaProfessorMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
+        }
+        if (event.getSource () == areaPedagogoMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PEDAGOGO)));
+        }
+        if (event.getSource () == homeMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
+        }
+        if (event.getSource () == configuracoeMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
+        }
 
-    public void sairDoSistema() throws IOException{
+        //MENU BUTTON
+        if (event.getSource () == cadastroUasuarioMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
+            Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
+        }
+        if (event.getSource () == areaUsuarioMenuItem){
+            Mensagem.mensagemErro ("Não implementado, ainda!");
+        }
+        if (event.getSource () == sairUsuarioMenuItem){
             Main.stagePrincipal ().close ();
             Main.stageLogin ().show ();
+        }
+
     }
 
 
 
 
-    public void  cadastrarCurriculo() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_CURRICULO)));
-    }
-
-
-    public void cadastrarDisciplina() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_DISCIPLINA)));
-    }
-
-    public void logar() throws IOException {
-        Main.stageLogin().show();
-    }
-
-    public void configuracoesGerais() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
-    }
-
-    public void home() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
-    }
-
-    public void informacoesDiscente() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(RELATORIO_DISCENTE)));
-    }
-
-    public void informacoesProfessor() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
-    }
-
-    public  void informacoesPedagogo() throws IOException {
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
-        this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PEDAGOGO)));
-    }
 
 }

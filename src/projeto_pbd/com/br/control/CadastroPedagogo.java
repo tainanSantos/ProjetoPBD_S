@@ -7,8 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.façade.FacadePedagogo;
-import projeto_pbd.com.br.façade.IFacadePedagogo;
+import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Pedagogo;
 import projeto_pbd.com.br.modell.Telefone;
@@ -23,7 +22,6 @@ import java.util.*;
 public class CadastroPedagogo implements Initializable {
 
 
-    private IFacadePedagogo facadePedagogo;
 
     @FXML
     private TextField graduacaoText;
@@ -63,7 +61,7 @@ public class CadastroPedagogo implements Initializable {
 
 
     public CadastroPedagogo() {
-        this.facadePedagogo = new FacadePedagogo ();
+
     }
 
 
@@ -158,7 +156,7 @@ public class CadastroPedagogo implements Initializable {
         telefone1.setPedagogo (pedagogo);
         pedagogo.setTelefones (telefones);
 
-        this.facadePedagogo.save (pedagogo);
+        Facade.getInstance ().savePedagogo (pedagogo);
 
         Main.STAGE.close ();
         ObjetctUtil.setObject (null);
@@ -168,7 +166,7 @@ public class CadastroPedagogo implements Initializable {
 
     public void deletarCadastro(){
         Pedagogo pedagogo = (Pedagogo) ObjetctUtil.getObject ();
-        this.facadePedagogo.remove (pedagogo.getId ());
+        Facade.getInstance ().removePedagogo (pedagogo.getId ());
         Main.STAGE.close ();
         Mensagem.mensagemSucesso ("Removido com sucesso!");
 

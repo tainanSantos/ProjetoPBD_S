@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import projeto_pbd.com.br.façade.FacadeDisciplina;
-import projeto_pbd.com.br.façade.FacadeProfessor;
-import projeto_pbd.com.br.façade.IFacadeDisciplina;
-import projeto_pbd.com.br.façade.IFacadeProfessor;
+import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.msg.Mensagem;
@@ -18,8 +15,6 @@ import java.util.ResourceBundle;
 
 public class CadastroDisciplina implements Initializable {
 
-    private IFacadeProfessor facadeProfessor;
-    private IFacadeDisciplina facadeDisciplina;
     private Disciplina disciplina;
     private Professor professor;
 
@@ -56,8 +51,7 @@ public class CadastroDisciplina implements Initializable {
 
 
     public CadastroDisciplina() {
-        this.facadeProfessor = new FacadeProfessor ();
-        this.facadeDisciplina = new FacadeDisciplina ();
+
         this.disciplina = new Disciplina ();
         this.professor = new Professor ();
     }
@@ -99,10 +93,10 @@ public class CadastroDisciplina implements Initializable {
         codigoColumm.setCellValueFactory(new PropertyValueFactory<> ("codigo"));
         disciplinaColumm.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         cargaHorariaColumm.setCellValueFactory(new PropertyValueFactory<> ("cargaHoaria"));
-        disciplinasTable.setItems (FXCollections.observableArrayList (this.facadeDisciplina.findAll ()));
+        disciplinasTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllDisciplina ()));
 
         professoresCadastradosColumm.setCellValueFactory(new PropertyValueFactory<> ("nome"));
-        professoresCadastradosTable.setItems (FXCollections.observableArrayList (this.facadeProfessor.findAll ()));
+        professoresCadastradosTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllProfessor ()));
     }
 
 
@@ -117,7 +111,7 @@ public class CadastroDisciplina implements Initializable {
         d.setNome (disciplinaText.getText ());
         d.setCargaHoaria (Double.parseDouble (cargaHorariaText.getText ()));
         d.setCodigo (codigoText.getText ());
-        this.facadeDisciplina.save (d);
+        Facade.getInstance ().saveDisciplina (d);
         novoCadastro ();
         Mensagem.mensagemSucesso (mensagem);
     }
@@ -135,7 +129,7 @@ public class CadastroDisciplina implements Initializable {
 
 
     public void deletarDisciplina(){
-        if(getDisciplina () != null) this.facadeDisciplina.remove (getDisciplina ().getId ());
+        if(getDisciplina () != null) Facade.getInstance ().removeDisciplina (getDisciplina ().getId ());
         else Mensagem.mensagemErro ("Selecione Antes Uma Disciplina");
         novoCadastro ();
     }

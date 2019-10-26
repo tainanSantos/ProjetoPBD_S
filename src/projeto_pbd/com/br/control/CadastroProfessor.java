@@ -8,8 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.façade.FacadeProfessor;
-import projeto_pbd.com.br.façade.IFacadeProfessor;
+import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.modell.Telefone;
@@ -22,9 +21,6 @@ import java.util.*;
 
 
 public class CadastroProfessor implements Initializable {
-
-
-    private IFacadeProfessor facadeProfessor;
 
 
     @FXML
@@ -65,7 +61,6 @@ public class CadastroProfessor implements Initializable {
 
 
     public CadastroProfessor() {
-        this.facadeProfessor = new FacadeProfessor ();
     }
 
 
@@ -161,7 +156,7 @@ public class CadastroProfessor implements Initializable {
         professor.setTelefones (telefones);
 
 
-        this.facadeProfessor.save (professor);
+        Facade.getInstance ().saveProfessor (professor);
 
         Stage stage = null;
         stage = Main.STAGE;
@@ -177,7 +172,7 @@ public class CadastroProfessor implements Initializable {
 
     public void deletarCadastro(){
         Professor professor = (Professor) ObjetctUtil.getObject ();
-        this.facadeProfessor.remove (professor.getId ());
+        Facade.getInstance ().removeProfessor (professor.getId ());
         Stage stage = null;
         stage = Main.STAGE;
         stage.getOnCloseRequest ().handle (
