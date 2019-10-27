@@ -13,7 +13,7 @@ import projeto_pbd.com.br.util.ObjetctUtil;
 
 public class Main extends Application {
 
-//	alteração só pra teste 
+//	alteração só pra teste
 
 	public static  final  String LOGIN_PANE = "com/br/view/Login.fxml";
 	public static  final  String PRINCIPLA_PANE = "com/br/view/Principal.fxml";
@@ -31,6 +31,7 @@ public class Main extends Application {
 
 
 	public static  Stage STAGE = new Stage(); // usar sempre que for abrir uma nova tela
+	public static  Stage STAGE2 = new Stage(); // usar sempre que for abrir uma nova tela2
 	public static  Stage STAGE_PRINCIPAL = new Stage();
 
 
@@ -44,6 +45,10 @@ public class Main extends Application {
 
 		STAGE.initOwner (STAGE_PRINCIPAL);
 		STAGE.initModality (Modality.WINDOW_MODAL);
+
+		STAGE2.initOwner (STAGE_PRINCIPAL);
+		STAGE2.initOwner (STAGE);
+		STAGE2.initModality (Modality.WINDOW_MODAL);
 
 		stageLogin().show();
 	}
@@ -76,6 +81,15 @@ public class Main extends Application {
 				ObjetctUtil.setObject (null);
 			}});
 		return STAGE;
+	}
+	public static Stage genericaStage2(String caminho) throws IOException {
+		STAGE2.setScene(new Scene(
+				FXMLLoader.load(Main.class.getResource (caminho))));
+		STAGE2.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			public void handle(WindowEvent event) { STAGE2.close();
+				ObjetctUtil.setObject (null);
+			}});
+		return STAGE2;
 	}
 
 	public static Stage genericaStageComParametro(String caminho, Object object) throws IOException {

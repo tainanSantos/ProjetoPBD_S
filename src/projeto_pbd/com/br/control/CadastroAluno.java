@@ -6,10 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import projeto_pbd.Main;
 import projeto_pbd.com.br.modell.Aluno;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,8 +79,12 @@ public class CadastroAluno implements Initializable {
     }
 
 
-    public void  salvarAluno(){
-        // GERAR BOLETO NO ATO DE SALVAMENTO
+    public void  salvarAluno() throws IOException {
+
+
+//        ABRIR A TERCEIRA STAGE
+//        Stage stage = Main.genericaStage2 (Main.CADASTRO_NOTAS);
+//        stage.show ();
 
 
     }
