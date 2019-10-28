@@ -67,8 +67,8 @@ public class Principal implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // criar um método estático em uma class fora só para carregar as mensagens d Tooltip
-        usuarioButton.setTooltip (new Tooltip ("Usuário do Sistem"));
-        labelArgusAcad.setTooltip (new Tooltip ("Sistema para Escola de Ensiono Funadamental e Médio"));
+//        usuarioButton.setTooltip (new Tooltip ("Usuário do Sistem"));
+//        labelArgusAcad.setTooltip (new Tooltip ("Sistema para Escola de Ensiono Funadamental e Médio"));
 
         try {
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));

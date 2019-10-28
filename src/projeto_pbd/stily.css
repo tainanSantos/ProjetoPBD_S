@@ -1,12 +1,12 @@
 .button {
     -fx-background-color: #E5E5E5;
-    -fx-text-fill: #383838;
+    -fx-text-fill: white;
     -fx-text-alignment: left;
 }
 
 .button:hover {
     -fx-background-color: #E5E5E5;
-    -fx-text-fill: #000;
+    -fx-text-fill: yellow;
 }
 
 .button:pressed {
@@ -19,21 +19,6 @@
     -fx-text-fill: #364FCD;
 }
 
-.button2 {
-    -fx-background-color: #0C39FF;
-    -fx-border-color: #FFF;
-    -fx-text-fill: #FFF;
-}
-
-.button2:hover {
-    -fx-background-color: #0C3988;
-    -fx-text-fill: #FFF;
-}
-
-.button2:pressed {
-    -fx-background-color: #0C3400;
-    -fx-text-fill: #FFF;
-}
 
 
 .table-view .column-header,
@@ -116,3 +101,8 @@
 .data1.chart-pie {
     -fx-pie-color: #54AAF3;
 }
+
+
+
+
+

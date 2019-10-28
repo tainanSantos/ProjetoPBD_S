@@ -159,7 +159,7 @@ public class CadastroProfessor implements Initializable {
         Facade.getInstance ().saveProfessor (professor);
 
         Stage stage = null;
-        stage = Main.STAGE;
+        stage = Main.STAGE2;
         stage.getOnCloseRequest ().handle (
                 new javafx.stage.WindowEvent (
                         stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
@@ -174,7 +174,7 @@ public class CadastroProfessor implements Initializable {
         Professor professor = (Professor) ObjetctUtil.getObject ();
         Facade.getInstance ().removeProfessor (professor.getId ());
         Stage stage = null;
-        stage = Main.STAGE;
+        stage = Main.STAGE2;
         stage.getOnCloseRequest ().handle (
                 new javafx.stage.WindowEvent (
                         stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
@@ -183,6 +183,8 @@ public class CadastroProfessor implements Initializable {
         Mensagem.mensagemSucesso ("Removido com sucesso!");
 
     }
+
+
 
 }
 

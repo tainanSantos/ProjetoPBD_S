@@ -54,7 +54,7 @@ public class AreaProfessor implements Initializable {
     public void cadastrarNovoProfessor() throws IOException {
         ObjetctUtil.setObject (null);
         Stage stage = null;
-        stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
+        stage = Main.genericaStage2 (Main.CADASTRO_PROFESSOR);
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -83,7 +83,7 @@ public class AreaProfessor implements Initializable {
                 ObjetctUtil.setObject (professor);
                 Stage stage = null;
                 try {
-                    stage = Main.genericaStage (Main.CADASTRO_PROFESSOR);
+                    stage = Main.genericaStage2 (Main.CADASTRO_PROFESSOR);
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent event) {
@@ -97,7 +97,4 @@ public class AreaProfessor implements Initializable {
         });
     }
 
-    public void atualizarTabela() {
-        carregarTable ();
-    }
 }

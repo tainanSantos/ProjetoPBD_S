@@ -1,51 +1,91 @@
 package projeto_pbd.com.br.control;
 
-import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
+import javafx.scene.input.MouseEvent;
+import projeto_pbd.Main;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Home implements Initializable {
 
 
-//    @FXML
-//    private ComboBox comboBoxAlunosOutro;
-//    @FXML
-//    private TableView tableViewAluno;
-//    @FXML
-//    private TableView tableViewOutros;
-//
-//    private ArrayList alunoOutroList = new ArrayList();
-//
-//
-//    public void setarTabelaPesquisa() {
-//        if(comboBoxAlunosOutro.getSelectionModel().getSelectedIndex() == 0){
-//            this.tableViewOutros.setVisible(false);
-//            this.tableViewAluno.setVisible(true);
-//        }
-//        if(comboBoxAlunosOutro.getSelectionModel().getSelectedIndex() != 0){
-//            this.tableViewAluno.setVisible(false);
-//            this.tableViewOutros.setVisible(true);
-//        }
-//    }
-//
-//    public void carregarComboBox(){
-//        alunoOutroList.add("aluno");
-//        alunoOutroList.add("pedagogo");
-//        alunoOutroList.add("pessoa");
-//        alunoOutroList.add("professor");
-//        alunoOutroList.add("responsável");
-//        comboBoxAlunosOutro.setItems(FXCollections.observableArrayList(alunoOutroList));
-//    }
+    @FXML
+    private Button cadastrarProfessorButton;
+
+    @FXML
+    private Button listarProfessoresButton;
+
+    @FXML
+    private Button cadastrarNovoALunoButton;
+
+    @FXML
+    private Button listarAlunosCadastradosButton;
+
+    @FXML
+    private Button alunosOutrosButton;
+
+    @FXML
+    private Button cadastrarPedagogoButton;
+
+    @FXML
+    private Button listarPedagogosCadastradosButton;
+
+    @FXML
+    private Button novaDisciplinaButton;
+
+    @FXML
+    private Button buscarDsciplinasCadastradasButton;
+
+    @FXML
+    private Button disciplinasOutroButton;
+
+    @FXML
+    private Button cadastrarNovoCurriculoButton;
+
+    @FXML
+    private Button ListarCurriculosCadastradosButton;
+
+    @FXML
+    private Button curriculoOutrosButton;
+
+
+    public void action(ActionEvent event) throws IOException {
+
+        //Pra Professor
+        if (event.getSource() == cadastrarProfessorButton){
+            Main.genericaStage2(Main.CADASTRO_PROFESSOR).show();
+        }
+        if (event.getSource() == listarProfessoresButton){
+            Main.genericaStage(Main.AREA_PROFESSOR).show();
+        }
+
+        //Pra Pedagogo
+        if (event.getSource() == cadastrarPedagogoButton){
+            Main.genericaStage2(Main.CADASTRO_PEDAGOGO).show();
+        }
+        if (event.getSource() == listarPedagogosCadastradosButton){
+            Main.genericaStage(Main.AREA_PEDAGOGO).show();
+        }
+
+        //Pra Disciplina
+
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        carregarComboBox();
+
     }
+
+
+
 
 }

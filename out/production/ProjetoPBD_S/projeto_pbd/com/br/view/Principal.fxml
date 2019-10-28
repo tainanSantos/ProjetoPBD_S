@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane id="principal" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Principal">
    <children>
-      <Pane layoutX="753.0" layoutY="-191.0" prefHeight="306.0" prefWidth="184.0" rotate="-77.5" style="-fx-background-color: #4B0082 zz; -fx-background-radius: 20;" AnchorPane.rightAnchor="200.0" />
-      <MenuBar blendMode="EXCLUSION" layoutY="79.0" prefHeight="56.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="79.0">
+      <MenuBar blendMode="EXCLUSION" layoutX="478.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="1340.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
         <menus>
-          <Menu id="inicio" mnemonicParsing="false" text="     Inicio     ">
+          <Menu id="configuraçoes" mnemonicParsing="false" text="   Configurações  ">
             <items>
-              <MenuItem id="home" fx:id="homeMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Sobre" />
-            </items>
-          </Menu>
-          <Menu id="Curriculo/Disciplina" mnemonicParsing="false" text="  Cadastro   ">
-            <items>
-                  <MenuItem id="cadastrar  curriculo" fx:id="cacadastroCurriculoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastro Curriculo" />
-                  <MenuItem id="cadastrar  disciplina" fx:id="cadastroSisciplinaMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastro Disciplina" />
+              <MenuItem fx:id="configuracoeMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Configurações Gerais" />
             </items>
           </Menu>
             <Menu id=" area do aluno" mnemonicParsing="false" text="     Aluno     ">
@@ -31,40 +21,30 @@
                   <MenuItem fx:id="areaAlunoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Infoemações do Discente" />
                </items>
             </Menu>
-            <Menu id="area do Mestre" mnemonicParsing="false" text="   Mestre    ">
-              <items>
-                <MenuItem fx:id="areaProfessorMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Área do Professor" />
-                  <MenuItem fx:id="areaPedagogoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Área do Pedagogo" />
-              </items>
-            </Menu>
-          <Menu id="configuraçoes" mnemonicParsing="false" text="   Configurações  ">
+          <Menu id="Curriculo/Disciplina" mnemonicParsing="false" text="  Cadastro   ">
             <items>
-              <MenuItem fx:id="configuracoeMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Configurações Gerais" />
+                  <MenuItem id="cadastrar  curriculo" fx:id="cacadastroCurriculoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastro Curriculo" />
+                  <MenuItem id="cadastrar  disciplina" fx:id="cadastroSisciplinaMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastro Disciplina" />
+            </items>
+          </Menu>
+          <Menu id="inicio" mnemonicParsing="false" text="     Inicio     ">
+            <items>
+              <MenuItem id="home" fx:id="homeMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Inicio               " />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <ScrollPane layoutX="84.0" layoutY="119.0" prefHeight="581.0" prefWidth="1380.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
+      <ScrollPane layoutX="84.0" layoutY="114.0" prefHeight="486.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
          <content>
         <AnchorPane fx:id="anchorPanePrincipal" prefHeight="0.0" prefWidth="0.0" />
          </content>
       </ScrollPane>
-      <Label fx:id="labelArgusAcad" layoutX="1.0" layoutY="2.0" prefHeight="83.0" prefWidth="420.0" text="   ARGUS " AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="2.0">
-         <font>
-            <Font name="System Bold" size="62.0" />
-         </font>
-      </Label>
-      <MenuButton fx:id="usuarioButton" alignment="CENTER" blendMode="EXCLUSION" contentDisplay="CENTER" focusTraversable="false" layoutX="1155.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="23.0">
+      <MenuButton fx:id="usuarioButton" alignment="CENTER" blendMode="EXCLUSION" contentDisplay="CENTER" focusTraversable="false" layoutX="1173.0" layoutY="25.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Usuário" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="25.0">
         <items>
             <MenuItem id="cadastrarUsuario" fx:id="cadastroUasuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastrar Usuário" />
           <MenuItem id="areaUsuario" fx:id="areaUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Áarea do Usuário" />
           <MenuItem id="sair" fx:id="sairUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Sair" />
         </items>
       </MenuButton>
-      <Label layoutX="313.0" layoutY="2.0" prefHeight="83.0" prefWidth="124.0" text="- acad" AnchorPane.leftAnchor="313.0" AnchorPane.topAnchor="2.0">
-         <font>
-            <Font name="System Bold" size="36.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

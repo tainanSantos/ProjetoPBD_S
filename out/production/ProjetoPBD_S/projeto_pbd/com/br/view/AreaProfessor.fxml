@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaProfessor">
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaProfessor">
    <children>
       <AnchorPane layoutX="140.0" layoutY="25.0" prefHeight="505.0" prefWidth="1320.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -32,7 +32,6 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button blendMode="EXCLUSION" layoutX="1028.0" layoutY="31.0" mnemonicParsing="false" onAction="#atualizarTabela" prefHeight="26.0" prefWidth="132.0" text="Atualizar" />
             <TextField fx:id="pesquisaText" layoutX="-31.0" layoutY="31.0" prefHeight="26.0" prefWidth="532.0" promptText="pesquisar" AnchorPane.leftAnchor="0.0" />
          </children>
       </AnchorPane>

@@ -158,7 +158,7 @@ public class CadastroPedagogo implements Initializable {
 
         Facade.getInstance ().savePedagogo (pedagogo);
 
-        Main.STAGE.close ();
+        Main.STAGE2.close ();
         ObjetctUtil.setObject (null);
         Mensagem.mensagemSucesso (mensagem);
     }
@@ -167,7 +167,7 @@ public class CadastroPedagogo implements Initializable {
     public void deletarCadastro(){
         Pedagogo pedagogo = (Pedagogo) ObjetctUtil.getObject ();
         Facade.getInstance ().removePedagogo (pedagogo.getId ());
-        Main.STAGE.close ();
+        Main.STAGE2.close ();
         Mensagem.mensagemSucesso ("Removido com sucesso!");
 
     }

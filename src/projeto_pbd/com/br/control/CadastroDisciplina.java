@@ -20,31 +20,22 @@ public class CadastroDisciplina implements Initializable {
 
     @FXML
     private TextField codigoText;
-
     @FXML
     private TextField disciplinaText;
-
     @FXML
     private TextField cargaHorariaText;
-
     @FXML
     private TextField professorPesquisaText;
-
     @FXML
     private TableView<Disciplina> disciplinasTable;
-
     @FXML
     private TableColumn codigoColumm;
-
     @FXML
     private TableColumn disciplinaColumm;
-
     @FXML
     private TableColumn cargaHorariaColumm;
-
     @FXML
     private TableView<Professor> professoresCadastradosTable;
-
     @FXML
     private TableColumn professoresCadastradosColumm;
 
