@@ -67,6 +67,13 @@ public class CadastroProfessor implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
 
         if (ObjetctUtil.getObject () != null){

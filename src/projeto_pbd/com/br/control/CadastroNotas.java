@@ -33,6 +33,13 @@ public class CadastroNotas {
 
     public void adicionarNota() throws IOException {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
         // fazer antes a validação dos campos
         Mensagem.mensagemSucesso ("Nota Cadastrada Com Sucesso!");
         Stage stage =  Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES);

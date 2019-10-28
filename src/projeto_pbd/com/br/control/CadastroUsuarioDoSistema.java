@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.*;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
@@ -65,6 +66,13 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
 
         this.comboboxTipoFunacionario.setItems (FXCollections.observableArrayList (this.listTipoFuncionario));
         this.comboboxUF.setItems (FXCollections.observableArrayList (this.listUfs));

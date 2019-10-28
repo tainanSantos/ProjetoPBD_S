@@ -83,6 +83,13 @@ public class Home implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
     }
 
 

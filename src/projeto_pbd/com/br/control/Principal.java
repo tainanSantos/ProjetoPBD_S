@@ -42,10 +42,6 @@ public class Principal implements Initializable {
     @FXML
     private MenuItem areaAlunoMenuItem;
     @FXML
-    private MenuItem areaProfessorMenuItem;
-    @FXML
-    private MenuItem areaPedagogoMenuItem;
-    @FXML
     private MenuItem configuracoeMenuItem;
 
     @FXML
@@ -65,6 +61,13 @@ public class Principal implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
 
         // criar um método estático em uma class fora só para carregar as mensagens d Tooltip
 //        usuarioButton.setTooltip (new Tooltip ("Usuário do Sistem"));
@@ -90,12 +93,6 @@ public class Principal implements Initializable {
         }
         if (event.getSource () == areaAlunoMenuItem){
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DISCENTE)));
-        }
-        if (event.getSource () == areaProfessorMenuItem){
-            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
-        }
-        if (event.getSource () == areaPedagogoMenuItem){
-            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PEDAGOGO)));
         }
         if (event.getSource () == homeMenuItem){
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));

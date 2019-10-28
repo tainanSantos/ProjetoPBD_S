@@ -1,6 +1,7 @@
 package projeto_pbd;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -102,6 +103,33 @@ public class Main extends Application {
 		return STAGE;
 	}
 
+
+	//______________________________________________________
+	//TRANSIÇÃO ENTRE TELAS
+
+	public static void changeScreen(String scr, Object userData){
+		notifyAllListeners("tela2.fxml", userData);
+	}
+
+	public static void changeScreen(String scr){
+		changeScreen(scr, null);
+	}
+
+
+	private static ArrayList<OnchangeSceneen> listners = new ArrayList<>();
+
+	public static  interface OnchangeSceneen{
+		void onScreenchanged(String newScene, Object userData );
+	}
+
+	public static void addOnChangeScreenListener(OnchangeSceneen newListener){
+		listners.add(newListener);
+	}
+
+	private static  void notifyAllListeners(String newScereen, Object userData){
+		for(OnchangeSceneen l: listners)
+			l.onScreenchanged(newScereen, userData);
+	}
 
 	public static void main(String[] args) {
 		launch(args);

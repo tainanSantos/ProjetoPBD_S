@@ -1,13 +1,16 @@
 package projeto_pbd.com.br.control;
 
+import javafx.fxml.Initializable;
 import javafx.scene.control.Dialog;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import projeto_pbd.Main;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AreaDiscente {
+public class AreaDiscente implements Initializable {
 
     public void infromacoesDiscente() throws IOException {
 
@@ -27,4 +30,14 @@ public class AreaDiscente {
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
+    }
 }

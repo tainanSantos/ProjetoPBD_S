@@ -42,6 +42,13 @@ public class AreaProfessor implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
         carregarTable ();
 
         educandoTable.getSelectionModel().selectedItemProperty().addListener(

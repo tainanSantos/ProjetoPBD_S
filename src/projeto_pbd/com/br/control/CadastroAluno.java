@@ -64,6 +64,14 @@ public class CadastroAluno implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
+
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
 
         // cpf só será obrigatório de o aluno também for responsável

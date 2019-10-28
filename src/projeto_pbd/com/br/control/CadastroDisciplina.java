@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.modell.Professor;
@@ -50,6 +51,13 @@ public class CadastroDisciplina implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
 
         carregraTabela ();
 

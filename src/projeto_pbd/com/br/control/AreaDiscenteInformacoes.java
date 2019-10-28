@@ -21,6 +21,12 @@ public class AreaDiscenteInformacoes {
     }
 
     public void gerarHostoricoPDF(){
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
         /*
             pegar os dados e gerar o histórico referete a isto
         */

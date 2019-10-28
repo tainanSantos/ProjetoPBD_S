@@ -39,45 +39,26 @@ public class AreaPedagogo implements Initializable {
     private TableColumn naturalidadeColum;
     @FXML
     private TextField pesquisaText;
-
-
-
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
+
+
         carregarTable ();
 
-        educandoTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> seteducandoTable(newValue));
-   }
-
-
-
-    public void cadastrarNovoProfessor() throws IOException {
-        Stage stage = Main.genericaStage2(Main.CADASTRO_PEDAGOGO);
-        stage.show ();
-    }
-
-
-
-
-
-    public void carregarTable(){
-
-        nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
-        graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
-        naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
-        this.educandoTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllPedagogo ()));
-
-    }
-
-
-    public void seteducandoTable(Pedagogo pedagogo){
-
+        //setar o objeto selecionado na tabela
         this.educandoTable.setOnMouseClicked(event -> {
             if(event.getClickCount() == 2) {
-                ObjetctUtil.setObject (pedagogo);
+                ObjetctUtil.setObject (this.educandoTable.getSelectionModel().getSelectedItem());
                 Stage stage = null;
                 try {
                     stage = Main.genericaStage2(Main.CADASTRO_PEDAGOGO);
@@ -93,5 +74,22 @@ public class AreaPedagogo implements Initializable {
                 }
             }
         });
+   }
+
+
+    public void cadastrarNovoProfessor() throws IOException {
+        Stage stage = Main.genericaStage2(Main.CADASTRO_PEDAGOGO);
+        stage.show ();
     }
+
+
+    public void carregarTable(){
+
+        nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
+        graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
+        naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
+        this.educandoTable.getItems().setAll(Facade.getInstance ().findAllPedagogo ());
+    }
+
+
 }

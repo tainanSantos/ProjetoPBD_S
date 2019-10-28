@@ -60,6 +60,13 @@ public class CadastroCurriculo  {
     @FXML
     public void initialize() {
 
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+            @Override
+            public void onScreenchanged(String newScene, Object userData) {
+
+            }
+        });
+
         carregarTabelas ();
 
         this.disciplinasTable.getSelectionModel().selectedItemProperty().addListener(
