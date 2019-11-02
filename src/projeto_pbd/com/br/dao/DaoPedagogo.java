@@ -18,8 +18,10 @@ public class DaoPedagogo implements IDaoPedagogo {
             em.getTransaction ().begin ();
 
             if(pedagogo.getId () == null){ // inserir
+                em.persist(pedagogo.getEndereco());
                 em.persist (pedagogo);
             }else { // atualizar
+                em.merge(pedagogo.getEndereco());
                 em.merge (pedagogo);
             }
             em.getTransaction ( ).commit ();  // comando de salvar

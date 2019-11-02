@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import projeto_pbd.com.br.util.ObjetctUtil;
 
 public class Main extends Application {
 
@@ -81,7 +80,6 @@ public class Main extends Application {
 				FXMLLoader.load(Main.class.getResource (caminho))));
 		STAGE.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent event) { STAGE.close();
-				ObjetctUtil.setObject (null);
 			}});
 		return STAGE;
 	}
@@ -90,7 +88,6 @@ public class Main extends Application {
 				FXMLLoader.load(Main.class.getResource (caminho))));
 		STAGE2.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent event) { STAGE2.close();
-				ObjetctUtil.setObject (null);
 			}});
 		return STAGE2;
 	}
@@ -108,7 +105,7 @@ public class Main extends Application {
 	//TRANSIÇÃO ENTRE TELAS
 
 	public static void changeScreen(String scr, Object userData){
-		notifyAllListeners("tela2.fxml", userData);
+		notifyAllListeners(scr, userData);
 	}
 
 	public static void changeScreen(String scr){

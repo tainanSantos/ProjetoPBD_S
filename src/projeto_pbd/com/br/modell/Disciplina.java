@@ -7,31 +7,20 @@ public class Disciplina {
 
     @Id
     @GeneratedValue
-    private Integer id;
-    private String codigo;
+    private Integer id; // vai ser o código
     private String nome;
     private double cargaHoaria;
 
     @ManyToOne
-    private Professor professor;
+    private Turma turma;
 
     @ManyToOne
     private Curriculo curriculo;
-
-    private String statusAluno;
 
     public Disciplina(){
 
     }
 
-
-    public Curriculo getCurriculo() {
-        return curriculo;
-    }
-
-    public void setCurriculo(Curriculo curriculo) {
-        this.curriculo = curriculo;
-    }
 
     public Integer getId() {
         return id;
@@ -39,14 +28,6 @@ public class Disciplina {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
     public String getNome() {
@@ -65,19 +46,19 @@ public class Disciplina {
         this.cargaHoaria = cargaHoaria;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public Turma getTurma() {
+        return turma;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
-    public String getStatusAluno() {
-        return statusAluno;
+    public Curriculo getCurriculo() {
+        return curriculo;
     }
 
-    public void setStatusAluno(String statusAluno) {
-        this.statusAluno = statusAluno;
+    public void setCurriculo(Curriculo curriculo) {
+        this.curriculo = curriculo;
     }
 }

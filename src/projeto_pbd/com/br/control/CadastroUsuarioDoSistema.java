@@ -110,25 +110,23 @@ public class CadastroUsuarioDoSistema implements Initializable {
         endereco.setNumero (numeroLogragouroFuncionario.getText ());
         endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
 
-
         Telefone telefone1 = new Telefone ();
         telefone1.setNumero (telefoneUmFuncionario.getText ());
         Telefone telefone2 = new Telefone ();
         telefone2.setNumero (telefoneDoisFuncionario.getText ());
 
-        List<Telefone> telefones = new ArrayList<> ();
-        telefones.add (telefone1);
-        telefones.add (telefone2);
-
         usuario.setEndereco (endereco);
-        usuario.setTelefones (telefones);
-        telefone1.setUsuario (usuario);
-        telefone2.setUsuario (usuario);
 
         // implemntar no busines  aquestão de validação de campos agora
         // não permitir redudancia de dados como cpfs e emails iguais
         // mudar a data d.o tipo Strig para o tipo date
-        Facade.getInstance ().saveUsuario (usuario);
+
+        usuario = Facade.getInstance ().saveUsuario (usuario);
+        telefone1.setPessoa (usuario);
+        telefone2.setPessoa (usuario);
+        Facade.getInstance().saveTelefone(telefone1);
+        Facade.getInstance().saveTelefone(telefone2);
+
 
     }
 

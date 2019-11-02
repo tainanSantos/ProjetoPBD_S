@@ -16,8 +16,10 @@ public class DaoUsuario implements IDaoUsuario {
             em.getTransaction ().begin ();
 
             if(usuario.getId () == null){ // inserir
+                em.persist(usuario.getEndereco());
                 em.persist (usuario);
             }else { // atualizar
+                em.merge(usuario.getEndereco());
                 em.merge (usuario);
             }
             em.getTransaction ( ).commit ();  // comando de salvar

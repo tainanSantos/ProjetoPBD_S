@@ -160,7 +160,7 @@
                   <ComboBox fx:id="comboboxUf" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button blendMode="EXCLUSION" layoutX="1025.0" layoutY="420.0" mnemonicParsing="false" onAction="#salvarCadastro" prefHeight="26.0" prefWidth="153.0" text="Salvar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="salvarButton" blendMode="EXCLUSION" layoutX="1025.0" layoutY="420.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="153.0" text="Salvar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <Label layoutX="579.0" layoutY="137.0" text="Especificações do cadastro" AnchorPane.leftAnchor="580.0">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -193,7 +193,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="apagarButton" blendMode="EXCLUSION" layoutX="592.0" layoutY="368.0" mnemonicParsing="false" onAction="#deletarCadastro" prefHeight="26.0" prefWidth="153.0" text="Apagar" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="180.0" />
+            <Button fx:id="apagarButton" blendMode="EXCLUSION" layoutX="592.0" layoutY="368.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="153.0" text="Apagar" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="180.0" />
          </children>
       </AnchorPane>
    </children>

@@ -9,19 +9,12 @@ public class Endereco {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column
     private String logradouro;
-    @Column
     private String numero;
-    @Column
     private String complemento;
-    @Column
     private String bairro;
-    @Column
     private String cidade;
-    @Column
     private String uf;
-    @Column
     private String cep;
 
 

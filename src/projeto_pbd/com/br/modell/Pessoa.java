@@ -1,29 +1,31 @@
 package projeto_pbd.com.br.modell;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Date;
 
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa {
 
     @Id
-    @GeneratedValue(generator = "generic_id")
+    @GeneratedValue(generator = "inc")
+    @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
-    
-    private String nome;
+
+
+
+    @OneToOne
+    private Endereco endereco;
 
     @Temporal (TemporalType.DATE)
     private Date dataNascimento; // TALVEZ DE ERRO AQUI
 
     private String naturalidade;
-
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    private Endereco endereco;
+    private String nome;
 
 
     public Pessoa() {

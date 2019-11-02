@@ -1,28 +1,22 @@
 package projeto_pbd.com.br.modell;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
-//@Entity
+@Entity
+@PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Aluno extends  Pessoa{
 
-
     // CPF obrigatorio se o aluno for responsável financeiro
-    private String cpf;
+
+    @ManyToOne
     private Curriculo curriculo;
+    @ManyToOne
+    private Turma turma;
+    @ManyToOne
+    private Responsavel responsavel;
 
     public Aluno() {
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public Curriculo getCurriculo() {
@@ -31,5 +25,21 @@ public class Aluno extends  Pessoa{
 
     public void setCurriculo(Curriculo curriculo) {
         this.curriculo = curriculo;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
+
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
     }
 }

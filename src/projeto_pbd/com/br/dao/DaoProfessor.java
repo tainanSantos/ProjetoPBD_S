@@ -17,8 +17,10 @@ public class DaoProfessor implements IDaoProfessor{
             em.getTransaction ().begin ();
 
             if(professor.getId () == null){ // inserir
+                em.persist(professor.getEndereco());
                 em.persist (professor);
             }else { // atualizar
+                em.merge(professor.getEndereco());
                 em.merge (professor);
             }
             em.getTransaction ( ).commit ();  // comando de salvar

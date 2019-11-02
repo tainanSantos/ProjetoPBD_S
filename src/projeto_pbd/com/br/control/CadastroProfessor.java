@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +15,6 @@ import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
-import projeto_pbd.com.br.util.ObjetctUtil;
 
 import java.net.URL;
 import java.util.*;
@@ -54,32 +54,34 @@ public class CadastroProfessor implements Initializable {
     @FXML
     private Button apagarButton;
 
+    @FXML
+    private Button salvarButton;
+
+
+
+
 
     private List listUfsProf = new ArrayList (Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
-
-    public CadastroProfessor() {
-    }
-
+    private Professor professor = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-
+                if (userData != null && newScene.equalsIgnoreCase("AreaProfessor.fxml_atualzar")){
+                    apagarButton.setVisible (true);
+                    professor = (Professor) userData;
+                    carregarObjetoSelecioando (professor);
+                }
             }
         });
 
-        this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
 
-        if (ObjetctUtil.getObject () != null){
-            apagarButton.setVisible (true);
-           carregarObjetoSelecioando ();
-        }
+        this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
         MaskFieldUtil.dateField (this.dataText);
         MaskFieldUtil.cpfField (this.cpfText);
         MaskFieldUtil.cepField (this.cepText);
@@ -89,10 +91,7 @@ public class CadastroProfessor implements Initializable {
 
 
 
-    public void carregarObjetoSelecioando(){
-
-        Professor professor = null;
-        professor = (Professor) ObjetctUtil.getObject ();
+    public void carregarObjetoSelecioando(Professor professor){
 
         logradouroText.setText (professor.getEndereco ().getLogradouro ());
         numeroText.setText (professor.getEndereco ().getNumero ());
@@ -103,8 +102,8 @@ public class CadastroProfessor implements Initializable {
 
         comboboxUf.getSelectionModel().select(professor.getEndereco ().getUf ());
 
-        telefoneUmText.setText (professor.getTelefones ().get (0).getNumero ());
-        telefoneDoisText.setText (professor.getTelefones ().get (1).getNumero ());
+//        telefoneUmText.setText (professor.getTelefones ().get (0).getNumero ());
+//        telefoneDoisText.setText (professor.getTelefones ().get (1).getNumero ());
 
         nomeText.setText (professor.getNome ());
         dataText.setText (String.valueOf (professor.getDataNascimento ()));
@@ -115,83 +114,76 @@ public class CadastroProfessor implements Initializable {
     }
 
 
+    @FXML
+    void action(ActionEvent event) {
 
-    public void salvarCadastro() {
-        Professor professor = new Professor ();
-        Endereco endereco = new Endereco ();
-        Telefone telefone = new Telefone ();
-        Telefone telefone1 = new Telefone ();
+        //SALVA E ATUALIZAR PROFESSOR
+        if (event.getSource() == salvarButton){
+            Professor prof = new Professor ();
+            Endereco endereco = new Endereco ();
+            Telefone telefone = new Telefone ();
+            Telefone telefone1 = new Telefone ();
 
-        String mensagem = "Salvo com Sucesso!";
+            String mensagem = "Salvo com Sucesso!";
+
+            if (professor != null){
+                prof = professor;
+                mensagem = "Atualizado com Sucesso!";
+                endereco = prof.getEndereco ();
+//                telefone = prof.getTelefones ().get (0);
+//                telefone1 = prof.getTelefones ().get (1);
+            }
+
+            endereco.setLogradouro (logradouroText.getText ());
+            endereco.setNumero (numeroText.getText ());
+            endereco.setComplemento (complementoText.getText ());
+            endereco.setBairro (bairroText.getText ());
+            endereco.setCidade (cidadeText.getText ());
+            endereco.setCep (cepText.getText ());
+            endereco.setUf (comboboxUf.valueProperty ().get ().toString ());
+
+            telefone.setNumero (telefoneUmText.getText ());
+            telefone1.setNumero (telefoneDoisText.getText ());
+
+            prof.setCpf (cpfText.getText ());
+            prof.setDataNascimento ((Date) dataText.getUserData ());
+            prof.setNaturalidade (naturalidadeText.getText ());
+            prof.setNome (nomeText.getText ());
+            prof.setGraduacao (graduacaoText.getText ());
+
+            prof.setEndereco (endereco);
 
 
-        if (ObjetctUtil.getObject () != null){
-
-            mensagem = "Atualizado com Sucesso!";
-            professor = (Professor) ObjetctUtil.getObject ();
-
-            System.out.println (professor.getId ());
-            endereco = professor.getEndereco ();
-            telefone = professor.getTelefones ().get (0);
-            telefone1 = professor.getTelefones ().get (1);
-
+            //Salvando ou atualizando
+            Facade.getInstance ().saveProfessor (prof);
+            telefone.setPessoa (prof);
+            telefone1.setPessoa (prof);
+            Facade.getInstance().saveTelefone(telefone);
+            Facade.getInstance().saveTelefone(telefone1);
+            Mensagem.mensagemSucesso (mensagem);
         }
 
-        endereco.setLogradouro (logradouroText.getText ());
-        endereco.setNumero (numeroText.getText ());
-        endereco.setComplemento (complementoText.getText ());
-        endereco.setBairro (bairroText.getText ());
-        endereco.setCidade (cidadeText.getText ());
-        endereco.setCep (cepText.getText ());
-        endereco.setUf (comboboxUf.valueProperty ().get ().toString ());
+        //REMOVER PROFESSOR
+        if (event.getSource() == apagarButton){
+            Facade.getInstance ().removeProfessor (professor.getId ());
+            Mensagem.mensagemSucesso ("Removido com sucesso!");
+        }
+
+        // campos informados errados não posso fechar a tela
+        fecharTela();
+
+    }
 
 
-        telefone.setNumero (telefoneUmText.getText ());
-        telefone1.setNumero (telefoneDoisText.getText ());
-
-        List<Telefone> telefones = new ArrayList (Arrays.asList (new Telefone[]{telefone, telefone1}));
-
-        professor.setCpf (cpfText.getText ());
-        professor.setDataNascimento ((Date) dataText.getUserData ());
-        professor.setNaturalidade (naturalidadeText.getText ());
-        professor.setNome (nomeText.getText ());
-        professor.setGraduacao (graduacaoText.getText ());
-
-        professor.setEndereco (endereco);
-        telefone.setProfessor (professor);
-        telefone1.setProfessor (professor);
-        professor.setTelefones (telefones);
-
-
-        Facade.getInstance ().saveProfessor (professor);
-
+    public void fecharTela(){
         Stage stage = null;
         stage = Main.STAGE2;
         stage.getOnCloseRequest ().handle (
                 new javafx.stage.WindowEvent (
                         stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
-        ObjetctUtil.setObject (null);
         stage.close ();
 
-        Mensagem.mensagemSucesso (mensagem);
     }
-
-
-    public void deletarCadastro(){
-        Professor professor = (Professor) ObjetctUtil.getObject ();
-        Facade.getInstance ().removeProfessor (professor.getId ());
-        Stage stage = null;
-        stage = Main.STAGE2;
-        stage.getOnCloseRequest ().handle (
-                new javafx.stage.WindowEvent (
-                        stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
-        ObjetctUtil.setObject (null);
-        stage.close ();
-        Mensagem.mensagemSucesso ("Removido com sucesso!");
-
-    }
-
-
 
 }
 

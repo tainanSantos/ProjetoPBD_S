@@ -22,6 +22,7 @@ public class Facade implements IFacade {
     private IBusinessPedagogo businessPedagogo;
     private IBusinessProfessor businessProfessor;
     private IBusinessUsuario businessUsuario;
+    private IBusinessTelefone businessTelefone;
 
 
     private Facade() {
@@ -31,6 +32,7 @@ public class Facade implements IFacade {
         this.businessProfessor = new BusinessProfessor ();
         this.businessPedagogo = new BusinessPedagogo ();
         this.businessUsuario = new BusinessUsuario ();
+        this.businessTelefone = new BusinessTelefone();
 
     }
 
@@ -168,5 +170,32 @@ public class Facade implements IFacade {
     @Override
     public Usuario removeUsuario(int id) {
         return this.businessUsuario.remove (id);
+    }
+
+
+    //TELEFONE
+    @Override
+    public Telefone saveTelefone(Telefone telefone) {
+        return this.businessTelefone.save(telefone);
+    }
+
+    @Override
+    public Telefone findByIdTelefone(int id) {
+        return this.businessTelefone.findById(id);
+    }
+
+    @Override
+    public List<Telefone> findAllTelefone() {
+        return this.businessTelefone.findAll();
+    }
+
+    @Override
+    public List<Telefone> findAllIdTelefone(int idPessoa) {
+        return this.businessTelefone.findAllId(idPessoa);
+    }
+
+    @Override
+    public Telefone removeTelefone(int id) {
+        return this.businessTelefone.remove(id);
     }
 }

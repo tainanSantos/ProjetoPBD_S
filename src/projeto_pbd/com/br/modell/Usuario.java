@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Entity
-@SequenceGenerator(name = "generic_id")
+@PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Usuario extends Pessoa {
 
 
@@ -21,17 +21,8 @@ public class Usuario extends Pessoa {
     private String tipoDeAcesso;
     private String cpf;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            mappedBy = "usuario",
-            fetch = FetchType.EAGER
-    )
-    private List<Telefone> telefones;
-
-
     public Usuario() {
     }
-
 
 
     public String getEmail() {
@@ -66,11 +57,4 @@ public class Usuario extends Pessoa {
         this.cpf = cpf;
     }
 
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
 }

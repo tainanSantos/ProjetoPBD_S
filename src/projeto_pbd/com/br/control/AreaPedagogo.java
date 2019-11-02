@@ -1,6 +1,5 @@
 package projeto_pbd.com.br.control;
 
-import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +13,6 @@ import javafx.stage.WindowEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Pedagogo;
-import projeto_pbd.com.br.util.ObjetctUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,14 +49,11 @@ public class AreaPedagogo implements Initializable {
             }
         });
 
-
-
         carregarTable ();
 
-        //setar o objeto selecionado na tabela
         this.educandoTable.setOnMouseClicked(event -> {
             if(event.getClickCount() == 2) {
-                ObjetctUtil.setObject (this.educandoTable.getSelectionModel().getSelectedItem());
+
                 Stage stage = null;
                 try {
                     stage = Main.genericaStage2(Main.CADASTRO_PEDAGOGO);
@@ -69,6 +64,7 @@ public class AreaPedagogo implements Initializable {
                         }
                     });
                     stage.show ();
+                    Main.changeScreen("AreaPedagogo_Atualzar",educandoTable.getSelectionModel().getSelectedItem());
                 } catch (IOException e) {
                     e.printStackTrace ( );
                 }
@@ -77,9 +73,18 @@ public class AreaPedagogo implements Initializable {
    }
 
 
-    public void cadastrarNovoProfessor() throws IOException {
+    public void cadastrarNovoPedagogo() throws IOException {
         Stage stage = Main.genericaStage2(Main.CADASTRO_PEDAGOGO);
+
+        //para atualizar após a tela ser fechada
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                carregarTable ();
+            }});
         stage.show ();
+        //para passar os campos para a tela
+        Main.changeScreen("AreaPedagogo_NovoCadastro");
     }
 
 

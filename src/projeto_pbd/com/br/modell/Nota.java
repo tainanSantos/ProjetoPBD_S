@@ -1,9 +1,22 @@
 package projeto_pbd.com.br.modell;
 
+import org.hibernate.annotations.ManyToAny;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Nota {
 
+    @Id
+    @GeneratedValue
     private Integer id;
+
+    @ManyToOne
+    private Aluno aluno;
+
     private float primeiraVa;
     private float segundaVa;
     private float terceiraVa;
@@ -20,12 +33,20 @@ public class Nota {
     }
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     public float getPrimeiraVa() {
@@ -50,6 +71,14 @@ public class Nota {
 
     public void setTerceiraVa(float terceiraVa) {
         this.terceiraVa = terceiraVa;
+    }
+
+    public float getQuartaVa() {
+        return quartaVa;
+    }
+
+    public void setQuartaVa(float quartaVa) {
+        this.quartaVa = quartaVa;
     }
 
     public float getFinalVa() {

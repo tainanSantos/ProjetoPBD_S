@@ -71,12 +71,12 @@ public class CadastroDisciplina implements Initializable {
 
     public void setCamposTableDisciplina(Disciplina disciplina){
 
-        this.codigoText.setText (disciplina.getCodigo ());
+//        this.codigoText.setText (disciplina.getCodigo ());
         this.disciplinaText.setText (disciplina.getNome ());
         this.cargaHorariaText.setText (String.valueOf (disciplina.getCargaHoaria ()));
-        if (disciplina.getProfessor () != null)
-            this.professorPesquisaText.setText (disciplina.getProfessor ().getNome ());
-        else this.professorPesquisaText.setText (null);
+//        if (disciplina.getProfessor () != null)
+//            this.professorPesquisaText.setText (disciplina.getProfessor ().getNome ());
+//        else this.professorPesquisaText.setText (null);
         setDisciplina (disciplina);
     }
 
@@ -104,12 +104,12 @@ public class CadastroDisciplina implements Initializable {
         String mensagem = "Salvo com Sucesso!";
         if (getDisciplina ()!=null){
             d = getDisciplina ();
-            if (getProfessor ()!=null) d.setProfessor (getProfessor ());
+//            if (getProfessor ()!=null) d.setProfessor (getProfessor ());
             mensagem = "Dados Atualizados com Sucesso!";
         }
         d.setNome (disciplinaText.getText ());
         d.setCargaHoaria (Double.parseDouble (cargaHorariaText.getText ()));
-        d.setCodigo (codigoText.getText ());
+//        d.setCodigo (codigoText.getText ());
         Facade.getInstance ().saveDisciplina (d);
         novoCadastro ();
         Mensagem.mensagemSucesso (mensagem);

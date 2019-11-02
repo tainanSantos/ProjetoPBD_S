@@ -4,22 +4,24 @@ package projeto_pbd.com.br.modell;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class AcompanhamentoPedagogico {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    @OneToOne
+    @ManyToOne
     private Pedagogo pedagogo;
+
+    @ManyToOne
+    private Aluno aluno;
 
     @Temporal (TemporalType.DATE)
     private Date dataAtendimento;
 
-    @Column
     private String secaoDetalhamento;
 
-    @Column
     private boolean concluida;
 
 
@@ -42,6 +44,14 @@ public class AcompanhamentoPedagogico {
 
     public void setPedagogo(Pedagogo pedagogo) {
         this.pedagogo = pedagogo;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     public Date getDataAtendimento() {

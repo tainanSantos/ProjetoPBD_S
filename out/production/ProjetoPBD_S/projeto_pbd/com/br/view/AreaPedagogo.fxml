@@ -18,7 +18,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="novoCadastroButton" blendMode="EXCLUSION" layoutX="1188.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastrarNovoProfessor" prefHeight="26.0" prefWidth="132.0" text="Novo" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
+            <Button fx:id="novoCadastroButton" blendMode="EXCLUSION" layoutX="1188.0" layoutY="31.0" mnemonicParsing="false" onAction="#cadastrarNovoPedagogo" prefHeight="26.0" prefWidth="132.0" text="Novo" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
                <effect>
                   <DropShadow />
                </effect></Button>

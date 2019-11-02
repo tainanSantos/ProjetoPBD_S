@@ -54,7 +54,6 @@ public class CadastroCurriculo  {
     }
 
 
-
     // se der erro foi aqui que eu modifiquei
     // so implmentar a Interface Initializabel novamente e sobreescrever o método
     @FXML
@@ -80,7 +79,7 @@ public class CadastroCurriculo  {
     public void setCamposTableDisciplina(Disciplina disciplina){
         this.disciplinaText.setText (disciplina.getNome ());
         if (disciplina.getCurriculo ()!=null) {
-            this.codigoText.setText (disciplina.getCurriculo ( ).getCodigo ( ));
+//            this.codigoText.setText (disciplina.getCurriculo ( ).getCodigo ( ));
             this.nomeCurriculoText.setText (disciplina.getCurriculo ( ).getNome ( ));
         }else{
             this.codigoText.setText (null);
@@ -91,7 +90,7 @@ public class CadastroCurriculo  {
 
 
     public void setCamposTableCurriculo(Curriculo curriculo){
-        this.codigoText.setText (curriculo.getCodigo ());
+//        this.codigoText.setText (curriculo.getCodigo ());
         this.nomeCurriculoText.setText (curriculo.getNome ());
         setCurriculo (curriculo);
     }
@@ -120,7 +119,7 @@ public class CadastroCurriculo  {
                 getDisciplina ().setCurriculo (curriculo_novo);
             }
         }
-        curriculo_novo.setCodigo (codigoText.getText ());
+//        curriculo_novo.setCodigo (codigoText.getText ());
         curriculo_novo.setNome (nomeCurriculoText.getText ());
         Facade.getInstance ().saveCurriculo (curriculo_novo);
         Facade.getInstance ().saveDisciplina (getDisciplina ());

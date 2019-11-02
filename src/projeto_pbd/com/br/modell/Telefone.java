@@ -17,16 +17,19 @@ public class Telefone extends TelefonesTeste {
     private String numero;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Usuario usuario;
+    @ManyToOne
+    private Pessoa pessoa;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Professor professor;
-
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Pedagogo pedagogo;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Usuario usuario;
+//
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Professor professor;
+//
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Pedagogo pedagogo;
 
 
     public Telefone(){
@@ -58,27 +61,13 @@ public class Telefone extends TelefonesTeste {
         this.numero = numero;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    public Pedagogo getPedagogo() {
-        return pedagogo;
-    }
-
-    public void setPedagogo(Pedagogo pedagogo) {
-        this.pedagogo = pedagogo;
-    }
 }

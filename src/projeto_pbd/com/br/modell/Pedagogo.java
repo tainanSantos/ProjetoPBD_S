@@ -4,23 +4,15 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@SequenceGenerator(name = "generic_id")
+@PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Pedagogo extends Pessoa {
+
 
     private String graduacao;
     private String cpf;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            mappedBy = "pedagogo",
-            fetch = FetchType.EAGER
-    )
-    private List<Telefone> telefones;
-
-
     public Pedagogo() {
     }
-
 
     public String getGraduacao() {
         return graduacao;
@@ -38,11 +30,6 @@ public class Pedagogo extends Pessoa {
         this.cpf = cpf;
     }
 
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
 
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
-}
+
+   }

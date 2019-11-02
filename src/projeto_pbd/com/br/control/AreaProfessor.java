@@ -1,6 +1,5 @@
 package projeto_pbd.com.br.control;
 
-import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +12,6 @@ import javafx.stage.WindowEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Professor;
-import projeto_pbd.com.br.util.ObjetctUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,17 +47,32 @@ public class AreaProfessor implements Initializable {
             }
         });
 
+        this.educandoTable.setOnMouseClicked(event -> {
+            if(event.getClickCount() == 2) {
+                Stage stage = null;
+                try {
+                    stage = Main.genericaStage2 (Main.CADASTRO_PROFESSOR);
+                    stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                        @Override
+                        public void handle(WindowEvent event) {
+                            carregarTable ();
+                        }});
+                    stage.show ();
+                    Main.changeScreen("AreaProfessor.fxml_atualzar", educandoTable.getSelectionModel().getSelectedItem());
+                } catch (IOException e) {
+                    e.printStackTrace ( );
+                }
+            }
+        });
+
         carregarTable ();
 
-        educandoTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> seteducandoTable(newValue));
 
    }
 
 
 
     public void cadastrarNovoProfessor() throws IOException {
-        ObjetctUtil.setObject (null);
         Stage stage = null;
         stage = Main.genericaStage2 (Main.CADASTRO_PROFESSOR);
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -68,6 +81,7 @@ public class AreaProfessor implements Initializable {
                 carregarTable ();
             }});
         stage.show ();
+        Main.changeScreen("AreaProfessor.fxml_Novo");
     }
 
 
@@ -78,30 +92,9 @@ public class AreaProfessor implements Initializable {
         nomeColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
-        educandoTable.setItems (FXCollections.observableArrayList (Facade.getInstance ().findAllProfessor ()));
+        educandoTable.getItems().setAll(Facade.getInstance().findAllProfessor());
 
     }
 
-
-    public void seteducandoTable(Professor professor){
-
-        this.educandoTable.setOnMouseClicked(event -> {
-            if(event.getClickCount() == 2) {
-                ObjetctUtil.setObject (professor);
-                Stage stage = null;
-                try {
-                    stage = Main.genericaStage2 (Main.CADASTRO_PROFESSOR);
-                    stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                        @Override
-                        public void handle(WindowEvent event) {
-                            carregarTable ();
-                        }});
-                    stage.show ();
-                } catch (IOException e) {
-                    e.printStackTrace ( );
-                }
-            }
-        });
-    }
 
 }

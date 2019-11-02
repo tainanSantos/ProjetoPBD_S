@@ -5,22 +5,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@SequenceGenerator(name = "generic_id")
+@PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Professor extends Pessoa  {
-
 
     private String graduacao;
     private String cpf;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            mappedBy = "professor",
-            fetch = FetchType.EAGER
-    )
-    private List<Telefone> telefones;
-
-
-
+    @ManyToMany
+    private List<Turma> turmaList;
 
     public Professor() {
     }
@@ -34,14 +26,6 @@ public class Professor extends Pessoa  {
         this.cpf = cpf;
     }
 
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
-
     public String getGraduacao() {
         return graduacao;
     }
@@ -50,5 +34,11 @@ public class Professor extends Pessoa  {
         this.graduacao = graduacao;
     }
 
+    public List<Turma> getTurmaList() {
+        return turmaList;
+    }
 
+    public void setTurmaList(List<Turma> turmaList) {
+        this.turmaList = turmaList;
+    }
 }

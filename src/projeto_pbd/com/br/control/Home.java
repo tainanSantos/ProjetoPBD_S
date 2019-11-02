@@ -60,7 +60,7 @@ public class Home implements Initializable {
 
         //Pra Professor
         if (event.getSource() == cadastrarProfessorButton){
-            Main.genericaStage2(Main.CADASTRO_PROFESSOR).show();
+            Main.genericaStage(Main.CADASTRO_PROFESSOR).show();
         }
         if (event.getSource() == listarProfessoresButton){
             Main.genericaStage(Main.AREA_PROFESSOR).show();
@@ -68,7 +68,7 @@ public class Home implements Initializable {
 
         //Pra Pedagogo
         if (event.getSource() == cadastrarPedagogoButton){
-            Main.genericaStage2(Main.CADASTRO_PEDAGOGO).show();
+            Main.genericaStage(Main.CADASTRO_PEDAGOGO).show();
         }
         if (event.getSource() == listarPedagogosCadastradosButton){
             Main.genericaStage(Main.AREA_PEDAGOGO).show();

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,44 +9,30 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroDisciplina">
+<AnchorPane prefHeight="213.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroDisciplina">
    <children>
-      <GridPane hgap="20.0" layoutX="20.0" layoutY="51.0" prefHeight="60.0" prefWidth="1190.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <GridPane hgap="20.0" layoutX="20.0" layoutY="51.0" prefHeight="60.0" prefWidth="627.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="183.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="686.0" minWidth="10.0" prefWidth="551.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="446.0" minWidth="10.0" prefWidth="291.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.0" minWidth="10.0" prefWidth="231.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label contentDisplay="TOP" text="codigo">
+            <Label text="disciplina">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label text="disciplina" GridPane.columnIndex="1">
+            <Label text="carga horaria" GridPane.columnIndex="1">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label text="carga horaria" GridPane.columnIndex="2">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <TextField fx:id="codigoText" GridPane.rowIndex="1" />
-            <TextField fx:id="disciplinaText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="cargaHorariaText" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="professor" GridPane.columnIndex="3">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <TextField fx:id="professorPesquisaText" editable="false" onAction="#buscarProfessor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="disciplinaText" GridPane.rowIndex="1" />
+            <TextField fx:id="cargaHorariaText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Label layoutX="20.0" layoutY="37.0" text="Cadastro Disciplina" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -57,50 +40,34 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="disciplinasTable" layoutX="20.0" layoutY="166.0" prefHeight="365.0" prefWidth="858.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="482.0">
-        <columns>
-          <TableColumn fx:id="codigoColumm" prefWidth="75.0" text="codigo" />
-          <TableColumn fx:id="disciplinaColumm" prefWidth="75.0" text="disciplina" />
-            <TableColumn fx:id="cargaHorariaColumm" prefWidth="75.0" text="carga horaria" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-      <Label layoutX="20.0" layoutY="137.0" text="Disciplinas Cadastradas no Sistema" AnchorPane.leftAnchor="20.0">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="303.0" layoutY="138.0" onMouseClicked="#carregraTabela" onMousePressed="#carregraTabela" text="Atualizar Tabela">
-         <font>
-            <Font size="10.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="CLOSED_HAND" />
-         </cursor>
-      </Label>
-      <TableView fx:id="professoresCadastradosTable" layoutX="1029.0" layoutY="214.0" prefHeight="365.0" prefWidth="427.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
-        <columns>
-          <TableColumn fx:id="professoresCadastradosColumm" prefWidth="75.0" text="Professores Cadastrados" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-      <GridPane hgap="20.0" layoutX="946.0" layoutY="120.0" prefHeight="30.0" prefWidth="427.0" AnchorPane.rightAnchor="20.0">
+      <GridPane hgap="20.0" layoutX="392.0" layoutY="142.0" prefHeight="30.0" prefWidth="226.0" AnchorPane.rightAnchor="20.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="67.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="70.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#deletarDisciplina" prefHeight="26.0" prefWidth="126.0" text="Apagar" />
-            <Button alignment="CENTER" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#novoCadastro" prefHeight="26.0" prefWidth="126.0" text="Novo" GridPane.columnIndex="1" />
-            <Button alignment="CENTER" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#salvarDisciplinas" prefHeight="26.0" prefWidth="126.0" text="Salvar" GridPane.columnIndex="2" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#deletarDisciplina" prefHeight="26.0" prefWidth="126.0" text="Apagar" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#salvarDisciplinas" prefHeight="26.0" prefWidth="126.0" text="Salvar" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane hgap="20.0" layoutX="15.0" layoutY="112.0" prefHeight="60.0" prefWidth="304.0" AnchorPane.leftAnchor="20.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.0" minWidth="10.0" prefWidth="231.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="professor">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <TextField fx:id="professorPesquisaText1" editable="false" onAction="#buscarProfessor" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

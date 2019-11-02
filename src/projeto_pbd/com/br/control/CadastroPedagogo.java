@@ -1,11 +1,11 @@
 package projeto_pbd.com.br.control;
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
@@ -13,15 +13,11 @@ import projeto_pbd.com.br.modell.Pedagogo;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
-import projeto_pbd.com.br.util.ObjetctUtil;
 
 import java.net.URL;
 import java.util.*;
 
-
 public class CadastroPedagogo implements Initializable {
-
-
 
     @FXML
     private TextField graduacaoText;
@@ -59,28 +55,26 @@ public class CadastroPedagogo implements Initializable {
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
-
-    public CadastroPedagogo() {
-
-    }
-
+    private Pedagogo pedagogo = null;
+//    private ArrayList<Telefone> telefones = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-
+                if (newScene.equalsIgnoreCase("AreaPedagogo_Atualzar") && userData!=null){
+                    pedagogo = (Pedagogo) userData;
+//                    telefones = new ArrayList<>();
+                    apagarButton.setVisible (true);
+                    atualizar();
+                }
             }
         });
 
-        this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
+        this.comboboxUf.getItems().setAll(this.listUfsProf);
+//        this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsProf));
 
-        if (ObjetctUtil.getObject () != null){
-            apagarButton.setVisible (true);
-           carregarObjetoSelecioando ();
-        }
         MaskFieldUtil.dateField (this.dataText);
         MaskFieldUtil.cpfField (this.cpfText);
         MaskFieldUtil.cepField (this.cepText);
@@ -90,10 +84,7 @@ public class CadastroPedagogo implements Initializable {
 
 
 
-    public void carregarObjetoSelecioando(){
-
-        Pedagogo pedagogo = null;
-        pedagogo = (Pedagogo) ObjetctUtil.getObject ();
+    public void atualizar(){
 
         logradouroText.setText (pedagogo.getEndereco ().getLogradouro ());
         numeroText.setText (pedagogo.getEndereco ().getNumero ());
@@ -104,21 +95,27 @@ public class CadastroPedagogo implements Initializable {
 
         comboboxUf.getSelectionModel().select(pedagogo.getEndereco ().getUf ());
 
-        telefoneUmText.setText (pedagogo.getTelefones ().get (0).getNumero ());
-        telefoneDoisText.setText (pedagogo.getTelefones ().get (1).getNumero ());
-
         nomeText.setText (pedagogo.getNome ());
         dataText.setText (String.valueOf (pedagogo.getDataNascimento ()));
         naturalidadeText.setText (pedagogo.getNaturalidade ());
         cpfText.setText (pedagogo.getCpf ());
         graduacaoText.setText (pedagogo.getGraduacao ());
 
+        for(Telefone tel: Facade.getInstance().findAllTelefone()){
+            if (tel.getPessoa().getId() == pedagogo.getId()){
+//                telefones.add(tel);
+            }
+        }
+
+//        telefoneUmText.setText(telefones.get(1).getNumero());
+//        telefoneDoisText.setText(telefones.get(0).getNumero());
+
     }
 
 
 
     public void salvarCadastro() {
-        Pedagogo pedagogo = new Pedagogo ();
+        Pedagogo ped = new Pedagogo ();
         Endereco endereco = new Endereco ();
         Telefone telefone = new Telefone ();
         Telefone telefone1 = new Telefone ();
@@ -126,16 +123,12 @@ public class CadastroPedagogo implements Initializable {
         String mensagem = "Salvo com Sucesso!";
 
 
-        if (ObjetctUtil.getObject () != null){
-
+        if (pedagogo != null){
+            ped = pedagogo;
             mensagem = "Atualizado com Sucesso!";
-            pedagogo = (Pedagogo) ObjetctUtil.getObject ();
-
-            System.out.println (pedagogo.getId ());
-            endereco = pedagogo.getEndereco ();
-            telefone = pedagogo.getTelefones ().get (0);
-            telefone1 = pedagogo.getTelefones ().get (1);
-
+            endereco = ped.getEndereco ();
+//            telefone1 = telefones.get(0);
+//            telefone = telefones.get(1);
         }
 
         endereco.setLogradouro (logradouroText.getText ());
@@ -146,37 +139,48 @@ public class CadastroPedagogo implements Initializable {
         endereco.setCep (cepText.getText ());
         endereco.setUf (comboboxUf.valueProperty ().get ().toString ());
 
-
         telefone.setNumero (telefoneUmText.getText ());
         telefone1.setNumero (telefoneDoisText.getText ());
 
-        List<Telefone> telefones = new ArrayList (Arrays.asList (new Telefone[]{telefone, telefone1}));
+        ped.setCpf (cpfText.getText ());
+        ped.setDataNascimento ((Date) dataText.getUserData ());
+        ped.setNaturalidade (naturalidadeText.getText ());
+        ped.setNome (nomeText.getText ());
+        ped.setGraduacao (graduacaoText.getText ());
 
-        pedagogo.setCpf (cpfText.getText ());
-        pedagogo.setDataNascimento ((Date) dataText.getUserData ());
-        pedagogo.setNaturalidade (naturalidadeText.getText ());
-        pedagogo.setNome (nomeText.getText ());
-        pedagogo.setGraduacao (graduacaoText.getText ());
+        ped.setEndereco (endereco);
 
-        pedagogo.setEndereco (endereco);
-        telefone.setPedagogo (pedagogo);
-        telefone1.setPedagogo (pedagogo);
-        pedagogo.setTelefones (telefones);
+        // SALVANDO O PEDAGOGO E O ENDEREÇO E EPEGANDO A INSTANCIA DELE
+        ped = Facade.getInstance ().savePedagogo (ped);
 
-        Facade.getInstance ().savePedagogo (pedagogo);
+        telefone.setPessoa (ped);
+        telefone1.setPessoa (ped);
+        Facade.getInstance().saveTelefone(telefone1);
 
-        Main.STAGE2.close ();
-        ObjetctUtil.setObject (null);
+        // O TELEFONE TÁ COM DEFEITO NA HORA DE ATUALIZAR
+        // VER ISSO SEMANA QUE VEM COM O PESSOAL
+//        Facade.getInstance().saveTelefone(telefone);
+//
+        fecharTela();
         Mensagem.mensagemSucesso (mensagem);
     }
 
 
     public void deletarCadastro(){
-        Pedagogo pedagogo = (Pedagogo) ObjetctUtil.getObject ();
         Facade.getInstance ().removePedagogo (pedagogo.getId ());
-        Main.STAGE2.close ();
+        fecharTela();
         Mensagem.mensagemSucesso ("Removido com sucesso!");
 
     }
 
+
+    public void fecharTela(){
+        Stage stage = null;
+        stage = Main.STAGE2;
+        stage.getOnCloseRequest ().handle (
+                new javafx.stage.WindowEvent (
+                        stage, javafx.stage.WindowEvent.WINDOW_CLOSE_REQUEST));
+        stage.close ();
+
+    }
 }

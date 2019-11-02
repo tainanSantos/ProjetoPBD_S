@@ -64,4 +64,16 @@ public interface IFacade {
     public List<Usuario> findAllUsuario();
 
     public Usuario removeUsuario(int id);
+
+
+    //Telegfone
+    public Telefone saveTelefone(Telefone telefone);
+
+    public Telefone findByIdTelefone(int id);
+
+    public List<Telefone> findAllTelefone();
+
+    public List<Telefone> findAllIdTelefone(int idPessoa);
+
+    public Telefone removeTelefone(int id);
 }
