@@ -98,7 +98,7 @@ public class AreaPedagogo implements Initializable {
         this.educandoTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (event.getClickCount() == 2){
+                if (event.getClickCount() == 1){
                     if (educandoTable.getSelectionModel().getSelectedItem() != null){
                         Pedagogo pedagogo = null;
                         pedagogo = educandoTable.getSelectionModel().getSelectedItem();
@@ -187,10 +187,6 @@ public class AreaPedagogo implements Initializable {
             //ATUALIZAR
             if (educandoTable.getSelectionModel().getSelectedItem()!=null){
                 ped.setId(educandoTable.getSelectionModel().getSelectedItem().getId());
-
-                System.out.println("id pedagogo  = " + ped.getId());
-                System.out.println("id endereço = " + educandoTable.getSelectionModel().getSelectedItem().getEndereco().getId());
-
                 endereco.setId(educandoTable.getSelectionModel().getSelectedItem().getEndereco().getId());
                 mensagem = "Atualizado com Sucesso!";
                 List<Telefone> telefoneList = null;
@@ -243,7 +239,8 @@ public class AreaPedagogo implements Initializable {
 
     @FXML
     void actionKeyPressed(KeyEvent event) {
-        carregarTable(Facade.getInstance().findAllStringPedagogo(pesquisaText.getText()));
+        System.out.println("não implementado ainda! ");
+//        carregarTable(Facade.getInstance().findAllStringPedagogo(pesquisaText.getText()));
     }
 
 

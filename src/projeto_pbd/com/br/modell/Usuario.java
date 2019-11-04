@@ -1,15 +1,6 @@
 package projeto_pbd.com.br.modell;
 
-/*
-ima interface só para implementar tudo
-*/
-
-import projeto_pbd.com.br.teste.PessoaTeste;
-
 import javax.persistence.*;
-import java.util.List;
-
-
 
 @Entity
 @PrimaryKeyJoinColumn(name = "pessoa_id")

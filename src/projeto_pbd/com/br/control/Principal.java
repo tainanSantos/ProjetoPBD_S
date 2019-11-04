@@ -97,9 +97,6 @@ public class Principal implements Initializable {
 
         this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
 
-        if (event.getSource () == cadastroSisciplinaMenuItem){
-            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_DISCIPLINA)));
-        }
         if (event.getSource () == cacadastroCurriculoMenuItem){
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_CURRICULO)));
         }

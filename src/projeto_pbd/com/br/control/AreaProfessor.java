@@ -11,7 +11,9 @@ import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
+import projeto_pbd.com.br.modell.Pedagogo;
 import projeto_pbd.com.br.modell.Professor;
+import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
@@ -85,30 +87,38 @@ public class AreaProfessor implements Initializable {
 
             }
         });
-        carregarTable ();
+        carregarTable (Facade.getInstance().findAllProfessor());
 
         this.professorTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (event.getClickCount() == 2){
+                if (event.getClickCount() == 1){
                     if (professorTable.getSelectionModel().getSelectedItem()!=null){
-                        if (professorTable.getSelectionModel().getSelectedItem()!=null){
-                            Professor professor = null;
-                            professor = professorTable.getSelectionModel().getSelectedItem();
-                            logradouroProfessorText.setText(professor.getEndereco().getLogradouro());
-                            numeroProfessorText.setText(professor.getEndereco().getNumero());
-                            complementoProfessorText.setText(professor.getEndereco().getComplemento());
-                            bairroProfessorText.setText(professor.getEndereco().getBairro());
-                            cidadeProfessorText.setText(professor.getEndereco().getBairro());
-                            cepProfessorText.setText(professor.getEndereco().getCep());
-                            cpfProfessorText.setText(professor.getCpf());
-                            dataProfessorText.clear(); // ainda não implementado
-                            naturalidadeProfessorText.setText(professor.getNaturalidade());
-                            nomeProfessorText.setText(professor.getNome());
-                            graduacaoProfessorText.setText(professor.getGraduacao());
-                            telefoneDoisProfessorText.clear(); // ainda não implementado
-                            telefoneUmProfessorText.clear(); // ainda não implementado
+
+                        Professor prof = null;
+                        prof = professorTable.getSelectionModel().getSelectedItem();
+                        logradouroProfessorText.setText(prof.getEndereco().getLogradouro());
+                        numeroProfessorText.setText(prof.getEndereco().getNumero());
+                        complementoProfessorText.setText(prof.getEndereco().getComplemento());
+                        bairroProfessorText.setText(prof.getEndereco().getBairro());
+                        cidadeProfessorText.setText(prof.getEndereco().getCidade());
+//                        comboboxUf.getSelectionModel().select(Integer.parseInt(pedagogo.getEndereco().getUf()));
+                        cepProfessorText.setText(prof.getEndereco().getCep());
+                        cpfProfessorText.setText(prof.getCpf());
+
+                        dataProfessorText.clear(); // ainda não implementado
+
+                        naturalidadeProfessorText.setText(prof.getNaturalidade());
+                        nomeProfessorText.setText(prof.getNome());
+                        graduacaoProfessorText.setText(prof.getGraduacao());
+                        List<Telefone> telefoneList = null;
+                        telefoneList = Facade.getInstance().findAllIdTelefone(prof.getId());
+                        for (Telefone telefone: telefoneList){
+                            System.out.println(telefone.getNumero() +" ---- "+telefone.getId());
                         }
+                        telefoneUmProfessorText.setText(telefoneList.get(0).getNumero());
+                        telefoneDoisProfessorText.setText(telefoneList.get(1).getNumero());
+
                     }
                 }
             }
@@ -124,12 +134,12 @@ public class AreaProfessor implements Initializable {
     }
 
 
-    public void carregarTable( ){
+    public void carregarTable(List<Professor> professorList){
 
         nomeProfessorColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoPorfessorColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeProfessorColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
-        professorTable.getItems().setAll(Facade.getInstance().findAllProfessor());
+        professorTable.getItems().setAll(professorList);
     }
 
 
@@ -147,7 +157,7 @@ public class AreaProfessor implements Initializable {
         graduacaoProfessorText.clear();
         telefoneDoisProfessorText.clear();
         telefoneUmProfessorText.clear();
-        carregarTable();
+        carregarTable(Facade.getInstance().findAllProfessor());
     }
 
     //__________________________________________________________________________________________________________________
@@ -162,11 +172,17 @@ public class AreaProfessor implements Initializable {
             Professor professor = new Professor ();
             Endereco endereco = new Endereco ();
             String mensagem = "Salvo com Sucesso!";
+            Telefone telefone = new Telefone();
+            Telefone telefone1 = new Telefone();
 
             if (professorTable.getSelectionModel().getSelectedItem()!=null){
                 professor.setId(professorTable.getSelectionModel().getSelectedItem().getId());
                 endereco.setId(professorTable.getSelectionModel().getSelectedItem().getEndereco().getId());
                 mensagem = "Atualizado com sucesso!";
+                List<Telefone> telefoneList = null;
+                telefoneList = Facade.getInstance().findAllIdTelefone(professor.getId());
+                telefone.setId(telefoneList.get(0).getId());
+                telefone1.setId(telefoneList.get(1).getId());
             }
 
             endereco.setLogradouro (logradouroProfessorText.getText ());
@@ -182,9 +198,18 @@ public class AreaProfessor implements Initializable {
             professor.setNaturalidade (naturalidadeProfessorText.getText ());
             professor.setNome (nomeProfessorText.getText ());
             professor.setGraduacao (graduacaoProfessorText.getText ());
+            professor.setStatus(true);
+
+            telefone.setNumero(telefoneUmProfessorText.getText());
+            telefone1.setNumero(telefoneDoisProfessorText.getText());
 
             professor.setEndereco (endereco);
             professor = Facade.getInstance ().saveProfessor (professor);
+
+            telefone.setPessoa(professor);
+            telefone1.setPessoa(professor);
+            Facade.getInstance().saveTelefone(telefone);
+            Facade.getInstance().saveTelefone(telefone1);
             Mensagem.mensagemSucesso (mensagem);
             limparaCampos();
         }
