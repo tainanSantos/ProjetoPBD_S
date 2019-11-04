@@ -23,7 +23,7 @@ public class BusinessAluno implements  IBusinessAluno {
     }
 
     @Override
-    public Aluno findById(int id) {
+    public Aluno findById(Integer id) {
         return this.daoAluno.findById (id);
     }
 
@@ -33,7 +33,7 @@ public class BusinessAluno implements  IBusinessAluno {
     }
 
     @Override
-    public Aluno remove(int id) {
+    public Aluno remove(Integer id) {
         return this.daoAluno.remove (id);
     }
 }

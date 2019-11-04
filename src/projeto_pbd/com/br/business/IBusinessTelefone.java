@@ -8,11 +8,11 @@ public interface IBusinessTelefone {
 
     public Telefone save(Telefone telefone);
 
-    public Telefone findById(int id);
+    public Telefone findById(Integer id);
 
     public List<Telefone> findAll();
 
-    public List<Telefone> findAllId(int idPessoa);
+    public List<Telefone> findAllId(Integer idPessoa);
 
-    public Telefone remove(int id);
+    public Telefone remove(Integer id);
 }

@@ -1,25 +1,22 @@
 package projeto_pbd.com.br.dao;
 
-import projeto_pbd.com.br.modell.Curriculo;
+import projeto_pbd.com.br.modell.Turma;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class DaoCurriculo implements IDaoCurriculo {
-
-
-
+public class DaoTurma implements IDaoTurma {
     @Override
-    public Curriculo save(Curriculo curriculo) {
+    public Turma save(Turma turma) {
         EntityManager em = new Conection().getEntityManager ();
 
         try {
             em.getTransaction ().begin ();
 
-            if(curriculo.getId () == null){ // inserir
-                em.persist (curriculo);
+            if(turma.getId () == null){ // inserir
+                em.persist (turma);
             }else { // atualizar
-                em.merge (curriculo);
+                em.merge (turma);
             }
             em.getTransaction ( ).commit ();  // comando de salvar
         }catch (Exception e ){
@@ -27,56 +24,58 @@ public class DaoCurriculo implements IDaoCurriculo {
         }finally {
             em.close (); // fecha conexão
         }
-        return curriculo;
+
+        return turma;
+
     }
 
     @Override
-    public Curriculo findById(Integer id) {
-
+    public Turma findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
 
-        Curriculo curriculo = null;
+        Turma turma = null;
 
         try {
-            curriculo = em.find (Curriculo.class,id);
+            turma = em.find (Turma.class,id);
         }catch (Exception e ){
             em.getTransaction ().rollback ();
         }finally {
             em.close (); // fecha conexão
         }
-        return curriculo;
+        return turma;
     }
 
     @Override
-    public List<Curriculo> findAll() {
+    public List<Turma> findAll() {
 
         EntityManager em = new Conection().getEntityManager ();
-        List<Curriculo> curriculos = null;
+        List<Turma> turmas = null;
 
         try {
-            curriculos = em.createQuery ("from Curriculo").getResultList ();
+            turmas = em.createQuery ("from Turma").getResultList ();
         }catch (Exception e ){
 
         }finally {
             em.close (); // fecha conexão
         }
-        return curriculos;
+        return turmas;
     }
 
     @Override
-    public Curriculo remove(Integer id) {
+    public Turma remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
-        Curriculo curriculo = null;
+        Turma turma = null;
 
         try {
-            curriculo = em.find (Curriculo.class, id);
+            turma = em.find (Turma.class, id);
             em.getTransaction ().begin ();
-            em.remove (curriculo);
+            em.remove (turma);
             em.getTransaction ().commit ();
         }catch (Exception e ){
             em.getTransaction ().rollback ();
         }finally {
             em.close (); // fecha conexão
         }
-        return curriculo;    }
+        return turma;
+    }
 }

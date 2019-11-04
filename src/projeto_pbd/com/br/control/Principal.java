@@ -34,29 +34,41 @@ public class Principal implements Initializable {
 
 
     @FXML
+    private AnchorPane anchorPanePrincipal;
+
+    @FXML
     private MenuItem homeMenuItem;
-    @FXML
-    private MenuItem cacadastroCurriculoMenuItem;
-    @FXML
-    private MenuItem cadastroSisciplinaMenuItem;
+
     @FXML
     private MenuItem areaAlunoMenuItem;
+
+    @FXML
+    private MenuItem areaPedagogoMenuItem;
+
+    @FXML
+    private MenuItem areaProfessorMenuItem;
+
+    @FXML
+    private MenuItem cacadastroCurriculoMenuItem;
+
+    @FXML
+    private MenuItem cadastroSisciplinaMenuItem;
+
     @FXML
     private MenuItem configuracoeMenuItem;
 
     @FXML
+    private MenuButton usuarioButton;
+
+    @FXML
     private MenuItem cadastroUasuarioMenuItem;
+
     @FXML
     private MenuItem areaUsuarioMenuItem;
+
     @FXML
     private MenuItem sairUsuarioMenuItem;
 
-    @FXML
-    private AnchorPane anchorPanePrincipal;
-    @FXML
-    private MenuButton usuarioButton;
-    @FXML
-    private Label labelArgusAcad;
 
 
     @Override
@@ -99,6 +111,12 @@ public class Principal implements Initializable {
         }
         if (event.getSource () == configuracoeMenuItem){
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
+        }
+        if (event.getSource() == areaPedagogoMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PEDAGOGO)));
+        }
+        if (event.getSource() == areaProfessorMenuItem){
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
         }
 
         //MENU BUTTON

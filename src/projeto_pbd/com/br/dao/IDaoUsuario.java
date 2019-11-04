@@ -9,10 +9,10 @@ public interface IDaoUsuario {
 
     public Usuario save(Usuario usuario);
 
-    public Usuario findById(int id);
+    public Usuario findById(Integer id);
 
     public List<Usuario> findAll();
 
-    public Usuario remove(int id);
+    public Usuario remove(Integer id);
 
 }

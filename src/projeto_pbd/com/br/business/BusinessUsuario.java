@@ -21,7 +21,7 @@ public class BusinessUsuario implements IBusinessUsuario {
     }
 
     @Override
-    public Usuario findById(int id) {
+    public Usuario findById(Integer id) {
         return this.daoUsuario.findById (id);
     }
 
@@ -31,7 +31,7 @@ public class BusinessUsuario implements IBusinessUsuario {
     }
 
     @Override
-    public Usuario remove(int id) {
+    public Usuario remove(Integer id) {
         return this.daoUsuario.remove (id);
     }
 }

@@ -20,10 +20,19 @@ public class Curriculo {
     private Integer id;
 
     private String nome;
+    private Boolean status;
 
 
 
     public Curriculo() {
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public Integer getId() {

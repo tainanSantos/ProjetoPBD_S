@@ -11,38 +11,33 @@ public class Telefone extends TelefonesTeste {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column
     private String tipo;
-    @Column
     private String numero;
 
 
     @ManyToOne
     private Pessoa pessoa;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private Usuario usuario;
-//
-//
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private Professor professor;
-//
-//
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private Pedagogo pedagogo;
-
-
     public Telefone(){
 
     }
 
-
+    @Override
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getTipo() {
@@ -53,14 +48,6 @@ public class Telefone extends TelefonesTeste {
         this.tipo = tipo;
     }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
     public Pessoa getPessoa() {
         return pessoa;
     }
@@ -68,6 +55,4 @@ public class Telefone extends TelefonesTeste {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
-
-
 }

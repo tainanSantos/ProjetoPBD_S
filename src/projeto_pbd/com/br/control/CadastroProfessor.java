@@ -12,7 +12,6 @@ import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Professor;
-import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
@@ -121,8 +120,6 @@ public class CadastroProfessor implements Initializable {
         if (event.getSource() == salvarButton){
             Professor prof = new Professor ();
             Endereco endereco = new Endereco ();
-            Telefone telefone = new Telefone ();
-            Telefone telefone1 = new Telefone ();
 
             String mensagem = "Salvo com Sucesso!";
 
@@ -130,8 +127,7 @@ public class CadastroProfessor implements Initializable {
                 prof = professor;
                 mensagem = "Atualizado com Sucesso!";
                 endereco = prof.getEndereco ();
-//                telefone = prof.getTelefones ().get (0);
-//                telefone1 = prof.getTelefones ().get (1);
+
             }
 
             endereco.setLogradouro (logradouroText.getText ());
@@ -142,8 +138,6 @@ public class CadastroProfessor implements Initializable {
             endereco.setCep (cepText.getText ());
             endereco.setUf (comboboxUf.valueProperty ().get ().toString ());
 
-            telefone.setNumero (telefoneUmText.getText ());
-            telefone1.setNumero (telefoneDoisText.getText ());
 
             prof.setCpf (cpfText.getText ());
             prof.setDataNascimento ((Date) dataText.getUserData ());
@@ -153,13 +147,10 @@ public class CadastroProfessor implements Initializable {
 
             prof.setEndereco (endereco);
 
-
             //Salvando ou atualizando
             Facade.getInstance ().saveProfessor (prof);
-            telefone.setPessoa (prof);
-            telefone1.setPessoa (prof);
-            Facade.getInstance().saveTelefone(telefone);
-            Facade.getInstance().saveTelefone(telefone1);
+
+
             Mensagem.mensagemSucesso (mensagem);
         }
 

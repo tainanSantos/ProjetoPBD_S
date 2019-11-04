@@ -8,9 +8,11 @@ public interface IBusinessPedagogo {
 
     public Pedagogo save(Pedagogo pedagogo);
 
-    public Pedagogo findById(int id);
+    public Pedagogo findById(Integer id);
 
     public List<Pedagogo> findAll();
 
-    public Pedagogo remove(int id);
+    public List<Pedagogo> findAllString(String nome);
+
+    public Pedagogo remove(Integer id);
 }

@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -26,7 +27,7 @@ public abstract class Pessoa {
 
     private String naturalidade;
     private String nome;
-
+    private Boolean status;
 
     public Pessoa() {
 
@@ -71,5 +72,13 @@ public abstract class Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

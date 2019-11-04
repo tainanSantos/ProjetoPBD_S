@@ -7,9 +7,9 @@ import java.util.List;
 public interface IBusinessDisciplina {
     public Disciplina save(Disciplina disciplina );
 
-    public Disciplina findById(int id);
+    public Disciplina findById(Integer id);
 
     public List<Disciplina> findAll();
 
-    public Disciplina remove(int id);
+    public Disciplina remove(Integer id);
 }

@@ -32,7 +32,7 @@ public class DaoDisciplina implements IDaoDisciplina {
 
 
     @Override
-    public Disciplina findById(int id) {
+    public Disciplina findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
 
         Disciplina disciplina = null;
@@ -62,7 +62,7 @@ public class DaoDisciplina implements IDaoDisciplina {
     }
 
     @Override
-    public Disciplina remove(int id) {
+    public Disciplina remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
         Disciplina disciplina = null;
 

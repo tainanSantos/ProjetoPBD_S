@@ -9,9 +9,9 @@ public interface IDaoAluno {
 
     public Aluno save(Aluno aluno );
 
-    public Aluno findById(int id);
+    public Aluno findById(Integer id);
 
     public List<Aluno> findAll();
 
-    public Aluno remove(int id);
+    public Aluno remove(Integer id);
 }

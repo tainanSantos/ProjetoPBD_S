@@ -26,7 +26,7 @@ public class BusinessProfessor implements IBusinessProfessor {
     }
 
     @Override
-    public Professor findById(int id) {
+    public Professor findById(Integer id) {
         return this.daoProfessor.findById (id);
     }
 
@@ -36,7 +36,7 @@ public class BusinessProfessor implements IBusinessProfessor {
     }
 
     @Override
-    public Professor remove(int id) {
+    public Professor remove(Integer id) {
         return this.daoProfessor.remove (id);
     }
 }

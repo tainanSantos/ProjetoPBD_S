@@ -160,7 +160,6 @@ public class CadastroAluno implements Initializable {
             }
         });
 
-
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
         this.comboboxUf1Resp.setItems(FXCollections.observableArrayList (this.listUfsAlun));
 
@@ -176,6 +175,7 @@ public class CadastroAluno implements Initializable {
     void actionEvente(ActionEvent event) {
 
         if (event.getSource() == salvarButton){
+            // bora lá
             // SALVAR ALUNO E RESPONÁVELA
         }
         /*

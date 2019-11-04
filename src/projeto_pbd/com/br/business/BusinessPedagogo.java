@@ -21,7 +21,7 @@ public class BusinessPedagogo implements IBusinessPedagogo {
     }
 
     @Override
-    public Pedagogo findById(int id) {
+    public Pedagogo findById(Integer id) {
         return this.daoPedagogo.findById (id);
     }
 
@@ -31,7 +31,12 @@ public class BusinessPedagogo implements IBusinessPedagogo {
     }
 
     @Override
-    public Pedagogo remove(int id) {
+    public List<Pedagogo> findAllString(String nome) {
+        return this.daoPedagogo.findAllString(nome);
+    }
+
+    @Override
+    public Pedagogo remove(Integer id) {
         return this.daoPedagogo.remove (id);
     }
 }

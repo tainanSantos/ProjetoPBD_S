@@ -11,9 +11,6 @@ public class Professor extends Pessoa  {
     private String graduacao;
     private String cpf;
 
-    @ManyToMany
-    private List<Turma> turmaList;
-
     public Professor() {
     }
 
@@ -32,13 +29,5 @@ public class Professor extends Pessoa  {
 
     public void setGraduacao(String graduacao) {
         this.graduacao = graduacao;
-    }
-
-    public List<Turma> getTurmaList() {
-        return turmaList;
-    }
-
-    public void setTurmaList(List<Turma> turmaList) {
-        this.turmaList = turmaList;
     }
 }

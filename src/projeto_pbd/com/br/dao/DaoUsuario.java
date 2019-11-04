@@ -28,10 +28,12 @@ public class DaoUsuario implements IDaoUsuario {
         }finally {
             em.close (); // fecha conexão
         }
-        return usuario;    }
+        return usuario;
+    }
+
 
     @Override
-    public Usuario findById(int id) {
+    public Usuario findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
 
         Usuario usuario = null;
@@ -43,7 +45,9 @@ public class DaoUsuario implements IDaoUsuario {
         }finally {
             em.close (); // fecha conexão
         }
-        return usuario;    }
+        return usuario;
+    }
+
 
     @Override
     public List<Usuario> findAll() {
@@ -58,10 +62,12 @@ public class DaoUsuario implements IDaoUsuario {
             em.close (); // fecha conexão
         }
 
-        return usuarios;    }
+        return usuarios;
+    }
+
 
     @Override
-    public Usuario remove(int id) {
+    public Usuario remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
         Usuario usuario = null;
 
@@ -75,5 +81,8 @@ public class DaoUsuario implements IDaoUsuario {
         }finally {
             em.close (); // fecha conexão
         }
-        return usuario;    }
+        return usuario;
+    }
+
+
 }

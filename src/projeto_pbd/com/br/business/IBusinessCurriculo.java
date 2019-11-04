@@ -8,9 +8,9 @@ public interface IBusinessCurriculo {
 
     public Curriculo save(Curriculo curriculo );
 
-    public Curriculo findById(int id);
+    public Curriculo findById(Integer id);
 
     public List<Curriculo> findAll();
 
-    public Curriculo remove(int id);
+    public Curriculo remove(Integer id);
 }

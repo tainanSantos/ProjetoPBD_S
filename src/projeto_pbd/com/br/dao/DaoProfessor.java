@@ -34,7 +34,7 @@ public class DaoProfessor implements IDaoProfessor{
 
 
     @Override
-    public Professor findById(int id) {
+    public Professor findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
 
         Professor professor = null;
@@ -68,7 +68,7 @@ public class DaoProfessor implements IDaoProfessor{
 
 
     @Override
-    public Professor remove(int id) {
+    public Professor remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
         Professor professor = null;
 

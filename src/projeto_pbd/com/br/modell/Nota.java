@@ -2,10 +2,7 @@ package projeto_pbd.com.br.modell;
 
 import org.hibernate.annotations.ManyToAny;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Nota {
@@ -26,7 +23,7 @@ public class Nota {
     private float media;
 
     // se aprovado ou reprovado na disciplina
-    private boolean status;
+    private Boolean status;
 
 
     public Nota() {
@@ -97,11 +94,11 @@ public class Nota {
         this.media = media;
     }
 
-    public boolean isStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 }

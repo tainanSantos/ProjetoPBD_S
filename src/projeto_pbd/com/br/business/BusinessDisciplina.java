@@ -29,7 +29,7 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     }
 
     @Override
-    public Disciplina findById(int id) {
+    public Disciplina findById(Integer id) {
         return this.daoDisciplina.findById (id);
     }
 
@@ -39,7 +39,7 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     }
 
     @Override
-    public Disciplina remove(int id) {
+    public Disciplina remove(Integer id) {
         return this.daoDisciplina.remove (id);
     }
 }

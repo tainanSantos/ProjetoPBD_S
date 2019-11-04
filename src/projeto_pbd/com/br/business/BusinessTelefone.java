@@ -20,7 +20,7 @@ public class BusinessTelefone implements IBusinessTelefone {
     }
 
     @Override
-    public Telefone findById(int id) {
+    public Telefone findById(Integer id) {
         return this.daoTelefone.findById(id);
     }
 
@@ -30,12 +30,12 @@ public class BusinessTelefone implements IBusinessTelefone {
     }
 
     @Override
-    public List<Telefone> findAllId(int idPessoa) {
+    public List<Telefone> findAllId(Integer idPessoa) {
         return this.daoTelefone.findAllId(idPessoa);
     }
 
     @Override
-    public Telefone remove(int id) {
+    public Telefone remove(Integer id) {
         return this.daoTelefone.remove(id);
     }
 }

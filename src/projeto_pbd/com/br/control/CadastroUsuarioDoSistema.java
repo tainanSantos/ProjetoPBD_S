@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.*;
 import projeto_pbd.com.br.modell.Endereco;
-import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
@@ -90,44 +89,28 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     public void salvarCaradastroUsuario(){
 
-
         Usuario usuario = new Usuario ();
 
-        usuario.setNome (nomeFuncionario.getText ());
-        usuario.setNaturalidade (naturalidadeFuncionario.getText ());
-        usuario.setDataNascimento ((Date) dataNasFuncionario.getUserData ());
-        usuario.setCpf (cpfFuncionario.getText ());
-        usuario.setSenha (senhaPadrao ());
-        usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
-        usuario.setEmail (email.getText ());
+//        usuario.setNome (nomeFuncionario.getText ());
+//        usuario.setNaturalidade (naturalidadeFuncionario.getText ());
+//        usuario.setDataNascimento ((Date) dataNasFuncionario.getUserData ());
+//        usuario.setCpf (cpfFuncionario.getText ());
+//        usuario.setSenha (senhaPadrao ());
+//        usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
+//        usuario.setEmail (email.getText ());
 
         Endereco endereco = new Endereco ();
-        endereco.setBairro (bairroFuncionario.getText ());
-        endereco.setCep (cepFuncionario.getText ());
-        endereco.setCidade (cidadeFuncionario.getText ());
-        endereco.setComplemento (complementoLogradouroFuncionario.getText ());
-        endereco.setLogradouro (logradouroFuncionario.getText ());
-        endereco.setNumero (numeroLogragouroFuncionario.getText ());
-        endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
-
-        Telefone telefone1 = new Telefone ();
-        telefone1.setNumero (telefoneUmFuncionario.getText ());
-        Telefone telefone2 = new Telefone ();
-        telefone2.setNumero (telefoneDoisFuncionario.getText ());
+//        endereco.setBairro (bairroFuncionario.getText ());
+//        endereco.setCep (cepFuncionario.getText ());
+//        endereco.setCidade (cidadeFuncionario.getText ());
+//        endereco.setComplemento (complementoLogradouroFuncionario.getText ());
+//        endereco.setLogradouro (logradouroFuncionario.getText ());
+//        endereco.setNumero (numeroLogragouroFuncionario.getText ());
+//        endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
 
         usuario.setEndereco (endereco);
 
-        // implemntar no busines  aquestão de validação de campos agora
-        // não permitir redudancia de dados como cpfs e emails iguais
-        // mudar a data d.o tipo Strig para o tipo date
-
         usuario = Facade.getInstance ().saveUsuario (usuario);
-        telefone1.setPessoa (usuario);
-        telefone2.setPessoa (usuario);
-        Facade.getInstance().saveTelefone(telefone1);
-        Facade.getInstance().saveTelefone(telefone2);
-
-
     }
 
 

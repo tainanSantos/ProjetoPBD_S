@@ -17,10 +17,19 @@ public class Disciplina {
     @ManyToOne
     private Curriculo curriculo;
 
+    private Boolean status;
+
     public Disciplina(){
 
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;

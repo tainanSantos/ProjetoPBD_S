@@ -8,9 +8,9 @@ public interface IDaoProfessor {
 
     public Professor save(Professor professor);
 
-    public Professor findById(int id);
+    public Professor findById(Integer id);
 
     public List<Professor> findAll();
 
-    public Professor remove(int id);
+    public Professor remove(Integer id);
 }

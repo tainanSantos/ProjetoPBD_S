@@ -28,10 +28,12 @@ public class DaoAluno implements IDaoAluno {
         }finally {
             em.close (); // fecha conexão
         }
-        return aluno;    }
+        return aluno;
+
+    }
 
     @Override
-    public Aluno findById(int id) {
+    public Aluno findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
 
         Aluno aluno= null;
@@ -61,7 +63,7 @@ public class DaoAluno implements IDaoAluno {
         return alunos;    }
 
     @Override
-    public Aluno remove(int id) {
+    public Aluno remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
         Aluno aluno = null;
 

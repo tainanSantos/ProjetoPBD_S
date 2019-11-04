@@ -23,7 +23,8 @@ public class Facade implements IFacade {
     private IBusinessProfessor businessProfessor;
     private IBusinessUsuario businessUsuario;
     private IBusinessTelefone businessTelefone;
-
+//    private IBusinessTurma businessTurma;
+    private IBusinessResponsavel businessResponsavel;
 
     private Facade() {
         this.businessAluno = new BusinessAluno ();
@@ -33,6 +34,8 @@ public class Facade implements IFacade {
         this.businessPedagogo = new BusinessPedagogo ();
         this.businessUsuario = new BusinessUsuario ();
         this.businessTelefone = new BusinessTelefone();
+//        this.businessTurma = new BusinessTurma();
+        this.businessResponsavel = new BusinessResponsavel();
 
     }
 
@@ -44,7 +47,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Aluno findByIdAluno(int id) {
+    public Aluno findByIdAluno(Integer id) {
         return this.businessAluno.findById (id);
     }
 
@@ -54,7 +57,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Aluno removeAluno(int id) {
+    public Aluno removeAluno(Integer id) {
         return this.businessAluno.remove (id);
     }
 
@@ -67,7 +70,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Curriculo findByIdCurriculo(int id) {
+    public Curriculo findByIdCurriculo(Integer id) {
         return this.businessCurriculo.findById (id);
     }
 
@@ -77,7 +80,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Curriculo removeCurriculo(int id) {
+    public Curriculo removeCurriculo(Integer id) {
         return this.businessCurriculo.remove (id);
     }
 
@@ -90,7 +93,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Disciplina findByIdDisciplina(int id) {
+    public Disciplina findByIdDisciplina(Integer id) {
         return this.businessDisciplina.findById (id);
     }
 
@@ -100,7 +103,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Disciplina removeDisciplina(int id) {
+    public Disciplina removeDisciplina(Integer id) {
         return this.businessDisciplina.remove (id);
     }
 
@@ -113,7 +116,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Pedagogo findByIdPedagogo(int id) {
+    public Pedagogo findByIdPedagogo(Integer id) {
         return this.businessPedagogo.findById (id);
     }
 
@@ -123,7 +126,12 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Pedagogo removePedagogo(int id) {
+    public List<Pedagogo> findAllStringPedagogo(String nome) {
+        return this.businessPedagogo.findAllString(nome);
+    }
+
+    @Override
+    public Pedagogo removePedagogo(Integer id) {
         return this.businessPedagogo.remove (id);
     }
 
@@ -135,7 +143,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Professor findByIdProfessor(int id) {
+    public Professor findByIdProfessor(Integer id) {
         return this.businessProfessor.findById (id);
     }
 
@@ -145,7 +153,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Professor removeProfessor(int id) {
+    public Professor removeProfessor(Integer id) {
         return this.businessProfessor.remove (id);
     }
 
@@ -154,11 +162,12 @@ public class Facade implements IFacade {
     //USUARIO
     @Override
     public Usuario saveUsuario(Usuario usuario) {
+        System.out.println("passei aqui");
         return this.businessUsuario.save (usuario);
     }
 
     @Override
-    public Usuario findByIdUsuario(int id) {
+    public Usuario findByIdUsuario(Integer id) {
         return this.businessUsuario.findById (id);
     }
 
@@ -168,7 +177,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Usuario removeUsuario(int id) {
+    public Usuario removeUsuario(Integer id) {
         return this.businessUsuario.remove (id);
     }
 
@@ -180,7 +189,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Telefone findByIdTelefone(int id) {
+    public Telefone findByIdTelefone(Integer id) {
         return this.businessTelefone.findById(id);
     }
 
@@ -190,12 +199,56 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public List<Telefone> findAllIdTelefone(int idPessoa) {
+    public List<Telefone> findAllIdTelefone(Integer idPessoa) {
         return this.businessTelefone.findAllId(idPessoa);
     }
 
     @Override
-    public Telefone removeTelefone(int id) {
+    public Telefone removeTelefone(Integer id) {
         return this.businessTelefone.remove(id);
+    }
+
+
+    //TURMA
+//    @Override
+//    public Turma saveTurma(Turma turma) {
+//        return this.businessTurma.save(turma);
+//    }
+//
+//    @Override
+//    public Turma findByIdTurma(Integer id) {
+//        return this.businessTurma.findById(id);
+//    }
+//
+//    @Override
+//    public List<Turma> findAllTurma() {
+//        return this.businessTurma.findAll();
+//    }
+//
+//    @Override
+//    public Turma removeTurma(Integer id) {
+//        return this.businessTurma.remove(id);
+//    }
+
+
+    //RESPONSÁVEL
+    @Override
+    public Responsavel saveResponsavel(Responsavel responsavel) {
+        return this.businessResponsavel.save(responsavel);
+    }
+
+    @Override
+    public Responsavel findByIdResponsavel(Integer id) {
+        return this.businessResponsavel.remove(id);
+    }
+
+    @Override
+    public List<Responsavel> findAllResponsavel() {
+        return this.businessResponsavel.findAll();
+    }
+
+    @Override
+    public Responsavel removeResponsavel(Integer id) {
+        return this.businessResponsavel.remove(id);
     }
 }

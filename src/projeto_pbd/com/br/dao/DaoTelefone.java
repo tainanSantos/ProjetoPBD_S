@@ -1,6 +1,8 @@
 package projeto_pbd.com.br.dao;
 
+import projeto_pbd.com.br.modell.Pessoa;
 import projeto_pbd.com.br.modell.Telefone;
+import projeto_pbd.com.br.modell.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -34,7 +36,7 @@ public class DaoTelefone implements IDaoTelefone {
 
 
     @Override
-    public Telefone findById(int id) {
+    public Telefone findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
 
         Telefone telefone= null;
@@ -66,20 +68,14 @@ public class DaoTelefone implements IDaoTelefone {
     }
 
     @Override
-    public List<Telefone> findAllId(int idPessoa) {
+    public List<Telefone> findAllId(Integer idPessoa) {
         EntityManager em = new Conection().getEntityManager ();
         List<Telefone> telefones = null;
 
         try {
-            System.out.println("1A");
-            String consulta = "select t from Telefone t join t.pessoa_id = :pessoa_id";
-            System.out.println("2A");
+            String consulta = "select t from Telefone t where t.pessoa.id ="+idPessoa;
             TypedQuery<Telefone> query = em.createQuery(consulta, Telefone.class);
-            System.out.println("3A");
-            query.setParameter("pessoa_id",idPessoa);
-            System.out.println("4A");
             telefones = query.getResultList();
-            System.out.println("5A");
 
         }catch (Exception e ){
             em.getTransaction ().rollback ();
@@ -87,18 +83,11 @@ public class DaoTelefone implements IDaoTelefone {
             em.close (); // fecha conexão
         }
 
-        if(telefones == null) System.out.println("Telefones nullos");
-        System.out.println("_______________________________________________");
-        for (Telefone telefone : telefones){
-            System.out.println(telefone.getNumero());
-        }
-        System.out.println("_______________________________________________");
         return telefones;
     }
 
-
     @Override
-    public Telefone remove(int id) {
+    public Telefone remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
         Telefone telefone = null;
 

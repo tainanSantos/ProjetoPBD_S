@@ -1,9 +1,6 @@
 package projeto_pbd.com.br.modell;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Parcela {
@@ -16,6 +13,7 @@ public class Parcela {
     @ManyToOne
     private Curriculo curriculo;
 
+    private Boolean status;
 
     public Parcela(){
 
@@ -35,5 +33,13 @@ public class Parcela {
 
     public void setCurriculo(Curriculo curriculo) {
         this.curriculo = curriculo;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

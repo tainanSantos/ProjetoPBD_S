@@ -22,7 +22,6 @@ public class Endereco {
 
     }
 
-
     public Integer getId() {
         return id;
     }

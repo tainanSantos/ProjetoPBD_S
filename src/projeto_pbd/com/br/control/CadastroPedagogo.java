@@ -56,7 +56,6 @@ public class CadastroPedagogo implements Initializable {
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
     private Pedagogo pedagogo = null;
-//    private ArrayList<Telefone> telefones = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,7 +64,6 @@ public class CadastroPedagogo implements Initializable {
             public void onScreenchanged(String newScene, Object userData) {
                 if (newScene.equalsIgnoreCase("AreaPedagogo_Atualzar") && userData!=null){
                     pedagogo = (Pedagogo) userData;
-//                    telefones = new ArrayList<>();
                     apagarButton.setVisible (true);
                     atualizar();
                 }
@@ -101,15 +99,6 @@ public class CadastroPedagogo implements Initializable {
         cpfText.setText (pedagogo.getCpf ());
         graduacaoText.setText (pedagogo.getGraduacao ());
 
-        for(Telefone tel: Facade.getInstance().findAllTelefone()){
-            if (tel.getPessoa().getId() == pedagogo.getId()){
-//                telefones.add(tel);
-            }
-        }
-
-//        telefoneUmText.setText(telefones.get(1).getNumero());
-//        telefoneDoisText.setText(telefones.get(0).getNumero());
-
     }
 
 
@@ -117,18 +106,17 @@ public class CadastroPedagogo implements Initializable {
     public void salvarCadastro() {
         Pedagogo ped = new Pedagogo ();
         Endereco endereco = new Endereco ();
-        Telefone telefone = new Telefone ();
-        Telefone telefone1 = new Telefone ();
+        Telefone telefone = new Telefone();
+        Telefone telefone1 = new Telefone();
 
         String mensagem = "Salvo com Sucesso!";
 
-
+        // ATUALIZANDO
         if (pedagogo != null){
             ped = pedagogo;
             mensagem = "Atualizado com Sucesso!";
             endereco = ped.getEndereco ();
-//            telefone1 = telefones.get(0);
-//            telefone = telefones.get(1);
+
         }
 
         endereco.setLogradouro (logradouroText.getText ());
@@ -139,9 +127,6 @@ public class CadastroPedagogo implements Initializable {
         endereco.setCep (cepText.getText ());
         endereco.setUf (comboboxUf.valueProperty ().get ().toString ());
 
-        telefone.setNumero (telefoneUmText.getText ());
-        telefone1.setNumero (telefoneDoisText.getText ());
-
         ped.setCpf (cpfText.getText ());
         ped.setDataNascimento ((Date) dataText.getUserData ());
         ped.setNaturalidade (naturalidadeText.getText ());
@@ -149,18 +134,13 @@ public class CadastroPedagogo implements Initializable {
         ped.setGraduacao (graduacaoText.getText ());
 
         ped.setEndereco (endereco);
-
-        // SALVANDO O PEDAGOGO E O ENDEREÇO E EPEGANDO A INSTANCIA DELE
         ped = Facade.getInstance ().savePedagogo (ped);
 
-        telefone.setPessoa (ped);
-        telefone1.setPessoa (ped);
+        telefone.setPessoa(ped);
+        telefone1.setPessoa(ped);
+        Facade.getInstance().saveTelefone(telefone);
         Facade.getInstance().saveTelefone(telefone1);
 
-        // O TELEFONE TÁ COM DEFEITO NA HORA DE ATUALIZAR
-        // VER ISSO SEMANA QUE VEM COM O PESSOAL
-//        Facade.getInstance().saveTelefone(telefone);
-//
         fecharTela();
         Mensagem.mensagemSucesso (mensagem);
     }
