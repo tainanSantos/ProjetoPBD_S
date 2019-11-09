@@ -15,8 +15,8 @@ public class Main extends Application {
 
 //	alteração só pra teste
 
-	public static  final  String LOGIN_PANE = "com/br/view/Login.fxml";
-	public static  final  String PRINCIPLA_PANE = "com/br/view/Principal.fxml";
+	public static final String LOGIN_PANE = "com/br/view/Login.fxml";
+	public static final String PRINCIPLA_PANE = "com/br/view/Principal.fxml";
 	public static final String CADASTRO_ALUNO = "com/br/view/CadastroAluno.fxml";
 	public static final String CADASTRO_CURRICULO = "com/br/view/CadastroCurriculo.fxml";
 	public static final String CADASTRO_DISCIPLINA = "com/br/view/CadastroDisciplina.fxml";

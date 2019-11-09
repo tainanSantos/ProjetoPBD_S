@@ -56,7 +56,9 @@ public class AreaDiscente implements Initializable {
     @FXML
     private TextField cidadeText;
     @FXML
-    private ComboBox<?> comboboxUf;
+    private ComboBox comboboxUf;
+    @FXML
+    private ComboBox ensinoComboBox;
     @FXML
     private Label cadastroAlunoResponsávelLabes;
     @FXML
@@ -110,6 +112,10 @@ public class AreaDiscente implements Initializable {
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
+
+    private List listUfsEnsino = new ArrayList(Arrays.asList (new String[]{"- EF-AI-1", "- EF-AI-2a5",
+            "- EF-AF-6a8", "- EF-AI-9", "- EF-AI-1", "- EM-1", "- EM-2", "- EM-3", } ));
+    //____
     //__________________________________________________________________________________________________________________
 
     @Override
@@ -123,7 +129,7 @@ public class AreaDiscente implements Initializable {
 
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
         this.comboboxUf1Resp.setItems(FXCollections.observableArrayList (this.listUfsAlun));
-
+        this.ensinoComboBox.setItems(FXCollections.observableArrayList(this.listUfsEnsino));
         // cpf só será obrigatório de o aluno também for responsável
         MaskFieldUtil.dateField (this.dataText);
         MaskFieldUtil.cepField (this.cepText);

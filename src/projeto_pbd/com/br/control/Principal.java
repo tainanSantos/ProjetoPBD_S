@@ -109,9 +109,7 @@ public class Principal implements Initializable {
         if (event.getSource () == configuracoeMenuItem){
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
         }
-        if (event.getSource() == areaPedagogoMenuItem){
-            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PEDAGOGO)));
-        }
+
         if (event.getSource() == areaProfessorMenuItem){
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
         }

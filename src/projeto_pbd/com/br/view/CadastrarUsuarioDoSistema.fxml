@@ -3,6 +3,7 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -52,13 +53,13 @@
                                       <Font size="10.0" />
                                   </font>
                               </Label>
-                              <TextField fx:id="dataNasFuncionario" promptText="     /     /" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="cpf" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                         <TextField fx:id="cpfFuncionario" promptText="     .     .     -" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <DatePicker fx:id="dataNasFuncionario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                           </children>
                       </GridPane>
                       <Label layoutY="189.0" text="Endereço" AnchorPane.leftAnchor="0.0">

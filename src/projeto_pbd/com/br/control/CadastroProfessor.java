@@ -140,7 +140,6 @@ public class CadastroProfessor implements Initializable {
 
 
             prof.setCpf (cpfText.getText ());
-            prof.setDataNascimento ((Date) dataText.getUserData ());
             prof.setNaturalidade (naturalidadeText.getText ());
             prof.setNome (nomeText.getText ());
             prof.setGraduacao (graduacaoText.getText ());

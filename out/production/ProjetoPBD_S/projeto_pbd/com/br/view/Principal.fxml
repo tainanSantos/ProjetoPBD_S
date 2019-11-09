@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="principal" prefHeight="590.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Principal">
+<AnchorPane id="principal" prefHeight="590.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Principal">
    <children>
       <ScrollPane layoutX="84.0" layoutY="116.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <content>
@@ -30,7 +37,6 @@
             </Menu>
             <Menu id=" area do aluno" mnemonicParsing="false" text="     Docente     ">
                <items>
-                  <MenuItem fx:id="areaPedagogoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Pedagogo" />
                   <MenuItem fx:id="areaProfessorMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Professor" />
                </items>
             </Menu>
@@ -46,12 +52,18 @@
           </Menu>
         </menus>
       </MenuBar>
-      <MenuButton fx:id="usuarioButton" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1173.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Usuário" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <MenuButton fx:id="usuarioButton" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1173.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-radius: 5; -fx-background-color: #191970;" text="Usuário" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
         <items>
             <MenuItem id="cadastrarUsuario" fx:id="cadastroUasuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastrar Usuário" />
           <MenuItem id="areaUsuario" fx:id="areaUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Áarea do Usuário" />
           <MenuItem id="sair" fx:id="sairUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Sair" />
         </items>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
       </MenuButton>
    </children>
 </AnchorPane>

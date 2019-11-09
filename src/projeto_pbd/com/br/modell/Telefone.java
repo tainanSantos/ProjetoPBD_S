@@ -1,11 +1,10 @@
 package projeto_pbd.com.br.modell;
 
-import projeto_pbd.com.br.teste.TelefonesTeste;
 
 import javax.persistence.*;
 
 @Entity
-public class Telefone extends TelefonesTeste {
+public class Telefone {
 
 
     @Id
@@ -22,7 +21,6 @@ public class Telefone extends TelefonesTeste {
 
     }
 
-    @Override
     public Integer getId() {
         return id;
     }

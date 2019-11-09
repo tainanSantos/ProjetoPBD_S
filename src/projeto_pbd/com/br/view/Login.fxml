@@ -59,7 +59,7 @@
             <Button blendMode="EXCLUSION" layoutX="130.0" layoutY="341.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="134.0" text="Alterar Senha" AnchorPane.leftAnchor="100.0" />
             <ImageView fitHeight="39.0" fitWidth="31.0" layoutX="33.0" layoutY="75.0" onMousePressed="#sairDeRecuperarSenha" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/voltar.png" />
+                  <Image url="@../../../img/voltar.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />

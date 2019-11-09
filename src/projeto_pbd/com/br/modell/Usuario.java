@@ -6,15 +6,14 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Usuario extends Pessoa {
 
-
     private String email;
     private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio
     private String tipoDeAcesso;
     private String cpf;
 
     public Usuario() {
-    }
 
+    }
 
     public String getEmail() {
         return email;
@@ -47,5 +46,6 @@ public class Usuario extends Pessoa {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
 
 }

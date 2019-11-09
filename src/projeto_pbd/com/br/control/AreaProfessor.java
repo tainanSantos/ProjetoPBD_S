@@ -1,13 +1,16 @@
 package projeto_pbd.com.br.control;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
@@ -27,7 +30,7 @@ public class AreaProfessor implements Initializable {
     @FXML
     private TextField naturalidadeProfessorText;
     @FXML
-    private TextField dataProfessorText;
+    private DatePicker dataProfessorText;
     @FXML
     private TextField cpfProfessorText;
     @FXML
@@ -67,10 +70,13 @@ public class AreaProfessor implements Initializable {
     @FXML
     private TableColumn<?, ?> naturalidadeProfessorColum;
     @FXML
+    private TableColumn<Professor, Boolean>  selecionadoColum;
+    @FXML
     private TextField pesquisaProfessorText;
     @FXML
     private Button pesquisaProfessorButton;
     @FXML
+    private CheckBoxTableCell comCheckBoxTableCell;
 
     private List listUfsProf = new ArrayList(Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
@@ -87,6 +93,8 @@ public class AreaProfessor implements Initializable {
 
             }
         });
+
+
         carregarTable (Facade.getInstance().findAllProfessor());
 
         this.professorTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -102,20 +110,17 @@ public class AreaProfessor implements Initializable {
                         complementoProfessorText.setText(prof.getEndereco().getComplemento());
                         bairroProfessorText.setText(prof.getEndereco().getBairro());
                         cidadeProfessorText.setText(prof.getEndereco().getCidade());
-//                        comboboxUf.getSelectionModel().select(Integer.parseInt(pedagogo.getEndereco().getUf()));
+                        comboBoxPorfUf.setValue(prof.getEndereco().getUf());
                         cepProfessorText.setText(prof.getEndereco().getCep());
                         cpfProfessorText.setText(prof.getCpf());
-
-                        dataProfessorText.clear(); // ainda não implementado
-
+                        dataProfessorText.setValue(prof.getDataNascimento());
+                        dataProfessorText.setValue(null); // ainda não implementado
                         naturalidadeProfessorText.setText(prof.getNaturalidade());
                         nomeProfessorText.setText(prof.getNome());
                         graduacaoProfessorText.setText(prof.getGraduacao());
+                        dataProfessorText.setValue(prof.getDataNascimento());
                         List<Telefone> telefoneList = null;
                         telefoneList = Facade.getInstance().findAllIdTelefone(prof.getId());
-                        for (Telefone telefone: telefoneList){
-                            System.out.println(telefone.getNumero() +" ---- "+telefone.getId());
-                        }
                         telefoneUmProfessorText.setText(telefoneList.get(0).getNumero());
                         telefoneDoisProfessorText.setText(telefoneList.get(1).getNumero());
 
@@ -126,7 +131,7 @@ public class AreaProfessor implements Initializable {
 
         this.comboBoxPorfUf.getItems().setAll(this.listUfsProf);
 
-        MaskFieldUtil.dateField (this.dataProfessorText);
+        MaskFieldUtil.dateField (this.dataProfessorText.getEditor());
         MaskFieldUtil.cpfField (this.cpfProfessorText);
         MaskFieldUtil.cepField (this.cepProfessorText);
         MaskFieldUtil.foneField (this.telefoneUmProfessorText);
@@ -134,12 +139,19 @@ public class AreaProfessor implements Initializable {
     }
 
 
+
+
+
     public void carregarTable(List<Professor> professorList){
 
         nomeProfessorColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
         graduacaoPorfessorColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeProfessorColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
+        selecionadoColum.setCellValueFactory(new PropertyValueFactory<>("selectTable"));
+        selecionadoColum.setCellFactory(comCheckBoxTableCell.forTableColumn((selecionadoColum)));
         professorTable.getItems().setAll(professorList);
+
+
     }
 
 
@@ -151,7 +163,8 @@ public class AreaProfessor implements Initializable {
         cidadeProfessorText.clear();
         cepProfessorText.clear();
         cpfProfessorText.clear();
-        dataProfessorText.clear();
+        comboBoxPorfUf.setValue(null);
+        dataProfessorText.setValue(null);
         naturalidadeProfessorText.clear();
         nomeProfessorText.clear();
         graduacaoProfessorText.clear();
@@ -194,11 +207,14 @@ public class AreaProfessor implements Initializable {
             endereco.setUf (comboBoxPorfUf.valueProperty ().get ().toString ());
 
             professor.setCpf (cpfProfessorText.getText ());
-            professor.setDataNascimento ((Date) dataProfessorText.getUserData ());
+            professor.setDataNascimento(dataProfessorText.getValue());
+
             professor.setNaturalidade (naturalidadeProfessorText.getText ());
             professor.setNome (nomeProfessorText.getText ());
             professor.setGraduacao (graduacaoProfessorText.getText ());
+            professor.setDataNascimento(dataProfessorText.getValue());
             professor.setStatus(true);
+            professor.setSelectTable(true);
 
             telefone.setNumero(telefoneUmProfessorText.getText());
             telefone1.setNumero(telefoneDoisProfessorText.getText());

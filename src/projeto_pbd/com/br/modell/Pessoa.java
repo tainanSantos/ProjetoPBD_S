@@ -4,8 +4,7 @@ package projeto_pbd.com.br.modell;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 
 
 @Entity
@@ -17,13 +16,10 @@ public abstract class Pessoa {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
 
-
-
     @OneToOne
     private Endereco endereco;
 
-    @Temporal (TemporalType.DATE)
-    private Date dataNascimento; // TALVEZ DE ERRO AQUI
+    private LocalDate dataNascimento; // TALVEZ DE ERRO AQUI
 
     private String naturalidade;
     private String nome;
@@ -50,11 +46,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

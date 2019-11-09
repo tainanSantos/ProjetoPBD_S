@@ -16,6 +16,9 @@ public class Aluno extends  Pessoa{
     @ManyToOne
     private Responsavel responsavel;
 
+    private String nomePai;
+    private String nomeMae;
+
     public Aluno() {
     }
 
@@ -41,5 +44,21 @@ public class Aluno extends  Pessoa{
 
     public void setResponsavel(Responsavel responsavel) {
         this.responsavel = responsavel;
+    }
+
+    public String getNomePai() {
+        return nomePai;
+    }
+
+    public void setNomePai(String nomePai) {
+        this.nomePai = nomePai;
+    }
+
+    public String getNomeMae() {
+        return nomeMae;
+    }
+
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
     }
 }

@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Endereco {
 
+    // endereço da pessoa
 
     @Id
     @GeneratedValue

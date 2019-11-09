@@ -13,6 +13,7 @@ public class Turma {
     @ManyToMany
     private List<Professor> professors;
 
+
     public Turma(){
     }
 

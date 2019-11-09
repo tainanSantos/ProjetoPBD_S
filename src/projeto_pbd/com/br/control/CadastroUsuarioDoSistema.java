@@ -2,10 +2,12 @@ package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.*;
 import projeto_pbd.com.br.modell.Endereco;
@@ -13,7 +15,10 @@ import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
+import java.math.BigInteger;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class CadastroUsuarioDoSistema implements Initializable {
@@ -35,7 +40,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
     @FXML
     private TextField naturalidadeFuncionario;
     @FXML
-    private TextField dataNasFuncionario;
+    private DatePicker dataNasFuncionario;
     @FXML
     private TextField cpfFuncionario;
     @FXML
@@ -89,17 +94,54 @@ public class CadastroUsuarioDoSistema implements Initializable {
             }
         });
 
+        atualizarTabela(Facade.getInstance().findAllUsuario());
+
+        usuarioTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 1){
+                    if (usuarioTable.getSelectionModel().getSelectedItem() != null){
+                        Usuario usuario = null;
+                        usuario = usuarioTable.getSelectionModel().getSelectedItem();
+                        logradouroFuncionario.setText(usuario.getEndereco().getLogradouro());
+                        numeroLogragouroFuncionario.setText(usuario.getEndereco().getNumero());
+                        complementoLogradouroFuncionario.setText(usuario.getEndereco().getComplemento());
+                        bairroFuncionario.setText(usuario.getEndereco().getBairro());
+                        cidadeFuncionario.setText(usuario.getEndereco().getCidade());
+                        comboboxUF.setValue(usuario.getEndereco().getUf());
+                        comboboxTipoFunacionario.setValue(usuario.getTipoDeAcesso());
+
+//                        comboboxUF.getSelectionModel().select(Integer.parseInt(usuario.getEndereco().getUf()));7
+                        email.setText(usuario.getEmail());
+                        cepFuncionario.setText(usuario.getEndereco().getCep());
+                        cpfFuncionario.setText(usuario.getCpf());
+//                        endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
+
+                        dataNasFuncionario.setValue(usuario.getDataNascimento()); // ainda não implementado
+
+                        naturalidadeFuncionario.setText(usuario.getNaturalidade());
+                        nomeFuncionario.setText(usuario.getNome());
+                        List<Telefone> telefoneList = null;
+                        telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
+                        for (Telefone telefone: telefoneList){
+                            System.out.println(telefone.getNumero() +" ---- "+telefone.getId());
+                        }
+                        telefoneUmFuncionario.setText(telefoneList.get(0).getNumero());
+                        telefoneDoisFuncionario.setText(telefoneList.get(1).getNumero());
+                    }
+                }
+            }
+        });
+
         this.comboboxTipoFunacionario.setItems (FXCollections.observableArrayList (this.listTipoFuncionario));
         this.comboboxUF.setItems (FXCollections.observableArrayList (this.listUfs));
 
         MaskFieldUtil.foneField (telefoneUmFuncionario);
         MaskFieldUtil.foneField (telefoneDoisFuncionario);
-        MaskFieldUtil.dateField (dataNasFuncionario);
+        MaskFieldUtil.dateField (dataNasFuncionario.getEditor());
         MaskFieldUtil.cepField (cepFuncionario);
         MaskFieldUtil.cpfField (cpfFuncionario);
-
     }
-
 
     public void atualizarTabela(List<Usuario> usuarioList){
         statusColum.setCellValueFactory(new PropertyValueFactory("status"));
@@ -110,25 +152,59 @@ public class CadastroUsuarioDoSistema implements Initializable {
     }
 
 
+    public void limparaCampos(){
+        nomeFuncionario.clear();
+        naturalidadeFuncionario.clear();
+        dataNasFuncionario.clipProperty();
+        cpfFuncionario.clear();
+        cepFuncionario.clear();
+        telefoneUmFuncionario.clear();
+        telefoneDoisFuncionario.clear();
+        logradouroFuncionario.clear();
+        numeroLogragouroFuncionario.clear();
+        complementoLogradouroFuncionario.clear();
+        bairroFuncionario.clear();
+        cidadeFuncionario.clear();
+        email.clear();
+        dataNasFuncionario.setValue(null);
+        usuarioTable.getSelectionModel().select(null);
+        comboboxTipoFunacionario.setValue(null);
+        comboboxUF.setValue(null);
+    }
+
     //__________________________________________________________________________________________________________________
 
     @FXML
     public void action(ActionEvent event){
-
 
         if (event.getSource() ==  salvarUsuarioButton){
             Usuario usuario = new Usuario ();
             Endereco endereco = new Endereco ();
             Telefone telefone = new Telefone();
             Telefone telefone1 = new Telefone();
+            String mensagem = "Salvo com Sucesso!";
+
+            if (usuarioTable.getSelectionModel().getSelectedItem() != null){
+                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
+                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
+                mensagem = "Atualizado com Sucesso!";
+                List<Telefone> telefoneList = null;
+                telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
+                telefone.setId(telefoneList.get(0).getId());
+                telefone1.setId(telefoneList.get(1).getId());
+            }
 
             usuario.setNome (nomeFuncionario.getText ());
             usuario.setNaturalidade (naturalidadeFuncionario.getText ());
-            usuario.setDataNascimento ((Date) dataNasFuncionario.getUserData ());
+
             usuario.setCpf (cpfFuncionario.getText ());
-            usuario.setSenha (senhaPadrao ());
+//            usuario.setSenha (senhaPadrao ());
             usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
             usuario.setEmail (email.getText ());
+            usuario.setStatus(true);
+            usuario.setSenha(funcaoCript(senhaPadrao()));
+
+            usuario.setDataNascimento(dataNasFuncionario.getValue());
 
             endereco.setBairro (bairroFuncionario.getText ());
             endereco.setCep (cepFuncionario.getText ());
@@ -148,10 +224,12 @@ public class CadastroUsuarioDoSistema implements Initializable {
             Facade.getInstance().saveTelefone(telefone);
             Facade.getInstance().saveTelefone(telefone1);
             atualizarTabela(Facade.getInstance().findAllUsuario());
+            limparaCampos();
+
         }
 
         if (event.getSource() == novoUsuarioButton){
-
+            limparaCampos();
         }
 
         if (event.getSource() == destivarUsuarioButton){
@@ -161,10 +239,23 @@ public class CadastroUsuarioDoSistema implements Initializable {
         if (event.getSource() == pesquisarUsuarioButton){
 
         }
-
-
     }
 
+    public String funcaoCript(String string){
+        String plaintext = string;
+        MessageDigest m = null;
+        try {
+            m = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        m.reset();
+        m.update(plaintext.getBytes());
+        byte[] digest = m.digest();
+        BigInteger bigInt = new BigInteger(1,digest);
+        String hashtext = bigInt.toString(16);
+        return hashtext;
+    }
 
 
     public String senhaPadrao(){

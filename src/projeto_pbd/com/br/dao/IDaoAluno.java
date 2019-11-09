@@ -1,7 +1,6 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Aluno;
-import projeto_pbd.com.br.modell.Pedagogo;
 
 import java.util.List;
 
