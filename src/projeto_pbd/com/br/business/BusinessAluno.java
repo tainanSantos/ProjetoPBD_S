@@ -18,22 +18,22 @@ public class BusinessAluno implements  IBusinessAluno {
     }
 
     @Override
-    public Aluno save(Aluno aluno) {
+    public Aluno saveAluno(Aluno aluno) {
         return this.daoAluno.save (aluno);
     }
 
     @Override
-    public Aluno findById(Integer id) {
+    public Aluno findByIdAluno(Integer id) {
         return this.daoAluno.findById (id);
     }
 
     @Override
-    public List<Aluno> findAll() {
+    public List<Aluno> findAllAluno() {
         return this.daoAluno.findAll ();
     }
 
     @Override
-    public Aluno remove(Integer id) {
+    public Aluno removeAluno(Integer id) {
         return this.daoAluno.remove (id);
     }
 }

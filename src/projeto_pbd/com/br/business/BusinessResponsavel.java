@@ -16,22 +16,22 @@ public class BusinessResponsavel implements IBusinessResponsavel {
     }
 
     @Override
-    public Responsavel save(Responsavel responsavel) {
+    public Responsavel saveResponsavel(Responsavel responsavel) {
         return this.daoResponsavel.save(responsavel);
     }
 
     @Override
-    public Responsavel findById(Integer id) {
+    public Responsavel findByIdResponsavel(Integer id) {
         return this.daoResponsavel.findById(id);
     }
 
     @Override
-    public List<Responsavel> findAll() {
+    public List<Responsavel> findAllResponsavel() {
         return this.daoResponsavel.findAll();
     }
 
     @Override
-    public Responsavel remove(Integer id) {
+    public Responsavel removeResponsavel(Integer id) {
         return this.daoResponsavel.remove(id);
     }
 }

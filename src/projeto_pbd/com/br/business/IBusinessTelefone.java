@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface IBusinessTelefone {
 
-    public Telefone save(Telefone telefone);
+    public Telefone saveTelefone(Telefone telefone);
 
-    public Telefone findById(Integer id);
+    public Telefone findByIdTelefone(Integer id);
 
-    public List<Telefone> findAll();
+    public List<Telefone> findAllTelefone();
 
-    public List<Telefone> findAllId(Integer idPessoa);
+    public List<Telefone> findAllIdTelefone(Integer idPessoa);
 
-    public Telefone remove(Integer id);
+    public Telefone removeTelefone(Integer id);
 }

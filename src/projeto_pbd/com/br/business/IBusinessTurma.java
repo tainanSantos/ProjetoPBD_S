@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IBusinessTurma {
 
-    public Turma save(Turma turma);
+    public Turma saveTurma(Turma turma);
 
-    public Turma findById(Integer id);
+    public Turma findByIdTurma(Integer id);
 
-    public List<Turma> findAll();
+    public List<Turma> findAllTurma();
 
-    public Turma remove(Integer id);
+    public Turma removeTurma(Integer id);
 }

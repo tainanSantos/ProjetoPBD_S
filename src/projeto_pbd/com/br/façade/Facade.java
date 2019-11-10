@@ -23,7 +23,7 @@ public class Facade implements IFacade {
     private IBusinessProfessor businessProfessor;
     private IBusinessUsuario businessUsuario;
     private IBusinessTelefone businessTelefone;
-//    private IBusinessTurma businessTurma;
+    private IBusinessTurma businessTurma;
     private IBusinessResponsavel businessResponsavel;
 
     private Facade() {
@@ -34,7 +34,7 @@ public class Facade implements IFacade {
         this.businessPedagogo = new BusinessPedagogo ();
         this.businessUsuario = new BusinessUsuario ();
         this.businessTelefone = new BusinessTelefone();
-//        this.businessTurma = new BusinessTurma();
+        this.businessTurma = new BusinessTurma();
         this.businessResponsavel = new BusinessResponsavel();
 
     }
@@ -43,22 +43,22 @@ public class Facade implements IFacade {
     //ALUNO
     @Override
     public Aluno saveAluno(Aluno aluno) {
-        return this.businessAluno.save (aluno);
+        return this.businessAluno.saveAluno(aluno);
     }
 
     @Override
     public Aluno findByIdAluno(Integer id) {
-        return this.businessAluno.findById (id);
+        return this.businessAluno.findByIdAluno(id);
     }
 
     @Override
     public List<Aluno> findAllAluno() {
-        return this.businessAluno.findAll ();
+        return this.businessAluno.findAllAluno();
     }
 
     @Override
     public Aluno removeAluno(Integer id) {
-        return this.businessAluno.remove (id);
+        return this.businessAluno.removeAluno(id);
     }
 
 
@@ -66,22 +66,22 @@ public class Facade implements IFacade {
     //CURRICULO
     @Override
     public Curriculo saveCurriculo(Curriculo curriculo) {
-        return this.businessCurriculo.save (curriculo);
+        return this.businessCurriculo.saveCurriculo(curriculo);
     }
 
     @Override
     public Curriculo findByIdCurriculo(Integer id) {
-        return this.businessCurriculo.findById (id);
+        return this.businessCurriculo.findByIdCurriculo(id);
     }
 
     @Override
     public List<Curriculo> findAllCurriculo() {
-        return this.businessCurriculo.findAll ();
+        return this.businessCurriculo.findAllCurriculo();
     }
 
     @Override
     public Curriculo removeCurriculo(Integer id) {
-        return this.businessCurriculo.remove (id);
+        return this.businessCurriculo.removeCurriculo(id);
     }
 
 
@@ -89,22 +89,22 @@ public class Facade implements IFacade {
     //DISCIPLINA
     @Override
     public Disciplina saveDisciplina(Disciplina disciplina) {
-        return this.businessDisciplina.save (disciplina);
+        return this.businessDisciplina.saveDisciplina(disciplina);
     }
 
     @Override
     public Disciplina findByIdDisciplina(Integer id) {
-        return this.businessDisciplina.findById (id);
+        return this.businessDisciplina.findByIdDisciplina(id);
     }
 
     @Override
     public List<Disciplina> findAllDisciplina() {
-        return this.businessDisciplina.findAll ();
+        return this.businessDisciplina.findAllDisciplina();
     }
 
     @Override
     public Disciplina removeDisciplina(Integer id) {
-        return this.businessDisciplina.remove (id);
+        return this.businessDisciplina.removeDisciplina(id);
     }
 
 
@@ -112,49 +112,49 @@ public class Facade implements IFacade {
     //PEDAGOGO
     @Override
     public Pedagogo savePedagogo(Pedagogo pedagogo) {
-        return this.businessPedagogo.save (pedagogo);
+        return this.businessPedagogo.savePedagogo(pedagogo);
     }
 
     @Override
     public Pedagogo findByIdPedagogo(Integer id) {
-        return this.businessPedagogo.findById (id);
+        return this.businessPedagogo.findByIdPedagogo(id);
     }
 
     @Override
     public List<Pedagogo> findAllPedagogo() {
-        return this.businessPedagogo.findAll ();
+        return this.businessPedagogo.findAllPedagogo();
     }
 
     @Override
     public List<Pedagogo> findAllStringPedagogo(String nome) {
-        return this.businessPedagogo.findAllString(nome);
+        return this.businessPedagogo.findAllStringPedagogo(nome);
     }
 
     @Override
     public Pedagogo removePedagogo(Integer id) {
-        return this.businessPedagogo.remove (id);
+        return this.businessPedagogo.removePedagogo(id);
     }
 
 
     //PROFESSOR
     @Override
     public Professor saveProfessor(Professor professor) {
-        return this.businessProfessor.save (professor);
+        return this.businessProfessor.saveProfessor(professor);
     }
 
     @Override
     public Professor findByIdProfessor(Integer id) {
-        return this.businessProfessor.findById (id);
+        return this.businessProfessor.findByIdProfessor (id);
     }
 
     @Override
     public List<Professor> findAllProfessor() {
-        return this.businessProfessor.findAll ();
+        return this.businessProfessor.findAllProfessor();
     }
 
     @Override
     public Professor removeProfessor(Integer id) {
-        return this.businessProfessor.remove (id);
+        return this.businessProfessor.removeProfessor(id);
     }
 
 
@@ -163,92 +163,93 @@ public class Facade implements IFacade {
     @Override
     public Usuario saveUsuario(Usuario usuario) {
         System.out.println("passei aqui");
-        return this.businessUsuario.save (usuario);
+        return this.businessUsuario.saveUsuario(usuario);
     }
 
     @Override
     public Usuario findByIdUsuario(Integer id) {
-        return this.businessUsuario.findById (id);
+        return this.businessUsuario.findByIdUsuario(id);
     }
 
     @Override
     public List<Usuario> findAllUsuario() {
-        return this.businessUsuario.findAll ();
+        return this.businessUsuario.findAllUsuario();
     }
 
     @Override
     public Usuario removeUsuario(Integer id) {
-        return this.businessUsuario.remove (id);
+        return this.businessUsuario.removeUsuario(id);
     }
 
 
     //TELEFONE
     @Override
     public Telefone saveTelefone(Telefone telefone) {
-        return this.businessTelefone.save(telefone);
+        return this.businessTelefone.saveTelefone(telefone);
     }
 
     @Override
     public Telefone findByIdTelefone(Integer id) {
-        return this.businessTelefone.findById(id);
+        return this.businessTelefone.findByIdTelefone(id);
     }
 
     @Override
     public List<Telefone> findAllTelefone() {
-        return this.businessTelefone.findAll();
+        return this.businessTelefone.findAllTelefone();
     }
 
     @Override
     public List<Telefone> findAllIdTelefone(Integer idPessoa) {
-        return this.businessTelefone.findAllId(idPessoa);
+        return this.businessTelefone.findAllIdTelefone(idPessoa);
     }
 
     @Override
     public Telefone removeTelefone(Integer id) {
-        return this.businessTelefone.remove(id);
+        return this.businessTelefone.removeTelefone(id);
     }
 
 
+
 //    TURMA
-//    @Override
-//    public Turma saveTurma(Turma turma) {
-//        return this.businessTurma.save(turma);
-//    }
-//
-//    @Override
-//    public Turma findByIdTurma(Integer id) {
-//        return this.businessTurma.findById(id);
-//    }
-//
-//    @Override
-//    public List<Turma> findAllTurma() {
-//        return this.businessTurma.findAll();
-//    }
-//
-//    @Override
-//    public Turma removeTurma(Integer id) {
-//        return this.businessTurma.remove(id);
-//    }
+    @Override
+    public Turma saveTurma(Turma turma) {
+        return this.businessTurma.saveTurma(turma);
+    }
+
+    @Override
+    public Turma findByIdTurma(Integer id) {
+        return this.businessTurma.findByIdTurma(id);
+    }
+
+    @Override
+    public List<Turma> findAllTurma() {
+        return this.businessTurma.findAllTurma();
+    }
+
+    @Override
+    public Turma removeTurma(Integer id) {
+        return this.businessTurma.removeTurma(id);
+    }
 
 
     //RESPONSÁVEL
     @Override
     public Responsavel saveResponsavel(Responsavel responsavel) {
-        return this.businessResponsavel.save(responsavel);
+        return this.businessResponsavel.saveResponsavel(responsavel);
     }
 
     @Override
     public Responsavel findByIdResponsavel(Integer id) {
-        return this.businessResponsavel.remove(id);
+        return this.businessResponsavel.removeResponsavel(id);
     }
 
     @Override
     public List<Responsavel> findAllResponsavel() {
-        return this.businessResponsavel.findAll();
+        return this.businessResponsavel.findAllResponsavel();
     }
 
     @Override
     public Responsavel removeResponsavel(Integer id) {
-        return this.businessResponsavel.remove(id);
+        return this.businessResponsavel.removeResponsavel(id);
     }
 }

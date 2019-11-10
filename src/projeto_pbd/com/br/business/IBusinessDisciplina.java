@@ -5,11 +5,12 @@ import projeto_pbd.com.br.modell.Disciplina;
 import java.util.List;
 
 public interface IBusinessDisciplina {
-    public Disciplina save(Disciplina disciplina );
 
-    public Disciplina findById(Integer id);
+    public Disciplina saveDisciplina(Disciplina disciplina );
 
-    public List<Disciplina> findAll();
+    public Disciplina findByIdDisciplina(Integer id);
 
-    public Disciplina remove(Integer id);
+    public List<Disciplina> findAllDisciplina();
+
+    public Disciplina removeDisciplina(Integer id);
 }

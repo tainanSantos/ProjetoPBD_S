@@ -18,22 +18,22 @@ public class BusinessCurriculo implements IBusinessCurriculo {
 
 
     @Override
-    public Curriculo save(Curriculo curriculo) {
+    public Curriculo saveCurriculo(Curriculo curriculo) {
         return this.daoCurriculo.save (curriculo);
     }
 
     @Override
-    public Curriculo findById(Integer id) {
+    public Curriculo findByIdCurriculo(Integer id) {
         return this.daoCurriculo.findById (id);
     }
 
     @Override
-    public List<Curriculo> findAll() {
+    public List<Curriculo> findAllCurriculo() {
         return this.daoCurriculo.findAll ();
     }
 
     @Override
-    public Curriculo remove(Integer id) {
+    public Curriculo removeCurriculo(Integer id) {
         return this.daoCurriculo.remove (id);
     }
 }

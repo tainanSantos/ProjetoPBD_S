@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IBusinessAluno {
 
-    public Aluno save(Aluno aluno );
+    public Aluno saveAluno(Aluno aluno );
 
-    public Aluno findById(Integer id);
+    public Aluno findByIdAluno(Integer id);
 
-    public List<Aluno> findAll();
+    public List<Aluno> findAllAluno();
 
-    public Aluno remove(Integer id);
+    public Aluno removeAluno(Integer id);
 }

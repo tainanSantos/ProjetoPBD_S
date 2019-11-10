@@ -8,10 +8,7 @@ import java.util.List;
 
 public class BusinessProfessor implements IBusinessProfessor {
 
-    /*
-        questão de validação ainda não implementada deve ser tratada aqui
-    */
-
+    /* questão de validação ainda não implementada deve ser tratada aqui */
 
     private IDaoProfessor daoProfessor;
 
@@ -21,22 +18,22 @@ public class BusinessProfessor implements IBusinessProfessor {
     }
 
     @Override
-    public Professor save(Professor professor) {
+    public Professor saveProfessor(Professor professor) {
         return this.daoProfessor.save (professor);
     }
 
     @Override
-    public Professor findById(Integer id) {
+    public Professor findByIdProfessor(Integer id) {
         return this.daoProfessor.findById (id);
     }
 
     @Override
-    public List<Professor> findAll() {
+    public List<Professor> findAllProfessor() {
         return this.daoProfessor.findAll ();
     }
 
     @Override
-    public Professor remove(Integer id) {
+    public Professor removeProfessor(Integer id) {
         return this.daoProfessor.remove (id);
     }
 }

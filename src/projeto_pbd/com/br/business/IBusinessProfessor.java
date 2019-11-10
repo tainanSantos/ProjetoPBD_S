@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IBusinessProfessor {
 
-    public Professor save(Professor professor);
+    public Professor saveProfessor(Professor professor);
 
-    public Professor findById(Integer id);
+    public Professor findByIdProfessor(Integer id);
 
-    public List<Professor> findAll();
+    public List<Professor> findAllProfessor();
 
-    public Professor remove(Integer id);
+    public Professor removeProfessor(Integer id);
 }

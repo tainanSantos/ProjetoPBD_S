@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface IBusinessPedagogo {
 
-    public Pedagogo save(Pedagogo pedagogo);
+    public Pedagogo savePedagogo(Pedagogo pedagogo);
 
-    public Pedagogo findById(Integer id);
+    public Pedagogo findByIdPedagogo(Integer id);
 
-    public List<Pedagogo> findAll();
+    public List<Pedagogo> findAllPedagogo();
 
-    public List<Pedagogo> findAllString(String nome);
+    public List<Pedagogo> findAllStringPedagogo(String nome);
 
-    public Pedagogo remove(Integer id);
+    public Pedagogo removePedagogo(Integer id);
 }

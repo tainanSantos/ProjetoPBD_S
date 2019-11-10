@@ -71,7 +71,6 @@ public class Home implements Initializable {
             Main.genericaStage(Main.CADASTRO_PEDAGOGO).show();
         }
         if (event.getSource() == listarPedagogosCadastradosButton){
-            Main.genericaStage(Main.AREA_PEDAGOGO).show();
         }
 
         //Pra Disciplina

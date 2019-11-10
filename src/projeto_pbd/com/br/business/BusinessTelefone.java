@@ -15,27 +15,27 @@ public class BusinessTelefone implements IBusinessTelefone {
     }
 
     @Override
-    public Telefone save(Telefone telefone) {
+    public Telefone saveTelefone(Telefone telefone) {
         return this.daoTelefone.save(telefone);
     }
 
     @Override
-    public Telefone findById(Integer id) {
+    public Telefone findByIdTelefone(Integer id) {
         return this.daoTelefone.findById(id);
     }
 
     @Override
-    public List<Telefone> findAll() {
+    public List<Telefone> findAllTelefone() {
         return this.daoTelefone.findAll();
     }
 
     @Override
-    public List<Telefone> findAllId(Integer idPessoa) {
+    public List<Telefone> findAllIdTelefone(Integer idPessoa) {
         return this.daoTelefone.findAllId(idPessoa);
     }
 
     @Override
-    public Telefone remove(Integer id) {
+    public Telefone removeTelefone(Integer id) {
         return this.daoTelefone.remove(id);
     }
 }

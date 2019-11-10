@@ -16,22 +16,22 @@ public class BusinessUsuario implements IBusinessUsuario {
 
 
     @Override
-    public Usuario save(Usuario usuario) {
+    public Usuario saveUsuario(Usuario usuario) {
         return this.daoUsuario.save (usuario);
     }
 
     @Override
-    public Usuario findById(Integer id) {
+    public Usuario findByIdUsuario(Integer id) {
         return this.daoUsuario.findById (id);
     }
 
     @Override
-    public List<Usuario> findAll() {
+    public List<Usuario> findAllUsuario() {
         return this.daoUsuario.findAll ();
     }
 
     @Override
-    public Usuario remove(Integer id) {
+    public Usuario removeUsuario(Integer id) {
         return this.daoUsuario.remove (id);
     }
 }

@@ -25,7 +25,6 @@ public class Main extends Application {
 	public static final String CADASTRO_NOTAS = "com/br/view/CadastroNotas.fxml";
 	public static final String AREA_DISCENTE_INFORMACOES = "com/br/view/AreaDiscenteInformacoes.fxml";
 	public static final String AREA_PROFESSOR = "com/br/view/AreaProfessor.fxml";
-	public static final String AREA_PEDAGOGO = "com/br/view/AreaPedagogo.fxml";
 	public static final String CONFIGURACOES = "com/br/view/Configuracoes.fxml";
 	public static final String RELATORIO_DISCENTE = "com/br/view/AreaDiscente.fxml";
 	public static final String AREA_DISCENTE_ACOMPANHAMENTO_PEDAGOGICO = "com/br/view/AreaDiscenteAcompPedag.fxml";
@@ -83,6 +82,8 @@ public class Main extends Application {
 			}});
 		return STAGE;
 	}
+
+
 	public static Stage genericaStage2(String caminho) throws IOException {
 		STAGE2.setScene(new Scene(
 				FXMLLoader.load(Main.class.getResource (caminho))));
@@ -91,6 +92,7 @@ public class Main extends Application {
 			}});
 		return STAGE2;
 	}
+
 
 	public static Stage genericaStageComParametro(String caminho, Object object) throws IOException {
 		STAGE.setScene(new Scene(

@@ -116,7 +116,6 @@ public class Principal implements Initializable {
 
         //MENU BUTTON
         if (event.getSource () == cadastroUasuarioMenuItem){
-            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
             Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
         }
         if (event.getSource () == areaUsuarioMenuItem){

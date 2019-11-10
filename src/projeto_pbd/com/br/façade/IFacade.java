@@ -81,13 +81,13 @@ public interface IFacade {
 
 
 //    Turma
-//    public Turma saveTurma(Turma turma);
-//
-//    public Turma findByIdTurma(Integer id);
-//
-//    public List<Turma> findAllTurma();
-//
-//    public Turma removeTurma(Integer id);
+    public Turma saveTurma(Turma turma);
+
+    public Turma findByIdTurma(Integer id);
+
+    public List<Turma> findAllTurma();
+
+    public Turma removeTurma(Integer id);
 
 
     //Responsavel

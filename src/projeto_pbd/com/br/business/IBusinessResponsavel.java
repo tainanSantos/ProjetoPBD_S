@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IBusinessResponsavel {
 
-    public Responsavel save(Responsavel responsavel );
+    public Responsavel saveResponsavel(Responsavel responsavel );
 
-    public Responsavel findById(Integer id);
+    public Responsavel findByIdResponsavel(Integer id);
 
-    public List<Responsavel> findAll();
+    public List<Responsavel> findAllResponsavel();
 
-    public Responsavel remove(Integer id);
+    public Responsavel removeResponsavel(Integer id);
 }

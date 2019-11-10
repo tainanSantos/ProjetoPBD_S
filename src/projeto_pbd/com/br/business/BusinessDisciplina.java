@@ -6,6 +6,7 @@ import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import javax.persistence.PersistenceException;
+import javax.print.attribute.standard.MediaSize;
 import java.util.List;
 
 public class BusinessDisciplina implements IBusinessDisciplina {
@@ -17,10 +18,12 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     }
 
     @Override
-    public Disciplina save(Disciplina disciplina) {
+    public Disciplina saveDisciplina(Disciplina disciplina) {
 
         try {
-            return this.daoDisciplina.save (disciplina);
+            if (disciplina.getNome()!=null || !disciplina.getNome().equalsIgnoreCase(""))
+                return this.daoDisciplina.save (disciplina);
+            else Mensagem.mensagemErro("Campo 'nome da disciplina' não peenchido");
         }catch (PersistenceException e){
             Mensagem.mensagemErro ("Erro! Nenhum professor foi Selecionado");
         }finally {
@@ -29,17 +32,17 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     }
 
     @Override
-    public Disciplina findById(Integer id) {
+    public Disciplina findByIdDisciplina(Integer id) {
         return this.daoDisciplina.findById (id);
     }
 
     @Override
-    public List<Disciplina> findAll() {
+    public List<Disciplina> findAllDisciplina() {
         return this.daoDisciplina.findAll ();
     }
 
     @Override
-    public Disciplina remove(Integer id) {
+    public Disciplina removeDisciplina(Integer id) {
         return this.daoDisciplina.remove (id);
     }
 }

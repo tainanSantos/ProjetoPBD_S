@@ -23,6 +23,15 @@ public class Disciplina {
 
     }
 
+    public Disciplina(Integer id, String nome, double cargaHoaria, Turma turma, Curriculo curriculo, Boolean status) {
+        this.id = id;
+        this.nome = nome;
+        this.cargaHoaria = cargaHoaria;
+        this.turma = turma;
+        this.curriculo = curriculo;
+        this.status = status;
+    }
+
     public Boolean getStatus() {
         return status;
     }

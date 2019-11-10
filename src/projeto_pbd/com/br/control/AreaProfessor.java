@@ -56,6 +56,8 @@ public class AreaProfessor implements Initializable {
     @FXML
     private Button apagarButton;
     @FXML
+    private Button adicionarProfessorDisciplinaButton;
+    @FXML
     private Button salvarProfessorButton;
     @FXML
     private Button apagarProfessorButton;
@@ -86,11 +88,14 @@ public class AreaProfessor implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-
+                System.out.println(newScene);
+                if (newScene.equalsIgnoreCase("CadastroCurriculo.fxml")) {
+                    System.out.println("aqui tudo certo");
+                    adicionarProfessorDisciplinaButton.setVisible(true);
+                }
             }
         });
 
@@ -229,15 +234,20 @@ public class AreaProfessor implements Initializable {
             Mensagem.mensagemSucesso (mensagem);
             limparaCampos();
         }
+
         if (event.getSource() == apagarButton){
 
         }
+
         if (event.getSource() == pesquisaProfessorButton){
 
         }
+
+        if (event.getSource() == adicionarProfessorDisciplinaButton){
+            // setar o id do professor para a disciplina e só
+            Main.STAGE.close();
+            Main.changeScreen("AreaPorfessor.fxml", professorTable.getSelectionModel().getSelectedItem());
+        }
+
     }
-
-
-
-
 }

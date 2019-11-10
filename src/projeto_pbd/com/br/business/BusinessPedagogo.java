@@ -16,27 +16,27 @@ public class BusinessPedagogo implements IBusinessPedagogo {
     }
 
     @Override
-    public Pedagogo save(Pedagogo pedagogo) {
+    public Pedagogo savePedagogo(Pedagogo pedagogo) {
         return this.daoPedagogo.save (pedagogo);
     }
 
     @Override
-    public Pedagogo findById(Integer id) {
+    public Pedagogo findByIdPedagogo(Integer id) {
         return this.daoPedagogo.findById (id);
     }
 
     @Override
-    public List<Pedagogo> findAll() {
+    public List<Pedagogo> findAllPedagogo() {
         return this.daoPedagogo.findAll ();
     }
 
     @Override
-    public List<Pedagogo> findAllString(String nome) {
+    public List<Pedagogo> findAllStringPedagogo(String nome) {
         return this.daoPedagogo.findAllString(nome);
     }
 
     @Override
-    public Pedagogo remove(Integer id) {
+    public Pedagogo removePedagogo(Integer id) {
         return this.daoPedagogo.remove (id);
     }
 }

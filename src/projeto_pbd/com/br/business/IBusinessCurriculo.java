@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IBusinessCurriculo {
 
-    public Curriculo save(Curriculo curriculo );
+    public Curriculo saveCurriculo(Curriculo curriculo );
 
-    public Curriculo findById(Integer id);
+    public Curriculo findByIdCurriculo(Integer id);
 
-    public List<Curriculo> findAll();
+    public List<Curriculo> findAllCurriculo();
 
-    public Curriculo remove(Integer id);
+    public Curriculo removeCurriculo(Integer id);
 }
