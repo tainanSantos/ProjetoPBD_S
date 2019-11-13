@@ -18,7 +18,7 @@ public class Main extends Application {
 	public static final String LOGIN_PANE = "com/br/view/Login.fxml";
 	public static final String PRINCIPLA_PANE = "com/br/view/Principal.fxml";
 	public static final String CADASTRO_ALUNO = "com/br/view/CadastroAluno.fxml";
-	public static final String CADASTRO_CURRICULO = "com/br/view/CadastroCurriculo.fxml";
+	public static final String CADASTRO_CURRICULO = "com/br/view/CadastroCurriculoEDisciplina.fxml";
 	public static final String CADASTRO_DISCIPLINA = "com/br/view/CadastroDisciplina.fxml";
 	public static final String CADASTRO_PROFESSOR = "com/br/view/CadastroProfessor.fxml";
 	public static final String CADASTRO_PEDAGOGO = "com/br/view/CadastroPedagogo.fxml";
@@ -103,12 +103,16 @@ public class Main extends Application {
 	}
 
 
-	//______________________________________________________
+	//_______________________________________________________________
 	//TRANSIÇÃO ENTRE TELAS
 
 	public static void changeScreen(String scr, Object userData){
 		notifyAllListeners(scr, userData);
 	}
+
+//	public static void changeScreen(String scr, Object object, Object usuarioLogado){
+//		notifyAllListeners(scr, object, usuarioLogado);
+//	}
 
 	public static void changeScreen(String scr){
 		changeScreen(scr, null);

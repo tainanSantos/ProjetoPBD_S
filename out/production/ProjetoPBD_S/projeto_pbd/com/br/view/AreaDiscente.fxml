@@ -90,11 +90,11 @@
             <content>
               <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <children>
-                        <ScrollPane prefHeight="457.0" prefWidth="1319.0" style="-fx-border-color: #DCDCDC;">
+                        <ScrollPane layoutY="70.0" prefHeight="387.0" prefWidth="1319.0" style="-fx-border-color: #DCDCDC;" AnchorPane.topAnchor="60.0">
                            <content>
                               <AnchorPane prefHeight="1000.0" prefWidth="1290.0">
                                  <children>
-                                    <AnchorPane id="cadastro aluno" fx:id="alunoAnchorPane" layoutX="91.0" layoutY="45.0" prefHeight="905.0" prefWidth="970.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="20.0">
+                                    <AnchorPane id="cadastro aluno" fx:id="alunoAnchorPane" layoutX="91.0" layoutY="19.0" prefHeight="901.0" prefWidth="970.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="19.0">
                                        <children>
                                           <GridPane hgap="10.0" layoutY="55.0" prefHeight="116.0" prefWidth="526.0">
                                              <columnConstraints>
@@ -299,7 +299,6 @@
                                                    </color>
                                                 </DropShadow>
                                              </effect></Separator>
-                                          <Button fx:id="acompanhamentoButton" layoutX="832.0" layoutY="18.0" mnemonicParsing="false" onAction="#action" prefHeight="35.0" prefWidth="153.0" text="Acompanhamento" AnchorPane.rightAnchor="0.0" />
                                           <GridPane layoutX="570.0" layoutY="370.0" prefHeight="60.0" prefWidth="254.0">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="17.0" />
@@ -493,17 +492,22 @@
                                           </AnchorPane>
                                       </content>
                                     </TitledPane>
-                                    <Button fx:id="salvarAlunoButton" layoutX="869.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="32.0" prefWidth="121.0" text="Salvar" AnchorPane.bottomAnchor="21.0" />
-                                    <Button fx:id="apagraAlunoButton" layoutX="717.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="32.0" prefWidth="121.0" text="Apagar" AnchorPane.bottomAnchor="21.0" />
-                                    <Pane layoutX="1058.0" layoutY="66.0" prefHeight="200.0" prefWidth="244.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+                                    <Button fx:id="salvarAlunoButton" layoutX="869.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="121.0" text="Salvar" AnchorPane.bottomAnchor="21.0" />
+                                    <Button fx:id="apagraAlunoButton" layoutX="717.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="121.0" text="Apagar" AnchorPane.bottomAnchor="21.0" />
+                                    <Pane layoutX="1058.0" layoutY="66.0" prefHeight="200.0" prefWidth="244.0" style="-fx-background-color: #F5FFFA;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
                                        <effect>
-                                          <DropShadow color="#8a8a8a" />
+                                          <DropShadow>
+                                             <color>
+                                                <Color blue="0.7631579041481018" green="0.7631579041481018" red="0.7631579041481018" />
+                                             </color></DropShadow>
                                        </effect>
                                     </Pane>
                                  </children>
                               </AnchorPane>
                            </content>
                         </ScrollPane>
+                        <Button fx:id="novoAlunoButton" layoutX="974.0" layoutY="21.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="148.0" text=" Novo Cadastro" AnchorPane.topAnchor="15.0" />
+                        <Button fx:id="acompanhamentoButton" layoutX="1152.0" layoutY="20.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="153.0" text="Acompanhamento" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

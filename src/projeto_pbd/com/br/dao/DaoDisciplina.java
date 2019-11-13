@@ -44,7 +44,9 @@ public class DaoDisciplina implements IDaoDisciplina {
         }finally {
             em.close (); // fecha conexão
         }
-        return disciplina;    }
+        return disciplina;
+    }
+
 
     @Override
     public List<Disciplina> findAll() {
@@ -60,6 +62,7 @@ public class DaoDisciplina implements IDaoDisciplina {
         }
         return disciplinas;
     }
+
 
     @Override
     public Disciplina remove(Integer id) {
@@ -78,4 +81,6 @@ public class DaoDisciplina implements IDaoDisciplina {
         }
         return disciplina;
     }
+
+
 }

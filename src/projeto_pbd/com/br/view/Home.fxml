@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
+<AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
    <children>
-      <AnchorPane layoutX="881.0" layoutY="372.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #DCDCDC;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="514.0" layoutY="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #191970;">
+        <AnchorPane layoutX="903.0" layoutY="166.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="194.0" prefWidth="400.0" style="-fx-background-color: #363636;">
          <effect>
             <DropShadow color="#545454" />
          </effect>
@@ -24,83 +18,17 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
          <children>
-            <Label layoutX="33.0" layoutY="65.0" text="ACAD" textFill="WHITE">
+            <Label layoutX="40.0" layoutY="109.0" text="acad" textFill="WHITE" AnchorPane.leftAnchor="40.0">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
             </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="674.0" layoutY="248.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #363636;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="54.0" layoutY="62.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="219.0" prefWidth="636.0" style="-fx-background-color: #363636;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-         <children>
-            <Label layoutX="100.0" layoutY="84.0" text="ARGUS" textFill="WHITE">
+            <Label layoutX="40.0" layoutY="39.0" text="ARGUS" textFill="WHITE" AnchorPane.leftAnchor="40.0">
                <font>
                   <Font name="System Bold" size="72.0" />
                </font>
             </Label>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="946.0" layoutY="164.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #DCDCDC;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="844.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #363636;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="16.0" layoutY="252.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #DCDCDC;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="293.0" layoutY="234.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #DCDCDC;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="124.0" layoutY="379.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #DCDCDC;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="580.0" layoutY="158.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #DCDCDC;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
       </AnchorPane>
    </children>
 </AnchorPane>

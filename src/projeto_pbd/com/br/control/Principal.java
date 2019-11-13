@@ -21,7 +21,7 @@ public class Principal implements Initializable {
     // deixa a trasição entre telas um pouco mais lenta
 
     public static final String CADASTRO_ALUNO = "../view/CadastroAluno.fxml";
-    public static final String CADASTRO_CURRICULO = "../view/CadastroCurriculo.fxml";
+    public static final String CADASTRO_CURRICULO = "../view/CadastroCurriculoEDisciplina.fxml";
     public static final String CADASTRO_DISCIPLINA = "../view/CadastroDisciplina.fxml";
     public static final String CADASTRO_PROFESSOR_PEDAGOGO= "../view/CadastroProfessor.fxml";
     public static final String CADASTRO_PROFESSOR = "../view/CadastroProfessor.fxml";

@@ -92,7 +92,7 @@ public class AreaProfessor implements Initializable {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
                 System.out.println(newScene);
-                if (newScene.equalsIgnoreCase("CadastroCurriculo.fxml")) {
+                if (newScene.equalsIgnoreCase("CadastroCurriculoEDisciplina.fxml")) {
                     System.out.println("aqui tudo certo");
                     adicionarProfessorDisciplinaButton.setVisible(true);
                 }
@@ -105,7 +105,7 @@ public class AreaProfessor implements Initializable {
         this.professorTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (event.getClickCount() == 1){
+                if (event.getClickCount() == 2){
                     if (professorTable.getSelectionModel().getSelectedItem()!=null){
 
                         Professor prof = null;
@@ -119,7 +119,6 @@ public class AreaProfessor implements Initializable {
                         cepProfessorText.setText(prof.getEndereco().getCep());
                         cpfProfessorText.setText(prof.getCpf());
                         dataProfessorText.setValue(prof.getDataNascimento());
-                        dataProfessorText.setValue(null); // ainda não implementado
                         naturalidadeProfessorText.setText(prof.getNaturalidade());
                         nomeProfessorText.setText(prof.getNome());
                         graduacaoProfessorText.setText(prof.getGraduacao());

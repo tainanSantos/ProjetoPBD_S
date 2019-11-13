@@ -42,7 +42,7 @@
             </Menu>
           <Menu id="Curriculo/Disciplina" mnemonicParsing="false" text="  Cadastro   ">
             <items>
-                  <MenuItem id="cadastrar  curriculo" fx:id="cacadastroCurriculoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Curriculo" />
+                  <MenuItem id="cadastrar  curriculo" fx:id="cacadastroCurriculoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Curriculo / Disciplina" />
             </items>
           </Menu>
           <Menu id="configuraçoes" mnemonicParsing="false" text="   Configurações  ">

@@ -2,39 +2,38 @@ package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
-import projeto_pbd.com.br.modell.Curriculo;
 import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CadastroCurriculo  implements Initializable {
+public class CadastroCurriculoEDisciplina implements Initializable {
 
 
     @FXML
     private TableView<Disciplina> disciplinasTable;
     @FXML
-    private TableColumn<Disciplina, Boolean> selecionarDisciplinaColum;
+    private TableColumn selecionarDisciplinaColum;
     @FXML
-    private TableColumn<?, ?> nomeDisciplinaColumm;
+    private TableColumn nomeDisciplinaColumm;
     @FXML
-    private TableColumn<?, ?> cargaHorariaDisciplinaColumm;
+    private TableColumn cargaHorariaDisciplinaColumm;
     @FXML
     private TextField nomeCurriculoText;
     @FXML
@@ -42,7 +41,7 @@ public class CadastroCurriculo  implements Initializable {
     @FXML
     private Button salvarCurriculoButton;
     @FXML
-    private TextField pequisarDisciplinaText;
+    private TextField pesquisaDisciplinaText;
     @FXML
     private Button pesquisarDisciplinaButton;
     @FXML
@@ -59,7 +58,11 @@ public class CadastroCurriculo  implements Initializable {
     private Button professorPesquisaButton;
     @FXML
     private TextField professorPesquisaText;
+    @FXML
+    private ComboBox tiposCurriculoCombobox;
 
+    private List listUfsEnsino = new ArrayList(Arrays.asList (new String[]{"- EF-AI-1", "- EF-AI-2a5",
+            "- EF-AF-6a8", "- EF-AI-9", "- EM-1", "- EM-2", "- EM-3", } ));
 
     private CheckBoxTableCell<Disciplina, Boolean> comCheckBoxTableCell;
 
@@ -70,7 +73,7 @@ public class CadastroCurriculo  implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         carregarTable(Facade.getInstance().findAllDisciplina());
-
+        tiposCurriculoCombobox.setItems(FXCollections.observableArrayList(listUfsEnsino));
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
@@ -81,6 +84,17 @@ public class CadastroCurriculo  implements Initializable {
                 }
             }
         });
+
+        this.disciplinasTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 2){
+                    disciplinaText.setText(disciplinasTable.getSelectionModel().getSelectedItem().getNome());
+                    cargaHorariaText.setText(disciplinasTable.getSelectionModel().getSelectedItem().getCargaHoaria()+""); // gambiarra aqui
+                }
+            }
+        });
+
     }
 
 
@@ -100,6 +114,7 @@ public class CadastroCurriculo  implements Initializable {
         cargaHorariaText.clear();
     }
 
+
     //__________________________________________________________________________________________________________________
 
 
@@ -112,15 +127,20 @@ public class CadastroCurriculo  implements Initializable {
         if (event.getSource() == salvarDisciplinaButton){
 
             Disciplina disciplina =  new Disciplina();
-
+            String mensagem = "Salvo com sucesso!";
+            if(disciplinasTable.getSelectionModel().getSelectedItem()!=null){
+                //ATALIZAR
+                disciplina.setId(disciplinasTable.getSelectionModel().getSelectedItem().getId());
+                mensagem= "Atualizado com Sucesso!";
+            }
             disciplina.setNome(disciplinaText.getText());
-            disciplina.setCargaHoaria(Integer.parseInt(cargaHorariaText.getText()));
+            disciplina.setCargaHoaria(Double.parseDouble(cargaHorariaText.getText()));
             disciplina.setStatus(true);
             Facade.getInstance().saveDisciplina(disciplina);
             limparCampos();
-            Mensagem.mensagemSucesso("Salvo com Sucesso!");
-            carregarTable(Facade.getInstance().findAllDisciplina());
+            Mensagem.mensagemSucesso(mensagem);
 
+            carregarTable(Facade.getInstance().findAllDisciplina());
         }
 
         if (event.getSource() == novaDiplinaButton){
@@ -131,10 +151,6 @@ public class CadastroCurriculo  implements Initializable {
             Facade.getInstance().removeDisciplina(disciplinasTable.getSelectionModel().getSelectedItem().getId());
             Mensagem.mensagemSucesso("Excluido com Sucesso!");
             carregarTable(Facade.getInstance().findAllDisciplina());
-        }
-
-        if (event.getSource() == pesquisarDisciplinaButton){
-
         }
 
 
@@ -155,13 +171,9 @@ public class CadastroCurriculo  implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Main.changeScreen("CadastroCurriculo.fxml", null);
+            Main.changeScreen("CadastroCurriculoEDisciplina.fxml", null);
         }
     }
-
-
-
-
 
     //__________________________________________________________________________________________________________________
 

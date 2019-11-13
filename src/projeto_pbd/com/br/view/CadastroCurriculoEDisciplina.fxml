@@ -14,8 +14,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroCurriculo">
+<AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroCurriculoEDisciplina">
    <children>
       <AnchorPane id="cadastro tela2" layoutX="8.0" layoutY="64.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
          <children>
@@ -38,7 +39,7 @@
                </rowConstraints>
                <children>
                   <TextField fx:id="nomeCurriculoText" onAction="#action" promptText="nome do curriculo" GridPane.rowIndex="1" />
-                  <ComboBox prefHeight="26.0" prefWidth="399.0" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="tiposCurriculoCombobox" prefHeight="26.0" prefWidth="399.0" GridPane.rowIndex="3" />
                   <Label text="nome curriculo">
                      <font>
                         <Font size="10.0" />
@@ -57,7 +58,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="pequisarDisciplinaText" layoutY="46.0" onAction="#action" prefHeight="26.0" prefWidth="441.0" promptText="pesquisar disciplina" AnchorPane.leftAnchor="0.0" />
+            <TextField fx:id="pequisarDisciplinaText" layoutY="46.0" prefHeight="26.0" prefWidth="441.0" promptText="pesquisar disciplina" AnchorPane.leftAnchor="0.0" />
             <Button fx:id="pesquisarDisciplinaButton" layoutX="469.0" layoutY="46.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="115.0" text="Pesquisa" />
             <Label layoutX="87.0" layoutY="22.0" text="na tebela a seguir selecione as dissiplinas que farão parte do curriculo">
                <font>
@@ -65,9 +66,9 @@
                </font>
             </Label>
             <Separator layoutX="648.0" layoutY="348.0" orientation="VERTICAL" prefHeight="152.0" prefWidth="5.0" AnchorPane.bottomAnchor="0.0" />
-            <AnchorPane prefHeight="200.0" prefWidth="634.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <AnchorPane prefHeight="144.0" prefWidth="634.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                <children>
-                  <GridPane hgap="20.0" layoutX="20.0" layoutY="74.0" prefHeight="60.0" prefWidth="627.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                  <GridPane hgap="20.0" layoutX="20.0" layoutY="81.0" prefHeight="60.0" prefWidth="627.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="686.0" minWidth="10.0" prefWidth="551.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="446.0" minWidth="10.0" prefWidth="291.0" />
@@ -91,7 +92,7 @@
                         <TextField fx:id="cargaHorariaText" text="60" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Label layoutX="20.0" layoutY="46.0" text="Cadastro Disciplina" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="46.0">
+                  <Label layoutX="20.0" layoutY="6.0" text="Cadastro Disciplina" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="6.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -131,7 +132,7 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <Separator layoutX="777.0" layoutY="343.0" prefHeight="4.0" prefWidth="673.0" AnchorPane.rightAnchor="0.0" />
+            <Separator layoutX="777.0" layoutY="343.0" prefHeight="4.0" prefWidth="673.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <Button fx:id="novoCurriculoButton" layoutX="1120.0" layoutY="474.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="90.0" text="Novo" AnchorPane.bottomAnchor="0.0" />
             <Button fx:id="salvarCurriculoButton" layoutX="1236.0" layoutY="461.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="90.0" text="Salvar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <Label layoutX="686.0" layoutY="358.0" text="Cadastro Curriculo">
@@ -139,6 +140,16 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <Text layoutX="894.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na tabela acima selecione as disciplinas que farão" wrappingWidth="367.59619140625">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <Text layoutX="894.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="parte do currículo." wrappingWidth="327.59619140625">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <Label layoutX="94.0" layoutY="43.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #191970;" text="  Curriculo / Dissiplina" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="25.0">

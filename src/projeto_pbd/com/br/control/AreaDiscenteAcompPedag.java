@@ -1,9 +1,13 @@
 package projeto_pbd.com.br.control;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import projeto_pbd.Main;
 
 import java.io.IOException;
@@ -17,18 +21,15 @@ public class AreaDiscenteAcompPedag implements Initializable {
 
 
     @FXML
-    private ComboBox comboboxPedagogos;
-    private List listPedagogos = new ArrayList (
-//            Arrays.asList (new String[]{"AC", "AL", "" +
-//            "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
-//            "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"})
-    );
+    private TextField pedagogoLogadoText; // setar o nome do pedagogo logado no sstema para esse campo
 
+    @FXML
+    private CheckBox acompanhamentoConcluidoBoolean;
 
-    public void salvarAtendiemntoPedagogico() throws IOException {
-        Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES).show ();
-    }
+    @FXML
+    private Button salvarAcompanhamentoButton;
 
+    //__________________________________________________________________________________________________________________
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -38,7 +39,20 @@ public class AreaDiscenteAcompPedag implements Initializable {
 
             }
         });
-//        this.comboboxPedagogos.setItems (FXCollections.observableArrayList (this.listPedagogos));
-
     }
+
+    //__________________________________________________________________________________________________________________
+
+    @FXML
+    void action(ActionEvent event) {
+        if (event.getSource() == salvarAcompanhamentoButton){
+
+        }
+
+        if (acompanhamentoConcluidoBoolean.isSelected()){
+            //fechar secao
+        }
+    }
+
+
 }
