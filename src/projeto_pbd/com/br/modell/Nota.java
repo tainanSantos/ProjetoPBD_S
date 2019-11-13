@@ -14,6 +14,9 @@ public class Nota {
     @ManyToOne
     private Aluno aluno;
 
+    @ManyToOne
+    private Disciplina disciplina;
+
     private float primeiraVa;
     private float segundaVa;
     private float terceiraVa;
@@ -29,6 +32,14 @@ public class Nota {
     public Nota() {
     }
 
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
 
     public Integer getId() {
         return id;

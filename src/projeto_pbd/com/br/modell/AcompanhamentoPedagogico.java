@@ -12,9 +12,6 @@ public class AcompanhamentoPedagogico {
     private Integer id;
 
     @ManyToOne
-    private Pedagogo pedagogo;
-
-    @ManyToOne
     private Aluno aluno;
 
     @Temporal (TemporalType.DATE)
@@ -23,7 +20,6 @@ public class AcompanhamentoPedagogico {
     private String secaoDetalhamento;
 
     private boolean concluida;
-
 
     public AcompanhamentoPedagogico() {
 
@@ -36,14 +32,6 @@ public class AcompanhamentoPedagogico {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Pedagogo getPedagogo() {
-        return pedagogo;
-    }
-
-    public void setPedagogo(Pedagogo pedagogo) {
-        this.pedagogo = pedagogo;
     }
 
     public Aluno getAluno() {

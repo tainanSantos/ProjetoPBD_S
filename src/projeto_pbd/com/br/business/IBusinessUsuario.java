@@ -12,5 +12,7 @@ public interface IBusinessUsuario {
 
     public List<Usuario> findAllUsuario();
 
+    public List<Usuario> findAllNome(String nome);
+
     public Usuario removeUsuario(Integer id);
 }

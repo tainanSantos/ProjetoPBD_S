@@ -19,23 +19,25 @@ public class Facade implements IFacade {
     private IBusinessDisciplina businessDisciplina;
     private IBusinessCurriculo businessCurriculo;
     private IBusinessAluno businessAluno;
-    private IBusinessPedagogo businessPedagogo;
+    private IBusinessAcompanhamentoPedagogico businessPedagogo;
     private IBusinessProfessor businessProfessor;
     private IBusinessUsuario businessUsuario;
     private IBusinessTelefone businessTelefone;
     private IBusinessTurma businessTurma;
     private IBusinessResponsavel businessResponsavel;
+    private IBusinessAcompanhamentoPedagogico businessAcompanhamentoPedagogico;
 
     private Facade() {
         this.businessAluno = new BusinessAluno ();
         this.businessCurriculo = new BusinessCurriculo ();
         this.businessDisciplina = new BusinessDisciplina ();
         this.businessProfessor = new BusinessProfessor ();
-        this.businessPedagogo = new BusinessPedagogo ();
+        this.businessPedagogo = new BusinessAcompanhamentoPedagogico();
         this.businessUsuario = new BusinessUsuario ();
         this.businessTelefone = new BusinessTelefone();
         this.businessTurma = new BusinessTurma();
         this.businessResponsavel = new BusinessResponsavel();
+        this.businessAcompanhamentoPedagogico =  new BusinessAcompanhamentoPedagogico();
 
     }
 
@@ -111,28 +113,28 @@ public class Facade implements IFacade {
 
     //PEDAGOGO
     @Override
-    public Pedagogo savePedagogo(Pedagogo pedagogo) {
-        return this.businessPedagogo.savePedagogo(pedagogo);
+    public AcompanhamentoPedagogico saveAcompanhamentoPedagogico(AcompanhamentoPedagogico acompanhamentoPedagogico) {
+        return this.businessAcompanhamentoPedagogico.saveAcompanhamentoPedagogico(acompanhamentoPedagogico);
     }
 
     @Override
-    public Pedagogo findByIdPedagogo(Integer id) {
-        return this.businessPedagogo.findByIdPedagogo(id);
+    public AcompanhamentoPedagogico findByIdAcompanhamentoPedagogico(Integer id) {
+        return this.businessAcompanhamentoPedagogico.findByIdAcompanhamentoPedagogico(id);
     }
 
     @Override
-    public List<Pedagogo> findAllPedagogo() {
-        return this.businessPedagogo.findAllPedagogo();
+    public List<AcompanhamentoPedagogico> findAllAcompanhamentoPedagogicoList() {
+        return this.businessAcompanhamentoPedagogico.findAllAcompanhamentoPedagogicoList();
     }
 
     @Override
-    public List<Pedagogo> findAllStringPedagogo(String nome) {
-        return this.businessPedagogo.findAllStringPedagogo(nome);
+    public List<AcompanhamentoPedagogico> findAllStringAcompanhamentoPedagogicos(String nome) {
+        return this.businessAcompanhamentoPedagogico.findAllStringAcompanhamentoPedagogicos(nome);
     }
 
     @Override
-    public Pedagogo removePedagogo(Integer id) {
-        return this.businessPedagogo.removePedagogo(id);
+    public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id) {
+        return this.businessAcompanhamentoPedagogico.removeAcompanhamentoPedagogico(id);
     }
 
 
@@ -174,6 +176,11 @@ public class Facade implements IFacade {
     @Override
     public List<Usuario> findAllUsuario() {
         return this.businessUsuario.findAllUsuario();
+    }
+
+    @Override
+    public List<Usuario> findAllUsuarioNome(String nome) {
+        return this.businessUsuario.findAllNome(nome);
     }
 
     @Override

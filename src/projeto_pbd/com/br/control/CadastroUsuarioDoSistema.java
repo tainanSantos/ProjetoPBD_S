@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.*;
@@ -95,7 +96,14 @@ public class CadastroUsuarioDoSistema implements Initializable {
         });
 
         atualizarTabela(Facade.getInstance().findAllUsuario());
-
+        pesquisaText.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (pesquisaText.getText().length() >= 1)
+                atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
+                else atualizarTabela(Facade.getInstance().findAllUsuario());
+            }
+        });
         usuarioTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -149,6 +157,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory("naturalidade"));
         tipoAcessoColum.setCellValueFactory(new PropertyValueFactory("tipoDeAcesso"));
         usuarioTable.getItems().setAll(usuarioList);
+
     }
 
 
@@ -237,9 +246,10 @@ public class CadastroUsuarioDoSistema implements Initializable {
         }
 
         if (event.getSource() == pesquisarUsuarioButton){
-
+            atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
         }
     }
+
 
     public String funcaoCript(String string){
         String plaintext = string;

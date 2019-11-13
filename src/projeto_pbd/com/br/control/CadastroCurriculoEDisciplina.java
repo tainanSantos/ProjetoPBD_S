@@ -111,7 +111,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     public void limparCampos(){
         disciplinasTable.getSelectionModel().select(null);
         disciplinaText.clear();
-        cargaHorariaText.clear();
+        cargaHorariaText.setText("60"); // deixando como padrão
     }
 
 

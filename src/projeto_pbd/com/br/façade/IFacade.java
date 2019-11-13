@@ -36,16 +36,16 @@ public interface IFacade {
     public Disciplina removeDisciplina(Integer id);
 
 
-    //Pedagogo
-    public Pedagogo savePedagogo(Pedagogo pedagogo);
+    //Acompanhamento
+    public AcompanhamentoPedagogico saveAcompanhamentoPedagogico(AcompanhamentoPedagogico acompanhamentoPedagogico);
 
-    public Pedagogo findByIdPedagogo(Integer id);
+    public AcompanhamentoPedagogico findByIdAcompanhamentoPedagogico(Integer id);
 
-    public List<Pedagogo> findAllPedagogo();
+    public List<AcompanhamentoPedagogico> findAllAcompanhamentoPedagogicoList();
 
-    public List<Pedagogo> findAllStringPedagogo(String nome);
+    public List<AcompanhamentoPedagogico> findAllStringAcompanhamentoPedagogicos(String nome);
 
-    public Pedagogo removePedagogo(Integer id);
+    public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id);
 
 
     //Professor
@@ -64,6 +64,8 @@ public interface IFacade {
     public Usuario findByIdUsuario(Integer id);
 
     public List<Usuario> findAllUsuario();
+
+    public List<Usuario> findAllUsuarioNome(String nome);
 
     public Usuario removeUsuario(Integer id);
 

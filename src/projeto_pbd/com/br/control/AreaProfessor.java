@@ -1,6 +1,5 @@
 package projeto_pbd.com.br.control;
 
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,11 +9,9 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Endereco;
-import projeto_pbd.com.br.modell.Pedagogo;
 import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.msg.Mensagem;

@@ -31,6 +31,11 @@ public class BusinessUsuario implements IBusinessUsuario {
     }
 
     @Override
+    public List<Usuario> findAllNome(String nome) {
+        return this.daoUsuario.findAllNome(nome);
+    }
+
+    @Override
     public Usuario removeUsuario(Integer id) {
         return this.daoUsuario.remove (id);
     }

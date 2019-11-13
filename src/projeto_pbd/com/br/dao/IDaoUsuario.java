@@ -13,6 +13,8 @@ public interface IDaoUsuario {
 
     public List<Usuario> findAll();
 
+    public List<Usuario> findAllNome(String nome);
+
     public Usuario remove(Integer id);
 
 }

@@ -17,6 +17,9 @@ public class Disciplina {
     @ManyToOne
     private Curriculo curriculo;
 
+    @ManyToOne
+    private Nota nota;
+
     private Boolean status;
 
     public Disciplina(){
@@ -30,6 +33,14 @@ public class Disciplina {
         this.turma = turma;
         this.curriculo = curriculo;
         this.status = status;
+    }
+
+    public Nota getNota() {
+        return nota;
+    }
+
+    public void setNota(Nota nota) {
+        this.nota = nota;
     }
 
     public Boolean getStatus() {

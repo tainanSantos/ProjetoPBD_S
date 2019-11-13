@@ -1,8 +1,10 @@
 package projeto_pbd.com.br.dao;
 
+import org.hibernate.hql.internal.ast.ErrorTracker;
 import projeto_pbd.com.br.modell.Usuario;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DaoUsuario implements IDaoUsuario {
@@ -67,6 +69,26 @@ public class DaoUsuario implements IDaoUsuario {
 
 
     @Override
+    public List<Usuario> findAllNome(String nome) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<Usuario> usuarios = null;
+        try {
+            String pesquisarPor = "select u from Usuario u where u.nome like :nome";
+            TypedQuery<Usuario> query = em.createQuery(pesquisarPor, Usuario.class);
+            query.setParameter("nome", "%"+nome+"%");
+            usuarios = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return usuarios;
+    }
+
+
+    @Override
     public Usuario remove(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
         Usuario usuario = null;
@@ -83,6 +105,5 @@ public class DaoUsuario implements IDaoUsuario {
         }
         return usuario;
     }
-
 
 }

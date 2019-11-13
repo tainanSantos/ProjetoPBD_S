@@ -4,7 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "pessoa_id")
+@NamedQuery(name = Usuario.BUSCAR_POR_NOME,
+        query = "select u from Usuario u where u.nome like :nome")
 public class Usuario extends Pessoa {
+
+    public static final String BUSCAR_POR_NOME = "Usuario.BuscarPorNome";
 
     private String email;
     private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio

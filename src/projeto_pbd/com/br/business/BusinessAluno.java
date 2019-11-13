@@ -3,7 +3,6 @@ package projeto_pbd.com.br.business;
 import projeto_pbd.com.br.dao.DaoAluno;
 import projeto_pbd.com.br.dao.IDaoAluno;
 import projeto_pbd.com.br.modell.Aluno;
-import projeto_pbd.com.br.modell.Pedagogo;
 
 import java.util.List;
 
