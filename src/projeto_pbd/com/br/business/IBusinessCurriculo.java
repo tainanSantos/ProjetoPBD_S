@@ -10,6 +10,8 @@ public interface IBusinessCurriculo {
 
     public Curriculo findByIdCurriculo(Integer id);
 
+    public Curriculo findByNomeCurriculo(String nomeCurriculo);
+
     public List<Curriculo> findAllCurriculo();
 
     public Curriculo removeCurriculo(Integer id);

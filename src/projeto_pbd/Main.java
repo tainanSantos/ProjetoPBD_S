@@ -29,6 +29,9 @@ public class Main extends Application {
 	public static final String RELATORIO_DISCENTE = "com/br/view/AreaDiscente.fxml";
 	public static final String AREA_DISCENTE_ACOMPANHAMENTO_PEDAGOGICO = "com/br/view/AreaDiscenteAcompPedag.fxml";
 	public static final String CADASTRAR_USUARIO_DO_SISTEMA = "com/br/view/CadastrarUsuarioDoSistema.fxml";
+	public static final String CADASTRAR_TIPO_CURRICULO = "com/br/view/CadastroTipoCurriculo.fxml";
+	public static final String TURMA_GERENCIAMENTO = "com/br/view/TurmaGerenciamento.fxml";
+
 
 
 	public static  Stage STAGE = new Stage(); // usar sempre que for abrir uma nova tela

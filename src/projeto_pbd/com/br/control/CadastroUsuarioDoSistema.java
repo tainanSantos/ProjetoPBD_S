@@ -24,7 +24,6 @@ import java.util.*;
 
 public class CadastroUsuarioDoSistema implements Initializable {
 
-
     @FXML
     private ComboBox comboboxTipoFunacionario;
     private List listTipoFuncionario = new ArrayList(Arrays.asList (new String[]{
@@ -91,7 +90,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-                // aqui a gente ver de onde é que vem o evento
+//                 aqui a gente ver de onde é que vem o evento
             }
         });
 
@@ -100,10 +99,11 @@ public class CadastroUsuarioDoSistema implements Initializable {
             @Override
             public void handle(KeyEvent event) {
                 if (pesquisaText.getText().length() >= 1)
-                atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
+                    atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
                 else atualizarTabela(Facade.getInstance().findAllUsuario());
             }
         });
+
         usuarioTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -151,13 +151,13 @@ public class CadastroUsuarioDoSistema implements Initializable {
         MaskFieldUtil.cpfField (cpfFuncionario);
     }
 
+
     public void atualizarTabela(List<Usuario> usuarioList){
         statusColum.setCellValueFactory(new PropertyValueFactory("status"));
         nomeColum.setCellValueFactory(new PropertyValueFactory("nome"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory("naturalidade"));
         tipoAcessoColum.setCellValueFactory(new PropertyValueFactory("tipoDeAcesso"));
         usuarioTable.getItems().setAll(usuarioList);
-
     }
 
 
@@ -194,6 +194,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
             String mensagem = "Salvo com Sucesso!";
 
             if (usuarioTable.getSelectionModel().getSelectedItem() != null){
+                // atualizar o usuário de o usuário já estiver cadastrado
                 usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
                 endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
                 mensagem = "Atualizado com Sucesso!";
@@ -207,7 +208,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
             usuario.setNaturalidade (naturalidadeFuncionario.getText ());
 
             usuario.setCpf (cpfFuncionario.getText ());
-//            usuario.setSenha (senhaPadrao ());
             usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
             usuario.setEmail (email.getText ());
             usuario.setStatus(true);
@@ -248,6 +248,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
         if (event.getSource() == pesquisarUsuarioButton){
             atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
         }
+
     }
 
 

@@ -31,6 +31,8 @@ public class Principal implements Initializable {
     public static final String AREA_DO_PROFESSOR = "../view/AreaProfessor.fxml";
     public static final String AREA_DO_PEDAGOGO = "../view/AreaPedagogo.fxml";
     public static final String CADASTRAR_USUARIO_DO_SISTEMA = "../view/CadastrarUsuarioDoSistema.fxml";
+    public static final String TURMA_GERENCIAMENTO = "../view/TurmaGerenciamento.fxml";
+
 
 
     @FXML
@@ -43,16 +45,13 @@ public class Principal implements Initializable {
     private MenuItem areaAlunoMenuItem;
 
     @FXML
-    private MenuItem areaPedagogoMenuItem;
+    private MenuItem gerenciamentoTurmaMenuItem;
 
     @FXML
     private MenuItem areaProfessorMenuItem;
 
     @FXML
     private MenuItem cacadastroCurriculoMenuItem;
-
-    @FXML
-    private MenuItem cadastroSisciplinaMenuItem;
 
     @FXML
     private MenuItem configuracoeMenuItem;
@@ -95,23 +94,32 @@ public class Principal implements Initializable {
 
     public void actionEvent(ActionEvent event) throws IOException {
 
-        this.anchorPanePrincipal.getChildren().clear(); // limpar o pane coso ele venha sujo
 
         if (event.getSource () == cacadastroCurriculoMenuItem){
+            this.anchorPanePrincipal.getChildren().clear();
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CADASTRO_CURRICULO)));
         }
         if (event.getSource () == areaAlunoMenuItem){
+            this.anchorPanePrincipal.getChildren().clear();
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DISCENTE)));
         }
         if (event.getSource () == homeMenuItem){
+            this.anchorPanePrincipal.getChildren().clear();
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(HOME)));
         }
         if (event.getSource () == configuracoeMenuItem){
+            this.anchorPanePrincipal.getChildren().clear();
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(CONFIGURACOES)));
         }
 
         if (event.getSource() == areaProfessorMenuItem){
+            this.anchorPanePrincipal.getChildren().clear();
             this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(AREA_DO_PROFESSOR)));
+        }
+
+        if (event.getSource() == gerenciamentoTurmaMenuItem){
+            this.anchorPanePrincipal.getChildren().clear();
+            this.anchorPanePrincipal.getChildren().add(FXMLLoader.load(getClass().getResource(TURMA_GERENCIAMENTO)));
         }
 
         //MENU BUTTON

@@ -20,6 +20,9 @@ public class Disciplina {
     @ManyToOne
     private Nota nota;
 
+    @ManyToOne
+    private Professor professor;
+
     private Boolean status;
 
     public Disciplina(){
@@ -33,6 +36,14 @@ public class Disciplina {
         this.turma = turma;
         this.curriculo = curriculo;
         this.status = status;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
     public Nota getNota() {

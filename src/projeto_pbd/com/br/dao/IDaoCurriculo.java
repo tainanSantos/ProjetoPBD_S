@@ -11,6 +11,8 @@ public interface IDaoCurriculo {
 
     public Curriculo findById(Integer id);
 
+    public Curriculo findByNome(String nomeCurriculo);
+
     public List<Curriculo> findAll();
 
     public Curriculo remove(Integer id);

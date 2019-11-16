@@ -1,9 +1,12 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Disciplina;
+import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DaoDisciplina implements IDaoDisciplina {
@@ -63,6 +66,43 @@ public class DaoDisciplina implements IDaoDisciplina {
         return disciplinas;
     }
 
+    @Override
+    public List<Disciplina> findAllNome(String nomeDisciplina) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<Disciplina> disciplinaList = null;
+        try {
+//            String pesquisarDisciplinaNome = "select d from Disciplina d where d.nome like :nome";
+            TypedQuery<Disciplina> query = em.createQuery(SqlUtil.BUSCAR_DISCIPLINAS_POR_NOME, Disciplina.class);
+            query.setParameter("nome", "%"+nomeDisciplina+"%");
+            disciplinaList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return disciplinaList;
+    }
+
+    @Override
+    public List<Disciplina> findAllNomeCurriculo(String nomeCurriculo) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<Disciplina> disciplinaList = null;
+        try {
+            TypedQuery<Disciplina> query = em.createQuery(SqlUtil.BUSCAR_DISCIPLINAS_DO_CURRICULO, Disciplina.class);
+            query.setParameter("nome", nomeCurriculo);
+            disciplinaList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return disciplinaList;
+    }
+
 
     @Override
     public Disciplina remove(Integer id) {
@@ -81,6 +121,5 @@ public class DaoDisciplina implements IDaoDisciplina {
         }
         return disciplina;
     }
-
 
 }

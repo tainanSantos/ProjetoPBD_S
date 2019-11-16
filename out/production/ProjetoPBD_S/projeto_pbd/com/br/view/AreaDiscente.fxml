@@ -113,7 +113,7 @@
                                                       <Font size="10.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="nomeText" prefHeight="26.0" prefWidth="439.0" promptText="nome complento" GridPane.rowIndex="1" />
+                                                <TextField fx:id="nomeText" prefHeight="26.0" prefWidth="439.0" promptText="nome completo" GridPane.rowIndex="1" />
                                                 <Label text="Data de Nascimento" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font size="10.0" />
@@ -270,7 +270,7 @@
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                    </rowConstraints>
                                                    <children>
-                                                      <Label text="nome da mae">
+                                                      <Label text="nome da mãe">
                                                          <font>
                                                             <Font size="10.0" />
                                                          </font>

@@ -12,5 +12,9 @@ public interface IBusinessDisciplina {
 
     public List<Disciplina> findAllDisciplina();
 
+    public List<Disciplina> findAllNomeDisciplina(String nomeDisciplina);
+
+    public List<Disciplina> findAllNomeCurriculoDisiplina(String nomeCurriculo);
+
     public Disciplina removeDisciplina(Integer id);
 }

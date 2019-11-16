@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
@@ -96,7 +97,6 @@ public class AreaProfessor implements Initializable {
             }
         });
 
-
         carregarTable (Facade.getInstance().findAllProfessor());
 
         this.professorTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -129,6 +129,13 @@ public class AreaProfessor implements Initializable {
                 }
             }
         });
+        pesquisaProfessorText.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                // falta implementar isso ainda ...
+            }
+        });
+
 
         this.comboBoxPorfUf.getItems().setAll(this.listUfsProf);
 
@@ -141,8 +148,6 @@ public class AreaProfessor implements Initializable {
 
 
 
-
-
     public void carregarTable(List<Professor> professorList){
 
         nomeProfessorColum.setCellValueFactory(new PropertyValueFactory<> ("nome"));
@@ -151,8 +156,6 @@ public class AreaProfessor implements Initializable {
         selecionadoColum.setCellValueFactory(new PropertyValueFactory<>("selectTable"));
         selecionadoColum.setCellFactory(comCheckBoxTableCell.forTableColumn((selecionadoColum)));
         professorTable.getItems().setAll(professorList);
-
-
     }
 
 
@@ -181,7 +184,6 @@ public class AreaProfessor implements Initializable {
         if (event.getSource() == novoProfessorButton){
             limparaCampos();
         }
-
         if (event.getSource() == salvarProfessorButton){
             Professor professor = new Professor ();
             Endereco endereco = new Endereco ();
@@ -205,7 +207,11 @@ public class AreaProfessor implements Initializable {
             endereco.setBairro (bairroProfessorText.getText ());
             endereco.setCidade (cidadeProfessorText.getText ());
             endereco.setCep (cepProfessorText.getText ());
-            endereco.setUf (comboBoxPorfUf.valueProperty ().get ().toString ());
+            try {
+                endereco.setUf (comboBoxPorfUf.valueProperty ().get ().toString ());
+            }catch (NullPointerException e){
+                Mensagem.mensagemErro("Estado não Selecionado!");
+            }
 
             professor.setCpf (cpfProfessorText.getText ());
             professor.setDataNascimento(dataProfessorText.getValue());

@@ -1,14 +1,16 @@
 package projeto_pbd.com.br.modell;
 
+import org.hibernate.annotations.Immutable;
+import org.hibernate.annotations.Subselect;
+
 import javax.persistence.*;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "pessoa_id")
-@NamedQuery(name = Usuario.BUSCAR_POR_NOME,
-        query = "select u from Usuario u where u.nome like :nome")
+//@Subselect("selected email, senha, tipoDeAcesso, cpf") // nessa não a view é gerada de foma auromática
+//@Immutable nessa eu preciso criar view lá no banco
 public class Usuario extends Pessoa {
 
-    public static final String BUSCAR_POR_NOME = "Usuario.BuscarPorNome";
 
     private String email;
     private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio

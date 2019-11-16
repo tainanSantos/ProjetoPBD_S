@@ -23,7 +23,7 @@
             <DropShadow color="#515151" />
          </effect>
       </Label>
-      <MenuBar layoutX="-2.0" layoutY="48.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="569.0" style="-fx-background-radius: 5;" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="733.0" AnchorPane.topAnchor="48.0">
+      <MenuBar layoutX="-2.0" layoutY="48.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="569.0" style="-fx-background-radius: 5;" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="48.0">
         <menus>
           <Menu id="inicio" mnemonicParsing="false" text="     Inicio     ">
             <items>
@@ -32,7 +32,7 @@
           </Menu>
             <Menu id=" area do aluno" mnemonicParsing="false" text="     Aluno     ">
                <items>
-                  <MenuItem fx:id="areaAlunoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Infoemações" />
+                  <MenuItem fx:id="areaAlunoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Informações" />
                </items>
             </Menu>
             <Menu id=" area do aluno" mnemonicParsing="false" text="     Docente     ">
@@ -40,9 +40,10 @@
                   <MenuItem fx:id="areaProfessorMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Professor" />
                </items>
             </Menu>
-          <Menu id="Curriculo/Disciplina" mnemonicParsing="false" text="  Cadastro   ">
+          <Menu id="Curriculo/Disciplina" mnemonicParsing="false" text="  Outros     ">
             <items>
                   <MenuItem id="cadastrar  curriculo" fx:id="cacadastroCurriculoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Curriculo / Disciplina" />
+                  <MenuItem id="cadastrar  curriculo" fx:id="gerenciamentoTurmaMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Turma" />
             </items>
           </Menu>
           <Menu id="configuraçoes" mnemonicParsing="false" text="   Configurações  ">

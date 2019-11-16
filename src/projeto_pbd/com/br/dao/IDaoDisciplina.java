@@ -12,5 +12,9 @@ public interface IDaoDisciplina {
 
     public List<Disciplina> findAll();
 
+    public List<Disciplina> findAllNome(String nomeDisciplina);
+
+    public List<Disciplina> findAllNomeCurriculo(String nomeCurriculo);
+
     public Disciplina remove(Integer id);
 }

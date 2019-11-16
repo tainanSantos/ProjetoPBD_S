@@ -3,14 +3,12 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
    <children>
-        <AnchorPane layoutX="903.0" layoutY="166.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="194.0" prefWidth="400.0" style="-fx-background-color: #363636;">
+        <AnchorPane layoutX="903.0" layoutY="166.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="307.0" prefWidth="603.0" style="-fx-background-color: #363636;" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="150.0">
          <effect>
             <DropShadow color="#545454" />
          </effect>
@@ -29,6 +27,22 @@
                </font>
             </Label>
          </children>
+      </AnchorPane>
+      <AnchorPane layoutX="995.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="127.0" prefWidth="256.0" style="-fx-background-color: #363636;">
+         <effect>
+            <DropShadow color="#545454" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane layoutX="815.0" layoutY="304.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="176.0" prefWidth="345.0" style="-fx-background-color: #363636;">
+         <effect>
+            <DropShadow color="#545454" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </AnchorPane>
    </children>
 </AnchorPane>

@@ -6,19 +6,12 @@ import javax.persistence.*;
 @Entity
 public class Curriculo {
 
-    /*
-    * ENUM
-    *
-    * Campos do ENUM:
-    *       EF
-    *       EF
-    *       EM
-    * */
+    // tipoCurriculo poderia ser enum
+    // mas por questão de tempo não vou usar enum.
 
     @Id
     @GeneratedValue
     private Integer id;
-
     private String nome;
     private Boolean status;
 
@@ -52,4 +45,12 @@ public class Curriculo {
     }
 
 
+    @Override
+    public String toString() {
+        return "Curriculo{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

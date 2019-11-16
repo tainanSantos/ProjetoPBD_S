@@ -6,7 +6,6 @@ import projeto_pbd.com.br.modell.Disciplina;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import javax.persistence.PersistenceException;
-import javax.print.attribute.standard.MediaSize;
 import java.util.List;
 
 public class BusinessDisciplina implements IBusinessDisciplina {
@@ -39,6 +38,16 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     @Override
     public List<Disciplina> findAllDisciplina() {
         return this.daoDisciplina.findAll ();
+    }
+
+    @Override
+    public List<Disciplina> findAllNomeDisciplina(String nomeDisciplina) {
+        return this.daoDisciplina.findAllNome(nomeDisciplina);
+    }
+
+    @Override
+    public List<Disciplina> findAllNomeCurriculoDisiplina(String nomeCurriculo) {
+        return this.daoDisciplina.findAllNomeCurriculo(nomeCurriculo);
     }
 
     @Override

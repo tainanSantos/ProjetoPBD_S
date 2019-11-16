@@ -18,40 +18,28 @@ public class Home implements Initializable {
 
     @FXML
     private Button cadastrarProfessorButton;
-
     @FXML
     private Button listarProfessoresButton;
-
     @FXML
     private Button cadastrarNovoALunoButton;
-
     @FXML
     private Button listarAlunosCadastradosButton;
-
     @FXML
     private Button alunosOutrosButton;
-
     @FXML
     private Button cadastrarPedagogoButton;
-
     @FXML
     private Button listarPedagogosCadastradosButton;
-
     @FXML
     private Button novaDisciplinaButton;
-
     @FXML
     private Button buscarDsciplinasCadastradasButton;
-
     @FXML
     private Button disciplinasOutroButton;
-
     @FXML
     private Button cadastrarNovoCurriculoButton;
-
     @FXML
     private Button ListarCurriculosCadastradosButton;
-
     @FXML
     private Button curriculoOutrosButton;
 

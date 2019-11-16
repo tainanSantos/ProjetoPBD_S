@@ -21,6 +21,8 @@ public interface IFacade {
 
     public Curriculo findByIdCurriculo(Integer id);
 
+    public Curriculo findByNomeCurriculo(String nomeCurriculo);
+
     public List<Curriculo> findAllCurriculo();
 
     public Curriculo removeCurriculo(Integer id);
@@ -32,6 +34,10 @@ public interface IFacade {
     public Disciplina findByIdDisciplina(Integer id);
 
     public List<Disciplina> findAllDisciplina();
+
+    public List<Disciplina> findAllNomeDisciplina(String nomeDisciplina);
+
+    public List<Disciplina> findAllNomeCurriculoDisiplina(String nomeCurriculo);
 
     public Disciplina removeDisciplina(Integer id);
 

@@ -248,7 +248,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <TextField fx:id="pesquisaText" layoutX="20.0" layoutY="583.0" onAction="#action" prefHeight="26.0" prefWidth="382.0" promptText="Pesquisar ..." />
+            <TextField fx:id="pesquisaText" layoutX="20.0" layoutY="583.0" prefHeight="26.0" prefWidth="382.0" promptText="Pesquisar ..." />
             <Button fx:id="pesquisarUsuarioButton" blendMode="EXCLUSION" layoutX="422.0" layoutY="581.0" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="130.0" text="Pesquisar" />
             <Label layoutX="20.0" layoutY="557.0" text="Pesquisa">
                <font>
@@ -256,8 +256,6 @@
                </font>
             </Label>
           </children>
-      
-      
       </AnchorPane>
    </content>
 </ScrollPane>

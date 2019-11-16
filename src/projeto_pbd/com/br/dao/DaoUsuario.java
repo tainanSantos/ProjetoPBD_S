@@ -2,6 +2,7 @@ package projeto_pbd.com.br.dao;
 
 import org.hibernate.hql.internal.ast.ErrorTracker;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -73,8 +74,8 @@ public class DaoUsuario implements IDaoUsuario {
         EntityManager em = new Conection().getEntityManager ();
         List<Usuario> usuarios = null;
         try {
-            String pesquisarPor = "select u from Usuario u where u.nome like :nome";
-            TypedQuery<Usuario> query = em.createQuery(pesquisarPor, Usuario.class);
+//            String pesquisarUsuarioNome = "select u from Usuario u where u.nome like :nome";
+            TypedQuery<Usuario> query = em.createQuery(SqlUtil.BUSCAR_USUARIO_POR_NOME, Usuario.class);
             query.setParameter("nome", "%"+nome+"%");
             usuarios = query.getResultList();
 

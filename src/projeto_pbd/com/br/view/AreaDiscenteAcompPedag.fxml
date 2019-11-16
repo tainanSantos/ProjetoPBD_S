@@ -44,7 +44,7 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <TextArea layoutX="20.0" layoutY="176.0" prefHeight="173.0" prefWidth="720.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <TextArea layoutX="20.0" layoutY="176.0" prefHeight="103.0" prefWidth="720.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
       <CheckBox fx:id="acompanhamentoConcluidoBoolean" layoutX="20.0" layoutY="371.0" mnemonicParsing="false" onAction="#action" text="concluído    (só maracr se o atendimento já estiver concluído)">
          <font>
             <Font size="10.0" />

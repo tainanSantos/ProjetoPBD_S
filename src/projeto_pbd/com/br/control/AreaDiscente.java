@@ -27,152 +27,102 @@ public class AreaDiscente implements Initializable {
 
     @FXML
     private TableView<Aluno> alunosTable;
-
     @FXML
     private TableColumn<?, ?> curriculoColum;
-
     @FXML
     private TableColumn<?, ?> nomeAlunoColum;
-
     @FXML
     private TableColumn<?, ?> numeroMatriculaColum;
-
     @FXML
     private TableColumn<?, ?> naturalidadeColum;
-
     @FXML
     private Button pesquisaAlunoButton;
-
     @FXML
     private AnchorPane alunoAnchorPane;
-
     @FXML
     private TextField nomeText;
-
     @FXML
     private TextField naturalidadedText;
-
     @FXML
     private TextField cpfResponsavelText;
-
     @FXML
     private Label cpfLabel;
-
     @FXML
     private DatePicker dataText;
-
     @FXML
     private TextField cepText;
-
     @FXML
     private TextField telefoneUmText;
-
     @FXML
     private TextField telefoneDoisText;
-
     @FXML
     private TextField logradouroText;
-
     @FXML
     private TextField numeroText;
-
     @FXML
     private TextField complementoText;
-
     @FXML
     private TextField bairroText;
-
     @FXML
     private TextField cidadeText;
-
     @FXML
     private ComboBox comboboxUf;
-
     @FXML
     private AnchorPane filiacaoPane;
-
     @FXML
     private TextField nomeMaeText;
-
     @FXML
     private TextField nomePaiText;
-
     @FXML
     private Label maiorDeIdadeMensagemLabel;
-
-
     @FXML
     private ComboBox ensinoComboBox;
-
     @FXML
     private TitledPane responsavelTiledPane;
-
     @FXML
     private AnchorPane responsávelAnchorPane;
-
     @FXML
     private TextField nomeText1Resp;
-
     @FXML
     private TextField naturalidadedText1Resp;
-
     @FXML
     private TextField cpfResponsavelText1Resp;
-
     @FXML
     private DatePicker dataText1Resp;
-
     @FXML
     private TextField cepText1Resp;
-
     @FXML
     private TextField telefoneUmText1Resp;
-
     @FXML
     private TextField telefoneDoisText1Resp;
-
     @FXML
     private TextField logradouroText1Resp;
-
     @FXML
     private TextField numeroText1Resp;
-
     @FXML
     private TextField complementoText1Resp;
-
     @FXML
     private TextField bairroText1Resp;
-
     @FXML
     private TextField cidadeText1Resp;
-
     @FXML
     private ComboBox comboboxUf1Resp;
-
     @FXML
     private Button salvarAlunoButton;
-
     @FXML
     private Button apagraAlunoButton;
-
     @FXML
     private Button acompanhamentoButton;
-
     @FXML
     private Button novoAlunoButton;
-
     @FXML
     private Label maiorDeIdadeMensagemLabel1;
-
     @FXML
     private RadioButton maiorDeIdadeRadioButton;
-
-
 
     private List listUfsAlun = new ArrayList(Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
-
 
     private List listUfsEnsino = new ArrayList(Arrays.asList (new String[]{"- EF-AI-1", "- EF-AI-2a5",
             "- EF-AF-6a8", "- EF-AI-9", "- EM-1", "- EM-2", "- EM-3", } ));
@@ -298,11 +248,9 @@ public class AreaDiscente implements Initializable {
         telefoneUmText.clear();
         telefoneDoisText1Resp.clear();
         telefoneDoisText.clear();
-
     }
 
     //__________________________________________________________________________________________________________________
-
 
     @FXML
     public void action(ActionEvent event){
