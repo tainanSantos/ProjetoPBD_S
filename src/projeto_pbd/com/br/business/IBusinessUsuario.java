@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.business;
 
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Usuarioview;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface IBusinessUsuario {
     public List<Usuario> findAllNome(String nome);
 
     public Usuario removeUsuario(Integer id);
+
+    public  Usuario validarLoginSenha(String email, String senha);
+
 }

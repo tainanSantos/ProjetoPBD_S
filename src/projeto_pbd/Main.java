@@ -109,18 +109,14 @@ public class Main extends Application {
 	//_______________________________________________________________
 	//TRANSIÇÃO ENTRE TELAS
 
+
 	public static void changeScreen(String scr, Object userData){
 		notifyAllListeners(scr, userData);
 	}
 
-//	public static void changeScreen(String scr, Object object, Object usuarioLogado){
-//		notifyAllListeners(scr, object, usuarioLogado);
-//	}
-
 	public static void changeScreen(String scr){
 		changeScreen(scr, null);
 	}
-
 
 	private static ArrayList<OnchangeSceneen> listners = new ArrayList<>();
 

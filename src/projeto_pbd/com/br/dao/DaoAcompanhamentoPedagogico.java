@@ -1,6 +1,8 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.AcompanhamentoPedagogico;
+import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -12,12 +14,9 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
 
     @Override
     public AcompanhamentoPedagogico saveAcompanhamentoPedagogico(AcompanhamentoPedagogico acompanhamentoPedagogico) {
-
         EntityManager em = new Conection().getEntityManager ();
-
         try {
             em.getTransaction ().begin ();
-
             if(acompanhamentoPedagogico.getId () == null){ // inserir
                 em.persist (acompanhamentoPedagogico);
             }else { // atualizar
@@ -31,6 +30,8 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
         }
         return acompanhamentoPedagogico;
     }
+
+
 
     @Override
     public AcompanhamentoPedagogico findByIdAcompanhamentoPedagogico(Integer id) {
@@ -50,12 +51,31 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
     }
 
 
+
+    @Override
+    public List<AcompanhamentoPedagogico> findByIdAlunoAcompanhamentoPedagogico(Integer idAluno) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<AcompanhamentoPedagogico> acompanhamentoPedagogicoList = null;
+        try {
+            TypedQuery<AcompanhamentoPedagogico> query = em.createQuery(
+                    SqlUtil.BUSCAR_ACOMPANHAMNETO_POR_ID_ALUNO, AcompanhamentoPedagogico.class);
+            query.setParameter("id", idAluno);
+            acompanhamentoPedagogicoList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return acompanhamentoPedagogicoList;
+    }
+
+
     @Override
     public List<AcompanhamentoPedagogico> findAllAcompanhamentoPedagogicoList() {
-
         EntityManager em = new Conection().getEntityManager ();
         List<AcompanhamentoPedagogico> acompanhamentoPedagogicos = null;
-
         try {
             acompanhamentoPedagogicos = em.createQuery ("from AcompanhamentoPedagogico").getResultList ();
         }catch (Exception e ){
@@ -63,7 +83,6 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
         }finally {
             em.close (); // fecha conexão
         }
-
         return acompanhamentoPedagogicos;
     }
 
@@ -107,4 +126,5 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
         }
         return acompanhamentoPedagogico;
     }
+
 }

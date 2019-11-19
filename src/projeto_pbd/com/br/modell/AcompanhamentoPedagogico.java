@@ -2,7 +2,6 @@ package projeto_pbd.com.br.modell;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class AcompanhamentoPedagogico {
@@ -14,17 +13,15 @@ public class AcompanhamentoPedagogico {
     @ManyToOne
     private Aluno aluno;
 
-    @Temporal (TemporalType.DATE)
-    private Date dataAtendimento;
+    private String dataAcompanhamento;
 
     private String secaoDetalhamento;
 
-    private boolean concluida;
+    private Boolean concluida;
 
     public AcompanhamentoPedagogico() {
 
     }
-
 
     public Integer getId() {
         return id;
@@ -42,12 +39,12 @@ public class AcompanhamentoPedagogico {
         this.aluno = aluno;
     }
 
-    public Date getDataAtendimento() {
-        return dataAtendimento;
+    public String getDataAcompanhamento() {
+        return dataAcompanhamento;
     }
 
-    public void setDataAtendimento(Date dataAtendimento) {
-        this.dataAtendimento = dataAtendimento;
+    public void setDataAcompanhamento(String dataAcompanhamento) {
+        this.dataAcompanhamento = dataAcompanhamento;
     }
 
     public String getSecaoDetalhamento() {
@@ -58,11 +55,21 @@ public class AcompanhamentoPedagogico {
         this.secaoDetalhamento = secaoDetalhamento;
     }
 
-    public boolean isConcluida() {
+    public Boolean getConcluida() {
         return concluida;
     }
 
-    public void setConcluida(boolean concluida) {
+    public void setConcluida(Boolean concluida) {
         this.concluida = concluida;
+    }
+
+    @Override
+    public String toString() {
+        return "AcompanhamentoPedagogico{" +
+                "aluno=" + aluno +
+                ", dataAcompanhamento='" + dataAcompanhamento + '\'' +
+                ", secaoDetalhamento='" + secaoDetalhamento + '\'' +
+                ", concluida=" + concluida +
+                '}';
     }
 }

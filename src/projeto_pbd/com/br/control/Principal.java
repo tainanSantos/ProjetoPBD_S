@@ -1,6 +1,5 @@
 package projeto_pbd.com.br.control;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,9 +61,6 @@ public class Principal implements Initializable {
     private MenuItem cadastroUasuarioMenuItem;
 
     @FXML
-    private MenuItem areaUsuarioMenuItem;
-
-    @FXML
     private MenuItem sairUsuarioMenuItem;
 
 
@@ -80,7 +75,7 @@ public class Principal implements Initializable {
             }
         });
 
-        // criar um método estático em uma class fora só para carregar as mensagens d Tooltip
+//         criar um método estático em uma class fora só para carregar as mensagens d Tooltip
 //        usuarioButton.setTooltip (new Tooltip ("Usuário do Sistem"));
 //        labelArgusAcad.setTooltip (new Tooltip ("Sistema para Escola de Ensiono Funadamental e Médio"));
 
@@ -126,9 +121,7 @@ public class Principal implements Initializable {
         if (event.getSource () == cadastroUasuarioMenuItem){
             Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
         }
-        if (event.getSource () == areaUsuarioMenuItem){
-            Mensagem.mensagemErro ("Não implementado, ainda!");
-        }
+       
         if (event.getSource () == sairUsuarioMenuItem){
             Main.stagePrincipal ().close ();
             Main.stageLogin ().show ();

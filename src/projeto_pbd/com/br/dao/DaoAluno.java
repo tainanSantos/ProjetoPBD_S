@@ -1,8 +1,11 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Aluno;
+import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DaoAluno implements IDaoAluno {
@@ -62,6 +65,24 @@ public class DaoAluno implements IDaoAluno {
             em.close (); // fecha conexão
         }
         return alunos;
+    }
+
+    @Override
+    public List<Aluno> findAllNome(String nome) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<Aluno> alunoList = null;
+        try {
+            TypedQuery<Aluno> query = em.createQuery(SqlUtil.BUSCAR_ALUNO_POR_NOME, Aluno.class);
+            query.setParameter("nome", "%"+nome+"%");
+            alunoList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return alunoList;
     }
 
 

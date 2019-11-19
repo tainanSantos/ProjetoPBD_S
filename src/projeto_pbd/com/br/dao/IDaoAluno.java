@@ -12,5 +12,7 @@ public interface IDaoAluno {
 
     public List<Aluno> findAll();
 
+    public List<Aluno> findAllNome(String nome);
+
     public Aluno remove(Integer id);
 }

@@ -208,8 +208,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         }
 
         if (event.getSource() == tiposCurriculoCombobox){
-            System.out.println("effefeffeggerhftjutjfykujyjuf");
-
             //carregar a tabela com as disciplinas do combobox selecionado
             carregarTableDisciplinasDoCurriculo(Facade.getInstance().findAllNomeCurriculoDisiplina(
                     tiposCurriculoCombobox.valueProperty().get().toString()

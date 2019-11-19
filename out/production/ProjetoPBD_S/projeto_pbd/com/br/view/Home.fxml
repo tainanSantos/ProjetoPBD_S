@@ -1,48 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
+<AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
    <children>
-        <AnchorPane layoutX="903.0" layoutY="166.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="307.0" prefWidth="603.0" style="-fx-background-color: #363636;" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="150.0">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
+      <AnchorPane layoutX="603.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="788.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
          <children>
-            <Label layoutX="40.0" layoutY="109.0" text="acad" textFill="WHITE" AnchorPane.leftAnchor="40.0">
+            <Label layoutX="93.0" layoutY="246.0" text="acad" textFill="#363636" AnchorPane.leftAnchor="150.0">
                <font>
-                  <Font name="System Bold" size="48.0" />
+                  <Font name="System Bold" size="70.0" />
                </font>
             </Label>
-            <Label layoutX="40.0" layoutY="39.0" text="ARGUS" textFill="WHITE" AnchorPane.leftAnchor="40.0">
+            <Label layoutX="100.0" layoutY="147.0" text="ARGUS" textFill="#363636" AnchorPane.leftAnchor="150.0">
                <font>
-                  <Font name="System Bold" size="72.0" />
+                  <Font name="System Bold" size="100.0" />
                </font>
             </Label>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="995.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="127.0" prefWidth="256.0" style="-fx-background-color: #363636;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="815.0" layoutY="304.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="176.0" prefWidth="345.0" style="-fx-background-color: #363636;">
-         <effect>
-            <DropShadow color="#545454" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
       </AnchorPane>
    </children>
 </AnchorPane>

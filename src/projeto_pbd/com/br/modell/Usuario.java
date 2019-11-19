@@ -1,7 +1,5 @@
 package projeto_pbd.com.br.modell;
 
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Subselect;
 
 import javax.persistence.*;
 

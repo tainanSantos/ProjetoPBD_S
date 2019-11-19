@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Usuarioview;
 
 import java.util.List;
 
@@ -16,5 +17,8 @@ public interface IDaoUsuario {
     public List<Usuario> findAllNome(String nome);
 
     public Usuario remove(Integer id);
+
+    public  Usuario validarLoginSenha(String email, String senha);
+
 
 }

@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1359.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaDiscente">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1359.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaDiscente">
    <children>
       <Label layoutX="37.0" layoutY="7.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #191970;" text="  Area do Aluno" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="25.0">
          <font>
@@ -47,7 +32,7 @@
                               </Label>
                               <TableView fx:id="alunosTable" layoutX="161.0" layoutY="124.0" prefHeight="386.0" prefWidth="1320.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="124.0">
                                 <columns>
-                                  <TableColumn fx:id="curriculoColum" prefWidth="75.0" text="curriculo" />
+                                  <TableColumn fx:id="dataNascimento" prefWidth="75.0" text="data nascimento" />
                                   <TableColumn fx:id="nomeAlunoColum" prefWidth="75.0" text="nome" />
                                     <TableColumn fx:id="numeroMatriculaColum" prefWidth="75.0" text="número da matricula" />
                                     <TableColumn fx:id="naturalidadeColum" prefWidth="75.0" text="naturalidade" />
@@ -66,7 +51,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <TextField prefHeight="26.0" prefWidth="408.0" GridPane.rowIndex="1" />
+                                    <TextField fx:id="pesquisarAlunoText" prefHeight="26.0" prefWidth="408.0" GridPane.rowIndex="1" />
                                     <Label text="nome do aluno">
                                        <font>
                                           <Font size="10.0" />
@@ -86,11 +71,11 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="        Novo        ">
+          <Tab text="      Detalhes      ">
             <content>
               <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <children>
-                        <ScrollPane layoutY="70.0" prefHeight="387.0" prefWidth="1319.0" style="-fx-border-color: #DCDCDC;" AnchorPane.topAnchor="60.0">
+                        <ScrollPane layoutY="70.0" prefHeight="387.0" prefWidth="1319.0" style="-fx-border-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
                               <AnchorPane prefHeight="1000.0" prefWidth="1290.0">
                                  <children>
@@ -295,7 +280,7 @@
                                              <effect>
                                                 <DropShadow>
                                                    <color>
-                                                      <Color blue="0.46052631735801697" green="0.46052631735801697" red="0.46052631735801697" />
+                                                      <Color red="0.46052631735801697" green="0.46052631735801697" blue="0.46052631735801697" />
                                                    </color>
                                                 </DropShadow>
                                              </effect></Separator>
@@ -308,7 +293,7 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Label text="Curriculo">
+                                                <Label text="Curriculo / Tipo">
                                                    <font>
                                                       <Font size="10.0" />
                                                    </font>
@@ -494,20 +479,40 @@
                                     </TitledPane>
                                     <Button fx:id="salvarAlunoButton" layoutX="869.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="121.0" text="Salvar" AnchorPane.bottomAnchor="21.0" />
                                     <Button fx:id="apagraAlunoButton" layoutX="717.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="121.0" text="Apagar" AnchorPane.bottomAnchor="21.0" />
-                                    <Pane layoutX="1058.0" layoutY="66.0" prefHeight="200.0" prefWidth="244.0" style="-fx-background-color: #F5FFFA;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
-                                       <effect>
-                                          <DropShadow>
-                                             <color>
-                                                <Color blue="0.7631579041481018" green="0.7631579041481018" red="0.7631579041481018" />
-                                             </color></DropShadow>
-                                       </effect>
-                                    </Pane>
                                  </children>
                               </AnchorPane>
                            </content>
                         </ScrollPane>
-                        <Button fx:id="novoAlunoButton" layoutX="974.0" layoutY="21.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="148.0" text=" Novo Cadastro" AnchorPane.topAnchor="15.0" />
-                        <Button fx:id="acompanhamentoButton" layoutX="1152.0" layoutY="20.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="153.0" text="Acompanhamento" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0" />
+                        <AnchorPane prefHeight="457.0" prefWidth="261.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <GridPane prefHeight="119.0" prefWidth="182.0" vgap="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="novoAlunoButton" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="317.0" text=" Novo Cadastro">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="acompanhamentoButton" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="314.0" text="Acompanhamento" GridPane.rowIndex="1">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <effect>
+                              <DropShadow color="#808080" />
+                           </effect>
+                        </AnchorPane>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="20.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

@@ -55,8 +55,7 @@
       </MenuBar>
       <MenuButton fx:id="usuarioButton" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1173.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-radius: 5; -fx-background-color: #191970;" text="Usuário" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
         <items>
-            <MenuItem id="cadastrarUsuario" fx:id="cadastroUasuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Cadastrar Usuário" />
-          <MenuItem id="areaUsuario" fx:id="areaUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Áarea do Usuário" />
+            <MenuItem id="cadastrarUsuario" fx:id="cadastroUasuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Gerenciar Usuário" />
           <MenuItem id="sair" fx:id="sairUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Sair" />
         </items>
          <font>
@@ -66,5 +65,10 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
       </MenuButton>
+      <AnchorPane prefHeight="35.0" prefWidth="1300.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <effect>
+            <DropShadow color="#8a8a8a" />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

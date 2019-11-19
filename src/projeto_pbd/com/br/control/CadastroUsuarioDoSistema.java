@@ -1,5 +1,18 @@
 package projeto_pbd.com.br.control;
 
+/*
+* com retorno   PROSSIDURE
+* sem retorno   FUNÇÃO
+* */
+
+/*
+* a estory procidure é uma função que não esta assosciada a tabela
+* gatilho é uma função assonciada a tabela que quando acontecer alguma coisa na tebela ele é incocado
+*   o gatilho quando chama a função ele altera alguam coisa na tabela
+*   o gatilho vai fazer o LOG e ALTERAÇÃO DO SISTEMA
+*/
+
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +27,7 @@ import projeto_pbd.com.br.façade.*;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
 import java.math.BigInteger;
@@ -84,6 +98,8 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     //__________________________________________________________________________________________________________________
 
+//    private List<Usuario> usuarioLis = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -93,12 +109,14 @@ public class CadastroUsuarioDoSistema implements Initializable {
 //                 aqui a gente ver de onde é que vem o evento
             }
         });
+//        setUsuarioLis(Facade.getInstance().findAllUsuario());
+//        atualizarTabela(getUsuarioLis());
 
         atualizarTabela(Facade.getInstance().findAllUsuario());
         pesquisaText.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (pesquisaText.getText().length() >= 1)
+                if (pesquisaText.getText().length() > 1)
                     atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
                 else atualizarTabela(Facade.getInstance().findAllUsuario());
             }
@@ -119,11 +137,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
                         comboboxUF.setValue(usuario.getEndereco().getUf());
                         comboboxTipoFunacionario.setValue(usuario.getTipoDeAcesso());
 
-//                        comboboxUF.getSelectionModel().select(Integer.parseInt(usuario.getEndereco().getUf()));7
                         email.setText(usuario.getEmail());
                         cepFuncionario.setText(usuario.getEndereco().getCep());
                         cpfFuncionario.setText(usuario.getCpf());
-//                        endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
 
                         dataNasFuncionario.setValue(usuario.getDataNascimento()); // ainda não implementado
 
@@ -131,9 +147,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
                         nomeFuncionario.setText(usuario.getNome());
                         List<Telefone> telefoneList = null;
                         telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
-                        for (Telefone telefone: telefoneList){
-                            System.out.println(telefone.getNumero() +" ---- "+telefone.getId());
-                        }
+
                         telefoneUmFuncionario.setText(telefoneList.get(0).getNumero());
                         telefoneDoisFuncionario.setText(telefoneList.get(1).getNumero());
                     }
@@ -181,7 +195,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
         comboboxUF.setValue(null);
     }
 
+
     //__________________________________________________________________________________________________________________
+
 
     @FXML
     public void action(ActionEvent event){
@@ -195,8 +211,8 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
             if (usuarioTable.getSelectionModel().getSelectedItem() != null){
                 // atualizar o usuário de o usuário já estiver cadastrado
-                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
-                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
+//                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
+//                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
                 mensagem = "Atualizado com Sucesso!";
                 List<Telefone> telefoneList = null;
                 telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
@@ -208,7 +224,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
             usuario.setNaturalidade (naturalidadeFuncionario.getText ());
 
             usuario.setCpf (cpfFuncionario.getText ());
-            usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
             usuario.setEmail (email.getText ());
             usuario.setStatus(true);
             usuario.setSenha(funcaoCript(senhaPadrao()));
@@ -221,7 +236,12 @@ public class CadastroUsuarioDoSistema implements Initializable {
             endereco.setComplemento (complementoLogradouroFuncionario.getText ());
             endereco.setLogradouro (logradouroFuncionario.getText ());
             endereco.setNumero (numeroLogragouroFuncionario.getText ());
-            endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
+            try {
+                endereco.setUf (comboboxUF.valueProperty ().get ().toString ());
+                usuario.setTipoDeAcesso (comboboxTipoFunacionario.valueProperty ().get ().toString ());
+            }catch (NullPointerException e){
+                Mensagem.mensagemErro("Campo não Selecionado! ");
+            }
 
             telefone.setNumero(telefoneUmFuncionario.getText());
             telefone1.setNumero(telefoneDoisFuncionario.getText());
@@ -248,7 +268,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
         if (event.getSource() == pesquisarUsuarioButton){
             atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
         }
-
     }
 
 

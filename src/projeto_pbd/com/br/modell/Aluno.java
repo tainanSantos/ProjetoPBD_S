@@ -18,8 +18,17 @@ public class Aluno extends  Pessoa{
 
     private String nomePai;
     private String nomeMae;
+    private Boolean maioDeIdadeEResponsavel;
 
     public Aluno() {
+    }
+
+    public Boolean getMaioDeIdadeEResponsavel() {
+        return maioDeIdadeEResponsavel;
+    }
+
+    public void setMaioDeIdadeEResponsavel(Boolean maioDeIdadeEResponsavel) {
+        this.maioDeIdadeEResponsavel = maioDeIdadeEResponsavel;
     }
 
     public Curriculo getCurriculo() {

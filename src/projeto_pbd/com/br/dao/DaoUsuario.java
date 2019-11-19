@@ -1,6 +1,5 @@
 package projeto_pbd.com.br.dao;
 
-import org.hibernate.hql.internal.ast.ErrorTracker;
 import projeto_pbd.com.br.modell.Usuario;
 import projeto_pbd.com.br.util.SqlUtil;
 
@@ -74,7 +73,6 @@ public class DaoUsuario implements IDaoUsuario {
         EntityManager em = new Conection().getEntityManager ();
         List<Usuario> usuarios = null;
         try {
-//            String pesquisarUsuarioNome = "select u from Usuario u where u.nome like :nome";
             TypedQuery<Usuario> query = em.createQuery(SqlUtil.BUSCAR_USUARIO_POR_NOME, Usuario.class);
             query.setParameter("nome", "%"+nome+"%");
             usuarios = query.getResultList();
@@ -106,5 +104,26 @@ public class DaoUsuario implements IDaoUsuario {
         }
         return usuario;
     }
+
+
+    @Override
+    public Usuario validarLoginSenha(String email, String senha) {
+        EntityManager em = new Conection().getEntityManager ();
+
+        Usuario usuario = null;
+
+        try {
+            TypedQuery<Usuario> query = em.createQuery (SqlUtil.BUSCAR_USUARIO_LOGIN_SENHA, Usuario.class);
+            query.setParameter("email", email);
+            query.setParameter("senha", senha);
+            usuario = query.getSingleResult();
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }finally {
+            em.close (); // fecha conexão
+        }
+        return usuario;
+    }
+
 
 }

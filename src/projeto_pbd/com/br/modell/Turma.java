@@ -13,8 +13,17 @@ public class Turma {
     @ManyToMany
     private List<Professor> professors;
 
+    private String nomeTurma;
 
     public Turma(){
+    }
+
+    public String getNomeTurma() {
+        return nomeTurma;
+    }
+
+    public void setNomeTurma(String nomeTurma) {
+        this.nomeTurma = nomeTurma;
     }
 
     public List<Professor> getProfessors() {
