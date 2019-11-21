@@ -21,9 +21,9 @@ import projeto_pbd.com.br.modell.*;
 import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
-import javax.print.attribute.standard.MediaName;
 
 public class AreaDiscente implements Initializable {
+
 
     @FXML
     private TableView<Aluno> alunosTable;
@@ -35,8 +35,6 @@ public class AreaDiscente implements Initializable {
     private TableColumn<?, ?> numeroMatriculaColum;
     @FXML
     private TableColumn<?, ?> naturalidadeColum;
-    @FXML
-    private Button pesquisaAlunoButton;
     @FXML
     private AnchorPane alunoAnchorPane;
     @FXML
@@ -78,7 +76,9 @@ public class AreaDiscente implements Initializable {
     @FXML
     private Label maiorDeIdadeMensagemLabel;
     @FXML
-    private ComboBox ensinoComboBox;
+    private ComboBox<Curriculo> ensinoComboBox;
+    @FXML
+    private ComboBox<Turma> turmaComboBox;
     @FXML
     private TitledPane responsavelTiledPane;
     @FXML
@@ -118,9 +118,18 @@ public class AreaDiscente implements Initializable {
     @FXML
     private Button novoAlunoButton;
     @FXML
+    private Button addNotasAlunoButton;
+    @FXML
     private Label maiorDeIdadeMensagemLabel1;
     @FXML
     private RadioButton maiorDeIdadeRadioButton;
+
+
+    //USAR NA AREA DA PESQUISA
+    @FXML
+    private ComboBox alnoLetivoComboBox;
+    @FXML
+    private ComboBox trumasAlunosComboBox;
 
     private List listUfsAlun = new ArrayList(Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
@@ -131,19 +140,40 @@ public class AreaDiscente implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //RESTRIÇÃO DE ACESSO
+        switch (Main.getTipoUsuario()){
+            case ("Adiminstração"):
+                break;
+            case ("Direção"):
+                restricoesDeAcesso();
+                break;
+            case("Coordenação Pedagogica"):
+                restricoesDeAcesso();
+                break;
+            case ("Secretaria"):
+                acompanhamentoButton.setDisable(true);
+                break;
+        }
+
+
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-                //??
+
             }
         });
+
 
         carregarTabelaAlunos(Facade.getInstance().findAllAluno());
 
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
         this.comboboxUf1Resp.setItems(FXCollections.observableArrayList (this.listUfsAlun));
         this.ensinoComboBox.setItems(FXCollections.observableArrayList(
-                carregarCurriculoBox(Facade.getInstance().findAllCurriculo())));
+                Facade.getInstance().findAllCurriculo()));
+        this.turmaComboBox.setItems(FXCollections.observableArrayList(
+                Facade.getInstance().findAllTurma()));
+        this.trumasAlunosComboBox.setItems(FXCollections.observableArrayList(
+                Facade.getInstance().findAllTurma()));
 
         MaskFieldUtil.dateField (this.dataText.getEditor());
         MaskFieldUtil.cepField (this.cepText);
@@ -183,6 +213,13 @@ public class AreaDiscente implements Initializable {
                     nomePaiText.setText(aluno.getNomePai());
                     nomeMaeText.setText(aluno.getNomeMae());
                     naturalidadedText.setText(aluno.getNaturalidade());
+                    try {
+                        ensinoComboBox.setValue(Facade.getInstance().findByIdCurriculo(aluno.getCurriculo().getId()));
+                        turmaComboBox.setValue(Facade.getInstance().findByIdTurma(aluno.getTurma().getId()));
+                    }catch (NullPointerException e){
+
+                    }
+
                     dataText.setValue(aluno.getDataNascimento());
                     List<Telefone> telefoneList = null;
                     telefoneList = Facade.getInstance().findAllIdTelefone(aluno.getId());
@@ -198,7 +235,7 @@ public class AreaDiscente implements Initializable {
                     cepText.setText(aluno.getEndereco().getCep());
 
                     if (aluno.getCurriculo()!=null)
-                        ensinoComboBox.setValue(aluno.getCurriculo().getNome());
+                        ensinoComboBox.setValue(aluno.getCurriculo());
                     else ensinoComboBox.setValue(null);
 
                     //__________________________________
@@ -223,12 +260,17 @@ public class AreaDiscente implements Initializable {
                 }
             }
         });
-
-
-
     }
 
+
+    public void restricoesDeAcesso(){
+        salvarAlunoButton.setDisable(true);
+        apagraAlunoButton.setDisable(true);
+    }
+
+
     //__________________________________________________________________________________________________________________
+
 
     public void carregarTabelaAlunos(List<Aluno> alunos){
         dataNascimento.setCellValueFactory(new PropertyValueFactory<>("dataNascimento"));
@@ -238,13 +280,7 @@ public class AreaDiscente implements Initializable {
         alunosTable.getItems().setAll(alunos);
     }
 
-    public List<String> carregarCurriculoBox(List<Curriculo> curriculoList){
-        List<String> stringList = new ArrayList<>();
-        for(Curriculo curriculo: curriculoList){
-            stringList.add(curriculo.getNome());
-        }
-        return stringList;
-    }
+
 
     public void limparCampos(){
         alunosTable.getSelectionModel().select(null);
@@ -260,6 +296,7 @@ public class AreaDiscente implements Initializable {
         comboboxUf.getSelectionModel().select(null);
         comboboxUf1Resp.getSelectionModel().select(null);
         ensinoComboBox.getSelectionModel().select(null);
+        turmaComboBox.getSelectionModel().select(null);
         bairroText.clear();
         bairroText1Resp.clear();
         cidadeText.clear();
@@ -285,6 +322,9 @@ public class AreaDiscente implements Initializable {
 
     //__________________________________________________________________________________________________________________
 
+
+
+
     @FXML
     public void action(ActionEvent event){
 
@@ -300,8 +340,11 @@ public class AreaDiscente implements Initializable {
             Telefone telefone2Responsavel = new Telefone();
 
             Curriculo curriculo = new Curriculo();
-            //deversse basacra o curriculo pelo nome para ADD ao aluno
-            curriculo =  Facade.getInstance().findByNomeCurriculo(ensinoComboBox.valueProperty().get().toString());
+            try {
+                curriculo =  Facade.getInstance().findByIdCurriculo(ensinoComboBox.getSelectionModel().getSelectedItem().getId());
+            } catch (NullPointerException e){
+                Mensagem.mensagemErro("Curriculo não selecionado");
+            }
 
             if (alunosTable.getSelectionModel().getSelectedItem() != null){
                 aluno = alunosTable.getSelectionModel().getSelectedItem();
@@ -322,10 +365,14 @@ public class AreaDiscente implements Initializable {
             aluno.setDataNascimento(dataText.getValue());
             aluno.setStatus(true);
             aluno.setMaioDeIdadeEResponsavel(maiorDeIdadeRadioButton.isSelected());
+            aluno.setCurriculo(ensinoComboBox.getSelectionModel().getSelectedItem());
+            aluno.setTurma(turmaComboBox.getSelectionModel().getSelectedItem());
 
             telefone1Aluno.setNumero(telefoneUmText.getText());
             telefone2Aluno.setNumero(telefoneDoisText.getText());
-            //----------------------------------------------------------------------------------------------------------
+
+            //__________________________________________________________________________________________________________
+
             responsavel.setDataNascimento(dataText1Resp.getValue());
             responsavel.setNaturalidade(naturalidadedText.getText());
             responsavel.setNome(nomeText1Resp.getText());
@@ -369,21 +416,13 @@ public class AreaDiscente implements Initializable {
             // TÁ ATUALIZANDO DE FORMA ERRADA!
         }
 
-
-
         if (event.getSource() == apagraAlunoButton){
             // não sei se isso aqui precisa
-        }
-
-
-        if (event.getSource() == pesquisaAlunoButton){
-
         }
 
         if (event.getSource() == novoAlunoButton){
             limparCampos();
         }
-
 
         if (maiorDeIdadeRadioButton.isSelected()){
             nomeText1Resp.setText(nomeText.getText());
@@ -401,7 +440,6 @@ public class AreaDiscente implements Initializable {
             telefoneUmText1Resp.setText(telefoneUmText.getText());
             telefoneDoisText1Resp.setText(telefoneDoisText.getText());
         }
-
 
         if (!maiorDeIdadeRadioButton.isSelected()){
             nomeText1Resp.clear();
@@ -435,10 +473,28 @@ public class AreaDiscente implements Initializable {
     }
 
 
+
+    @FXML
+    public void addNotaAluno(ActionEvent event){
+        //VAMOS CADASTRAR AS NOTAS DO ALUNO NA DISCIPLINA
+        try {
+            if (alunosTable.getSelectionModel().getSelectedItem()!=null) {
+                Main.genericaStage(Main.CADASTRO_NOTAS).show();
+                Main.changeScreen("AreaDiscente", alunosTable.getSelectionModel().getSelectedItem());
+            }else{
+                Mensagem.mensagemErro("Deve selecionar, antes, um aluno na tabela!");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     @FXML
     void evento(MouseEvent event) {
         if (event.getSource() == responsavelTiledPane){
-            // verificar a quatão da data
             Calendar calendar = Calendar.getInstance();
             try {
                 int idadeAluno = calendar.get(Calendar.YEAR) - dataText.getValue().getYear();

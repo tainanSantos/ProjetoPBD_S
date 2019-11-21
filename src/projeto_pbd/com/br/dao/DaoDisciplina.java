@@ -50,6 +50,23 @@ public class DaoDisciplina implements IDaoDisciplina {
         return disciplina;
     }
 
+    @Override
+    public List<Disciplina> findAllIdCurriculo(Integer idCurriculo) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<Disciplina> disciplinaList = null;
+        try {
+            TypedQuery<Disciplina> query = em.createQuery(SqlUtil.BUSCAR_DISCIPLINAS_POR_ID_CURRICULO, Disciplina.class);
+            query.setParameter("curriculo", idCurriculo);
+            disciplinaList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return disciplinaList;    }
+
 
     @Override
     public List<Disciplina> findAll() {

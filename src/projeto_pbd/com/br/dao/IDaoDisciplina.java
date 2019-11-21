@@ -10,6 +10,8 @@ public interface IDaoDisciplina {
 
     public Disciplina findById(Integer id);
 
+    public List<Disciplina> findAllIdCurriculo(Integer idCurriculo);
+
     public List<Disciplina> findAll();
 
     public List<Disciplina> findAllNome(String nomeDisciplina);

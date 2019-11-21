@@ -17,7 +17,6 @@ public interface IFacade {
     //Curriculo
     public Curriculo saveCurriculo(Curriculo curriculo );
     public Curriculo findByIdCurriculo(Integer id);
-    public Curriculo findByNomeCurriculo(String nomeCurriculo);
     public List<Curriculo> findAllCurriculo();
     public Curriculo removeCurriculo(Integer id);
 
@@ -26,6 +25,7 @@ public interface IFacade {
     public Disciplina saveDisciplina(Disciplina disciplina );
     public Disciplina findByIdDisciplina(Integer id);
     public List<Disciplina> findAllDisciplina();
+    public List<Disciplina> findAllIdCurriculo(Integer idCurriculo);
     public List<Disciplina> findAllNomeDisciplina(String nomeDisciplina);
     public List<Disciplina> findAllNomeCurriculoDisiplina(String nomeCurriculo);
     public Disciplina removeDisciplina(Integer id);

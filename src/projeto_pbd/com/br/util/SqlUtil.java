@@ -22,4 +22,6 @@ public class SqlUtil {
 
     public static final String BUSCAR_DISCIPLINAS_POR_NOME =  "select d from Disciplina d where d.nome like :nome";
 
+    public static final String BUSCAR_DISCIPLINAS_POR_ID_CURRICULO =  "select d from Disciplina d where d.curriculo.id = :curriculo ";
+
 }

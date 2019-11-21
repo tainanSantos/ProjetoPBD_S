@@ -82,20 +82,43 @@ public class AreaProfessor implements Initializable {
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
+
     //__________________________________________________________________________________________________________________
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        //RESTRIÇÃO DE ACESSO
+        switch (Main.getTipoUsuario()){
+            case ("Adiminstração"):
+                System.out.println("Adm");
+                break;
+            case ("Direção"):
+                System.out.println("Direção");
+                break;
+            case("Coordenação Pedagogica"):
+                System.out.println("Cood Ped");
+                break;
+            case ("Secretaria"):
+                System.out.println("Secretaria");
+                break;
+        }
+
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-                System.out.println(newScene);
+                // deixa aqui por enquando que pode ser útil para outra tela!
                 if (newScene.equalsIgnoreCase("CadastroCurriculoEDisciplina.fxml")) {
                     System.out.println("aqui tudo certo");
                     adicionarProfessorDisciplinaButton.setVisible(true);
                 }
             }
         });
+
+
+
+
 
         carregarTable (Facade.getInstance().findAllProfessor());
 

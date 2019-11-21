@@ -41,7 +41,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
     @FXML
     private ComboBox comboboxTipoFunacionario;
     private List listTipoFuncionario = new ArrayList(Arrays.asList (new String[]{
-            "Adiminstração","Direção ","Coordenação Pedagogica", "Secretaria"}));
+            "Adiminstração","Direção","Coordenação Pedagogica", "Secretaria"}));
 
     @FXML
     private ComboBox comboboxUF;
@@ -102,15 +102,24 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
-            @Override
-            public void onScreenchanged(String newScene, Object userData) {
-//                 aqui a gente ver de onde é que vem o evento
-            }
-        });
 //        setUsuarioLis(Facade.getInstance().findAllUsuario());
 //        atualizarTabela(getUsuarioLis());
+
+        //RESTRIÇÃO DE ACESSO
+        switch (Main.getTipoUsuario()){
+            case ("Adiminstração"):
+                break;
+            case ("Direção"):
+                System.out.println("Direção");
+                break;
+            case("Coordenação Pedagogica"):
+                System.out.println("Cood Ped");
+                break;
+            case ("Secretaria"):
+                System.out.println("Secretaria");
+                break;
+        }
+
 
         atualizarTabela(Facade.getInstance().findAllUsuario());
         pesquisaText.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -164,6 +173,8 @@ public class CadastroUsuarioDoSistema implements Initializable {
         MaskFieldUtil.cepField (cepFuncionario);
         MaskFieldUtil.cpfField (cpfFuncionario);
     }
+
+
 
 
     public void atualizarTabela(List<Usuario> usuarioList){

@@ -18,9 +18,6 @@ public class Disciplina {
     private Curriculo curriculo;
 
     @ManyToOne
-    private Nota nota;
-
-    @ManyToOne
     private Professor professor;
 
     private Boolean status;
@@ -44,14 +41,6 @@ public class Disciplina {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
-    }
-
-    public Nota getNota() {
-        return nota;
-    }
-
-    public void setNota(Nota nota) {
-        this.nota = nota;
     }
 
     public Boolean getStatus() {
@@ -100,5 +89,10 @@ public class Disciplina {
 
     public void setCurriculo(Curriculo curriculo) {
         this.curriculo = curriculo;
+    }
+
+    @Override
+    public String toString() {
+        return ""+nome;
     }
 }

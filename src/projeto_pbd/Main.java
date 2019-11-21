@@ -33,11 +33,17 @@ public class Main extends Application {
 	public static final String TURMA_GERENCIAMENTO = "com/br/view/TurmaGerenciamento.fxml";
 
 
+	//__________________________________________________________________________________________________________________
+
+	private static String TIPO_USUARIO;
+
+	//__________________________________________________________________________________________________________________
+
+
 
 	public static  Stage STAGE = new Stage(); // usar sempre que for abrir uma nova tela
 	public static  Stage STAGE2 = new Stage(); // usar sempre que for abrir uma nova tela2
 	public static  Stage STAGE_PRINCIPAL = new Stage();
-
 
 	/*
 		"Não existe segredo. Apenas chegue antes, saia depois, faça mais do que te pedem e confie 100% em si mesmo"
@@ -106,7 +112,7 @@ public class Main extends Application {
 	}
 
 
-	//_______________________________________________________________
+	//__________________________________________________________________________________________________________________
 	//TRANSIÇÃO ENTRE TELAS
 
 
@@ -120,7 +126,7 @@ public class Main extends Application {
 
 	private static ArrayList<OnchangeSceneen> listners = new ArrayList<>();
 
-	public static  interface OnchangeSceneen{
+	public static interface OnchangeSceneen{
 		void onScreenchanged(String newScene, Object userData );
 	}
 
@@ -133,9 +139,20 @@ public class Main extends Application {
 			l.onScreenchanged(newScereen, userData);
 	}
 
+
+	//__________________________________________________________________________________________________________________
+
+
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 
+	public static String getTipoUsuario() {
+		return TIPO_USUARIO;
+	}
+
+	public static void setTipoUsuario(String tipoUsuario) {
+		TIPO_USUARIO = tipoUsuario;
+	}
 }

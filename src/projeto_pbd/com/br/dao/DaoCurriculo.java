@@ -51,23 +51,6 @@ public class DaoCurriculo implements IDaoCurriculo {
         return curriculo;
     }
 
-    @Override
-    public Curriculo findByNome(String nomeCurriculo) {
-        EntityManager em = new Conection().getEntityManager ();
-
-        Curriculo curriculo = null;
-
-        try {
-            TypedQuery<Curriculo> query = em.createQuery (SqlUtil.BUSCAR_CURRICULO_POR_NOME, Curriculo.class);
-            query.setParameter("nome", nomeCurriculo);
-            curriculo = query.getSingleResult();
-        }catch (Exception e ){
-            em.getTransaction ().rollback ();
-        }finally {
-            em.close (); // fecha conexão
-        }
-        return curriculo;
-    }
 
     @Override
     public List<Curriculo> findAll() {

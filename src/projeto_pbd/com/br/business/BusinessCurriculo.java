@@ -28,11 +28,6 @@ public class BusinessCurriculo implements IBusinessCurriculo {
     }
 
     @Override
-    public Curriculo findByNomeCurriculo(String nomeCurriculo) {
-        return this.daoCurriculo.findByNome(nomeCurriculo);
-    }
-
-    @Override
     public List<Curriculo> findAllCurriculo() {
         return this.daoCurriculo.findAll ();
     }

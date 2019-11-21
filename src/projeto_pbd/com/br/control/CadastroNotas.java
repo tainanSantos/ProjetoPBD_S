@@ -1,56 +1,120 @@
 package projeto_pbd.com.br.control;
 
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.msg.Mensagem;
+import projeto_pbd.com.br.façade.Facade;
+import projeto_pbd.com.br.modell.Aluno;
+import projeto_pbd.com.br.modell.Nota;
+import projeto_pbd.com.br.modell.NotasAlunoVw;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class CadastroNotas {
+public class CadastroNotas implements Initializable {
 
 
     @FXML
-    private TextField textFieodVa1;
+    private TableView<NotasAlunoVw> notasAlunoTable;
     @FXML
-    private TextField textFieldVa2;
+    private TableColumn<?, ?> vaUmComumn;
     @FXML
-    private TextField textFieldVa3;
+    private TableColumn<?, ?> vaDoisComumn;
     @FXML
-    private TextField textFieldVaFinal;
+    private TableColumn<?, ?> vsTresComumn;
     @FXML
-    private TextField media;
+    private TableColumn<?, ?> vaQuatroComumn;
+    @FXML
+    private TableColumn<?, ?> finalComumn;
+    @FXML
+    private TableColumn<?, ?> mediaComumn;
+    @FXML
+    private TableColumn<?, ?> statusAprovacaoComumn;
     @FXML
     private Button buttonConfirmar;
     @FXML
-    private Label labelMostrarResultado;
+    private TextField codigoDisciplinaText;
     @FXML
-    private Button buttonCancelar;
+    private Label nomeAlunoLabel;
+    @FXML
+    private Label matriculaAlunoLabel;
+    @FXML
+    private Label turmaAlunoLabel;
+    @FXML
+    private ComboBox disciplinaComboBox;
 
 
-    public void adicionarNota() throws IOException {
+
+    //__________________________________________________________________________________________________________________
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+//        //RESTRIÇÃO DE ACESSO
+//        switch (Main.getTipoUsuario()){
+//            case ("Adiminstração"):
+//                System.out.println("Adm");
+//                break;
+//            case ("Direção"):
+//                System.out.println("Direção");
+//                break;
+//            case("Coordenação Pedagogica"):
+//                System.out.println("Cood Ped");
+//                break;
+//            case ("Secretaria"):
+//                System.out.println("Secretaria");
+//                break;
+//        }
+
 
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-
+                Aluno aluno = null;
+                aluno = (Aluno) userData;
+                System.out.println("aquie stamos");
+                System.out.println(newScene);
+                System.out.println("________________________________________________________");
+                nomeAlunoLabel.setText(aluno.getNome());
+                matriculaAlunoLabel.setText(String.valueOf(aluno.getCurriculo().getId()));
+                turmaAlunoLabel.setText(aluno.getTurma().getNomeTurma());
+                disciplinaComboBox.setItems(FXCollections.observableArrayList(Facade.getInstance().findAllIdCurriculo(
+                        aluno.getCurriculo().getId()
+                )));
+                codigoDisciplinaText.setText(aluno.getCurriculo().getId()+"");
             }
         });
+    }
+    //__________________________________________________________________________________________________________________
 
-        // fazer antes a validação dos campos
-        Mensagem.mensagemSucesso ("Nota Cadastrada Com Sucesso!");
-        Stage stage =  Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES);
-        stage.show ();
+
+    public void adicionarNota() throws IOException {
+
+
     }
 
-    public void cancelar() throws IOException {
-        Main.genericaStage (Main.AREA_DISCENTE_INFORMACOES).show ();
+
+    public void carregarTabelaNotas (List<NotasAlunoVw> notasAlunoVwList){
+        // colocar as colunas que faltama aqui
+        notasAlunoTable.getItems().setAll(notasAlunoVwList);
+
     }
 
 
+    @FXML
+    void adicionarNota(ActionEvent event) {
 
+        Nota nota = new Nota();
+
+        if (notasAlunoTable.getSelectionModel().getSelectedItem() != null){
+//           nota.setId(); = notasAlunoTable.getSelectionModel().getSelectedItem();
+        }
+
+    }
 
 }

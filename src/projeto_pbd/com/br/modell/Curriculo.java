@@ -47,10 +47,6 @@ public class Curriculo {
 
     @Override
     public String toString() {
-        return "Curriculo{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", status=" + status +
-                '}';
+        return ""+nome;
     }
 }

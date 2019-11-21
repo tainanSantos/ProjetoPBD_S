@@ -40,12 +40,7 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
-            @Override
-            public void onScreenchanged(String newScene, Object userData) {
 
-            }
-        });
     }
 
 
@@ -56,9 +51,7 @@ public class Login implements Initializable {
 
     }
 
-
     //__________________________________________________________________________________________________________________
-
 
     public void fazerLogin()  {
 
@@ -71,6 +64,7 @@ public class Login implements Initializable {
 
         if ((usuario != null) || (Facade.getInstance().findAllUsuario().isEmpty())){
             try {
+                Main.setTipoUsuario(usuario.getTipoDeAcesso());
                 Main.stageLogin().close();
                 Main.stagePrincipal().show();
                 Main.stagePrincipal ().setMaximized (true);
@@ -79,13 +73,13 @@ public class Login implements Initializable {
                 // FALATA MANDA AQUI O TIPODE PESSOA QUE TA ACESSNAOD O SISTEMA
                 // PARA EFETUAR AS RESTRIÇÕES NAS OUTRA TELAS
 
+
             } catch (IOException e) {
                 e.printStackTrace();
             }        }
         else Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
 
     }
-
 
 
     public void redefinirSenha(){
@@ -114,7 +108,6 @@ public class Login implements Initializable {
     }
 
 
-
     public void recuperarSenha(){
         this.anchorPaneLoginLogin.setVisible (false);
         this.anchorPaneLoginRedefinirSenha.setVisible (true);
@@ -125,7 +118,6 @@ public class Login implements Initializable {
         this.anchorPaneLoginLogin.setVisible (true);
         this.anchorPaneLoginRedefinirSenha.setVisible (false);
     }
-
 
 
     @FXML
@@ -150,7 +142,6 @@ public class Login implements Initializable {
         sen = hash.toString(16);
         return sen;
     }
-
 
 
 }

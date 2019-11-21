@@ -82,11 +82,6 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Curriculo findByNomeCurriculo(String nomeCurriculo) {
-        return this.businessCurriculo.findByNomeCurriculo(nomeCurriculo);
-    }
-
-    @Override
     public List<Curriculo> findAllCurriculo() {
         return this.businessCurriculo.findAllCurriculo();
     }
@@ -112,6 +107,11 @@ public class Facade implements IFacade {
     @Override
     public List<Disciplina> findAllDisciplina() {
         return this.businessDisciplina.findAllDisciplina();
+    }
+
+    @Override
+    public List<Disciplina> findAllIdCurriculo(Integer idCurriculo) {
+        return this.businessDisciplina.findAllIdCurriculo(idCurriculo);
     }
 
     @Override

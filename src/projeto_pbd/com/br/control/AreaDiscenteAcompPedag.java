@@ -20,7 +20,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
 public class AreaDiscenteAcompPedag implements Initializable {
+
 
 
     @FXML
@@ -46,19 +48,23 @@ public class AreaDiscenteAcompPedag implements Initializable {
 
     Aluno aluno = null;
 
+
+
     //__________________________________________________________________________________________________________________
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
-            @Override
-            public void onScreenchanged(String newScene, Object userData) {
-                aluno = (Aluno) userData;
-                alunoAcompanhamentoText.setText(aluno.getNome());
-                // setar o pedagoggo que tpá logado no sistema também
-                carregarTabela(Facade.getInstance().findByIdAlunoAcompanhamentoPedagogico(aluno.getId()));
-            }
-        });
+       Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+           @Override
+           public void onScreenchanged(String newScene, Object userData) {
+               aluno = (Aluno) userData;
+               alunoAcompanhamentoText.setText(aluno.getNome());
+               // setar o pedagoggo que tpá logado no sistema também
+               carregarTabela(Facade.getInstance().findByIdAlunoAcompanhamentoPedagogico(aluno.getId()));
+           }
+       });
 
         acompanamentoPedagocicoTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -74,30 +80,20 @@ public class AreaDiscenteAcompPedag implements Initializable {
     }
 
 
+
     public void carregarTabela(List<AcompanhamentoPedagogico> acompanhamentoPedagogicos){
         dataColum.setCellValueFactory(new PropertyValueFactory<>("dataAcompanhamento"));
         consuídaColum.setCellValueFactory(new PropertyValueFactory<>("concluida"));
         detalhamentoColum.setCellValueFactory(new PropertyValueFactory<>("secaoDetalhamento"));
         acompanamentoPedagocicoTable.getItems().setAll(acompanhamentoPedagogicos);
 
-//        this.alunoColum.setCellFactory(coluna -> {
-//            new TableCell<AreaDiscenteAcompPedag, Aluno>() {
-//                protected void updateItem(Aluno item, boolean empty) {
-//                    super.updateItem(item, empty);
-//
-//                    if (item == null || empty) {
-//                        setText(null);
-//                    } else {
-//                        setText("" + item.getNome());
-//                    }
-//                }
-//            };
-//            return null;
-//        });
-
     }
 
+
+
     //__________________________________________________________________________________________________________________
+
+
 
     @FXML
     void action(ActionEvent event) {
@@ -109,12 +105,15 @@ public class AreaDiscenteAcompPedag implements Initializable {
             acompanhamentoPedagogico.setConcluida(acompanhamentoConcluidoBoolean.isSelected());
             Facade.getInstance().saveAcompanhamentoPedagogico(acompanhamentoPedagogico);
             Mensagem.mensagemSucesso("Salvo com sucesso");
+            carregarTabela(Facade.getInstance().findByIdAlunoAcompanhamentoPedagogico(aluno.getId()));
         }
 
         if (acompanhamentoConcluidoBoolean.isSelected()){
             //fechar secao
         }
     }
+
+
 
     // pegar a data no foemato String direto so Sistema
     private String getDateTime() {

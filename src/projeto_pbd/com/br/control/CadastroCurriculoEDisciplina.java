@@ -13,7 +13,6 @@ import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
 import projeto_pbd.com.br.modell.Disciplina;
-import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
@@ -55,11 +54,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     @FXML
     private Button novaDiplinaButton;
     @FXML
-    private Button professorPesquisaButton;
-    @FXML
-    private TextField professorPesquisaText;
-    @FXML
-    private ComboBox tiposCurriculoCombobox;
+    private ComboBox<Curriculo> tiposCurriculoCombobox;
 
 //    private List listUfsEnsino = new ArrayList(Arrays.asList (new String[]{"- EF-AI-1", "- EF-AI-2a5",
 //            "- EF-AF-6a8", "- EF-AI-9", "- EM-1", "- EM-2", "- EM-3", } ));
@@ -69,14 +64,28 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //RESTRIÇÃO DE ACESSO
+        switch (Main.getTipoUsuario()){
+//            Tireio posis o adminstrador tem acesso total
+//            case ("Adiminstração"):
+//                System.out.println("Adm");
+//                break;
+            case ("Direção"):
+                System.out.println("Direção");
+                break;
+            case("Coordenação Pedagogica"):
+                System.out.println("Cood Ped");
+                break;
+            case ("Secretaria"):
+                System.out.println("Secretaria");
+                break;
+        }
+
+
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
             public void onScreenchanged(String newScene, Object userData) {
-                if (newScene.equalsIgnoreCase("AreaPorfessor.fxml")){
-                    professorPesquisaText.setText(((Professor) userData).getNome());
-                    // PODE DAR ERRO COSO EU QUEIRA ADD LOGO DIRETO
-                    disciplinasTable.getSelectionModel().getSelectedItem().setProfessor((Professor) userData);
-                }
+
             }
         });
 
@@ -98,17 +107,10 @@ public class CadastroCurriculoEDisciplina implements Initializable {
                 if (event.getClickCount() == 1){
                     disciplinaText.setText(disciplinasTable.getSelectionModel().getSelectedItem().getNome());
                     cargaHorariaText.setText(disciplinasTable.getSelectionModel().getSelectedItem().getCargaHoaria()+""); // gambiarra aqui
-                    try {
-                        professorPesquisaText.setText(disciplinasTable.getSelectionModel().getSelectedItem().getProfessor().getNome());
-                    }catch (NullPointerException u){
-                        professorPesquisaText.clear();
-                    }
                 }
             }
         });
-        tiposCurriculoCombobox.setItems(FXCollections.observableArrayList(
-                carregarCurriculoBox(Facade.getInstance().findAllCurriculo())
-        ));
+        tiposCurriculoCombobox.setItems(FXCollections.observableArrayList(Facade.getInstance().findAllCurriculo()));
     }
 
     public void carregarTableDisciplinasDoCurriculo(List<Disciplina> disciplinasList){
@@ -128,17 +130,9 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         disciplinasTable.getSelectionModel().select(null);
         disciplinaText.clear();
         pequisarPorDisciplinaText.clear();
-        professorPesquisaText.clear();
         cargaHorariaText.setText("60"); // deixando como padrão
     }
 
-    public List<String> carregarCurriculoBox(List<Curriculo> curriculoList){
-        List<String> stringList = new ArrayList<>();
-        for(Curriculo curriculo: curriculoList){
-            stringList.add(curriculo.getNome());
-        }
-        return stringList;
-    }
 
     //__________________________________________________________________________________________________________________
 
@@ -154,8 +148,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
             if(disciplinasTable.getSelectionModel().getSelectedItem()!=null){
                 //ATUALIZAR
                 disciplina.setId(disciplinasTable.getSelectionModel().getSelectedItem().getId());
-                if (disciplinasTable.getSelectionModel().getSelectedItem().getProfessor() != null)
-                    disciplina.setProfessor(disciplinasTable.getSelectionModel().getSelectedItem().getProfessor());
                 mensagem= "Atualizado com Sucesso!";
             }
             disciplina.setNome(disciplinaText.getText());
@@ -188,7 +180,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
 
             Curriculo curriculo =  new Curriculo();
             String mensagem = "Salvo com Sucesso!";
-            curriculo = Facade.getInstance().findByNomeCurriculo(tiposCurriculoCombobox.valueProperty().get().toString());
+            curriculo = Facade.getInstance().findByIdCurriculo(tiposCurriculoCombobox.getSelectionModel().getSelectedItem().getId());
             // fazer a parada lá de atualizar Curriculo
 
             disciplinasTable.getSelectionModel().getSelectedItem().setCurriculo(curriculo);
@@ -214,18 +206,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
             ));
         }
 
-        //PESQUISA PROFESSOR
-        if (event.getSource() == professorPesquisaButton){
-            try {
-                if (disciplinasTable.getSelectionModel().getSelectedItem()!=null)
-                    Main.genericaStage(Main.AREA_PROFESSOR).show();
-                else Mensagem.mensagemErro("por favor! salve primerio a disciplina e " +
-                        "depois adcione o professor à disciplina.");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Main.changeScreen("CadastroCurriculoEDisciplina.fxml", null);
-        }
     }
 
 

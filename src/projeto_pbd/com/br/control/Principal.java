@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import projeto_pbd.Main;
+import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,25 +36,18 @@ public class Principal implements Initializable {
 
     @FXML
     private AnchorPane anchorPanePrincipal;
-
     @FXML
     private MenuItem homeMenuItem;
-
     @FXML
     private MenuItem areaAlunoMenuItem;
-
     @FXML
     private MenuItem gerenciamentoTurmaMenuItem;
-
     @FXML
     private MenuItem areaProfessorMenuItem;
-
     @FXML
     private MenuItem cacadastroCurriculoMenuItem;
-
     @FXML
     private MenuItem configuracoeMenuItem;
-
     @FXML
     private MenuButton usuarioButton;
 
@@ -68,12 +62,23 @@ public class Principal implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
-            @Override
-            public void onScreenchanged(String newScene, Object userData) {
+        //RESTRIÇÃO DE ACESSO
+        switch (Main.getTipoUsuario()){
+            case ("Adiminstração"):
+                // o unico que tera acesso a tudo
+                break;
+            case ("Direção"):
+                acessorAreaAdiministrado();
+                break;
+            case("Coordenação Pedagogica"):
+                acessorAreaAdiministrado();
+                break;
+            case ("Secretaria"):
+                acessorAreaAdiministrado();
+                break;
+        }
 
-            }
-        });
+
 
 //         criar um método estático em uma class fora só para carregar as mensagens d Tooltip
 //        usuarioButton.setTooltip (new Tooltip ("Usuário do Sistem"));
@@ -84,6 +89,10 @@ public class Principal implements Initializable {
         } catch (IOException e) {
             e.printStackTrace ( );
         }
+    }
+
+    public void acessorAreaAdiministrado(){
+        cadastroUasuarioMenuItem.setDisable(true);
     }
 
 

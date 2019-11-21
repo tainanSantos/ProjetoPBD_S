@@ -20,7 +20,7 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     public Disciplina saveDisciplina(Disciplina disciplina) {
 
         try {
-            if (disciplina.getNome()!=null || !disciplina.getNome().equalsIgnoreCase(""))
+            if (disciplina.getNome().length()>=2)
                 return this.daoDisciplina.save (disciplina);
             else Mensagem.mensagemErro("Campo 'nome da disciplina' não peenchido");
         }catch (PersistenceException e){
@@ -33,6 +33,11 @@ public class BusinessDisciplina implements IBusinessDisciplina {
     @Override
     public Disciplina findByIdDisciplina(Integer id) {
         return this.daoDisciplina.findById (id);
+    }
+
+    @Override
+    public List<Disciplina> findAllIdCurriculo(Integer idCurriculo) {
+        return this.daoDisciplina.findAllIdCurriculo(idCurriculo);
     }
 
     @Override

@@ -31,6 +31,24 @@ public class CadastroTipoCurriculo implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //RESTRIÇÃO DE ACESSO
+        switch (Main.getTipoUsuario()){
+//            Tireio posis o adminstrador tem acesso total
+//            case ("Adiminstração"):
+//                System.out.println("Adm");
+//                break;
+            case ("Direção"):
+                System.out.println("Direção");
+                break;
+            case("Coordenação Pedagogica"):
+                System.out.println("Cood Ped");
+                break;
+            case ("Secretaria"):
+                System.out.println("Secretaria");
+                break;
+        }
+
+
         carregarCurriculoTable(Facade.getInstance().findAllCurriculo());
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
@@ -38,6 +56,7 @@ public class CadastroTipoCurriculo implements Initializable {
 
             }
         });
+
 
     }
 

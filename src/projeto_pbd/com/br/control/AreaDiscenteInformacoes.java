@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class AreaDiscenteInformacoes {
 
+
     public void adicionarNotas() throws IOException {
         Main.genericaStage (Main.CADASTRO_NOTAS).show ();
     }
@@ -17,18 +18,7 @@ public class AreaDiscenteInformacoes {
         */
         Main.genericaStage (Main.AREA_DISCENTE_ACOMPANHAMENTO_PEDAGOGICO).show ();
 
-
     }
 
-    public void gerarHostoricoPDF(){
-        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
-            @Override
-            public void onScreenchanged(String newScene, Object userData) {
 
-            }
-        });
-        /*
-            pegar os dados e gerar o histórico referete a isto
-        */
-    }
 }
