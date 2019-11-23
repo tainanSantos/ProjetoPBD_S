@@ -30,6 +30,7 @@ public class DaoDisciplina implements IDaoDisciplina {
         }finally {
             em.close (); // fecha conexão
         }
+
         return disciplina;
     }
 
@@ -137,6 +138,19 @@ public class DaoDisciplina implements IDaoDisciplina {
             em.close (); // fecha conexão
         }
         return disciplina;
+    }
+
+
+    public static void main(String[] args) {
+
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome("Norfologia");
+        disciplina.setCargaHoaria(60);
+
+        DaoDisciplina daoDisciplina = new DaoDisciplina();
+        disciplina = daoDisciplina.save(disciplina);
+        System.out.println(disciplina.getNome());
+        System.out.println(disciplina.getCargaHoaria());
     }
 
 }

@@ -13,6 +13,7 @@ import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
 import projeto_pbd.com.br.modell.Disciplina;
+import projeto_pbd.com.br.modell.Nota;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
@@ -59,7 +60,9 @@ public class CadastroCurriculoEDisciplina implements Initializable {
 //    private List listUfsEnsino = new ArrayList(Arrays.asList (new String[]{"- EF-AI-1", "- EF-AI-2a5",
 //            "- EF-AF-6a8", "- EF-AI-9", "- EM-1", "- EM-2", "- EM-3", } ));
 
+
     //__________________________________________________________________________________________________________________
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,7 +83,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
                 System.out.println("Secretaria");
                 break;
         }
-
 
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
             @Override
@@ -113,10 +115,14 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         tiposCurriculoCombobox.setItems(FXCollections.observableArrayList(Facade.getInstance().findAllCurriculo()));
     }
 
+
+
     public void carregarTableDisciplinasDoCurriculo(List<Disciplina> disciplinasList){
         disiplinaCurriculoColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         disiplinaCurriculoTable.getItems().setAll(disciplinasList);
     }
+
+
 
     public void carregarTable(List<Disciplina> disciplinas){
 
@@ -125,6 +131,8 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         selecionarDisciplinaColum.setCellValueFactory(new PropertyValueFactory<>("status"));
         disciplinasTable.getItems().setAll(disciplinas);
     }
+
+
 
     public void limparCampos(){
         disciplinasTable.getSelectionModel().select(null);
@@ -136,30 +144,52 @@ public class CadastroCurriculoEDisciplina implements Initializable {
 
     //__________________________________________________________________________________________________________________
 
+
+
+    @FXML
+    void actionSaveDisciplina(ActionEvent event) {
+        Disciplina disciplina =  new Disciplina();
+        Nota nota = new Nota();
+        String mensagem = "Salvo com Sucesso!";
+        if(disciplinasTable.getSelectionModel().getSelectedItem()!=null){
+            disciplina.setId(disciplinasTable.getSelectionModel().getSelectedItem().getId());
+            nota = Facade.getInstance().findByIdNotaDisciplina(disciplina.getId());
+            mensagem= "Atualizado com Sucesso!";
+        }
+        disciplina.setNome(disciplinaText.getText());
+        disciplina.setCargaHoaria(Double.parseDouble(cargaHorariaText.getText()));
+        disciplina.setStatus(true);
+
+        disciplina = Facade.getInstance().saveDisciplina(disciplina);
+        nota.setDisciplina(disciplina);
+        Facade.getInstance().saveNota(nota);
+
+        limparCampos();
+        Mensagem.mensagemSucesso(mensagem);
+        carregarTable(Facade.getInstance().findAllDisciplina());
+    }
+
+
+
+    @FXML
+    void actionSaveDisciplinaCurriculo(ActionEvent event) {
+        Curriculo curriculo =  new Curriculo();
+        String mensagem = "Salvo com Sucesso!";
+        curriculo = Facade.getInstance().findByIdCurriculo(
+                tiposCurriculoCombobox.getSelectionModel().getSelectedItem().getId());
+        // fazer a parada lá de atualizar Curriculo
+
+        disciplinasTable.getSelectionModel().getSelectedItem().setCurriculo(curriculo);
+        Facade.getInstance().saveDisciplina(disciplinasTable.getSelectionModel().getSelectedItem());
+        Mensagem.mensagemSucesso(mensagem);
+    }
+
+
+
     @FXML
     void action(ActionEvent event) {
 
         //EVENTOS PARA DISCIPLINA
-
-        if (event.getSource() == salvarDisciplinaButton){
-
-            Disciplina disciplina =  new Disciplina();
-            String mensagem = "Salvo com Sucesso!";
-            if(disciplinasTable.getSelectionModel().getSelectedItem()!=null){
-                //ATUALIZAR
-                disciplina.setId(disciplinasTable.getSelectionModel().getSelectedItem().getId());
-                mensagem= "Atualizado com Sucesso!";
-            }
-            disciplina.setNome(disciplinaText.getText());
-            disciplina.setCargaHoaria(Double.parseDouble(cargaHorariaText.getText()));
-            disciplina.setStatus(true);
-            Facade.getInstance().saveDisciplina(disciplina);
-            limparCampos();
-            Mensagem.mensagemSucesso(mensagem);
-
-            carregarTable(Facade.getInstance().findAllDisciplina());
-        }
-
         if (event.getSource() == novaDiplinaButton){
             limparCampos();
         }
@@ -175,19 +205,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         }
 
         //EVENTOS PARA CURRICULO
-
-        if (event.getSource() == salvarDisciplinaNOCurriculoButton){
-
-            Curriculo curriculo =  new Curriculo();
-            String mensagem = "Salvo com Sucesso!";
-            curriculo = Facade.getInstance().findByIdCurriculo(tiposCurriculoCombobox.getSelectionModel().getSelectedItem().getId());
-            // fazer a parada lá de atualizar Curriculo
-
-            disciplinasTable.getSelectionModel().getSelectedItem().setCurriculo(curriculo);
-            Facade.getInstance().saveDisciplina(disciplinasTable.getSelectionModel().getSelectedItem());
-            Mensagem.mensagemSucesso(mensagem);
-        }
-
         if (event.getSource() == novoTipoCurriculoButton){
             try {
                 Main.genericaStage(Main.CADASTRAR_TIPO_CURRICULO).show();
@@ -196,7 +213,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
             }
             Main.changeScreen("CadastroCurriculoEDisciplina.fxl");
             limparCampos();
-
         }
 
         if (event.getSource() == tiposCurriculoCombobox){
@@ -204,9 +220,6 @@ public class CadastroCurriculoEDisciplina implements Initializable {
             carregarTableDisciplinasDoCurriculo(Facade.getInstance().findAllNomeCurriculoDisiplina(
                     tiposCurriculoCombobox.valueProperty().get().toString()
             ));
-        }
-
-    }
-
+        }}
 
 }

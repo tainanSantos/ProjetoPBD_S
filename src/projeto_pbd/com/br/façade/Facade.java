@@ -26,6 +26,7 @@ public class Facade implements IFacade {
     private IBusinessTurma businessTurma;
     private IBusinessResponsavel businessResponsavel;
     private IBusinessAcompanhamentoPedagogico businessAcompanhamentoPedagogico;
+    private IBusinessNotas businessNotas;
 
     private Facade() {
         this.businessAluno = new BusinessAluno ();
@@ -38,6 +39,7 @@ public class Facade implements IFacade {
         this.businessTurma = new BusinessTurma();
         this.businessResponsavel = new BusinessResponsavel();
         this.businessAcompanhamentoPedagogico =  new BusinessAcompanhamentoPedagogico();
+        this.businessNotas = new BusinessNotas();
 
     }
 
@@ -288,5 +290,33 @@ public class Facade implements IFacade {
     @Override
     public Responsavel removeResponsavel(Integer id) {
         return this.businessResponsavel.removeResponsavel(id);
+    }
+
+
+
+    //NOTAS
+    @Override
+    public Nota saveNota(Nota notaDisciplina) {
+        return this.businessNotas.saveNota(notaDisciplina);
+    }
+
+    @Override
+    public Nota findByIdNota(Integer id) {
+        return this.businessNotas.findByIdNota(id);
+    }
+
+    @Override
+    public Nota findByIdNotaDisciplina(Integer idDisciplina) {
+        return this.businessNotas.findByIdNotaDisciplina(idDisciplina);
+    }
+
+    @Override
+    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo) {
+        return this.businessNotas.findAllNotas(idCurriculo);
+    }
+
+    @Override
+    public Nota removeNota(Integer id) {
+        return this.businessNotas.removeNota(id);
     }
 }

@@ -18,16 +18,7 @@ public class BusinessDisciplina implements IBusinessDisciplina {
 
     @Override
     public Disciplina saveDisciplina(Disciplina disciplina) {
-
-        try {
-            if (disciplina.getNome().length()>=2)
-                return this.daoDisciplina.save (disciplina);
-            else Mensagem.mensagemErro("Campo 'nome da disciplina' não peenchido");
-        }catch (PersistenceException e){
-            Mensagem.mensagemErro ("Erro! Nenhum professor foi Selecionado");
-        }finally {
-            return null;
-        }
+        return this.daoDisciplina.save (disciplina);
     }
 
     @Override

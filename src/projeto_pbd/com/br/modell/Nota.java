@@ -1,6 +1,5 @@
 package projeto_pbd.com.br.modell;
 
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 
@@ -17,28 +16,19 @@ public class Nota {
     @ManyToOne
     private Disciplina disciplina;
 
-    private float primeiraVa;
-    private float segundaVa;
-    private float terceiraVa;
-    private float quartaVa;
-    private float finalVa;
-
-    private float media;
+    private Integer primeiraVa;
+    private Integer segundaVa;
+    private Integer terceiraVa;
+    private Integer quartaVa;
+    private Integer finalVa;
+    private String resultado;
+    private Integer media;
 
     // se aprovado ou reprovado na disciplina
     private Boolean status;
 
 
     public Nota() {
-    }
-
-
-    public Disciplina getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
     }
 
     public Integer getId() {
@@ -57,51 +47,67 @@ public class Nota {
         this.aluno = aluno;
     }
 
-    public float getPrimeiraVa() {
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Integer getPrimeiraVa() {
         return primeiraVa;
     }
 
-    public void setPrimeiraVa(float primeiraVa) {
+    public void setPrimeiraVa(Integer primeiraVa) {
         this.primeiraVa = primeiraVa;
     }
 
-    public float getSegundaVa() {
+    public Integer getSegundaVa() {
         return segundaVa;
     }
 
-    public void setSegundaVa(float segundaVa) {
+    public void setSegundaVa(Integer segundaVa) {
         this.segundaVa = segundaVa;
     }
 
-    public float getTerceiraVa() {
+    public Integer getTerceiraVa() {
         return terceiraVa;
     }
 
-    public void setTerceiraVa(float terceiraVa) {
+    public void setTerceiraVa(Integer terceiraVa) {
         this.terceiraVa = terceiraVa;
     }
 
-    public float getQuartaVa() {
+    public Integer getQuartaVa() {
         return quartaVa;
     }
 
-    public void setQuartaVa(float quartaVa) {
+    public void setQuartaVa(Integer quartaVa) {
         this.quartaVa = quartaVa;
     }
 
-    public float getFinalVa() {
+    public Integer getFinalVa() {
         return finalVa;
     }
 
-    public void setFinalVa(float finalVa) {
+    public void setFinalVa(Integer finalVa) {
         this.finalVa = finalVa;
     }
 
-    public float getMedia() {
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    public Integer getMedia() {
         return media;
     }
 
-    public void setMedia(float media) {
+    public void setMedia(Integer media) {
         this.media = media;
     }
 
@@ -111,5 +117,21 @@ public class Nota {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Nota{" +
+                ", aluno=" + aluno +
+                ", disciplina=" + disciplina +
+                ", primeiraVa=" + primeiraVa +
+                ", segundaVa=" + segundaVa +
+                ", terceiraVa=" + terceiraVa +
+                ", quartaVa=" + quartaVa +
+                ", finalVa=" + finalVa +
+                ", resultado='" + resultado + '\'' +
+                ", media=" + media +
+                ", status=" + status +
+                '}';
     }
 }

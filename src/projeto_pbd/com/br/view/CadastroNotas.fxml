@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="372.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroNotas">
+<AnchorPane prefHeight="395.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.CadastroNotas">
    <children>
       <Label layoutX="37.0" layoutY="19.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #191970;" text="  Cadastro Notas" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="25.0">
          <font>
@@ -61,50 +60,22 @@
             <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <TableView fx:id="notasAlunoTable" layoutX="20.0" layoutY="170.0" prefHeight="184.0" prefWidth="893.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0">
+      <TableView fx:id="notasAlunoTable" editable="true" layoutX="20.0" layoutY="175.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="893.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0">
         <columns>
-            <TableColumn fx:id="vaUmComumn" prefWidth="75.0" text="1va" />
-            <TableColumn fx:id="vaDoisComumn" prefWidth="75.0" text="2va" />
-            <TableColumn fx:id="vsTresComumn" prefWidth="75.0" text="3va" />
-            <TableColumn fx:id="vaQuatroComumn" prefWidth="75.0" text="4va" />
-            <TableColumn fx:id="finalComumn" prefWidth="75.0" text="final" />
-            <TableColumn fx:id="mediaComumn" prefWidth="75.0" text="média" />
-            <TableColumn fx:id="statusAprovacaoComumn" prefWidth="75.0" text="status" />
+            <TableColumn fx:id="nomeDisciplinaColumn" prefWidth="262.0" resizable="false" text="disciplina" />
+            <TableColumn fx:id="vaUmComumn" prefWidth="90.0" text="1va" />
+            <TableColumn fx:id="vaDoisComumn" prefWidth="92.0" text="2va" />
+            <TableColumn fx:id="vsTresComumn" prefWidth="88.0" text="3va" />
+            <TableColumn fx:id="vaQuatroComumn" prefWidth="90.0" text="4va" />
+            <TableColumn fx:id="finalComumn" prefWidth="90.0" text="final" />
+            <TableColumn fx:id="mediaComumn" prefWidth="90.0" text="média" />
+            <TableColumn fx:id="statusAprovacaoComumn" prefWidth="90.0" text="resultado" />
         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
       </TableView>
-      <GridPane hgap="20.0" layoutX="20.0" layoutY="90.0" prefHeight="60.0" prefWidth="591.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="322.0">
+      <GridPane hgap="10.0" layoutX="421.0" layoutY="20.0" prefHeight="86.0" prefWidth="391.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="472.0" minWidth="10.0" prefWidth="385.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="0.0" prefWidth="138.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="10.0" prefWidth="125.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="buttonConfirmar" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#adicionarNota" prefHeight="26.0" prefWidth="193.0" text="Salvar " GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="disciplina">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="código" GridPane.columnIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <TextField fx:id="codigoDisciplinaText" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="disciplinaComboBox" prefHeight="26.0" prefWidth="377.0" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-      <GridPane hgap="10.0" layoutX="597.0" layoutY="14.0" prefHeight="90.0" prefWidth="324.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="10.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="246.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="52.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -140,6 +111,52 @@
             <Label fx:id="turmaAlunoLabel" text="quinto periodo de sistema" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Button fx:id="buttonConfirmar" blendMode="EXCLUSION" layoutX="813.0" layoutY="119.0" mnemonicParsing="false" onAction="#adicionarNota" prefHeight="33.0" prefWidth="100.0" text="Salvar " AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="119.0" />
+      <GridPane hgap="20.0" layoutX="20.0" layoutY="96.0" prefHeight="60.0" prefWidth="509.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="va1Text" GridPane.rowIndex="1" />
+            <TextField fx:id="va2Text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="va3Text" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="va4Text" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="vaFinalText" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label text="1 - VA">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label text="2 - VA" GridPane.columnIndex="1">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label text="3 - VA" GridPane.columnIndex="2">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label text="4 - VA" GridPane.columnIndex="3">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label text="Final" GridPane.columnIndex="4">
+               <font>
+                  <Font size="10.0" />
                </font>
             </Label>
          </children>

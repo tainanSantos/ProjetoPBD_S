@@ -73,9 +73,16 @@ public interface IFacade {
 
 
     //Responsavel
-
     public Responsavel saveResponsavel(Responsavel responsavel );
     public Responsavel findByIdResponsavel(Integer id);
     public List<Responsavel> findAllResponsavel();
     public Responsavel removeResponsavel(Integer id);
+
+
+    //Notas
+    public Nota saveNota(Nota notaDisciplina );
+    public Nota findByIdNota(Integer id);
+    public Nota findByIdNotaDisciplina(Integer idDisciplina);
+    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo);
+    public Nota removeNota(Integer id);
 }

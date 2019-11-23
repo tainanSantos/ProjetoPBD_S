@@ -24,4 +24,8 @@ public class SqlUtil {
 
     public static final String BUSCAR_DISCIPLINAS_POR_ID_CURRICULO =  "select d from Disciplina d where d.curriculo.id = :curriculo ";
 
+    public static final String BUSCAR_DOTA_POR_ID_DISCIPLINA =  "select n from Nota n where n.disciplina.id = :disciplina ";
+
+    public static final String BUSCAR_NOTA_POR_ID_CURRICULO =  "select d from DisciplinaNotasView d where d.curriculo_id = :curriculo_id ";
+
 }

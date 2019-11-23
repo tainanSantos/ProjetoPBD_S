@@ -3,6 +3,7 @@ package projeto_pbd.com.br.control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,13 +24,16 @@ public class CadastroTipoCurriculo implements Initializable {
     private TextField nomeCurriculoText;
     @FXML
     private TableView<Curriculo> curriculosTable;
-
     @FXML
     private TableColumn<?, ?> curriculosColumn;
+    // vou precisar dos botões para a questão de restrição de acesso
+    @FXML
+    private Button apagarTipoCurriculoButton;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
         //RESTRIÇÃO DE ACESSO
         switch (Main.getTipoUsuario()){
@@ -56,14 +60,16 @@ public class CadastroTipoCurriculo implements Initializable {
 
             }
         });
-
-
     }
+
+
 
     public void carregarCurriculoTable(List<Curriculo> curriculoList){
         curriculosColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         curriculosTable.getItems().setAll(curriculoList);
     }
+
+
 
     @FXML
     void salvarCurriculoButton(ActionEvent event) {
@@ -82,10 +88,21 @@ public class CadastroTipoCurriculo implements Initializable {
     }
 
 
+
     @FXML
     void novoCurriculo(ActionEvent event) {
         curriculosTable.getSelectionModel().select(null);
         nomeCurriculoText.clear();
+    }
+
+
+
+    @FXML
+    void apagarTipoCurriculoAction(ActionEvent event) {
+        if(Mensagem.mensagmeConfirmar("Apagar Currículo","Desenha ralamente apagar este Currículo? ")==1) {
+            Facade.getInstance().removeCurriculo(curriculosTable.getSelectionModel().getSelectedItem().getId());
+            carregarCurriculoTable(Facade.getInstance().findAllCurriculo());
+        }
     }
 
 

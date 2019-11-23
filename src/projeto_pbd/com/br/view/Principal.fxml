@@ -65,7 +65,7 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
       </MenuButton>
-      <AnchorPane prefHeight="35.0" prefWidth="1300.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <effect>
             <DropShadow color="#8a8a8a" />
          </effect>

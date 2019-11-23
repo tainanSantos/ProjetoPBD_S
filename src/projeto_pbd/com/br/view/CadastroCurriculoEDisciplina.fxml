@@ -57,7 +57,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Button fx:id="salvarDisciplinaNOCurriculoButton" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="253.0" text="Adicionar Disiplina" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="salvarDisciplinaNOCurriculoButton" mnemonicParsing="false" onAction="#actionSaveDisciplinaCurriculo" prefHeight="26.0" prefWidth="253.0" text="Adicionar Disiplina" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <Button fx:id="novoTipoCurriculoButton" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="184.0" text="Novo Tipo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
@@ -117,7 +117,7 @@
                      </rowConstraints>
                      <children>
                         <Button fx:id="apagarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="126.0" text="Apagar" GridPane.columnIndex="1" />
-                        <Button fx:id="salvarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="126.0" text="Salvar" GridPane.columnIndex="2" />
+                        <Button fx:id="salvarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#actionSaveDisciplina" prefHeight="26.0" prefWidth="126.0" text="Salvar" GridPane.columnIndex="2" />
                         <Button fx:id="novaDiplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="90.0" text="Nova" />
                      </children>
                   </GridPane>
