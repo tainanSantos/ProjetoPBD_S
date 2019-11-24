@@ -209,7 +209,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
             } catch (IOException e) {
                 Mensagem.mensagemErro("ERRO AO CARREGAR TELA!");
             }
-            Main.changeScreen("CadastroCurriculoEDisciplina.fxl");
+            Main.changeScreen("CadastroCurriculoEDisciplina.fxml");
             limparCampos();
         }
 

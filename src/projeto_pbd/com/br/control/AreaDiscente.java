@@ -158,17 +158,6 @@ public class AreaDiscente implements Initializable {
         }
 
 
-        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
-            @Override
-            public void onScreenchanged(String newScene, Object userData) {
-
-            }
-        });
-
-
-//        só carregar a tabela de alunos quanod eu setar alguma turma lá no combobox
-//        carregarTabelaAlunos(Facade.getInstance().findAllAluno());
-
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
         this.comboboxUf1Resp.setItems(FXCollections.observableArrayList (this.listUfsAlun));
         this.curriculoComboBox.setItems(FXCollections.observableArrayList(

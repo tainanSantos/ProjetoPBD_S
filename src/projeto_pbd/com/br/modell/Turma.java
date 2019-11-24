@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.modell;
 
-import javafx.scene.control.DatePicker;
+
+import projeto_pbd.com.br.façade.Facade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -47,8 +48,8 @@ public class Turma {
         return professors;
     }
 
-    public void setProfessors(List<Professor> professors) {
-        this.professors = professors;
+    public void setProfessors(List<Professor> profess) {
+        this.professors = profess;
     }
 
     public Integer getId() {

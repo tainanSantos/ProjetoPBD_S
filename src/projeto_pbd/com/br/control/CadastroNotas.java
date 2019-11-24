@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
+// AQUI TUDO OK
+
 public class CadastroNotas implements Initializable {
 
     /*
@@ -47,31 +49,22 @@ public class CadastroNotas implements Initializable {
     private TableColumn mediaComumn;
     @FXML
     private TableColumn statusAprovacaoComumn;
-    @FXML
-    private Button buttonConfirmar;
-    @FXML
-    private TextField codigoDisciplinaText;
+
     @FXML
     private Label nomeAlunoLabel;
     @FXML
     private Label matriculaAlunoLabel;
     @FXML
     private Label turmaAlunoLabel;
-    @FXML
-    private ComboBox disciplinaComboBox;
 
     @FXML
     private TextField va1Text;
-
     @FXML
     private TextField va2Text;
-
     @FXML
     private TextField va3Text;
-
     @FXML
     private TextField va4Text;
-
     @FXML
     private TextField vaFinalText;
 
@@ -83,21 +76,19 @@ public class CadastroNotas implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-//        //RESTRIÇÃO DE ACESSO
-//        switch (Main.getTipoUsuario()){
-//            case ("Adiminstração"):
-//                System.out.println("Adm");
-//                break;
-//            case ("Direção"):
-//                System.out.println("Direção");
-//                break;
-//            case("Coordenação Pedagogica"):
-//                System.out.println("Cood Ped");
-//                break;
-//            case ("Secretaria"):
-//                System.out.println("Secretaria");
-//                break;
-//        }
+        //RESTRIÇÃO DE ACESSO
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    break;
+                case ("Direção"):
+                    break;
+                case ("Coordenação Pedagogica"):
+                    break;
+                case ("Secretaria"):
+                    break;
+            }
+        }
 
 
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
@@ -128,13 +119,10 @@ public class CadastroNotas implements Initializable {
     }
 
 
-
     //__________________________________________________________________________________________________________________
 
 
-
     public void adicionarNota() throws IOException {
-
 
     }
 
@@ -205,7 +193,6 @@ public class CadastroNotas implements Initializable {
                     }
                 }
             }
-
             try {
                 nota.setMedia((soma / caount));
             } catch (ArithmeticException a) {
@@ -219,14 +206,11 @@ public class CadastroNotas implements Initializable {
                     nota.setResultado("REPROVADO");
             } else
                 nota.setResultado("ND");
-
-            nota = Facade.getInstance().saveNota(nota);
-
+            Facade.getInstance().saveNota(nota);
             carregarTabelaNotas(Facade.getInstance().findAllNotas(
                     notasAlunoTable.getSelectionModel().getSelectedItem().getPessoa_id()));
-
         }else {
-            Mensagem.mensagemErro("nenhuma linha da tabela selecionada. IMpossível salvar a disciplina");
+            Mensagem.mensagemErro("nenhuma linha da tabela selecionada. IMpossível salvar a NOTA");
         }
     }
 

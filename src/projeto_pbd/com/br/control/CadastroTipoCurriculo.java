@@ -3,17 +3,16 @@ package projeto_pbd.com.br.control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
+import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.msg.Mensagem;
 
+import java.net.PortUnreachableException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,6 +28,7 @@ public class CadastroTipoCurriculo implements Initializable {
     // vou precisar dos botões para a questão de restrição de acesso
     @FXML
     private Button apagarTipoCurriculoButton;
+
 
 
     @Override
@@ -53,7 +53,6 @@ public class CadastroTipoCurriculo implements Initializable {
                     break;
             }
         }
-
 
         carregarCurriculoTable(Facade.getInstance().findAllCurriculo());
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
@@ -114,6 +113,7 @@ public class CadastroTipoCurriculo implements Initializable {
         if (event.getClickCount() >= 1){
             if (curriculosTable.getSelectionModel().getSelectedItem()!=null){
                 nomeCurriculoText.setText(curriculosTable.getSelectionModel().getSelectedItem().getNome());
+
             }
         }
     }

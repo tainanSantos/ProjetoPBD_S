@@ -16,39 +16,43 @@ import java.util.ResourceBundle;
 
 public class Configuracoes implements Initializable {
 
-
     // carregar a configuração predefinida sempre que entrar nessa tela
-
 
     @FXML
     private RadioButton bimentralRadioButton;
-
     @FXML
     private ToggleGroup formaCadCurriculos;
-
     @FXML
     private RadioButton trimestralRadioButton;
-
     @FXML
     private Button salvarCurriculoButton;
-
     @FXML
     private Button redefinirConfiguracaoCurriculoButton;
-
     @FXML
     private TextField valorParcelaAnosIniciasiEFText;
-
     @FXML
     private TextField valorParcelaAnosFinaisEFText;
-
     @FXML
     private TextField valorParcelaEnsinoMedioEMText;
 
+
     //__________________________________________________________________________________________________________________
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    break;
+                case ("Direção"):
+                    break;
+                case ("Coordenação Pedagogica"):
+                    break;
+                case ("Secretaria"):
+                    break;
+            }
+        }
     }
 
     //__________________________________________________________________________________________________________________
@@ -61,7 +65,7 @@ public class Configuracoes implements Initializable {
         configuracao.setValorParcelaAnosIniciaisEF(Double.parseDouble(valorParcelaAnosIniciasiEFText.getText()));
         configuracao.setValorParcelaAnosFinaisEF(Double.parseDouble(valorParcelaAnosFinaisEFText.getText()));
         configuracao.setValorParcelaAensinoMedioEM(Double.parseDouble(valorParcelaEnsinoMedioEMText.getText()));
-//        Facade.getInstance().
+        Facade.getInstance().saveConfiguracao(configuracao);
     }
 
     @FXML

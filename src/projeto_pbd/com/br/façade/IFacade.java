@@ -86,4 +86,10 @@ public interface IFacade {
     public Nota findByIdNotaDisciplina(Integer idDisciplina);
     public List<DisciplinaNotasView> findAllNotas(Integer idAluno);
     public Nota removeNota(Integer id);
+
+    //Configuração
+    public Configuracao saveConfiguracao(Configuracao configuracao);
+    public Configuracao findByIdConfiguracao(Integer id);
+    public List<Configuracao> findAllConfiguracao();
+    public Configuracao removeConfiguracao(Integer id);
 }

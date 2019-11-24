@@ -34,7 +34,7 @@ public class DaoCurriculo implements IDaoCurriculo {
     @Override
     public Curriculo findById(Integer id) {
 
-        EntityManager em = new Conection().getEntityManager ();
+        EntityManager em = new Conection(). getEntityManager ();
 
         Curriculo curriculo = null;
 

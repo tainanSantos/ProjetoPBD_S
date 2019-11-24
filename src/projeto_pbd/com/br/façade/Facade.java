@@ -27,6 +27,7 @@ public class Facade implements IFacade {
     private IBusinessResponsavel businessResponsavel;
     private IBusinessAcompanhamentoPedagogico businessAcompanhamentoPedagogico;
     private IBusinessNotas businessNotas;
+    private IBusinessConfiguracao businessConfiguracao;
 
     private Facade() {
         this.businessAluno = new BusinessAluno ();
@@ -40,6 +41,7 @@ public class Facade implements IFacade {
         this.businessResponsavel = new BusinessResponsavel();
         this.businessAcompanhamentoPedagogico =  new BusinessAcompanhamentoPedagogico();
         this.businessNotas = new BusinessNotas();
+        this.businessConfiguracao = new BusinessConfiguracao();
 
     }
 
@@ -323,5 +325,28 @@ public class Facade implements IFacade {
     @Override
     public Nota removeNota(Integer id) {
         return this.businessNotas.removeNota(id);
+    }
+
+
+
+    //CONFIGURAÇÃO
+    @Override
+    public Configuracao saveConfiguracao(Configuracao configuracao) {
+        return this.businessConfiguracao.saveConfiguracao(configuracao);
+    }
+
+    @Override
+    public Configuracao findByIdConfiguracao(Integer id) {
+        return this.businessConfiguracao.findByIdConfiguracao(id);
+    }
+
+    @Override
+    public List<Configuracao> findAllConfiguracao() {
+        return this.businessConfiguracao.findAllConfiguracao();
+    }
+
+    @Override
+    public Configuracao removeConfiguracao(Integer id) {
+        return this.businessConfiguracao.removeConfiguracao(id);
     }
 }
