@@ -32,8 +32,8 @@ public class BusinessNotas implements IBusinessNotas{
     }
 
     @Override
-    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo) {
-        return this.daoNotas.findAllNotas(idCurriculo);
+    public List<DisciplinaNotasView> findAllNotas(Integer idAluno) {
+        return this.daoNotas.findAllNotas(idAluno);
     }
 
     @Override

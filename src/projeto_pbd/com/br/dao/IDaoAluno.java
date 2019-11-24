@@ -14,5 +14,7 @@ public interface IDaoAluno {
 
     public List<Aluno> findAllNome(String nome);
 
+    public List<Aluno> findAllAlunosIdTurma(Integer idTurma);
+
     public Aluno remove(Integer id);
 }

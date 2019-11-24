@@ -37,6 +37,11 @@ public class BusinessAluno implements  IBusinessAluno {
     }
 
     @Override
+    public List<Aluno> findAllAlunosIdTurma(Integer idTurma) {
+        return this.daoAluno.findAllAlunosIdTurma(idTurma);
+    }
+
+    @Override
     public Aluno removeAluno(Integer id) {
         return this.daoAluno.remove (id);
     }

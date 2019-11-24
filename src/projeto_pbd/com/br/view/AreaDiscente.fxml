@@ -91,7 +91,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addNotasAlunoButton" layoutX="1155.0" layoutY="61.0" mnemonicParsing="false" onAction="#addNotaAluno" prefHeight="29.0" prefWidth="104.0" text="Notas" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="addNotasAlunoButton" blendMode="EXCLUSION" layoutX="1155.0" layoutY="61.0" mnemonicParsing="false" onAction="#addNotaAluno" prefHeight="40.0" prefWidth="110.0" text="Notas" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -317,7 +317,7 @@
                                                       <Font name="System Bold" size="13.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox fx:id="ensinoComboBox" prefHeight="26.0" prefWidth="297.0" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="curriculoComboBox" prefHeight="26.0" prefWidth="297.0" GridPane.rowIndex="1" />
                                              </children>
                                           </GridPane>
                                           <GridPane layoutX="570.0" layoutY="416.0" prefHeight="60.0" prefWidth="254.0">
@@ -515,8 +515,8 @@
                                           </AnchorPane>
                                       </content>
                                     </TitledPane>
-                                    <Button fx:id="salvarAlunoButton" layoutX="869.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="121.0" text="Salvar" AnchorPane.bottomAnchor="21.0" />
-                                    <Button fx:id="apagraAlunoButton" layoutX="717.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="121.0" text="Apagar" AnchorPane.bottomAnchor="21.0" />
+                                    <Button fx:id="salvarAlunoButton" blendMode="EXCLUSION" layoutX="869.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="120.0" text="Salvar" AnchorPane.bottomAnchor="21.0" />
+                                    <Button fx:id="apagraAlunoButton" blendMode="EXCLUSION" layoutX="717.0" layoutY="947.0" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="120.0" text="Apagar" AnchorPane.bottomAnchor="21.0" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -533,12 +533,12 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button fx:id="novoAlunoButton" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="317.0" text=" Novo Cadastro">
+                                    <Button fx:id="novoAlunoButton" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="317.0" text=" Novo Cadastro">
                                        <cursor>
                                           <Cursor fx:constant="CLOSED_HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="acompanhamentoButton" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="314.0" text="Acompanhamento" GridPane.rowIndex="1">
+                                    <Button fx:id="acompanhamentoButton" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="314.0" text="Acompanhamento" GridPane.rowIndex="1">
                                        <cursor>
                                           <Cursor fx:constant="CLOSED_HAND" />
                                        </cursor>

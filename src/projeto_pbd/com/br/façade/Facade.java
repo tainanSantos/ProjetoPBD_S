@@ -66,6 +66,11 @@ public class Facade implements IFacade {
     }
 
     @Override
+    public List<Aluno> findAllAlunosIdTurma(Integer idTurma) {
+        return this.businessAluno.findAllAlunosIdTurma(idTurma);
+    }
+
+    @Override
     public Aluno removeAluno(Integer id) {
         return this.businessAluno.removeAluno(id);
     }
@@ -311,8 +316,8 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo) {
-        return this.businessNotas.findAllNotas(idCurriculo);
+    public List<DisciplinaNotasView> findAllNotas(Integer idAluno) {
+        return this.businessNotas.findAllNotas(idAluno);
     }
 
     @Override

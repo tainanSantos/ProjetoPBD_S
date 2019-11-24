@@ -1,7 +1,7 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Aluno;
-import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
@@ -74,6 +74,24 @@ public class DaoAluno implements IDaoAluno {
         try {
             TypedQuery<Aluno> query = em.createQuery(SqlUtil.BUSCAR_ALUNO_POR_NOME, Aluno.class);
             query.setParameter("nome", "%"+nome+"%");
+            alunoList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return alunoList;
+    }
+
+    @Override
+    public List<Aluno> findAllAlunosIdTurma(Integer idTurma) {
+        EntityManager em = new Conection().getEntityManager ();
+        List<Aluno> alunoList = null;
+        try {
+            TypedQuery<Aluno> query = em.createQuery(SqlUtil.BUSCAR_ALUNOS_POR_ID_TURMA, Aluno.class);
+            query.setParameter("id", idTurma);
             alunoList = query.getResultList();
 
         }catch (Exception e ){

@@ -1,7 +1,7 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Disciplina;
-import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;

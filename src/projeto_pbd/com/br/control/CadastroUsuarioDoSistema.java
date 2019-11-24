@@ -106,18 +106,20 @@ public class CadastroUsuarioDoSistema implements Initializable {
 //        atualizarTabela(getUsuarioLis());
 
         //RESTRIÇÃO DE ACESSO
-        switch (Main.getTipoUsuario()){
-            case ("Adiminstração"):
-                break;
-            case ("Direção"):
-                System.out.println("Direção");
-                break;
-            case("Coordenação Pedagogica"):
-                System.out.println("Cood Ped");
-                break;
-            case ("Secretaria"):
-                System.out.println("Secretaria");
-                break;
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    break;
+                case ("Direção"):
+                    System.out.println("Direção");
+                    break;
+                case ("Coordenação Pedagogica"):
+                    System.out.println("Cood Ped");
+                    break;
+                case ("Secretaria"):
+                    System.out.println("Secretaria");
+                    break;
+            }
         }
 
 

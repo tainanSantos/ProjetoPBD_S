@@ -2,6 +2,7 @@ package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.DisciplinaNotasView;
 import projeto_pbd.com.br.modell.Nota;
+import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
@@ -20,12 +21,6 @@ public class DaoNotas implements IDaoNotas {
             if(notaDisciplina.getId () == null){ // inserir
                 em.persist (notaDisciplina);
             }else { // atualizar
-                System.out.println("vai ter que atualizar");
-                System.out.println("vai ter que atualizar");
-                System.out.println("vai ter que atualizar");
-                System.out.println("vai ter que atualizar");
-                System.out.println("vai ter que atualizar");
-                System.out.println("vai ter que atualizar");
                 em.merge (notaDisciplina);
             }
             em.getTransaction ( ).commit ();  // comando de salvar
@@ -69,16 +64,14 @@ public class DaoNotas implements IDaoNotas {
 
 
     @Override
-    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo) {
-        // IMPLEMNTAR ESSE MÉTODO PARA EU BUSCAR SÓ PELAS NOTAS DO ALUNO DAQUELAS DISCIPLINAS
-        // IMPLEMNTAR ESSE MÉTODO PARA EU BUSCAR SÓ PELAS NOTAS DO ALUNO DAQUELAS DISCIPLINAS
-        // OU PELO ID DO CURRICULO
+    public List<DisciplinaNotasView> findAllNotas(Integer idAluno) {
+
         EntityManager em = new Conection().getEntityManager ();
         List<DisciplinaNotasView> disciplinaNotasViews = null;
 
         try {
-            TypedQuery<DisciplinaNotasView> typedQuery = em.createQuery(SqlUtil.BUSCAR_NOTA_POR_ID_CURRICULO, DisciplinaNotasView.class);
-            typedQuery.setParameter("curriculo_id", idCurriculo);
+            TypedQuery<DisciplinaNotasView> typedQuery = em.createQuery(SqlUtil.BUSCAR_NOTA_POR_ID_ALUNO, DisciplinaNotasView.class);
+            typedQuery.setParameter("pessoa_id", idAluno);
             disciplinaNotasViews = typedQuery.getResultList();
         }catch (Exception e ){
 
@@ -99,7 +92,7 @@ public class DaoNotas implements IDaoNotas {
 
         DaoNotas daoNotas = new DaoNotas();
 
-        System.out.println(daoNotas.findAllNotas(20));
+        System.out.println(daoNotas.findAllNotas(2));
     }
 
 }

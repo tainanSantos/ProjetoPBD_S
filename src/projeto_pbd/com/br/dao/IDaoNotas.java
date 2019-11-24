@@ -15,7 +15,7 @@ public interface IDaoNotas {
 
     public Nota findByIdNotaDisciplina(Integer idDisciplina);
 
-    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo);
+    public List<DisciplinaNotasView> findAllNotas(Integer idAluno);
 
     public Nota removeNota(Integer id);
 }

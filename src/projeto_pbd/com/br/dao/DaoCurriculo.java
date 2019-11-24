@@ -1,12 +1,9 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Curriculo;
-import projeto_pbd.com.br.modell.Usuario;
-import projeto_pbd.com.br.util.SqlUtil;
+import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DaoCurriculo implements IDaoCurriculo {

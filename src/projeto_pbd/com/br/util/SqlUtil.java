@@ -12,6 +12,8 @@ public class SqlUtil {
 
     public static final String BUSCAR_ALUNO_POR_NOME = "select a from Aluno a where a.nome like :nome";
 
+    public static final String BUSCAR_ALUNOS_POR_ID_TURMA = "select a from Aluno a where a.turma.id = :id";
+
     public static final String BUSCAR_CURRICULO_POR_NOME = "select c from Curriculo c where c.nome = :nome";
 
     public static final String BUSCAR_ACOMPANHAMNETO_POR_ID_ALUNO = "select a from AcompanhamentoPedagogico " +
@@ -26,6 +28,6 @@ public class SqlUtil {
 
     public static final String BUSCAR_DOTA_POR_ID_DISCIPLINA =  "select n from Nota n where n.disciplina.id = :disciplina ";
 
-    public static final String BUSCAR_NOTA_POR_ID_CURRICULO =  "select d from DisciplinaNotasView d where d.curriculo_id = :curriculo_id ";
+    public static final String BUSCAR_NOTA_POR_ID_ALUNO =  "select d from DisciplinaNotasView d where d.pessoa_id = :pessoa_id ";
 
 }

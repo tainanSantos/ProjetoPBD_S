@@ -15,6 +15,11 @@ public class Curriculo {
     private String nome;
     private Boolean status;
 
+    // ver como setar a configuração no momento do cadastramento do currículo
+
+    @ManyToOne
+    private Configuracao configuracao;
+
 
 
     public Curriculo() {
@@ -44,6 +49,13 @@ public class Curriculo {
         this.nome = nome;
     }
 
+    public Configuracao getConfiguracao() {
+        return configuracao;
+    }
+
+    public void setConfiguracao(Configuracao configuracao) {
+        this.configuracao = configuracao;
+    }
 
     @Override
     public String toString() {

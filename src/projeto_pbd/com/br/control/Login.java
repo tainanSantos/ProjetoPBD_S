@@ -58,26 +58,33 @@ public class Login implements Initializable {
 //        emailLoginText.setText("tainan@gmail.com");
 //        senhaLoginText.setText("tainan123");
 
-        Usuario usuario = null;
-        usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
-                functioCrip2(senhaLoginText.getText()));
 
-        if ((usuario != null) || (Facade.getInstance().findAllUsuario().isEmpty())){
+
+        if (Facade.getInstance().findAllUsuario().isEmpty()) { // se não estiver vazia aí sim eu vou chamar isso aqui!
             try {
-                Main.setTipoUsuario(usuario.getTipoDeAcesso());
                 Main.stageLogin().close();
                 Main.stagePrincipal().show();
-                Main.stagePrincipal ().setMaximized (true);
-
-                // ATENAÇÃO
-                // FALATA MANDA AQUI O TIPODE PESSOA QUE TA ACESSNAOD O SISTEMA
-                // PARA EFETUAR AS RESTRIÇÕES NAS OUTRA TELAS
-
-
-            } catch (IOException e) {
+            }catch (IOException e){
                 e.printStackTrace();
-            }        }
-        else Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
+            }
+        }else {
+
+            Usuario usuario = null;
+            usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
+                    functioCrip2(senhaLoginText.getText()));
+
+            if (usuario != null) {
+                try {
+                    Main.setTipoUsuario(usuario.getTipoDeAcesso()); // tipo de usuário que tá acessando o banco
+                    Main.stageLogin().close();
+                    Main.stagePrincipal().show();
+                    Main.stagePrincipal().setMaximized(true);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
+        }
 
     }
 

@@ -28,6 +28,7 @@ public class CadastroNotas implements Initializable {
         NO MOMENTO DE SALVAR AS DISCIPLINAS NO CURRÍCULO:
             VECÊ DEVE SETAR O ID DA TABELA NOTAS COM A O ID DA DISCIPLINA SELECIONADA PARA O CURRÍCULO
     */
+
     @FXML
     private TableView<DisciplinaNotasView> notasAlunoTable;
     @FXML
@@ -107,7 +108,7 @@ public class CadastroNotas implements Initializable {
                 nomeAlunoLabel.setText(aluno.getNome());
                 matriculaAlunoLabel.setText(String.valueOf(aluno.getCurriculo().getId()));
                 turmaAlunoLabel.setText(aluno.getTurma().getNomeTurma());
-                carregarTabelaNotas(Facade.getInstance().findAllNotas(aluno.getCurriculo().getId()));
+                carregarTabelaNotas(Facade.getInstance().findAllNotas(aluno.getId()));
             }
         });
 
@@ -168,7 +169,12 @@ public class CadastroNotas implements Initializable {
             nota.setId(notasAlunoTable.getSelectionModel().getSelectedItem().getId());
             Disciplina disciplina = new Disciplina();
             disciplina.setId(notasAlunoTable.getSelectionModel().getSelectedItem().getDisciplina_id());
+
+            Aluno aluno = new Aluno();
+            aluno.setId(notasAlunoTable.getSelectionModel().getSelectedItem().getPessoa_id());
+            nota.setAluno(aluno)    ;
             nota.setDisciplina(disciplina);
+
             nota.setStatus(true);
 
             nota.setPrimeiraVa(validarIntegerCampoText(va1Text.getText()));
@@ -178,40 +184,59 @@ public class CadastroNotas implements Initializable {
             nota.setFinalVa(validarIntegerCampoText(vaFinalText.getText()));
             disciplina.setStatus(true);
 
-            List<Integer> integerList = new ArrayList<>();
+            List<Double> integerList = new ArrayList<>();
             integerList.add(nota.getPrimeiraVa());
             integerList.add(nota.getSegundaVa());
             integerList.add(nota.getTerceiraVa());
             integerList.add(nota.getQuartaVa());
             integerList.add(nota.getFinalVa());
+
             Integer caount = 0;
-            Integer soma = 0;
-            for(Integer integer: integerList){
-                if (integer!=null){
-                    soma += integer;
-                    caount += 1;
+            Double soma = 0.0;
+            for (Double integer : integerList) {
+                if (integer != null) {
+                    if (integer >= 0 && integer <=10) {
+                        soma += integer;
+                        caount += 1;
+                    }else {
+                        Mensagem.mensagemErro("Valores não permitidos, " +
+                                "Os campos de notas devem ser preenchidos com valores entre 0 e 10");
+                        return; // só para interromper o fluxo do método
+                    }
                 }
             }
-            nota.setMedia((soma/caount));
+
+            try {
+                nota.setMedia((soma / caount));
+            } catch (ArithmeticException a) {
+
+            }
+
+            if (caount >= 3) {
+                if (nota.getMedia() >= 7)
+                    nota.setResultado("APROVADO");
+                else
+                    nota.setResultado("REPROVADO");
+            } else
+                nota.setResultado("ND");
 
             nota = Facade.getInstance().saveNota(nota);
 
-            System.out.println(nota);
             carregarTabelaNotas(Facade.getInstance().findAllNotas(
-                    notasAlunoTable.getSelectionModel().getSelectedItem().getCurriculo_id()));
+                    notasAlunoTable.getSelectionModel().getSelectedItem().getPessoa_id()));
+
         }else {
             Mensagem.mensagemErro("nenhuma linha da tabela selecionada. IMpossível salvar a disciplina");
         }
     }
 
 
-    public Integer validarIntegerCampoText(String string){
+    public Double validarIntegerCampoText(String string){
         try {
-            Integer.parseInt(string);
+            return Double.parseDouble(string);
         }catch (NumberFormatException e){
             return null;
         }
-        return Integer.parseInt(string);
     }
 
 }

@@ -15,14 +15,14 @@ public class Nota {
 
     @ManyToOne
     private Disciplina disciplina;
-
-    private Integer primeiraVa;
-    private Integer segundaVa;
-    private Integer terceiraVa;
-    private Integer quartaVa;
-    private Integer finalVa;
     private String resultado;
-    private Integer media;
+
+    private Double primeiraVa;
+    private Double segundaVa;
+    private Double terceiraVa;
+    private Double quartaVa;
+    private Double finalVa;
+    private Double media;
 
     // se aprovado ou reprovado na disciplina
     private Boolean status;
@@ -55,46 +55,6 @@ public class Nota {
         this.disciplina = disciplina;
     }
 
-    public Integer getPrimeiraVa() {
-        return primeiraVa;
-    }
-
-    public void setPrimeiraVa(Integer primeiraVa) {
-        this.primeiraVa = primeiraVa;
-    }
-
-    public Integer getSegundaVa() {
-        return segundaVa;
-    }
-
-    public void setSegundaVa(Integer segundaVa) {
-        this.segundaVa = segundaVa;
-    }
-
-    public Integer getTerceiraVa() {
-        return terceiraVa;
-    }
-
-    public void setTerceiraVa(Integer terceiraVa) {
-        this.terceiraVa = terceiraVa;
-    }
-
-    public Integer getQuartaVa() {
-        return quartaVa;
-    }
-
-    public void setQuartaVa(Integer quartaVa) {
-        this.quartaVa = quartaVa;
-    }
-
-    public Integer getFinalVa() {
-        return finalVa;
-    }
-
-    public void setFinalVa(Integer finalVa) {
-        this.finalVa = finalVa;
-    }
-
     public String getResultado() {
         return resultado;
     }
@@ -103,11 +63,51 @@ public class Nota {
         this.resultado = resultado;
     }
 
-    public Integer getMedia() {
+    public Double getPrimeiraVa() {
+        return primeiraVa;
+    }
+
+    public void setPrimeiraVa(Double primeiraVa) {
+        this.primeiraVa = primeiraVa;
+    }
+
+    public Double getSegundaVa() {
+        return segundaVa;
+    }
+
+    public void setSegundaVa(Double segundaVa) {
+        this.segundaVa = segundaVa;
+    }
+
+    public Double getTerceiraVa() {
+        return terceiraVa;
+    }
+
+    public void setTerceiraVa(Double terceiraVa) {
+        this.terceiraVa = terceiraVa;
+    }
+
+    public Double getQuartaVa() {
+        return quartaVa;
+    }
+
+    public void setQuartaVa(Double quartaVa) {
+        this.quartaVa = quartaVa;
+    }
+
+    public Double getFinalVa() {
+        return finalVa;
+    }
+
+    public void setFinalVa(Double finalVa) {
+        this.finalVa = finalVa;
+    }
+
+    public Double getMedia() {
         return media;
     }
 
-    public void setMedia(Integer media) {
+    public void setMedia(Double media) {
         this.media = media;
     }
 

@@ -11,13 +11,16 @@ create view disciplinanotasview as
 
 select
 
-		curriculo_id, disciplina_id, n.id, n.primeirava, n.segundava,
-		n.terceirava, n.quartava, n.finalva, n.status, d.nome, n.resultado
+		al.pessoa_id, d.curriculo_id, disciplina_id, n.id, n.primeirava, n.segundava,
+		n.terceirava, n.quartava, n.finalva, n.status, d.nome, n.resultado, n.media
 
 	from
-		nota as n, disciplina as d, curriculo as cu
+		nota as n, disciplina as d, curriculo as cu, aluno al
 	where
-		d.id = n.disciplina_id and d.curriculo_id = cu.id and d.curriculo_id = 	cu.id
+		d.id = n.disciplina_id
+		and d.curriculo_id = cu.id
+		and d.curriculo_id = 	cu.id
+		and al.pessoa_id = n.aluno_pessoa_id
 */
 
 @Entity
@@ -32,15 +35,18 @@ public class DisciplinaNotasView {
 
     //PEGAR O ID DO CURRÍCULO AQUI TABMBÉMcurriculo_id
 
+    private Integer pessoa_id;
     private Integer disciplina_id;
     private Integer curriculo_id;
-    private Integer primeirava;
-    private Integer segundava;
-    private Integer terceirava;
-    private Integer quartava;
-    private Integer finalva;
+
+    private Double primeirava;
+    private Double segundava;
+    private Double terceirava;
+    private Double quartava;
+    private Double finalva;
+    private Double media;
+
     private Boolean status;
-    private Integer media;
     private String nome;
     private String resultado;
 
@@ -58,60 +64,67 @@ public class DisciplinaNotasView {
         this.id = id;
     }
 
-    public Integer getMedia() {
-        return media;
+    public Integer getPessoa_id() {
+        return pessoa_id;
     }
 
-    public void setMedia(Integer media) {
-        this.media = media;
+    public void setPessoa_id(Integer pessoa_id) {
+        this.pessoa_id = pessoa_id;
     }
 
     public Integer getDisciplina_id() {
         return disciplina_id;
     }
 
-
     public void setDisciplina_id(Integer disciplina_id) {
         this.disciplina_id = disciplina_id;
     }
 
-    public Integer getPrimeirava() {
+    public Integer getCurriculo_id() {
+        return curriculo_id;
+    }
+
+    public void setCurriculo_id(Integer curriculo_id) {
+        this.curriculo_id = curriculo_id;
+    }
+
+    public Double getPrimeirava() {
         return primeirava;
     }
 
-    public void setPrimeirava(Integer primeirava) {
+    public void setPrimeirava(Double primeirava) {
         this.primeirava = primeirava;
     }
 
-    public Integer getSegundava() {
+    public Double getSegundava() {
         return segundava;
     }
 
-    public void setSegundava(Integer segundava) {
+    public void setSegundava(Double segundava) {
         this.segundava = segundava;
     }
 
-    public Integer getTerceirava() {
+    public Double getTerceirava() {
         return terceirava;
     }
 
-    public void setTerceirava(Integer terceirava) {
+    public void setTerceirava(Double terceirava) {
         this.terceirava = terceirava;
     }
 
-    public Integer getQuartava() {
+    public Double getQuartava() {
         return quartava;
     }
 
-    public void setQuartava(Integer quartava) {
+    public void setQuartava(Double quartava) {
         this.quartava = quartava;
     }
 
-    public Integer getFinalva() {
+    public Double getFinalva() {
         return finalva;
     }
 
-    public void setFinalva(Integer finalva) {
+    public void setFinalva(Double finalva) {
         this.finalva = finalva;
     }
 
@@ -121,6 +134,14 @@ public class DisciplinaNotasView {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Double getMedia() {
+        return media;
+    }
+
+    public void setMedia(Double media) {
+        this.media = media;
     }
 
     public String getNome() {
@@ -138,16 +159,6 @@ public class DisciplinaNotasView {
     public void setResultado(String resultado) {
         this.resultado = resultado;
     }
-
-    public Integer getCurriculo_id() {
-        return curriculo_id;
-    }
-
-    public void setCurriculo_id(Integer curriculo_id) {
-        this.curriculo_id = curriculo_id;
-    }
-
-
 /*
      CPI = QUANTIDADE DE INSTRUÇÕES POR CICLO INFRA DE HARDWARE
      A ESTRUTURA MONOCICLO VAI EXECUTAR TUDO EM UM TEMPO SÓ

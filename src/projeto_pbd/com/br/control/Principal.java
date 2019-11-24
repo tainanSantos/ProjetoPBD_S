@@ -63,19 +63,21 @@ public class Principal implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //RESTRIÇÃO DE ACESSO
-        switch (Main.getTipoUsuario()){
-            case ("Adiminstração"):
-                // o unico que tera acesso a tudo
-                break;
-            case ("Direção"):
-                acessorAreaAdiministrado();
-                break;
-            case("Coordenação Pedagogica"):
-                acessorAreaAdiministrado();
-                break;
-            case ("Secretaria"):
-                acessorAreaAdiministrado();
-                break;
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    // o unico que tera acesso a tudo
+                    break;
+                case ("Direção"):
+                    acessorAreaAdiministrado();
+                    break;
+                case ("Coordenação Pedagogica"):
+                    acessorAreaAdiministrado();
+                    break;
+                case ("Secretaria"):
+                    acessorAreaAdiministrado();
+                    break;
+            }
         }
 
 

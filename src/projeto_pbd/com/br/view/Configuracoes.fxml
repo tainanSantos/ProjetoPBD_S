@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,18 +15,24 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Configuracoes">
    <children>
-      <Label layoutX="20.0" layoutY="97.0" text="Configurações de Curriculo" AnchorPane.leftAnchor="20.0" />
-      <Label layoutX="32.0" layoutY="52.0" text="Configurações" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0">
+      <Label layoutX="20.0" layoutY="113.0" text="Configurações de Curriculo" AnchorPane.leftAnchor="20.0">
          <font>
             <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="32.0" layoutY="52.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #191970;" text=" Configurações" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
          </font>
+         <effect>
+            <DropShadow color="#808080" />
+         </effect>
       </Label>
-      <Label layoutX="20.0" layoutY="131.0" text="forma que os curriculos devem ser cadastrados no sistema" AnchorPane.leftAnchor="20.0">
+      <Label layoutX="20.0" layoutY="147.0" text="forma que os curriculos devem ser cadastrados no sistema" AnchorPane.leftAnchor="20.0">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <RadioButton layoutX="20.0" layoutY="151.0" mnemonicParsing="false" text="Bimestral" AnchorPane.leftAnchor="20.0">
+      <RadioButton fx:id="bimentralRadioButton" layoutX="20.0" layoutY="167.0" mnemonicParsing="false" text="Bimestral" AnchorPane.leftAnchor="20.0">
          <font>
             <Font size="10.0" />
          </font>
@@ -33,18 +40,18 @@
             <ToggleGroup fx:id="formaCadCurriculos" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="154.0" layoutY="151.0" mnemonicParsing="false" text="Trimestral" toggleGroup="$formaCadCurriculos">
+      <RadioButton fx:id="trimestralRadioButton" layoutX="154.0" layoutY="167.0" mnemonicParsing="false" text="Trimestral" toggleGroup="$formaCadCurriculos">
          <font>
             <Font size="10.0" />
          </font>
       </RadioButton>
       <Group layoutX="169.0" layoutY="360.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <Button blendMode="EXCLUSION" layoutX="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Salvar" />
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Redefinir " />
+            <Button fx:id="salvarCurriculoButton" blendMode="EXCLUSION" layoutX="138.0" mnemonicParsing="false" onAction="#salvarCurriculoAction" prefHeight="30.0" prefWidth="105.0" text="Salvar" />
+            <Button fx:id="redefinirConfiguracaoCurriculoButton" blendMode="EXCLUSION" mnemonicParsing="false" onAction="#redefinirConfiguracaoCurriculoAction" prefHeight="30.0" prefWidth="105.0" text="Redefinir " />
          </children>
       </Group>
-      <GridPane hgap="20.0" layoutX="20.0" layoutY="232.0" AnchorPane.leftAnchor="20.0">
+      <GridPane hgap="20.0" layoutX="20.0" layoutY="248.0" AnchorPane.leftAnchor="20.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -70,12 +77,12 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <TextField text="400,00" GridPane.rowIndex="1" />
-            <TextField text="600,00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField text="800,00" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="valorParcelaAnosIniciasiEFText" text="400.00" GridPane.rowIndex="1" />
+            <TextField fx:id="valorParcelaAnosFinaisEFText" text="600.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="valorParcelaEnsinoMedioEMText" text="800.00" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Label layoutX="20.0" layoutY="217.0" text="VALOR das PARECELAS para o curriculo anual" AnchorPane.leftAnchor="20.0">
+      <Label layoutX="20.0" layoutY="233.0" text="VALOR das PARECELAS para o curriculo anual" AnchorPane.leftAnchor="20.0">
          <font>
             <Font size="10.0" />
          </font>

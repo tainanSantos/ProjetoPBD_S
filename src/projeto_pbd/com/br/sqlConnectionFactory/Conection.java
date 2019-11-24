@@ -1,4 +1,4 @@
-package projeto_pbd.com.br.dao;
+package projeto_pbd.com.br.sqlConnectionFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

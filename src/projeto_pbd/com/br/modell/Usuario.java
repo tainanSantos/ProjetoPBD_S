@@ -52,4 +52,13 @@ public class Usuario extends Pessoa {
     }
 
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", tipoDeAcesso='" + tipoDeAcesso + '\'' +
+                ", cpf='" + cpf + '\'' +
+                '}';
+    }
 }

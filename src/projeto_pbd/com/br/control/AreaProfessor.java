@@ -90,19 +90,21 @@ public class AreaProfessor implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //RESTRIÇÃO DE ACESSO
-        switch (Main.getTipoUsuario()){
-            case ("Adiminstração"):
-                System.out.println("Adm");
-                break;
-            case ("Direção"):
-                System.out.println("Direção");
-                break;
-            case("Coordenação Pedagogica"):
-                System.out.println("Cood Ped");
-                break;
-            case ("Secretaria"):
-                System.out.println("Secretaria");
-                break;
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    System.out.println("Adm");
+                    break;
+                case ("Direção"):
+                    System.out.println("Direção");
+                    break;
+                case ("Coordenação Pedagogica"):
+                    System.out.println("Cood Ped");
+                    break;
+                case ("Secretaria"):
+                    System.out.println("Secretaria");
+                    break;
+            }
         }
 
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {

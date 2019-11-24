@@ -76,7 +76,7 @@ public class AreaDiscente implements Initializable {
     @FXML
     private Label maiorDeIdadeMensagemLabel;
     @FXML
-    private ComboBox<Curriculo> ensinoComboBox;
+    private ComboBox<Curriculo> curriculoComboBox;
     @FXML
     private ComboBox<Turma> turmaComboBox;
     @FXML
@@ -129,7 +129,7 @@ public class AreaDiscente implements Initializable {
     @FXML
     private ComboBox alnoLetivoComboBox;
     @FXML
-    private ComboBox trumasAlunosComboBox;
+    private ComboBox<Turma> trumasAlunosComboBox;
 
     private List listUfsAlun = new ArrayList(Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
@@ -141,18 +141,20 @@ public class AreaDiscente implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //RESTRIÇÃO DE ACESSO
-        switch (Main.getTipoUsuario()){
-            case ("Adiminstração"):
-                break;
-            case ("Direção"):
-                restricoesDeAcesso();
-                break;
-            case("Coordenação Pedagogica"):
-                restricoesDeAcesso();
-                break;
-            case ("Secretaria"):
-                acompanhamentoButton.setDisable(true);
-                break;
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    break;
+                case ("Direção"):
+                    restricoesDeAcesso();
+                    break;
+                case ("Coordenação Pedagogica"):
+                    restricoesDeAcesso();
+                    break;
+                case ("Secretaria"):
+                    acompanhamentoButton.setDisable(true);
+                    break;
+            }
         }
 
 
@@ -164,11 +166,12 @@ public class AreaDiscente implements Initializable {
         });
 
 
-        carregarTabelaAlunos(Facade.getInstance().findAllAluno());
+//        só carregar a tabela de alunos quanod eu setar alguma turma lá no combobox
+//        carregarTabelaAlunos(Facade.getInstance().findAllAluno());
 
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
         this.comboboxUf1Resp.setItems(FXCollections.observableArrayList (this.listUfsAlun));
-        this.ensinoComboBox.setItems(FXCollections.observableArrayList(
+        this.curriculoComboBox.setItems(FXCollections.observableArrayList(
                 Facade.getInstance().findAllCurriculo()));
         this.turmaComboBox.setItems(FXCollections.observableArrayList(
                 Facade.getInstance().findAllTurma()));
@@ -199,6 +202,15 @@ public class AreaDiscente implements Initializable {
             }
         });
 
+        trumasAlunosComboBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // buscando os alunos pelo id da turma
+                carregarTabelaAlunos(Facade.getInstance().findAllAlunosIdTurma(
+                        trumasAlunosComboBox.getSelectionModel().getSelectedItem().getId()));
+            }
+        });
+
         this.alunosTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -214,7 +226,7 @@ public class AreaDiscente implements Initializable {
                     nomeMaeText.setText(aluno.getNomeMae());
                     naturalidadedText.setText(aluno.getNaturalidade());
                     try {
-                        ensinoComboBox.setValue(Facade.getInstance().findByIdCurriculo(aluno.getCurriculo().getId()));
+                        curriculoComboBox.setValue(Facade.getInstance().findByIdCurriculo(aluno.getCurriculo().getId()));
                         turmaComboBox.setValue(Facade.getInstance().findByIdTurma(aluno.getTurma().getId()));
                     }catch (NullPointerException e){
 
@@ -235,8 +247,8 @@ public class AreaDiscente implements Initializable {
                     cepText.setText(aluno.getEndereco().getCep());
 
                     if (aluno.getCurriculo()!=null)
-                        ensinoComboBox.setValue(aluno.getCurriculo());
-                    else ensinoComboBox.setValue(null);
+                        curriculoComboBox.setValue(aluno.getCurriculo());
+                    else curriculoComboBox.setValue(null);
 
                     //__________________________________
 
@@ -266,6 +278,7 @@ public class AreaDiscente implements Initializable {
     public void restricoesDeAcesso(){
         salvarAlunoButton.setDisable(true);
         apagraAlunoButton.setDisable(true);
+        novoAlunoButton.setDisable(true);
     }
 
 
@@ -295,7 +308,7 @@ public class AreaDiscente implements Initializable {
         complementoText.clear();
         comboboxUf.getSelectionModel().select(null);
         comboboxUf1Resp.getSelectionModel().select(null);
-        ensinoComboBox.getSelectionModel().select(null);
+        curriculoComboBox.getSelectionModel().select(null);
         turmaComboBox.getSelectionModel().select(null);
         bairroText.clear();
         bairroText1Resp.clear();
@@ -324,7 +337,6 @@ public class AreaDiscente implements Initializable {
 
 
 
-
     @FXML
     public void action(ActionEvent event){
 
@@ -339,9 +351,14 @@ public class AreaDiscente implements Initializable {
             Telefone telefone1Responsavel = new Telefone();
             Telefone telefone2Responsavel = new Telefone();
 
+            // o currícilo tem as disciplinas e as disciplinas tem as notas
+            // ver na tabela de disciplinas qual as disciplinas que tá com o id daquele currículo
+            // pegar a referencia de cada disciplina e salvar a nota com o id da disciplina e do aluno
+            // pegar a nota e salvar com o id do aluno e o id da disciplina
             Curriculo curriculo = new Curriculo();
+
             try {
-                curriculo =  Facade.getInstance().findByIdCurriculo(ensinoComboBox.getSelectionModel().getSelectedItem().getId());
+                curriculo =  Facade.getInstance().findByIdCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem().getId());
             } catch (NullPointerException e){
                 Mensagem.mensagemErro("Curriculo não selecionado");
             }
@@ -365,13 +382,15 @@ public class AreaDiscente implements Initializable {
             aluno.setDataNascimento(dataText.getValue());
             aluno.setStatus(true);
             aluno.setMaioDeIdadeEResponsavel(maiorDeIdadeRadioButton.isSelected());
-            aluno.setCurriculo(ensinoComboBox.getSelectionModel().getSelectedItem());
-            aluno.setTurma(turmaComboBox.getSelectionModel().getSelectedItem());
+
+            aluno.setCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem());
+            aluno.setTurma(turmaComboBox.getSelectionModel().getSelectedItem()); // salvando a turma do aluno
 
             telefone1Aluno.setNumero(telefoneUmText.getText());
             telefone2Aluno.setNumero(telefoneDoisText.getText());
 
             //__________________________________________________________________________________________________________
+
 
             responsavel.setDataNascimento(dataText1Resp.getValue());
             responsavel.setNaturalidade(naturalidadedText.getText());
@@ -407,6 +426,20 @@ public class AreaDiscente implements Initializable {
             telefone2Aluno.setPessoa(aluno);
             Facade.getInstance().saveTelefone(telefone1Aluno);
             Facade.getInstance().saveTelefone(telefone2Aluno);
+
+
+            //__________________________________________________________________________________________________________
+
+            // 1 - buscar as disciplinas que tenham esse ID
+            for(Disciplina d: Facade.getInstance().findAllIdCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem().getId())){
+                Nota nota = new Nota();
+                nota.setAluno(aluno);
+                nota.setDisciplina(d);
+                Facade.getInstance().saveNota(nota);
+            }
+
+            //__________________________________________________________________________________________________________
+
 
             Mensagem.mensagemSucesso("Cadastro Realizado com Sucesso! " +
                     "O Boleto com as Mensalidades Será Gerado!");

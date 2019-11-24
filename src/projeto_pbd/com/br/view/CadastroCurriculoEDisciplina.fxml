@@ -27,7 +27,7 @@
               </columns>
             </TableView>
             <Accordion layoutX="1084.0" layoutY="132.0" />
-            <Button fx:id="pesquisarDisciplinaButton" layoutX="469.0" layoutY="21.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="115.0" text="Pesquisa" />
+            <Button fx:id="pesquisarDisciplinaButton" layoutX="467.0" layoutY="19.0" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="115.0" text="Pesquisa" />
             <TextField fx:id="pequisarPorDisciplinaText" layoutY="21.0" prefHeight="26.0" prefWidth="449.0" promptText="pesquisar..." AnchorPane.leftAnchor="0.0" />
             <Separator layoutY="230.0" prefHeight="26.0" prefWidth="1320.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <AnchorPane layoutX="660.0" layoutY="258.0" prefHeight="252.0" prefWidth="651.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="260.0">
@@ -57,8 +57,8 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Button fx:id="salvarDisciplinaNOCurriculoButton" mnemonicParsing="false" onAction="#actionSaveDisciplinaCurriculo" prefHeight="26.0" prefWidth="253.0" text="Adicionar Disiplina" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="novoTipoCurriculoButton" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="184.0" text="Novo Tipo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="salvarDisciplinaNOCurriculoButton" mnemonicParsing="false" onAction="#actionSaveDisciplinaCurriculo" prefHeight="30.0" prefWidth="253.0" text="Add Disiplina" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="novoTipoCurriculoButton" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="184.0" text="Novo Tipo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <TableView fx:id="disiplinaCurriculoTable" layoutX="75.0" layoutY="91.0" prefHeight="153.0" prefWidth="651.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0">
@@ -116,9 +116,9 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button fx:id="apagarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="126.0" text="Apagar" GridPane.columnIndex="1" />
-                        <Button fx:id="salvarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#actionSaveDisciplina" prefHeight="26.0" prefWidth="126.0" text="Salvar" GridPane.columnIndex="2" />
-                        <Button fx:id="novaDiplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="90.0" text="Nova" />
+                        <Button fx:id="apagarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="126.0" text="Apagar" GridPane.columnIndex="1" />
+                        <Button fx:id="salvarDisciplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#actionSaveDisciplina" prefHeight="30.0" prefWidth="126.0" text="Salvar" GridPane.columnIndex="2" />
+                        <Button fx:id="novaDiplinaButton" alignment="CENTER" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="90.0" text="Nova" />
                      </children>
                   </GridPane>
                </children>

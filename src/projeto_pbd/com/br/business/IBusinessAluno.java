@@ -14,5 +14,7 @@ public interface IBusinessAluno {
 
     public List<Aluno> findAllNomeAluno(String nomeAluno);
 
+    public List<Aluno> findAllAlunosIdTurma(Integer idTurma);
+
     public Aluno removeAluno(Integer id);
 }

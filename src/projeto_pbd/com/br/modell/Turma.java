@@ -1,5 +1,7 @@
 package projeto_pbd.com.br.modell;
 
+import javafx.scene.control.DatePicker;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -17,9 +19,20 @@ public class Turma {
 
     private String nomeTurma;
 
+
+    private LocalDate dataAnoLetivo; // aqui pode ser substituido por uma string, se for mais conveniente
+
     private int qtdAlunos;
 
     public Turma(){
+    }
+
+    public LocalDate getDataAnoLetivo() {
+        return dataAnoLetivo;
+    }
+
+    public void setDataAnoLetivo(LocalDate dataAnoLetivo) {
+        this.dataAnoLetivo = dataAnoLetivo;
     }
 
     public String getNomeTurma() {

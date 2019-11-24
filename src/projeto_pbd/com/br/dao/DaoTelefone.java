@@ -1,13 +1,10 @@
 package projeto_pbd.com.br.dao;
 
-import projeto_pbd.com.br.modell.Pessoa;
 import projeto_pbd.com.br.modell.Telefone;
-import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DaoTelefone implements IDaoTelefone {

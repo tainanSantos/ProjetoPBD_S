@@ -70,4 +70,16 @@ public class Aluno extends  Pessoa{
     public void setNomeMae(String nomeMae) {
         this.nomeMae = nomeMae;
     }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "curriculo=" + curriculo +
+                ", turma=" + turma +
+                ", responsavel=" + responsavel +
+                ", nomePai='" + nomePai + '\'' +
+                ", nomeMae='" + nomeMae + '\'' +
+                ", maioDeIdadeEResponsavel=" + maioDeIdadeEResponsavel +
+                '}';
+    }
 }

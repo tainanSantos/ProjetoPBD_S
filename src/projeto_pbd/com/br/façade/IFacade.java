@@ -11,6 +11,7 @@ public interface IFacade {
     public Aluno findByIdAluno(Integer id);
     public List<Aluno> findAllAluno();
     public List<Aluno> findAllNomeAluno(String nomeAluno);
+    public List<Aluno> findAllAlunosIdTurma(Integer idTurma);
     public Aluno removeAluno(Integer id);
 
 
@@ -83,6 +84,6 @@ public interface IFacade {
     public Nota saveNota(Nota notaDisciplina );
     public Nota findByIdNota(Integer id);
     public Nota findByIdNotaDisciplina(Integer idDisciplina);
-    public List<DisciplinaNotasView> findAllNotas(Integer idCurriculo);
+    public List<DisciplinaNotasView> findAllNotas(Integer idAluno);
     public Nota removeNota(Integer id);
 }

@@ -9,9 +9,8 @@
 
         <class>projeto_pbd.com.br.modell.AcompanhamentoPedagogico</class>
         <class>projeto_pbd.com.br.modell.Aluno</class>
-        <class>projeto_pbd.com.br.modell.AnoLetivo</class>
+        <class>projeto_pbd.com.br.modell.Configuracao</class>
         <class>projeto_pbd.com.br.modell.Curriculo</class>
-        <class>projeto_pbd.com.br.modell.CurriculoConfiguracao</class>
         <class>projeto_pbd.com.br.modell.Disciplina</class>
         <class>projeto_pbd.com.br.modell.Endereco</class>
         <class>projeto_pbd.com.br.modell.Nota</class>

@@ -13,7 +13,6 @@ import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
 import projeto_pbd.com.br.modell.Disciplina;
-import projeto_pbd.com.br.modell.Nota;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
@@ -68,20 +67,22 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //RESTRIÇÃO DE ACESSO
-        switch (Main.getTipoUsuario()){
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
 //            Tireio posis o adminstrador tem acesso total
 //            case ("Adiminstração"):
 //                System.out.println("Adm");
 //                break;
-            case ("Direção"):
-                System.out.println("Direção");
-                break;
-            case("Coordenação Pedagogica"):
-                System.out.println("Cood Ped");
-                break;
-            case ("Secretaria"):
-                System.out.println("Secretaria");
-                break;
+                case ("Direção"):
+                    System.out.println("Direção");
+                    break;
+                case ("Coordenação Pedagogica"):
+                    System.out.println("Cood Ped");
+                    break;
+                case ("Secretaria"):
+                    System.out.println("Secretaria");
+                    break;
+            }
         }
 
         Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
@@ -149,11 +150,9 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     @FXML
     void actionSaveDisciplina(ActionEvent event) {
         Disciplina disciplina =  new Disciplina();
-        Nota nota = new Nota();
         String mensagem = "Salvo com Sucesso!";
         if(disciplinasTable.getSelectionModel().getSelectedItem()!=null){
             disciplina.setId(disciplinasTable.getSelectionModel().getSelectedItem().getId());
-            nota = Facade.getInstance().findByIdNotaDisciplina(disciplina.getId());
             mensagem= "Atualizado com Sucesso!";
         }
         disciplina.setNome(disciplinaText.getText());
@@ -161,8 +160,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         disciplina.setStatus(true);
 
         disciplina = Facade.getInstance().saveDisciplina(disciplina);
-        nota.setDisciplina(disciplina);
-        Facade.getInstance().saveNota(nota);
+
 
         limparCampos();
         Mensagem.mensagemSucesso(mensagem);

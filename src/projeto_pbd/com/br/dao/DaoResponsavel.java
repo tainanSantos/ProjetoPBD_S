@@ -2,6 +2,7 @@ package projeto_pbd.com.br.dao;
 
 
 import projeto_pbd.com.br.modell.Responsavel;
+import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 
 import javax.persistence.EntityManager;
 import java.util.List;
