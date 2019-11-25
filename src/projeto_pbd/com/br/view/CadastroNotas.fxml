@@ -60,7 +60,7 @@
             <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <TableView fx:id="notasAlunoTable" editable="true" layoutX="20.0" layoutY="175.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="893.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0">
+      <TableView fx:id="notasAlunoTable" editable="true" layoutX="20.0" layoutY="175.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="893.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0">
         <columns>
             <TableColumn fx:id="nomeDisciplinaColumn" prefWidth="250.0" resizable="false" text="disciplina" />
             <TableColumn fx:id="vaUmComumn" prefWidth="90.0" text="1va" />

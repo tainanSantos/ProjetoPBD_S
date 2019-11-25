@@ -28,7 +28,7 @@
                   <TextField fx:id="pesquisarTurmaText" onKeyPressed="#pesquisarTurmaAction" promptText="pesquisa" />
                </children>
             </GridPane>
-            <TableView fx:id="turmaCurriculoTable" prefHeight="167.0" prefWidth="689.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <TableView fx:id="turmaCurriculoTable" prefHeight="167.0" prefWidth="689.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <columns>
                 <TableColumn fx:id="nomeTurmaColumn" prefWidth="461.0" text="nome turma" />
                   <TableColumn fx:id="qtdAlunosColumn" prefWidth="226.0" text="quantidade de alunos" />

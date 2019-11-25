@@ -130,7 +130,7 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
       </Label>
-      <Label layoutX="955.0" layoutY="31.0" onMousePressed="#sairButton" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #DCDCDC;" text=" Sair" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="31.0">
+      <Label layoutX="955.0" layoutY="31.0" onMousePressed="#sairButton" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #DCDCDC;" text="    Sair" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="31.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

@@ -49,7 +49,7 @@
             </GridPane>
             <TableView fx:id="curriculosTable" layoutX="21.0" layoutY="114.0" onMouseClicked="#tableEvet" prefHeight="208.0" prefWidth="497.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="110.0">
               <columns>
-                <TableColumn fx:id="curriculosColumn" prefWidth="75.0" text="Currículso Cadastrados                                                                                 " />
+                <TableColumn fx:id="curriculosColumn" prefWidth="75.0" text="Currículso Cadastrados                                                                                                                                        " />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

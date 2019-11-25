@@ -219,7 +219,7 @@ public class CadastroNotas implements Initializable {
 
             if (caount >= 3) {
                 if (nota.getMedia() >= 7)
-                    nota.setResultado("AP");
+                    nota.setResultado("AM");
                 else{
                     if ((nota.getMedia()+ Double.parseDouble(vaFinalText.getText()))>=7){
                         nota.setResultado("AP");

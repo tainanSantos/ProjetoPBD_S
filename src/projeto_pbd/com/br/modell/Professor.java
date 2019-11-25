@@ -15,7 +15,7 @@ public class Professor extends Pessoa  {
     // CAMPO PARA SELECIONAR MARCAR ONJETOS NA TABELA
     private Boolean selectTable;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.EAGER) // para ter acesso aos dados das classs filhas
     @JoinTable(name = "professor_turma",
             joinColumns = @JoinColumn(name = "professor_pessoa_id"),
             inverseJoinColumns = @JoinColumn(name = "turmalist_id"))

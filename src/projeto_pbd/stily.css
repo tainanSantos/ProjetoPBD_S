@@ -1,4 +1,4 @@
-/*
+
 .button {
     -fx-background-color: #E5E5E5;
     -fx-text-fill: white;
@@ -25,7 +25,7 @@
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size: 20;
-    -fx-background-color: #4B0082;
+    -fx-background-color:  #696969	;
 }
 
 .table-view .column-header .label {
@@ -51,7 +51,7 @@
 
 }
 
-*/
+
 /* scroll bar starts here *//*
 
 
