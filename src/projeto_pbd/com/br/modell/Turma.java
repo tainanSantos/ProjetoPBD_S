@@ -5,6 +5,7 @@ import projeto_pbd.com.br.façade.Facade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,8 +16,6 @@ public class Turma {
     private Integer id;
 
 
-    @ManyToMany
-    private List<Professor> professors;
 
     private String nomeTurma;
 
@@ -42,14 +41,6 @@ public class Turma {
 
     public void setNomeTurma(String nomeTurma) {
         this.nomeTurma = nomeTurma;
-    }
-
-    public List<Professor> getProfessors() {
-        return professors;
-    }
-
-    public void setProfessors(List<Professor> profess) {
-        this.professors = profess;
     }
 
     public Integer getId() {

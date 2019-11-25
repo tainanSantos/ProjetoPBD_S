@@ -182,7 +182,11 @@ public class CadastroCurriculoEDisciplina implements Initializable {
                 tiposCurriculoCombobox.getSelectionModel().getSelectedItem().getId());
         // fazer a parada lá de atualizar Curriculo
 
-        disciplinasTable.getSelectionModel().getSelectedItem().setCurriculo(curriculo);
+        try {
+            disciplinasTable.getSelectionModel().getSelectedItem().setCurriculo(curriculo);
+        }catch (NullPointerException e){
+            Mensagem.mensagemErro("Nenhuma Disciplina Selecionanda! Selecione antes a disciplina");
+        }
         Facade.getInstance().saveDisciplina(disciplinasTable.getSelectionModel().getSelectedItem());
         Mensagem.mensagemSucesso(mensagem);
     }

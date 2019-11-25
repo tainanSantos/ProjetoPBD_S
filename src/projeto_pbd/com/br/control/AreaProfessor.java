@@ -157,6 +157,7 @@ public class AreaProfessor implements Initializable {
                         telefoneList = Facade.getInstance().findAllIdTelefone(prof.getId());
                         telefoneUmProfessorText.setText(telefoneList.get(0).getNumero());
                         telefoneDoisProfessorText.setText(telefoneList.get(1).getNumero());
+//                        turmaComboBox.setValue(prof.getTurma());
 
 
                     }
@@ -188,7 +189,6 @@ public class AreaProfessor implements Initializable {
         graduacaoPorfessorColum.setCellValueFactory(new PropertyValueFactory<> ("graduacao"));
         naturalidadeProfessorColum.setCellValueFactory(new PropertyValueFactory<> ("naturalidade"));
         selecionadoColum.setCellValueFactory(new PropertyValueFactory<>("selectTable"));
-//        selecionadoColum.setCellFactory(comCheckBoxTableCell.forTableColumn((selecionadoColum)));
         professorTable.getItems().setAll(professorList);
     }
 
@@ -227,8 +227,9 @@ public class AreaProfessor implements Initializable {
             Telefone telefone1 = new Telefone();
 
             if (professorTable.getSelectionModel().getSelectedItem()!=null){
-                professor.setId(professorTable.getSelectionModel().getSelectedItem().getId());
-                endereco.setId(professorTable.getSelectionModel().getSelectedItem().getEndereco().getId());
+                professor = professorTable.getSelectionModel().getSelectedItem();
+
+                endereco.setId(professor.getEndereco().getId());
                 mensagem = "Atualizado com sucesso!";
                 List<Telefone> telefoneList = null;
                 telefoneList = Facade.getInstance().findAllIdTelefone(professor.getId());
@@ -242,6 +243,7 @@ public class AreaProfessor implements Initializable {
             endereco.setBairro (bairroProfessorText.getText ());
             endereco.setCidade (cidadeProfessorText.getText ());
             endereco.setCep (cepProfessorText.getText ());
+
             try {
                 endereco.setUf (comboBoxPorfUf.valueProperty ().get ().toString ());
             }catch (NullPointerException e){
@@ -262,20 +264,13 @@ public class AreaProfessor implements Initializable {
             telefone1.setNumero(telefoneDoisProfessorText.getText());
 
             professor.setEndereco (endereco);
+            professor.getTurmaList().add(turmaComboBox.getSelectionModel().getSelectedItem());  // PODE DAR ERRO AQUI
             professor = Facade.getInstance ().saveProfessor (professor);
 
             telefone.setPessoa(professor);
             telefone1.setPessoa(professor);
             Facade.getInstance().saveTelefone(telefone);
             Facade.getInstance().saveTelefone(telefone1);
-
-            List<Professor> professorList = new ArrayList<>();
-            professorList.add(professor);
-
-            // temos que buscra a lista de professores pelo id da turma
-
-            turmaComboBox.getSelectionModel().getSelectedItem().setProfessors(professorList); // add o professo a turma selecionada
-            Facade.getInstance().saveTurma(turmaComboBox.getSelectionModel().getSelectedItem()); // atualizando a turma novamente
 
             Mensagem.mensagemSucesso (mensagem);
             limparaCampos();

@@ -17,12 +17,9 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario save(Usuario usuario) {
         EntityManager em = new Conection().getEntityManager ();
-
         usuario.setSenha(functioCrip2(usuario.getSenha()));
-
         try {
             em.getTransaction ().begin ();
-
             if(usuario.getId () == null){ // inserir
                 em.persist(usuario.getEndereco());
                 em.persist (usuario);
@@ -43,7 +40,6 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
-
         Usuario usuario = null;
 
         try {

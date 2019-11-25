@@ -47,6 +47,7 @@ public class DaoProfessor implements IDaoProfessor{
         }finally {
             em.close (); // fecha conexão
         }
+
         return professor;
     }
 

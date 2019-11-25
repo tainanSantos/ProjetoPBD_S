@@ -149,7 +149,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label text="4 - VA" GridPane.columnIndex="3">
+            <Label fx:id="va4Label" text="4 - VA" GridPane.columnIndex="3">
                <font>
                   <Font size="10.0" />
                </font>

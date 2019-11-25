@@ -1,5 +1,6 @@
 package projeto_pbd.com.br.dao;
 
+import projeto_pbd.com.br.modell.Aluno;
 import projeto_pbd.com.br.modell.Configuracao;
 import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 
@@ -49,7 +50,17 @@ public class DaoConfiguracao implements  IDaoConfiguracao{
 
     @Override
     public List<Configuracao> findAllConfiguracao() {
-        return null;
+        EntityManager em = new Conection().getEntityManager ();
+        List<Configuracao> configuracaos = null;
+
+        try {
+            configuracaos = em.createQuery ("from Configuracao").getResultList ();
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }finally {
+            em.close (); // fecha conexão
+        }
+        return configuracaos;
     }
 
     @Override

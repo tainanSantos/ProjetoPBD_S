@@ -9,10 +9,8 @@ import javafx.scene.input.MouseEvent;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
-import projeto_pbd.com.br.modell.Professor;
 import projeto_pbd.com.br.msg.Mensagem;
 
-import java.net.PortUnreachableException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -86,6 +84,7 @@ public class CadastroTipoCurriculo implements Initializable {
             curriculo.setId(curriculosTable.getSelectionModel().getSelectedItem().getId());
             mensagem = "Curriculo Atualizado Com Sucesso!";
         }
+        curriculo.setConfiguracao(Facade.getInstance().findAllConfiguracao().get(0));
         curriculo.setStatus(true);
         curriculo.setNome(nomeCurriculoText.getText());
         Facade.getInstance().saveCurriculo(curriculo);

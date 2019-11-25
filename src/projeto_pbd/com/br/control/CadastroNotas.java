@@ -56,6 +56,8 @@ public class CadastroNotas implements Initializable {
     private Label matriculaAlunoLabel;
     @FXML
     private Label turmaAlunoLabel;
+    @FXML
+    private Label va4Label;
 
     @FXML
     private TextField va1Text;
@@ -72,6 +74,7 @@ public class CadastroNotas implements Initializable {
     private Button buttonConfirmar;
 
 
+
     private void restricoesAcesso(){
         buttonConfirmar.setDisable(true);
     }
@@ -82,6 +85,10 @@ public class CadastroNotas implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        if (Facade.getInstance().findAllConfiguracao().get(0).getCurriculoPorTrimestre()){
+            va4Text.setVisible(false);
+            va4Label.setVisible(false);
+        }
 
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
@@ -160,8 +167,11 @@ public class CadastroNotas implements Initializable {
     void adicionarNota(ActionEvent event) {
 
         if (notasAlunoTable.getSelectionModel().getSelectedItem() !=null) {
-            Nota nota = new Nota();
 
+            // as modificações devem ser alteradas de acordo com o tipo de currículo
+            // selecionado nas configurações
+
+            Nota nota = new Nota();
             nota.setId(notasAlunoTable.getSelectionModel().getSelectedItem().getId());
             Disciplina disciplina = new Disciplina();
             disciplina.setId(notasAlunoTable.getSelectionModel().getSelectedItem().getDisciplina_id());
@@ -209,11 +219,19 @@ public class CadastroNotas implements Initializable {
 
             if (caount >= 3) {
                 if (nota.getMedia() >= 7)
-                    nota.setResultado("APROVADO");
-                else
-                    nota.setResultado("REPROVADO");
+                    nota.setResultado("AP");
+                else{
+                    if ((nota.getMedia()+ Double.parseDouble(vaFinalText.getText()))>=7){
+                        nota.setResultado("AP");
+                    }
+                    else {
+                        nota.setResultado("RP");
+                    }
+                }
+
             } else
                 nota.setResultado("ND");
+
             Facade.getInstance().saveNota(nota);
             carregarTabelaNotas(Facade.getInstance().findAllNotas(
                     notasAlunoTable.getSelectionModel().getSelectedItem().getPessoa_id()));
