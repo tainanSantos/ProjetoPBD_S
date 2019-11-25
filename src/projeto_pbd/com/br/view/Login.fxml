@@ -15,8 +15,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="464.0" prefWidth="1024.0" style="-fx-background-color: #363636;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Login">
+<AnchorPane prefHeight="464.0" prefWidth="1024.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Login">
    <children>
+      <ImageView fitHeight="522.0" fitWidth="1063.0" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+         <image>
+            <Image url="@../../../img/aaa.jpg" />
+         </image>
+      </ImageView>
       <AnchorPane id=" Login" fx:id="anchorPaneLoginLogin" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
          <children>
             <Label layoutX="133.0" layoutY="67.0" text="Login" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="70.0">
@@ -29,7 +34,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <TextField fx:id="emailLoginText" layoutX="130.0" layoutY="171.0" prefHeight="26.0" prefWidth="337.0" text="tainan@gmail.com" AnchorPane.leftAnchor="100.0" />
+            <TextField fx:id="emailLoginText" layoutX="130.0" layoutY="171.0" prefHeight="26.0" prefWidth="337.0" text="tainan206@gmail.com" AnchorPane.leftAnchor="100.0" />
             <Label layoutX="134.0" layoutY="218.0" text="senha" AnchorPane.leftAnchor="100.0">
                <font>
                   <Font size="10.0" />
@@ -44,7 +49,7 @@
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
             </Label>
-            <PasswordField fx:id="senhaLoginText" layoutX="101.0" layoutY="236.0" prefHeight="26.0" prefWidth="337.0" text="tainan123" />
+            <PasswordField fx:id="senhaLoginText" layoutX="101.0" layoutY="236.0" prefHeight="26.0" prefWidth="337.0" text="Tainan23" />
          </children>
          <effect>
             <DropShadow color="#9e9e9e" />
@@ -109,29 +114,23 @@
             <DropShadow color="#9e9e9e" />
          </effect>
       </AnchorPane>
-      <Label focusTraversable="false" layoutX="599.0" layoutY="168.0" prefHeight="180.0" prefWidth="397.0" text=" ARGUS" textFill="WHITE" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="599.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="168.0">
+      <Label focusTraversable="false" layoutX="599.0" layoutY="135.0" prefHeight="180.0" prefWidth="397.0" text=" ARGUS" AnchorPane.bottomAnchor="149.0" AnchorPane.leftAnchor="599.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="135.0">
          <font>
             <Font name="System Bold" size="75.0" />
          </font>
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
-         <effect>
-            <DropShadow />
-         </effect>
       </Label>
-      <Label focusTraversable="false" layoutX="599.0" layoutY="299.0" text=" acad  " textFill="WHITE" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="599.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="299.0">
+      <Label focusTraversable="false" layoutX="599.0" layoutY="266.0" text=" acad  " AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="599.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="266.0">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
-         <effect>
-            <DropShadow />
-         </effect>
       </Label>
-      <Label layoutX="955.0" layoutY="25.0" onMousePressed="#sairButton" prefHeight="26.0" prefWidth="48.0" text=" Sair" textFill="WHITE" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0">
+      <Label layoutX="955.0" layoutY="31.0" onMousePressed="#sairButton" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #DCDCDC;" text=" Sair" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="31.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -139,7 +138,7 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
          <effect>
-            <DropShadow />
+            <DropShadow color="#838383" />
          </effect>
       </Label>
    </children>

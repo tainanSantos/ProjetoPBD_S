@@ -39,6 +39,17 @@ public class Configuracoes implements Initializable {
     //__________________________________________________________________________________________________________________
 
 
+    private void restricoesAcesso(){
+        salvarCurriculoButton.setDisable(true);
+        redefinirConfiguracaoCurriculoButton.setDisable(true);
+        bimentralRadioButton.setDisable(true);
+        trimestralRadioButton.setDisable(true);
+        valorParcelaAnosFinaisEFText.setDisable(true);
+        valorParcelaAnosIniciasiEFText.setDisable(true);
+        valorParcelaEnsinoMedioEMText.setDisable(true);
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (Main.getTipoUsuario()!=null) {
@@ -46,10 +57,13 @@ public class Configuracoes implements Initializable {
                 case ("Adiminstração"):
                     break;
                 case ("Direção"):
+                    restricoesAcesso();
                     break;
                 case ("Coordenação Pedagogica"):
+                    restricoesAcesso();
                     break;
                 case ("Secretaria"):
+                    restricoesAcesso();
                     break;
             }
         }

@@ -6,6 +6,9 @@ import projeto_pbd.com.br.util.SqlUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class DaoUsuario implements IDaoUsuario {
@@ -14,6 +17,8 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario save(Usuario usuario) {
         EntityManager em = new Conection().getEntityManager ();
+
+        usuario.setSenha(functioCrip2(usuario.getSenha()));
 
         try {
             em.getTransaction ().begin ();
@@ -110,7 +115,7 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario validarLoginSenha(String email, String senha) {
         EntityManager em = new Conection().getEntityManager ();
-
+        senha = functioCrip2(senha);
         Usuario usuario = null;
 
         try {
@@ -126,5 +131,18 @@ public class DaoUsuario implements IDaoUsuario {
         return usuario;
     }
 
+
+    public String functioCrip2(String senha){
+        String sen = "";
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+        sen = hash.toString(16);
+        return sen;
+    }
 
 }

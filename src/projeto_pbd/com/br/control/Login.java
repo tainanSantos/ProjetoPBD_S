@@ -12,10 +12,7 @@ import projeto_pbd.com.br.modell.Usuario;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class Login implements Initializable {
@@ -55,11 +52,6 @@ public class Login implements Initializable {
 
     public void fazerLogin()  {
 
-//        emailLoginText.setText("tainan@gmail.com");
-//        senhaLoginText.setText("tainan123");
-
-
-
         if (Facade.getInstance().findAllUsuario().isEmpty()) { // se não estiver vazia aí sim eu vou chamar isso aqui!
             try {
                 Main.stageLogin().close();
@@ -71,10 +63,12 @@ public class Login implements Initializable {
 
             Usuario usuario = null;
             usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
-                    functioCrip2(senhaLoginText.getText()));
+                    (senhaLoginText.getText()));
 
             if (usuario != null) {
                 try {
+
+                    Main.setUsuarioLogado(usuario);
                     Main.setTipoUsuario(usuario.getTipoDeAcesso()); // tipo de usuário que tá acessando o banco
                     Main.stageLogin().close();
                     Main.stagePrincipal().show();
@@ -90,20 +84,19 @@ public class Login implements Initializable {
 
 
     public void redefinirSenha(){
-        // verificando se realmente é o usuário que esta inserido no banco
-        senhaPadraoRedefinirSenhaText.clear();
         Usuario usuario = null;
         usuario = Facade.getInstance().validarLoginSenha(emailRedefinirSenhaText.getText(),
-                functioCrip2(senhaPadraoRedefinirSenhaText.getText()));
+                (senhaPadraoRedefinirSenhaText.getText()));
 
         if (usuario != null){
             // s ok!
             // vamos validar o campo da senha nova
             if (novaSenhaRedefinirSenhaText.getText().length()>=6){
-                usuario.setSenha(functioCrip2(novaSenhaRedefinirSenhaText.getText()));
+                usuario.setSenha((novaSenhaRedefinirSenhaText.getText()));
                 Facade.getInstance().saveUsuario(usuario);
                 sairDeRecuperarSenha();
                 Mensagem.mensagemSucesso("Senha Atualizada com sucesso");
+                Main.setNotificatioSenhaUpdateUser(usuario);
                 senhaPadraoRedefinirSenhaText.clear();
             }else {
                 Mensagem.mensagemErro("A NOVA SENHA deve conter no mínimo 6 caracteres!");
@@ -134,20 +127,6 @@ public class Login implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    public String functioCrip2(String senha){
-        String sen = "";
-        MessageDigest md = null;
-        try {
-            md = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
-        sen = hash.toString(16);
-        return sen;
     }
 
 

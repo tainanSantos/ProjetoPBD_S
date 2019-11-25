@@ -59,6 +59,15 @@ public class CadastroCurriculoEDisciplina implements Initializable {
 //    private List listUfsEnsino = new ArrayList(Arrays.asList (new String[]{"- EF-AI-1", "- EF-AI-2a5",
 //            "- EF-AF-6a8", "- EF-AI-9", "- EM-1", "- EM-2", "- EM-3", } ));
 
+    private void restricoesAcesso(){
+        pesquisarDisciplinaButton.setDisable(true);
+        apagarDisciplinaButton.setDisable(true);
+        novaDiplinaButton.setDisable(true);
+        novoTipoCurriculoButton.setDisable(true);
+        salvarDisciplinaButton.setDisable(true);
+        salvarDisciplinaNOCurriculoButton.setDisable(true);
+    }
+
 
     //__________________________________________________________________________________________________________________
 
@@ -66,21 +75,17 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
-//            Tireio posis o adminstrador tem acesso total
-//            case ("Adiminstração"):
-//                System.out.println("Adm");
-//                break;
+                case ("Adiminstração"):
+                    break;
                 case ("Direção"):
-                    System.out.println("Direção");
+                    restricoesAcesso();
                     break;
                 case ("Coordenação Pedagogica"):
-                    System.out.println("Cood Ped");
+                    restricoesAcesso();
                     break;
                 case ("Secretaria"):
-                    System.out.println("Secretaria");
                     break;
             }
         }

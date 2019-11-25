@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.msg.Mensagem;
 
 public class Main extends Application {
 
@@ -35,15 +37,21 @@ public class Main extends Application {
 
 	//__________________________________________________________________________________________________________________
 
+
 	private static String TIPO_USUARIO;
+	private static Usuario NOTIFICATIO_SENHA_UPDATE_USER;
+	private static Usuario usuarioLogado;
+
 
 	//__________________________________________________________________________________________________________________
-
 
 
 	public static  Stage STAGE = new Stage(); // usar sempre que for abrir uma nova tela
 	public static  Stage STAGE2 = new Stage(); // usar sempre que for abrir uma nova tela2
 	public static  Stage STAGE_PRINCIPAL = new Stage();
+
+
+	//__________________________________________________________________________________________________________________
 
 	/*
 		"Não existe segredo. Apenas chegue antes, saia depois, faça mais do que te pedem e confie 100% em si mesmo"
@@ -148,11 +156,38 @@ public class Main extends Application {
 	}
 
 
+	//__________________________________________________________________________________________________________________
+
+
+	public static Usuario getNotificatioSenhaUpdateUser() {
+		if (NOTIFICATIO_SENHA_UPDATE_USER != null){
+			Mensagem.mensagemErro("Usuario: "+NOTIFICATIO_SENHA_UPDATE_USER.getNome()+
+					" tipo de acesso: "+NOTIFICATIO_SENHA_UPDATE_USER.getTipoDeAcesso()+
+					" de CPF: "+NOTIFICATIO_SENHA_UPDATE_USER.getCpf()+
+					" e email: " + NOTIFICATIO_SENHA_UPDATE_USER.getCpf()+
+					". Atualizou Senha.");
+		}
+		setNotificatioSenhaUpdateUser(null);
+		return null;
+	}
+
+	public static void setNotificatioSenhaUpdateUser(Usuario notificatioSenhaUpdateUser) {
+		NOTIFICATIO_SENHA_UPDATE_USER = notificatioSenhaUpdateUser;
+	}
+
 	public static String getTipoUsuario() {
 		return TIPO_USUARIO;
 	}
 
 	public static void setTipoUsuario(String tipoUsuario) {
 		TIPO_USUARIO = tipoUsuario;
+	}
+
+	public static Usuario getUsuarioLogado() {
+		return usuarioLogado;
+	}
+
+	public static void setUsuarioLogado(Usuario usuarioLogado) {
+		Main.usuarioLogado = usuarioLogado;
 	}
 }

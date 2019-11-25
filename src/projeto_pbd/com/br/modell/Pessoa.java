@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.modell;
 
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public abstract class Pessoa {
     @Id
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
+    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     private Integer id;
 
     @OneToOne

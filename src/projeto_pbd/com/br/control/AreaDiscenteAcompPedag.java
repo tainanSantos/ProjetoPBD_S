@@ -48,15 +48,37 @@ public class AreaDiscenteAcompPedag implements Initializable {
 
     Aluno aluno = null;
 
-
+    private void restricoaAcesso(){
+        salvarAcompanhamentoButton.setDisable(true);
+        outrsAppButton.setDisable(true);
+    }
 
     //__________________________________________________________________________________________________________________
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
+
+        if (Main.getUsuarioLogado().getTipoDeAcesso().equalsIgnoreCase("Coordenação Pedagogica")) {
+            pedagogoLogadoText.setText(Main.getUsuarioLogado().getEmail());
+        }else pedagogoLogadoText.clear();
+
+        if (Main.getTipoUsuario()!=null) {
+            switch (Main.getTipoUsuario()) {
+                case ("Adiminstração"):
+                    break;
+                case ("Direção"):
+                    restricoaAcesso();
+                    break;
+                case ("Coordenação Pedagogica"):
+                    break;
+                case ("Secretaria"):
+                    restricoaAcesso();
+                    break;
+            }
+        }
+
+        Main.addOnChangeScreenListener(new Main.OnchangeSceneen() {
            @Override
            public void onScreenchanged(String newScene, Object userData) {
                aluno = (Aluno) userData;

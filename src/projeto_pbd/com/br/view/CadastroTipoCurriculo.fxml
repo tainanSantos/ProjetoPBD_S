@@ -42,8 +42,8 @@
                      </font>
                   </Label>
                   <TextField fx:id="nomeCurriculoText" prefHeight="26.0" prefWidth="414.0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#salvarCurriculoButton" prefHeight="26.0" prefWidth="186.0" text="salvar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#novoCurriculo" prefHeight="26.0" prefWidth="121.0" text="novo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="salvarCurriculoButton" mnemonicParsing="false" onAction="#salvarCurriculoButton" prefHeight="26.0" prefWidth="186.0" text="salvar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="novoCurriculoButton" mnemonicParsing="false" onAction="#novoCurriculo" prefHeight="26.0" prefWidth="121.0" text="novo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <Button fx:id="apagarTipoCurriculoButton" mnemonicParsing="false" onAction="#apagarTipoCurriculoAction" prefHeight="26.0" prefWidth="164.0" text="apagar" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                </children>
             </GridPane>

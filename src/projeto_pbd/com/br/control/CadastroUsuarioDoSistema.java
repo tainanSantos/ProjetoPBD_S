@@ -224,13 +224,14 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
             if (usuarioTable.getSelectionModel().getSelectedItem() != null){
                 // atualizar o usuário de o usuário já estiver cadastrado
-//                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
-//                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
+                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
+                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
                 mensagem = "Atualizado com Sucesso!";
                 List<Telefone> telefoneList = null;
                 telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
                 telefone.setId(telefoneList.get(0).getId());
                 telefone1.setId(telefoneList.get(1).getId());
+
             }
 
             usuario.setNome (nomeFuncionario.getText ());
@@ -239,7 +240,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
             usuario.setCpf (cpfFuncionario.getText ());
             usuario.setEmail (email.getText ());
             usuario.setStatus(true);
-            usuario.setSenha(funcaoCript(senhaPadrao()));
+            usuario.setSenha(senhaPadrao());
 
             usuario.setDataNascimento(dataNasFuncionario.getValue());
 
@@ -283,22 +284,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
         }
     }
 
-
-    public String funcaoCript(String string){
-        String plaintext = string;
-        MessageDigest m = null;
-        try {
-            m = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        m.reset();
-        m.update(plaintext.getBytes());
-        byte[] digest = m.digest();
-        BigInteger bigInt = new BigInteger(1,digest);
-        String hashtext = bigInt.toString(16);
-        return hashtext;
-    }
 
 
     public String senhaPadrao(){

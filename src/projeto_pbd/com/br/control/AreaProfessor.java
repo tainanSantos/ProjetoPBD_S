@@ -54,8 +54,6 @@ public class AreaProfessor implements Initializable {
     @FXML
     private TextField graduacaoProfessorText;
     @FXML
-    private Button apagarButton;
-    @FXML
     private Button adicionarProfessorDisciplinaButton;
     @FXML
     private Button salvarProfessorButton;
@@ -87,26 +85,32 @@ public class AreaProfessor implements Initializable {
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
 
 
+    private void restricoesAcesso(){
+        adicionarProfessorDisciplinaButton.setDisable(true);
+        pesquisaProfessorButton.setDisable(true);
+        apagarProfessorButton.setDisable(true);
+        salvarProfessorButton.setDisable(true);
+        novoProfessorButton.setDisable(true);
+
+    }
+
     //__________________________________________________________________________________________________________________
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
                 case ("Adiminstração"):
-                    System.out.println("Adm");
                     break;
                 case ("Direção"):
-                    System.out.println("Direção");
+                    restricoesAcesso();
                     break;
                 case ("Coordenação Pedagogica"):
-                    System.out.println("Cood Ped");
+                    restricoesAcesso();
                     break;
                 case ("Secretaria"):
-                    System.out.println("Secretaria");
                     break;
             }
         }
@@ -277,7 +281,7 @@ public class AreaProfessor implements Initializable {
             limparaCampos();
         }
 
-        if (event.getSource() == apagarButton){
+        if (event.getSource() == apagarProfessorButton){
 
         }
 

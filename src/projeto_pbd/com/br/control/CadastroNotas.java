@@ -68,6 +68,13 @@ public class CadastroNotas implements Initializable {
     @FXML
     private TextField vaFinalText;
 
+    @FXML
+    private Button buttonConfirmar;
+
+
+    private void restricoesAcesso(){
+        buttonConfirmar.setDisable(true);
+    }
 
     //__________________________________________________________________________________________________________________
 
@@ -76,14 +83,15 @@ public class CadastroNotas implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
                 case ("Adiminstração"):
                     break;
                 case ("Direção"):
+                    restricoesAcesso();
                     break;
                 case ("Coordenação Pedagogica"):
+                    restricoesAcesso();
                     break;
                 case ("Secretaria"):
                     break;

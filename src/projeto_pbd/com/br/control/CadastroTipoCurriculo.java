@@ -25,31 +25,37 @@ public class CadastroTipoCurriculo implements Initializable {
     private TableView<Curriculo> curriculosTable;
     @FXML
     private TableColumn<?, ?> curriculosColumn;
-    // vou precisar dos botões para a questão de restrição de acesso
+
+    @FXML
+    private Button salvarCurriculoButton;
+    @FXML
+    private Button novoCurriculoButton;
     @FXML
     private Button apagarTipoCurriculoButton;
 
+
+    private void restricoesAcesso(){
+        salvarCurriculoButton.setDisable(true);
+        novoCurriculoButton.setDisable(true);
+        apagarTipoCurriculoButton.setDisable(true);
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
-//            Tireio posis o adminstrador tem acesso total
-//            case ("Adiminstração"):
-//                System.out.println("Adm");
-//                break;
+                case ("Adiminstração"):
+                    break;
                 case ("Direção"):
-                    System.out.println("Direção");
+                    restricoesAcesso();
                     break;
                 case ("Coordenação Pedagogica"):
-                    System.out.println("Cood Ped");
+                    restricoesAcesso();
                     break;
                 case ("Secretaria"):
-                    System.out.println("Secretaria");
                     break;
             }
         }

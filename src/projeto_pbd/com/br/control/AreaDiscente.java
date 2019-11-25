@@ -137,19 +137,25 @@ public class AreaDiscente implements Initializable {
 
     //__________________________________________________________________________________________________________________
 
+
+    private void restricoaAcesso(){
+        salvarAlunoButton.setDisable(true);
+        apagraAlunoButton.setDisable(true);
+        novoAlunoButton.setDisable(true);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
                 case ("Adiminstração"):
                     break;
                 case ("Direção"):
-                    restricoesDeAcesso();
+                    restricoaAcesso();
                     break;
                 case ("Coordenação Pedagogica"):
-                    restricoesDeAcesso();
+                    restricoaAcesso();
                     break;
                 case ("Secretaria"):
                     acompanhamentoButton.setDisable(true);
@@ -264,11 +270,6 @@ public class AreaDiscente implements Initializable {
     }
 
 
-    public void restricoesDeAcesso(){
-        salvarAlunoButton.setDisable(true);
-        apagraAlunoButton.setDisable(true);
-        novoAlunoButton.setDisable(true);
-    }
 
 
     //__________________________________________________________________________________________________________________

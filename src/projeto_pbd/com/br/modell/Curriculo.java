@@ -21,7 +21,6 @@ public class Curriculo {
     private Configuracao configuracao;
 
 
-
     public Curriculo() {
     }
 

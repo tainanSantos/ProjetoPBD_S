@@ -57,16 +57,16 @@ public class Principal implements Initializable {
     @FXML
     private MenuItem sairUsuarioMenuItem;
 
-
+    //__________________________________________________________________________________________________________________
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
                 case ("Adiminstração"):
-                    // o unico que tera acesso a tudo
+                    // verificar aqui se alguem alterou a senha
+                    Main.getNotificatioSenhaUpdateUser();
                     break;
                 case ("Direção"):
                     acessorAreaAdiministrado();
