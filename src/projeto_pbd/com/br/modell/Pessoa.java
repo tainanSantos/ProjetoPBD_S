@@ -8,6 +8,15 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 
+/*
+*
+* o que falta pra gente termnar nisso aqui?
+* muita coisa mais a gente consegue pq a gente é ruim
+*
+*/
+
+
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa {

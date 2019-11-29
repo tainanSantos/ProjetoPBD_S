@@ -74,6 +74,8 @@ public class CadastroUsuarioDoSistema implements Initializable {
     @FXML
     private TextField cidadeFuncionario;
     @FXML
+    private TextField novaSenhaGetText;
+    @FXML
     private Button salvarUsuarioButton;
     @FXML
     private TextField email;
@@ -102,8 +104,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        setUsuarioLis(Facade.getInstance().findAllUsuario());
-//        atualizarTabela(getUsuarioLis());
 
         //RESTRIÇÃO DE ACESSO
         if (Main.getTipoUsuario()!=null) {
@@ -111,16 +111,23 @@ public class CadastroUsuarioDoSistema implements Initializable {
                 case ("Adiminstração"):
                     break;
                 case ("Direção"):
-                    System.out.println("Direção");
                     break;
                 case ("Coordenação Pedagogica"):
-                    System.out.println("Cood Ped");
                     break;
                 case ("Secretaria"):
-                    System.out.println("Secretaria");
                     break;
             }
         }
+
+
+        // já vai funcionara e a restrição de converção também não vai mais interferir
+        cpfFuncionario.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (cepFuncionario.getText().length() == 14)
+                    novaSenhaGetText.setText(senhaPadrao());
+            }
+        });
 
 
         atualizarTabela(Facade.getInstance().findAllUsuario());
@@ -177,7 +184,11 @@ public class CadastroUsuarioDoSistema implements Initializable {
     }
 
 
+    public void senhaPadraoAction(ActionEvent actionEvent){
+        if (usuarioTable.getSelectionModel().getSelectedItem()!=null){
 
+        }
+    }
 
     public void atualizarTabela(List<Usuario> usuarioList){
         statusColum.setCellValueFactory(new PropertyValueFactory("status"));

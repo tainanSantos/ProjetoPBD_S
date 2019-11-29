@@ -111,7 +111,7 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario validarLoginSenha(String email, String senha) {
         EntityManager em = new Conection().getEntityManager ();
-        senha = functioCrip2(senha);
+        senha =  functioCrip2(senha);
         Usuario usuario = null;
 
         try {
@@ -129,7 +129,8 @@ public class DaoUsuario implements IDaoUsuario {
 
 
     public String functioCrip2(String senha){
-        String sen = "";
+        String sen = ""
+                ;
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("MD5");
