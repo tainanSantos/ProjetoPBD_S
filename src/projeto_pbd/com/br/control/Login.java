@@ -1,5 +1,6 @@
 package projeto_pbd.com.br.control;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -9,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
@@ -61,7 +63,7 @@ public class Login implements Initializable {
             }
         }else {
 
-            Usuario usuario = null;
+            Usuarioview usuario= null;
             usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
                     (senhaLoginText.getText()));
 
@@ -69,7 +71,7 @@ public class Login implements Initializable {
                 try {
 
                     Main.setUsuarioLogado(usuario);
-                    Main.setTipoUsuario(usuario.getTipoDeAcesso()); // tipo de usuário que tá acessando o banco
+                    Main.setTipoUsuario(usuario.getTipodeacesso()); // tipo de usuário que tá acessando o banco
                     Main.stageLogin().close();
                     Main.stagePrincipal().show();
                     Main.stagePrincipal().setMaximized(true);
@@ -83,29 +85,34 @@ public class Login implements Initializable {
     }
 
 
-    public void redefinirSenha(){
-        Usuario usuario = null;
+    @FXML
+    void redefinirSenha(ActionEvent event) {
+
+        Usuarioview usuario = null;
         usuario = Facade.getInstance().validarLoginSenha(emailRedefinirSenhaText.getText(),
                 (senhaPadraoRedefinirSenhaText.getText()));
-
-        if (usuario != null){
+        Usuario user = new Usuario();
+        user.setSenha(usuario.getSenha());
+        user.setEmail(usuario.getEmail());
+        user.setId(usuario.getPessoa_id());
+        user.setTipoDeAcesso(usuario.getTipodeacesso());
+        if (user != null){
             // s ok!
             // vamos validar o campo da senha nova
             if (novaSenhaRedefinirSenhaText.getText().length()>=6){
                 usuario.setSenha((novaSenhaRedefinirSenhaText.getText()));
-                Facade.getInstance().saveUsuario(usuario);
-                sairDeRecuperarSenha();
+                Facade.getInstance().saveUsuario(user);
                 Mensagem.mensagemSucesso("Senha Atualizada com sucesso");
-                Main.setNotificatioSenhaUpdateUser(usuario);
+                Main.setNotificatioSenhaUpdateUser(user);
                 senhaPadraoRedefinirSenhaText.clear();
             }else {
                 Mensagem.mensagemErro("A NOVA SENHA deve conter no mínimo 6 caracteres!");
             }
-        }
-        else{
+        }else{
             Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
         }
     }
+
 
 
     public void recuperarSenha(){

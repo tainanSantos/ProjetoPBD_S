@@ -8,7 +8,6 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Professor extends Pessoa  {
 
-
     private String graduacao;
     private String cpf;
 

@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 import projeto_pbd.com.br.util.SqlUtil;
 
@@ -54,12 +55,12 @@ public class DaoUsuario implements IDaoUsuario {
 
 
     @Override
-    public List<Usuario> findAll() {
+    public List<Usuarioview> findAllUsuarioview() {
         EntityManager em = new Conection().getEntityManager ();
-        List<Usuario> usuarios = null;
+        List<Usuarioview> usuarios = null;
 
         try {
-            usuarios = em.createQuery ("from Usuario").getResultList ();
+            usuarios = em.createQuery ("from Usuarioview").getResultList ();
         }catch (Exception e ){
             em.getTransaction ().rollback ();
         }finally {
@@ -71,11 +72,11 @@ public class DaoUsuario implements IDaoUsuario {
 
 
     @Override
-    public List<Usuario> findAllNome(String nome) {
+    public List<Usuarioview> findAllNome(String nome) {
         EntityManager em = new Conection().getEntityManager ();
-        List<Usuario> usuarios = null;
+        List<Usuarioview> usuarios = null;
         try {
-            TypedQuery<Usuario> query = em.createQuery(SqlUtil.BUSCAR_USUARIO_POR_NOME, Usuario.class);
+            TypedQuery<Usuarioview> query = em.createQuery(SqlUtil.BUSCAR_USUARIO_POR_NOME, Usuarioview.class);
             query.setParameter("nome", "%"+nome+"%");
             usuarios = query.getResultList();
 
@@ -109,13 +110,13 @@ public class DaoUsuario implements IDaoUsuario {
 
 
     @Override
-    public Usuario validarLoginSenha(String email, String senha) {
+    public Usuarioview validarLoginSenha(String email, String senha) {
         EntityManager em = new Conection().getEntityManager ();
         senha =  functioCrip2(senha);
-        Usuario usuario = null;
+        Usuarioview usuario = null;
 
         try {
-            TypedQuery<Usuario> query = em.createQuery (SqlUtil.BUSCAR_USUARIO_LOGIN_SENHA, Usuario.class);
+            TypedQuery<Usuarioview> query = em.createQuery (SqlUtil.BUSCAR_USUARIO_LOGIN_SENHA, Usuarioview.class);
             query.setParameter("email", email);
             query.setParameter("senha", senha);
             usuario = query.getSingleResult();
@@ -140,6 +141,11 @@ public class DaoUsuario implements IDaoUsuario {
         BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
         sen = hash.toString(16);
         return sen;
+    }
+
+    public static void main(String[] args) {
+        DaoUsuario daoUsuario = new DaoUsuario();
+        System.out.println(daoUsuario.findAllUsuarioview());
     }
 
 }

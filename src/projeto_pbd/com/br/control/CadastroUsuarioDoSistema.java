@@ -1,5 +1,6 @@
 package projeto_pbd.com.br.control;
 
+
 /*
 * com retorno   PROSSIDURE
 * sem retorno   FUNÇÃO
@@ -7,7 +8,7 @@ package projeto_pbd.com.br.control;
 
 /*
 * a estory procidure é uma função que não esta assosciada a tabela
-* gatilho é uma função assonciada a tabela que quando acontecer alguma coisa na tebela ele é incocado
+* gatilho é uma função assonciada a tabela que quando acontecer alguma coisa na tebela ele é invocado
 *   o gatilho quando chama a função ele altera alguam coisa na tabela
 *   o gatilho vai fazer o LOG e ALTERAÇÃO DO SISTEMA
 */
@@ -27,27 +28,30 @@ import projeto_pbd.com.br.façade.*;
 import projeto_pbd.com.br.modell.Endereco;
 import projeto_pbd.com.br.modell.Telefone;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
-import java.math.BigInteger;
+import java.io.IOException;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
+
 public class CadastroUsuarioDoSistema implements Initializable {
+
 
     @FXML
     private ComboBox comboboxTipoFunacionario;
     private List listTipoFuncionario = new ArrayList(Arrays.asList (new String[]{
             "Adiminstração","Direção","Coordenação Pedagogica", "Secretaria"}));
 
+
     @FXML
     private ComboBox comboboxUF;
     private List listUfs = new ArrayList (Arrays.asList (new String[]{"AC", "AL", "" +
             "AM", "AP", "BA", "CE", "DF","ES", "GO", "MA", "MG", "MS", "MT", "PA",
             "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RS", "SC","SE", "SP", "TO"} ));
+
 
     @FXML
     private TextField nomeFuncionario;
@@ -84,7 +88,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
     @FXML
     private Button novoUsuarioButton;
     @FXML
-    private TableView<Usuario> usuarioTable;
+    private TableView<Usuarioview> usuarioTable;
     @FXML
     private TableColumn<?, ?> statusColum;
     @FXML
@@ -98,9 +102,9 @@ public class CadastroUsuarioDoSistema implements Initializable {
     @FXML
     private Button pesquisarUsuarioButton;
 
+
     //__________________________________________________________________________________________________________________
 
-//    private List<Usuario> usuarioLis = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,11 +125,24 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
 
         // já vai funcionara e a restrição de converção também não vai mais interferir
-        cpfFuncionario.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        cpfFuncionario.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (cepFuncionario.getText().length() == 14)
+                try {
                     novaSenhaGetText.setText(senhaPadrao());
+                }catch (StringIndexOutOfBoundsException e){
+                }catch (IllegalArgumentException e){}
+            }
+        });
+
+
+        nomeFuncionario.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                try {
+                    novaSenhaGetText.setText(senhaPadrao());
+                }catch (StringIndexOutOfBoundsException e){
+                }catch (IllegalArgumentException e){}
             }
         });
 
@@ -140,31 +157,32 @@ public class CadastroUsuarioDoSistema implements Initializable {
             }
         });
 
+
         usuarioTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 1){
                     if (usuarioTable.getSelectionModel().getSelectedItem() != null){
-                        Usuario usuario = null;
+                        Usuarioview usuario = null;
                         usuario = usuarioTable.getSelectionModel().getSelectedItem();
-                        logradouroFuncionario.setText(usuario.getEndereco().getLogradouro());
-                        numeroLogragouroFuncionario.setText(usuario.getEndereco().getNumero());
-                        complementoLogradouroFuncionario.setText(usuario.getEndereco().getComplemento());
-                        bairroFuncionario.setText(usuario.getEndereco().getBairro());
-                        cidadeFuncionario.setText(usuario.getEndereco().getCidade());
-                        comboboxUF.setValue(usuario.getEndereco().getUf());
-                        comboboxTipoFunacionario.setValue(usuario.getTipoDeAcesso());
+                        logradouroFuncionario.setText(usuario.getLogradouro());
+                        numeroLogragouroFuncionario.setText(usuario.getNumero());
+                        complementoLogradouroFuncionario.setText(usuario.getComplemento());
+                        bairroFuncionario.setText(usuario.getBairro());
+                        cidadeFuncionario.setText(usuario.getCidade());
+                        comboboxUF.setValue(usuario.getUf());
+                        comboboxTipoFunacionario.setValue(usuario.getTipodeacesso());
 
                         email.setText(usuario.getEmail());
-                        cepFuncionario.setText(usuario.getEndereco().getCep());
+                        cepFuncionario.setText(usuario.getCep());
                         cpfFuncionario.setText(usuario.getCpf());
 
-                        dataNasFuncionario.setValue(usuario.getDataNascimento()); // ainda não implementado
+                        dataNasFuncionario.setValue(usuario.getDatanascimento()); // ainda não implementado
 
                         naturalidadeFuncionario.setText(usuario.getNaturalidade());
                         nomeFuncionario.setText(usuario.getNome());
                         List<Telefone> telefoneList = null;
-                        telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
+                        telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getPessoa_id());
 
                         telefoneUmFuncionario.setText(telefoneList.get(0).getNumero());
                         telefoneDoisFuncionario.setText(telefoneList.get(1).getNumero());
@@ -172,6 +190,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
                 }
             }
         });
+
 
         this.comboboxTipoFunacionario.setItems (FXCollections.observableArrayList (this.listTipoFuncionario));
         this.comboboxUF.setItems (FXCollections.observableArrayList (this.listUfs));
@@ -190,7 +209,8 @@ public class CadastroUsuarioDoSistema implements Initializable {
         }
     }
 
-    public void atualizarTabela(List<Usuario> usuarioList){
+
+    public void atualizarTabela(List<Usuarioview> usuarioList){
         statusColum.setCellValueFactory(new PropertyValueFactory("status"));
         nomeColum.setCellValueFactory(new PropertyValueFactory("nome"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory("naturalidade"));
@@ -235,14 +255,13 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
             if (usuarioTable.getSelectionModel().getSelectedItem() != null){
                 // atualizar o usuário de o usuário já estiver cadastrado
-                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getId());
-                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco().getId());
+                usuario.setId(usuarioTable.getSelectionModel().getSelectedItem().getPessoa_id());
+                endereco.setId(usuarioTable.getSelectionModel().getSelectedItem().getEndereco_id());
                 mensagem = "Atualizado com Sucesso!";
                 List<Telefone> telefoneList = null;
                 telefoneList = Facade.getInstance().findAllIdTelefone(usuario.getId());
                 telefone.setId(telefoneList.get(0).getId());
                 telefone1.setId(telefoneList.get(1).getId());
-
             }
 
             usuario.setNome (nomeFuncionario.getText ());
@@ -251,7 +270,7 @@ public class CadastroUsuarioDoSistema implements Initializable {
             usuario.setCpf (cpfFuncionario.getText ());
             usuario.setEmail (email.getText ());
             usuario.setStatus(true);
-            usuario.setSenha(senhaPadrao());
+            usuario.setSenha(novaSenhaGetText.getText());
 
             usuario.setDataNascimento(dataNasFuncionario.getValue());
 
@@ -279,7 +298,6 @@ public class CadastroUsuarioDoSistema implements Initializable {
             Facade.getInstance().saveTelefone(telefone1);
             atualizarTabela(Facade.getInstance().findAllUsuario());
             limparaCampos();
-
         }
 
         if (event.getSource() == novoUsuarioButton){
@@ -290,10 +308,25 @@ public class CadastroUsuarioDoSistema implements Initializable {
 
         }
 
-        if (event.getSource() == pesquisarUsuarioButton){
-            atualizarTabela(Facade.getInstance().findAllUsuarioNome(pesquisaText.getText()));
+
+    }
+
+
+
+
+    @FXML
+    public void redefinirSenhaAction(ActionEvent event){
+        try {
+            if(usuarioTable.getSelectionModel().getSelectedItem()!=null) {
+                Main.genericaStage2(Main.REDEFINIR_SENHA_ADMIN).show();
+                Main.changeScreen("", usuarioTable.getSelectionModel().getSelectedItem());
+            }else
+                Mensagem.mensagemErro("Usuário não Selecionado, Selecicne um usuário e tente novamente!");
+        }catch (IOException e){
+//            Mensagem.mensagemErro("Erro a carregar a tela de cadastro notas!");
         }
     }
+
 
 
 

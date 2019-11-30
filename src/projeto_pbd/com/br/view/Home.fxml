@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Home">
    <children>
-      <ImageView fitHeight="688.0" fitWidth="1508.0" layoutX="-54.0" layoutY="-40.0" opacity="0.57" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-48.0" AnchorPane.leftAnchor="-54.0" AnchorPane.rightAnchor="-94.0" AnchorPane.topAnchor="-40.0">
+      <ImageView fitHeight="688.0" fitWidth="1508.0" layoutX="-54.0" layoutY="-40.0" opacity="0.13" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-48.0" AnchorPane.leftAnchor="-54.0" AnchorPane.rightAnchor="-94.0" AnchorPane.topAnchor="-40.0">
          <image>
             <Image url="@../../../img/aaa.jpg" />
          </image>

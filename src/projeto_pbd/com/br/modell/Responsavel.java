@@ -8,7 +8,6 @@ public class Responsavel extends  Pessoa {
 
     private String cpf;
 
-
     public Responsavel() {
     }
 

@@ -208,12 +208,12 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public List<Usuario> findAllUsuario() {
+    public List<Usuarioview> findAllUsuario() {
         return this.businessUsuario.findAllUsuario();
     }
 
     @Override
-    public List<Usuario> findAllUsuarioNome(String nome) {
+    public List<Usuarioview> findAllUsuarioNome(String nome) {
         return this.businessUsuario.findAllNome(nome);
     }
 
@@ -223,7 +223,7 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Usuario validarLoginSenha(String email, String senha) {
+    public Usuarioview validarLoginSenha(String email, String senha) {
         return this.businessUsuario.validarLoginSenha(email,senha);
     }
 

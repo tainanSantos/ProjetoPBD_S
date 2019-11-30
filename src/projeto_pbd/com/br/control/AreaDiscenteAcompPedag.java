@@ -59,7 +59,7 @@ public class AreaDiscenteAcompPedag implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if (Main.getUsuarioLogado().getTipoDeAcesso().equalsIgnoreCase("Coordenação Pedagogica")) {
+        if (Main.getUsuarioLogado().getTipodeacesso().equalsIgnoreCase("Coordenação Pedagogica")) {
             pedagogoLogadoText.setText(Main.getUsuarioLogado().getEmail());
         }else pedagogoLogadoText.clear();
 

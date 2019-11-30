@@ -27,12 +27,12 @@ public class BusinessUsuario implements IBusinessUsuario {
     }
 
     @Override
-    public List<Usuario> findAllUsuario() {
-        return this.daoUsuario.findAll ();
+    public List<Usuarioview> findAllUsuario() {
+        return this.daoUsuario.findAllUsuarioview ();
     }
 
     @Override
-    public List<Usuario> findAllNome(String nome) {
+    public List<Usuarioview> findAllNome(String nome) {
         return this.daoUsuario.findAllNome(nome);
     }
 
@@ -42,7 +42,7 @@ public class BusinessUsuario implements IBusinessUsuario {
     }
 
     @Override
-    public Usuario validarLoginSenha(String email, String senha) {
+    public Usuarioview validarLoginSenha(String email, String senha) {
         return this.daoUsuario.validarLoginSenha(email,senha);
     }
 }

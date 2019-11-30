@@ -88,11 +88,5 @@ public class DaoNotas implements IDaoNotas {
     }
 
 
-    public static void main(String[] args) {
-
-        DaoNotas daoNotas = new DaoNotas();
-
-        System.out.println(daoNotas.findAllNotas(2));
-    }
 
 }

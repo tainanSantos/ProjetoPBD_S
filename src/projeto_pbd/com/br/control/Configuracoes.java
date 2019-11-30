@@ -65,8 +65,12 @@ public class Configuracoes implements Initializable {
 
 
         Configuracao configuracao = null;
-        configuracao = Facade.getInstance().findAllConfiguracao().get(0);
-        System.out.println(configuracao);
+        try {
+            configuracao = Facade.getInstance().findAllConfiguracao().get(0);
+        }catch (IndexOutOfBoundsException e){
+            redefinirConfiguracaoCurriculoAction();
+            configuracao = Facade.getInstance().findAllConfiguracao().get(0);
+        }
 
         bimentralRadioButton.setSelected(configuracao.getCurriculoPorBimesntre());
         trimestralRadioButton.setSelected(configuracao.getCurriculoPorTrimestre());
@@ -94,10 +98,12 @@ public class Configuracoes implements Initializable {
     //__________________________________________________________________________________________________________________
 
     @FXML
-    void salvarCurriculoAction(ActionEvent event) {
+    void salvarCurriculoAction() {
         Configuracao configuracao = new Configuracao();
         // dessa forma apenas um tipo de configuração será registrada no banco
+
         configuracao.setId(Facade.getInstance().findAllConfiguracao().get(0).getId());
+
         configuracao.setCurriculoPorBimesntre(bimentralRadioButton.isSelected());
         configuracao.setCurriculoPorTrimestre(trimestralRadioButton.isSelected());
         configuracao.setValorParcelaAnosIniciaisEF(Double.parseDouble(valorParcelaAnosIniciasiEFText.getText()));
@@ -108,7 +114,7 @@ public class Configuracoes implements Initializable {
     }
 
     @FXML
-    void redefinirConfiguracaoCurriculoAction(ActionEvent event) {
+    void redefinirConfiguracaoCurriculoAction() {
         bimentralRadioButton.setSelected(true);
         trimestralRadioButton.setSelected(false);
         valorParcelaAnosIniciasiEFText.setText("400.0");
@@ -117,14 +123,20 @@ public class Configuracoes implements Initializable {
 
         Configuracao configuracao = new Configuracao();
         // dessa forma apenas um tipo de configuração será registrada no banco
-        configuracao.setId(Facade.getInstance().findAllConfiguracao().get(0).getId());
+        String mensagem = "Configuração Redefinidas Com Sucesso!";
+        try {
+            configuracao.setId(Facade.getInstance().findAllConfiguracao().get(0).getId());
+        }catch (IndexOutOfBoundsException e){
+            mensagem = null;
+        }
         configuracao.setCurriculoPorBimesntre(bimentralRadioButton.isSelected());
         configuracao.setCurriculoPorTrimestre(trimestralRadioButton.isSelected());
         configuracao.setValorParcelaAnosIniciaisEF(Double.parseDouble(valorParcelaAnosIniciasiEFText.getText()));
         configuracao.setValorParcelaAnosFinaisEF(Double.parseDouble(valorParcelaAnosFinaisEFText.getText()));
         configuracao.setValorParcelaAensinoMedioEM(Double.parseDouble(valorParcelaEnsinoMedioEMText.getText()));
         Facade.getInstance().saveConfiguracao(configuracao);
-        Mensagem.mensagemConfirmacao("Configuração Redefinidas Com Sucesso!");
+        if (mensagem!=null)
+            Mensagem.mensagemConfirmacao(mensagem);
 
     }
 

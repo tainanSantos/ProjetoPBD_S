@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.msg.Mensagem;
 
 public class Main extends Application {
@@ -33,6 +34,7 @@ public class Main extends Application {
 	public static final String CADASTRAR_USUARIO_DO_SISTEMA = "com/br/view/CadastrarUsuarioDoSistema.fxml";
 	public static final String CADASTRAR_TIPO_CURRICULO = "com/br/view/CadastroTipoCurriculo.fxml";
 	public static final String TURMA_GERENCIAMENTO = "com/br/view/TurmaGerenciamento.fxml";
+	public static final String REDEFINIR_SENHA_ADMIN = "com/br/view/RedefinirSenha.fxml";
 
 
 	//__________________________________________________________________________________________________________________
@@ -40,7 +42,7 @@ public class Main extends Application {
 
 	private static String TIPO_USUARIO;
 	private static Usuario NOTIFICATIO_SENHA_UPDATE_USER;
-	private static Usuario usuarioLogado;
+	private static Usuarioview usuarioLogado;
 
 
 	//__________________________________________________________________________________________________________________
@@ -183,11 +185,11 @@ public class Main extends Application {
 		TIPO_USUARIO = tipoUsuario;
 	}
 
-	public static Usuario getUsuarioLogado() {
+	public static Usuarioview getUsuarioLogado() {
 		return usuarioLogado;
 	}
 
-	public static void setUsuarioLogado(Usuario usuarioLogado) {
+	public static void setUsuarioLogado(Usuarioview usuarioLogado) {
 		Main.usuarioLogado = usuarioLogado;
 	}
 }

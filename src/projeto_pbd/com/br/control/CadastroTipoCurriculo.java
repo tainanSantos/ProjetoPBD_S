@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class CadastroTipoCurriculo implements Initializable {
 
+
     @FXML
     private TextField nomeCurriculoText;
     @FXML
@@ -84,7 +85,14 @@ public class CadastroTipoCurriculo implements Initializable {
             curriculo.setId(curriculosTable.getSelectionModel().getSelectedItem().getId());
             mensagem = "Curriculo Atualizado Com Sucesso!";
         }
-        curriculo.setConfiguracao(Facade.getInstance().findAllConfiguracao().get(0));
+
+        try {
+            curriculo.setConfiguracao(Facade.getInstance().findAllConfiguracao().get(0));
+        }catch (IndexOutOfBoundsException e){
+            Mensagem.mensagemErro("Redefina a configuração do currículo , antes add um novo currículo");
+            return; // para ele sair do método sem executar mais nada
+        }
+
         curriculo.setStatus(true);
         curriculo.setNome(nomeCurriculoText.getText());
         Facade.getInstance().saveCurriculo(curriculo);

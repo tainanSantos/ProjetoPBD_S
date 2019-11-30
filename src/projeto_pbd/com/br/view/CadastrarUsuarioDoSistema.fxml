@@ -227,7 +227,8 @@
                         <DropShadow color="#656565" />
                      </effect>
                   </Separator>
-                  <TextField fx:id="novaSenhaGetText" layoutX="574.0" layoutY="281.0" onAction="#senhaPadraoAction" prefHeight="26.0" prefWidth="146.0" />
+                  <TextField fx:id="novaSenhaGetText" editable="false" layoutX="574.0" layoutY="281.0" onAction="#senhaPadraoAction" prefHeight="26.0" prefWidth="146.0" />
+                  <Button fx:id="redefiniSenhaButton" blendMode="EXCLUSION" layoutX="852.0" layoutY="280.0" mnemonicParsing="false" onAction="#redefinirSenhaAction" prefHeight="30.0" prefWidth="145.0" text="Redefinir Senha" AnchorPane.rightAnchor="0.0" />
                   </children>
               </AnchorPane>
               <Label layoutX="44.0" layoutY="31.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #000000;" text="  Cadastro Usuário" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">

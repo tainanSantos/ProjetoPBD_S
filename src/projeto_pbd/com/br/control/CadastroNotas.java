@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
 
 // AQUI TUDO OK
 
+
 public class CadastroNotas implements Initializable {
 
     /*
@@ -197,6 +198,16 @@ public class CadastroNotas implements Initializable {
             integerList.add(nota.getTerceiraVa());
             integerList.add(nota.getQuartaVa());
             integerList.add(nota.getFinalVa());
+
+
+            // implantar as regras de negócioa aqui
+            //  tudo o que ainda não foi implementado
+
+
+            // como vai funcionara?
+            // verificar qual configuração que foi setada la  no configuração
+            // montar as regras de negócio em cima das configuração já predefinidas
+
 
             Integer caount = 0;
             Double soma = 0.0;

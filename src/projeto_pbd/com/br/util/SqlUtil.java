@@ -6,9 +6,9 @@ public class SqlUtil {
 
     }
 
-    public static final String BUSCAR_USUARIO_POR_NOME = "select u from Usuario u where u.nome like :nome";
+    public static final String BUSCAR_USUARIO_POR_NOME = "select u from Usuarioview u where u.nome like :nome";
 
-    public static final String BUSCAR_USUARIO_LOGIN_SENHA = "select u from Usuario u where u.email = :email and u.senha = :senha";
+    public static final String BUSCAR_USUARIO_LOGIN_SENHA = "select u from Usuarioview u where u.email = :email and u.senha = :senha";
 
     public static final String BUSCAR_ALUNO_POR_NOME = "select a from Aluno a where a.nome like :nome";
 

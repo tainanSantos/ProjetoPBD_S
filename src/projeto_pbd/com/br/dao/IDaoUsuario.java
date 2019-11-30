@@ -12,13 +12,13 @@ public interface IDaoUsuario {
 
     public Usuario findById(Integer id);
 
-    public List<Usuario> findAll();
+    public List<Usuarioview> findAllUsuarioview();
 
-    public List<Usuario> findAllNome(String nome);
+    public List<Usuarioview> findAllNome(String nome);
 
     public Usuario remove(Integer id);
 
-    public  Usuario validarLoginSenha(String email, String senha);
+    public  Usuarioview validarLoginSenha(String email, String senha);
 
 
 }
