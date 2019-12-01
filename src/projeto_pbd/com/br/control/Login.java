@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.msg.Mensagem;
 
@@ -70,6 +71,17 @@ public class Login implements Initializable {
             if (usuario != null) {
                 try {
 
+                    // o usuário logado eu vou usar na auditoria
+                    // quando for preciso
+                    UsuarioLogado usuarioLogado = new UsuarioLogado();
+                    usuarioLogado.setId(4);
+                    usuarioLogado.setCpf(usuario.getCpf());
+                    usuarioLogado.setEmail(usuario.getEmail());
+                    usuarioLogado.setNome(usuario.getNome());
+                    usuarioLogado.setTipodeacesso(usuario.getTipodeacesso());
+
+                    Facade.getInstance().saveUsuarioLogado(usuarioLogado);
+
                     Main.setUsuarioLogado(usuario);
                     Main.setTipoUsuario(usuario.getTipodeacesso()); // tipo de usuário que tá acessando o banco
                     Main.stageLogin().close();
@@ -92,7 +104,12 @@ public class Login implements Initializable {
         usuario = Facade.getInstance().validarLoginSenha(emailRedefinirSenhaText.getText(),
                 (senhaPadraoRedefinirSenhaText.getText()));
         Usuario user = new Usuario();
-        user.setSenha(usuario.getSenha());
+        try {
+            user.setSenha(usuario.getSenha());
+        }catch (NullPointerException e){
+            Mensagem.mensagemErro("Campos não informados!");
+            return;
+        }
         user.setEmail(usuario.getEmail());
         user.setId(usuario.getPessoa_id());
         user.setTipoDeAcesso(usuario.getTipodeacesso());

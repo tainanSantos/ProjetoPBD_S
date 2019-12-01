@@ -20,6 +20,7 @@ public class Curriculo {
     @ManyToOne
     private Configuracao configuracao;
 
+    private Double valorParcela;
 
     public Curriculo() {
     }
@@ -54,6 +55,14 @@ public class Curriculo {
 
     public void setConfiguracao(Configuracao configuracao) {
         this.configuracao = configuracao;
+    }
+
+    public Double getValorParcela() {
+        return valorParcela;
+    }
+
+    public void setValorParcela(Double valorParcela) {
+        this.valorParcela = valorParcela;
     }
 
     @Override

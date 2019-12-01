@@ -241,14 +241,13 @@
               </Label>
             <TableView fx:id="usuarioTable" layoutX="20.0" layoutY="475.0" prefHeight="258.0" prefWidth="994.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
               <columns>
-                <TableColumn fx:id="statusColum" prefWidth="75.0" text="status" />
-                <TableColumn fx:id="nomeColum" prefWidth="75.0" text="nome" />
-                  <TableColumn fx:id="naturalidadeColum" prefWidth="75.0" text="naturalidade" />
-                  <TableColumn fx:id="tipoAcessoColum" prefWidth="75.0" text="tipo de acesso" />
+                  <TableColumn fx:id="statusColum" prefWidth="70.0" text="status" />
+                  <TableColumn fx:id="nomeColum" prefWidth="190.0" text="nome" />
+                  <TableColumn fx:id="emailColum" prefWidth="190.0" text="e-mail" />
+                  <TableColumn fx:id="cpfColum" prefWidth="160.0" text="cpf" />
+                  <TableColumn fx:id="naturalidadeColum" prefWidth="190.0" text="naturalidade" />
+                  <TableColumn fx:id="tipoAcessoColum" prefWidth="192.0" text="tipo de acesso" />
               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
             </TableView>
             <TextField fx:id="pesquisaText" layoutX="20.0" layoutY="583.0" prefHeight="26.0" prefWidth="382.0" promptText="Pesquisar ..." />
             <Button fx:id="pesquisarUsuarioButton" blendMode="EXCLUSION" layoutX="422.0" layoutY="581.0" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="130.0" text="Pesquisar" />

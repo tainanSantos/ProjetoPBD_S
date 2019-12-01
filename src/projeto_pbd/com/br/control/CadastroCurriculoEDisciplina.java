@@ -13,6 +13,7 @@ import projeto_pbd.Main;
 import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.Curriculo;
 import projeto_pbd.com.br.modell.Disciplina;
+import projeto_pbd.com.br.modell.Nota;
 import projeto_pbd.com.br.msg.Mensagem;
 
 import java.io.IOException;
@@ -118,6 +119,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
                 }
             }
         });
+
         tiposCurriculoCombobox.setItems(FXCollections.observableArrayList(Facade.getInstance().findAllCurriculo()));
     }
 
@@ -166,6 +168,9 @@ public class CadastroCurriculoEDisciplina implements Initializable {
 
         disciplina = Facade.getInstance().saveDisciplina(disciplina);
 
+        Nota nota = new Nota();
+        nota.setDisciplina(disciplina);
+        Facade.getInstance().saveNota(nota);
 
         limparCampos();
         Mensagem.mensagemSucesso(mensagem);
@@ -177,17 +182,19 @@ public class CadastroCurriculoEDisciplina implements Initializable {
     @FXML
     void actionSaveDisciplinaCurriculo(ActionEvent event) {
         Curriculo curriculo =  new Curriculo();
+        Disciplina disciplina = null;
         String mensagem = "Salvo com Sucesso!";
         curriculo = Facade.getInstance().findByIdCurriculo(
                 tiposCurriculoCombobox.getSelectionModel().getSelectedItem().getId());
         // fazer a parada lá de atualizar Curriculo
 
         try {
-            disciplinasTable.getSelectionModel().getSelectedItem().setCurriculo(curriculo);
+            disciplina = disciplinasTable.getSelectionModel().getSelectedItem();
+            disciplina.setCurriculo(curriculo);
         }catch (NullPointerException e){
             Mensagem.mensagemErro("Nenhuma Disciplina Selecionanda! Selecione antes a disciplina");
         }
-        Facade.getInstance().saveDisciplina(disciplinasTable.getSelectionModel().getSelectedItem());
+        Facade.getInstance().saveDisciplina(disciplina);
         Mensagem.mensagemSucesso(mensagem);
     }
 

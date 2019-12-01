@@ -17,33 +17,36 @@
 
 <AnchorPane prefHeight="464.0" prefWidth="1024.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Login">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="1063.0" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+      <ImageView fitHeight="522.0" fitWidth="1063.0" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-10.0">
          <image>
             <Image url="@../../../img/aaa.jpg" />
          </image>
       </ImageView>
       <AnchorPane id=" Login" fx:id="anchorPaneLoginLogin" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
          <children>
-            <Label layoutX="133.0" layoutY="67.0" text="Login" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="70.0">
+            <Label layoutX="33.0" layoutY="61.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #2e2c2c;" text="  Login" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
+               <effect>
+                  <DropShadow color="#868181" />
+               </effect>
             </Label>
             <Label layoutX="133.0" layoutY="152.0" text="e-mail" AnchorPane.leftAnchor="100.0">
                <font>
-                  <Font size="10.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
             <TextField fx:id="emailLoginText" layoutX="130.0" layoutY="171.0" prefHeight="26.0" prefWidth="337.0" text="tainan206@gmail.com" AnchorPane.leftAnchor="100.0" />
             <Label layoutX="134.0" layoutY="218.0" text="senha" AnchorPane.leftAnchor="100.0">
                <font>
-                  <Font size="10.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Button blendMode="EXCLUSION" layoutX="130.0" layoutY="280.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="40.0" prefWidth="86.0" text="Entrar" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="100.0" />
-            <Label layoutX="130.0" layoutY="379.0" onMousePressed="#recuperarSenha" text="esqueceu sua senha? " textFill="#68412a" AnchorPane.leftAnchor="100.0">
+            <Button blendMode="EXCLUSION" layoutX="100.0" layoutY="292.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="40.0" prefWidth="86.0" text="Entrar" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="292.0" />
+            <Label layoutX="130.0" layoutY="379.0" onMousePressed="#recuperarSenha" text="esqueceu sua senha? " textFill="#e49610" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="379.0">
                <font>
-                  <Font size="10.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
@@ -61,21 +64,26 @@
                <effect>
                   <DropShadow color="#bfbfbf" />
                </effect>
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="36.0" layoutX="466.0" layoutY="23.0" onMousePressed="#sairDeRecuperarSenha" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/voltar.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
             </Pane>
-            <Label layoutX="100.0" layoutY="71.0" text="Redefinir Senha" AnchorPane.leftAnchor="100.0">
+            <Label layoutX="100.0" layoutY="71.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #2e2c2c;" text="  Senha" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
+               <effect>
+                  <DropShadow color="#868181" />
+               </effect>
             </Label>
             <Button blendMode="EXCLUSION" layoutX="100.0" layoutY="348.0" mnemonicParsing="false" onAction="#redefinirSenha" prefHeight="35.0" prefWidth="134.0" text="Redefinir Senha" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" />
-            <ImageView fitHeight="39.0" fitWidth="31.0" layoutX="33.0" layoutY="75.0" onMousePressed="#sairDeRecuperarSenha" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/voltar.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </ImageView>
             <GridPane layoutX="130.0" layoutY="135.0" prefHeight="180.0" prefWidth="337.0" AnchorPane.leftAnchor="100.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -91,18 +99,18 @@
                <children>
                   <Label text="E-mail">
                      <font>
-                        <Font size="10.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
                   <TextField fx:id="emailRedefinirSenhaText" prefHeight="26.0" prefWidth="337.0" GridPane.rowIndex="1" />
                   <Label text="nova senha" GridPane.rowIndex="4">
                      <font>
-                        <Font size="10.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
                   <Label text="Senha Padrao" GridPane.rowIndex="2">
                      <font>
-                        <Font size="10.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
                   <TextField fx:id="senhaPadraoRedefinirSenhaText" prefHeight="26.0" prefWidth="337.0" GridPane.rowIndex="3" />

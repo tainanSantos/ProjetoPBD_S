@@ -5,13 +5,10 @@ import javax.persistence.*;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "pessoa_id")
-//@Subselect("selected email, senha, tipoDeAcesso, cpf") // nessa não a view é gerada de foma auromática
-//@Immutable nessa eu preciso criar view lá no banco
 public class Usuario extends Pessoa {
 
-
     private String email;
-    private String senha; // a senha que se repete é só pra fazer a validação nas regras de negócio
+    private String senha;
     private String tipoDeAcesso;
     private String cpf;
 
@@ -52,6 +49,8 @@ public class Usuario extends Pessoa {
     }
 
 
+
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -62,3 +61,34 @@ public class Usuario extends Pessoa {
                 '}';
     }
 }
+
+
+
+
+//  GATILHO PARA QUANDO O USUÁRIO FOR ATUALIZADO
+
+    /*
+        create table update_usuario(
+            id serial,
+            cpf varchar,
+            email varchar,
+            senha varchar,
+            tipodeacesso varchar,
+            data_alteracao date
+        );
+
+
+        create function update_usuario_function()
+        returns trigger as
+        $$
+            begin
+                insert into update_usuario(cpf, email, senha, tipodeacesso, data_alteracao)
+                values(new.cpf, new.email, new.senha, new.tipodeacesso, now());
+                return new;
+            end;
+        $$ language 'plpgsql';
+
+
+        create trigger registrar_atulizacao after insert or update on usuario
+        for each row execute procedure update_usuario_function();
+    */

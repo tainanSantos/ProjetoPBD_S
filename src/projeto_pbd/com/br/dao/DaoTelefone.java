@@ -16,7 +16,6 @@ public class DaoTelefone implements IDaoTelefone {
 
         try {
             em.getTransaction ().begin ();
-
             if(telefone.getId () == null){ // inserir
                 em.persist (telefone);
             }else { // atualizar

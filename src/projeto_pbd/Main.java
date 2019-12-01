@@ -35,6 +35,7 @@ public class Main extends Application {
 	public static final String CADASTRAR_TIPO_CURRICULO = "com/br/view/CadastroTipoCurriculo.fxml";
 	public static final String TURMA_GERENCIAMENTO = "com/br/view/TurmaGerenciamento.fxml";
 	public static final String REDEFINIR_SENHA_ADMIN = "com/br/view/RedefinirSenha.fxml";
+	public static final String GERAR_PARCELAS = "com/br/view/ParcelasGerar.fxml";
 
 
 	//__________________________________________________________________________________________________________________

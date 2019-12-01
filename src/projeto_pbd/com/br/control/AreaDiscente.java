@@ -210,7 +210,7 @@ public class AreaDiscente implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (alunosTable.getSelectionModel().getSelectedItem()!=null
-                    && event.getClickCount() == 1){
+                    && event.getClickCount() >=2){
                     Aluno aluno = null;
                     Responsavel responsavel = null;
                     aluno = Facade.getInstance().findByIdAluno(alunosTable.getSelectionModel().getSelectedItem().getId());
@@ -353,10 +353,26 @@ public class AreaDiscente implements Initializable {
                 Mensagem.mensagemErro("Curriculo não selecionado");
             }
 
-            if (alunosTable.getSelectionModel().getSelectedItem() != null){
+            if ((alunosTable.getSelectionModel().getSelectedItem() != null) && !nomeText.getText().isEmpty()){
+                System.out.println(alunosTable.getSelectionModel().getSelectedItem().getResponsavel().getEndereco());
                 aluno = alunosTable.getSelectionModel().getSelectedItem();
                 enderecoAluno = alunosTable.getSelectionModel().getSelectedItem().getEndereco();
+                responsavel.setId(alunosTable.getSelectionModel().getSelectedItem().getResponsavel().getId());
+                aluno.setCurriculo(alunosTable.getSelectionModel().getSelectedItem().getCurriculo());
+                aluno.setTurma(alunosTable.getSelectionModel().getSelectedItem().getTurma());
+                responsavel.setEndereco(alunosTable.getSelectionModel().getSelectedItem().getResponsavel().getEndereco());
+
+                List<Telefone> telefoneList = null;
+                telefoneList = Facade.getInstance().findAllIdTelefone(aluno.getId());
+                telefone1Aluno.setId(telefoneList.get(0).getId());
+                telefone2Aluno.setId(telefoneList.get(1).getId());
+
+                List<Telefone> telefoneList2 = null;
+                telefoneList = Facade.getInstance().findAllIdTelefone(responsavel.getId());
+                telefone1Responsavel.setId(telefoneList.get(0).getId());
+                telefone2Responsavel.setId(telefoneList.get(1).getId());
             }
+
             enderecoAluno.setLogradouro (logradouroText.getText ());
             enderecoAluno.setNumero (numeroText.getText ());
             enderecoAluno.setComplemento (complementoText.getText ());
@@ -373,14 +389,15 @@ public class AreaDiscente implements Initializable {
             aluno.setStatus(true);
             aluno.setMaioDeIdadeEResponsavel(maiorDeIdadeRadioButton.isSelected());
 
-            aluno.setCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem());
-            aluno.setTurma(turmaComboBox.getSelectionModel().getSelectedItem()); // salvando a turma do aluno
+            if (aluno.getCurriculo()==null)
+                aluno.setCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem());
+            if (aluno.getTurma()==null)
+                aluno.setTurma(turmaComboBox.getSelectionModel().getSelectedItem()); // salvando a turma do aluno
 
             telefone1Aluno.setNumero(telefoneUmText.getText());
             telefone2Aluno.setNumero(telefoneDoisText.getText());
 
             //__________________________________________________________________________________________________________
-
 
             responsavel.setDataNascimento(dataText1Resp.getValue());
             responsavel.setNaturalidade(naturalidadedText.getText());
@@ -408,7 +425,7 @@ public class AreaDiscente implements Initializable {
             Facade.getInstance().saveTelefone(telefone2Responsavel);
 
             aluno.setEndereco (enderecoAluno);
-            aluno.setCurriculo(curriculo);
+//            aluno.setCurriculo(curriculo);
             aluno.setResponsavel(responsavel);
             aluno = Facade.getInstance ().saveAluno (aluno);
 
@@ -431,9 +448,16 @@ public class AreaDiscente implements Initializable {
             //__________________________________________________________________________________________________________
 
 
-            Mensagem.mensagemSucesso("Cadastro Realizado com Sucesso! " +
-                    "O Boleto com as Mensalidades Será Gerado!");
+//            Mensagem.mensagemSucesso("Cadastro Realizado com Sucesso! " +
+//                    "O Boleto com as Mensalidades Será Gerado!");
             limparCampos();
+            try {
+                Main.genericaStage(Main.GERAR_PARCELAS).show();
+                Main.changeScreen("area do discente", aluno);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
             // TA DANDO UM ERRO NA ATUALIZAÇÃO DO TELEFONE
             // TÁ ATUALIZANDO DE FORMA ERRADA!

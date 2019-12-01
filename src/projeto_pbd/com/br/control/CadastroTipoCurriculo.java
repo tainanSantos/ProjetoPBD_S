@@ -82,9 +82,21 @@ public class CadastroTipoCurriculo implements Initializable {
         Curriculo curriculo = new Curriculo();
         String mensagem = "Curriculo Salvo Com Sucesso!";
         if(curriculosTable.getSelectionModel().getSelectedItem()!=null) {
-            curriculo.setId(curriculosTable.getSelectionModel().getSelectedItem().getId());
+            curriculo = (curriculosTable.getSelectionModel().getSelectedItem());
             mensagem = "Curriculo Atualizado Com Sucesso!";
+
+
+            if (curriculo.getNome().equalsIgnoreCase("1 - EF - ANOS INICIAL") ||
+                curriculo.getNome().equalsIgnoreCase("2 a 5 - EF - ANOS INICIAL")){
+                curriculo.setValorParcela(Facade.getInstance().findAllConfiguracao().get(0).getValorParcelaAnosIniciaisEF());
+            }
+            if (curriculo.getNome().equalsIgnoreCase("6 a 8 - EF - ANOS FINAIS") ||
+                curriculo.getNome().equalsIgnoreCase("9 - EF - ANOS FINAIS")){
+                curriculo.setValorParcela(Facade.getInstance().findAllConfiguracao().get(0).getValorParcelaAnosFinaisEF());
+            }else
+                curriculo.setValorParcela(Facade.getInstance().findAllConfiguracao().get(0).getValorParcelaAensinoMedioEM());
         }
+
 
         try {
             curriculo.setConfiguracao(Facade.getInstance().findAllConfiguracao().get(0));

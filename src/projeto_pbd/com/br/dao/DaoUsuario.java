@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 import projeto_pbd.com.br.util.SqlUtil;
@@ -35,6 +36,25 @@ public class DaoUsuario implements IDaoUsuario {
             em.close (); // fecha conexão
         }
         return usuario;
+    }
+
+    @Override
+    public UsuarioLogado saveUsuarioLogado(UsuarioLogado usuarioLogado) {
+        EntityManager em = new Conection().getEntityManager ();
+        try {
+            em.getTransaction ().begin ();
+            if(usuarioLogado.getId () == null){ // inserir
+                em.persist (usuarioLogado);
+            }else { // atualizar
+                em.merge (usuarioLogado);
+            }
+            em.getTransaction ( ).commit ();  // comando de salvar
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }finally {
+            em.close (); // fecha conexão
+        }
+        return usuarioLogado;
     }
 
 

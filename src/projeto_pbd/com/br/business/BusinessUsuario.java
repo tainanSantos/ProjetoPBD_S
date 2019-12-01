@@ -3,6 +3,7 @@ package projeto_pbd.com.br.business;
 import projeto_pbd.com.br.dao.DaoUsuario;
 import projeto_pbd.com.br.dao.IDaoUsuario;
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 
 import java.util.List;
@@ -19,6 +20,11 @@ public class BusinessUsuario implements IBusinessUsuario {
     @Override
     public Usuario saveUsuario(Usuario usuario) {
         return this.daoUsuario.save (usuario);
+    }
+
+    @Override
+    public UsuarioLogado saveUsuarioLogado(UsuarioLogado usuarioLogado) {
+        return this.daoUsuario.saveUsuarioLogado(usuarioLogado);
     }
 
     @Override

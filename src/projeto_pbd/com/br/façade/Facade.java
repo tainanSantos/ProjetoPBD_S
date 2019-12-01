@@ -203,6 +203,11 @@ public class Facade implements IFacade {
     }
 
     @Override
+    public UsuarioLogado saveUsuarioLogado(UsuarioLogado usuarioLogado) {
+        return this.businessUsuario.saveUsuarioLogado(usuarioLogado);
+    }
+
+    @Override
     public Usuario findByIdUsuario(Integer id) {
         return this.businessUsuario.findByIdUsuario(id);
     }

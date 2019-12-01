@@ -33,6 +33,7 @@ import projeto_pbd.com.br.msg.Mensagem;
 import projeto_pbd.com.br.util.MaskFieldUtil;
 
 import java.io.IOException;
+import java.net.PortUnreachableException;
 import java.net.URL;
 import java.util.*;
 
@@ -93,6 +94,10 @@ public class CadastroUsuarioDoSistema implements Initializable {
     private TableColumn<?, ?> statusColum;
     @FXML
     private TableColumn<?, ?> nomeColum;
+    @FXML
+    private TableColumn<?, ?> emailColum;
+    @FXML
+    private TableColumn<?, ?> cpfColum;
     @FXML
     private TableColumn<?, ?> naturalidadeColum;
     @FXML
@@ -213,8 +218,10 @@ public class CadastroUsuarioDoSistema implements Initializable {
     public void atualizarTabela(List<Usuarioview> usuarioList){
         statusColum.setCellValueFactory(new PropertyValueFactory("status"));
         nomeColum.setCellValueFactory(new PropertyValueFactory("nome"));
+        emailColum.setCellValueFactory(new PropertyValueFactory("email"));
+        cpfColum.setCellValueFactory(new PropertyValueFactory("cpf"));
         naturalidadeColum.setCellValueFactory(new PropertyValueFactory("naturalidade"));
-        tipoAcessoColum.setCellValueFactory(new PropertyValueFactory("tipoDeAcesso"));
+        tipoAcessoColum.setCellValueFactory(new PropertyValueFactory("tipodeacesso"));
         usuarioTable.getItems().setAll(usuarioList);
     }
 

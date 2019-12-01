@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.dao;
 
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 
 import java.util.List;
@@ -9,6 +10,8 @@ public interface IDaoUsuario {
 
 
     public Usuario save(Usuario usuario);
+
+    public UsuarioLogado saveUsuarioLogado(UsuarioLogado usuarioLogado);
 
     public Usuario findById(Integer id);
 

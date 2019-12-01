@@ -21,6 +21,8 @@
         <class>projeto_pbd.com.br.modell.Telefone</class>
         <class>projeto_pbd.com.br.modell.Turma</class>
         <class>projeto_pbd.com.br.modell.Usuario</class>
+        <class>projeto_pbd.com.br.modell.UsuarioLogado</class>
+        <class>projeto_pbd.com.br.modell.AuditoriaUsuarios</class>
 
         <properties>
 

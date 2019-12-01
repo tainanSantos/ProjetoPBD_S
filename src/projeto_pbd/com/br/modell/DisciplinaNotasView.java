@@ -6,22 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/*
-create view disciplinanotasview as
 
-select
-
-		al.pessoa_id, d.curriculo_id, disciplina_id, n.id, n.primeirava, n.segundava,
-		n.terceirava, n.quartava, n.finalva, n.status, d.nome, n.resultado, n.media
-
-	from
-		nota as n, disciplina as d, curriculo as cu, aluno al
-	where
-		d.id = n.disciplina_id
-		and d.curriculo_id = cu.id
-		and d.curriculo_id = 	cu.id
-		and al.pessoa_id = n.aluno_pessoa_id
-*/
 
 @Entity
 @Immutable
@@ -185,3 +170,70 @@ public class DisciplinaNotasView {
                 '}';
     }
 }
+
+
+
+
+/*
+create view disciplinanotasview as
+
+select
+
+		al.pessoa_id, d.curriculo_id, disciplina_id, n.id, n.primeirava, n.segundava,
+		n.terceirava, n.quartava, n.finalva, n.status, d.nome, n.resultado, n.media
+
+	from
+		nota as n, disciplina as d, curriculo as cu, aluno al
+	where
+		d.id = n.disciplina_id
+		and d.curriculo_id = cu.id
+		and d.curriculo_id = 	cu.id
+		and al.pessoa_id = n.aluno_pessoa_id
+*/
+
+
+
+
+/*
+
+-- se a tabela curríclo estiver vazia
+-- então no momento do cadastro da disciplina
+-- este gatilho será executado e dará carga na tabela de currículos
+
+create  function carregar_curriculo()
+returns trigger as
+$$
+	begin
+		if not exists (select 1 from curriculo) then
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (1,'1 - EF - ANOS INICIAL', false, (select id from configuracao),
+					(select valorparcelaanosiniciaisef from configuracao));
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (2,'2 a 5 - EF - ANOS INICIAL', false, (select id from configuracao),
+					(select valorparcelaanosiniciaisef from configuracao));
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (3,'6 a 8 - EF - ANOS FINAIS', false, (select id from configuracao),
+					(select valorparcelaanosfinaisef from configuracao));
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (4,'9 - EF - ANOS FINAIS', false, (select id from configuracao),
+					(select valorparcelaanosfinaisef from configuracao));
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (5,'1 - EM - ENSINO MÉDIO', false, (select id from configuracao),
+					(select valorparcelaaensinomedioem from configuracao));
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (6,'2 - EM - ENSINO MÉDIO', false, (select id from configuracao),
+					(select valorparcelaaensinomedioem from configuracao));
+			insert into curriculo(id, nome, status, configuracao_id, valorparcela)
+			values (7,'3 - EM - ENSINO MÉDIO', false, (select id from configuracao),
+					(select valorparcelaaensinomedioem from configuracao));
+		end if;
+		return new;
+	end;
+$$ language 'plpgsql';
+
+-- vamos disparar esse gatilho no momento do cadastro de dsiciplina
+
+create trigger carregar_curriculos after update or insert on disciplina
+for each row execute procedure carregar_curriculo();
+
+*/

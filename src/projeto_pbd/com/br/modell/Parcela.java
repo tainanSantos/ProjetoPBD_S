@@ -15,6 +15,8 @@ public class Parcela {
 
     private Boolean status;
 
+    private Double valorParcela;
+
     public Parcela(){
 
     }
@@ -41,5 +43,23 @@ public class Parcela {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Double getValorParcela() {
+        return valorParcela;
+    }
+
+    public void setValorParcela(Double valorParcela) {
+        this.valorParcela = valorParcela;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Parcela{" +
+                ", curriculo=" + curriculo +
+                ", status=" + status +
+                ", valorParcela=" + valorParcela +
+                '}';
     }
 }

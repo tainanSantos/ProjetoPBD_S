@@ -50,6 +50,7 @@ public interface IFacade {
 
     //Usuario
     public Usuario saveUsuario(Usuario usuario);
+    public UsuarioLogado saveUsuarioLogado(UsuarioLogado usuarioLogado);
     public Usuario findByIdUsuario(Integer id);
     public List<Usuarioview> findAllUsuario();
     public List<Usuarioview> findAllUsuarioNome(String nome);

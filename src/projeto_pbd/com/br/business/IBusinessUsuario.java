@@ -1,6 +1,7 @@
 package projeto_pbd.com.br.business;
 
 import projeto_pbd.com.br.modell.Usuario;
+import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
 public interface IBusinessUsuario {
 
     public Usuario saveUsuario(Usuario usuario);
+
+    public UsuarioLogado saveUsuarioLogado(UsuarioLogado usuarioLogado);
 
     public Usuario findByIdUsuario(Integer id);
 

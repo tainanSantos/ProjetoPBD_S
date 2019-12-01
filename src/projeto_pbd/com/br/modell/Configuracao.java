@@ -90,3 +90,34 @@ public class Configuracao {
                 '}';
     }
 }
+
+
+/*
+        create table update_Configuracao(
+            curriculoporbimesntre boolean,
+            curriculoportrimestre boolean,
+            valorparcelaaensinomedioem real,
+            valorparcelaanosfinaisef real,
+            valorparcelaanosiniciaisef real,
+            data_hora_modificacao varchar(30)
+        )
+
+
+        create or replace function save_update_in_config()
+        returns trigger as
+        $$
+            begin
+                insert into update_Configuracao(curriculoporbimesntre, curriculoportrimestre,
+                    valorparcelaaensinomedioem, valorparcelaanosfinaisef, valorparcelaanosiniciaisef,
+                    data_hora_modificacao )
+                values(new.curriculoporbimesntre, new.curriculoportrimestre,
+                    new.valorparcelaaensinomedioem, new.valorparcelaanosfinaisef, new.valorparcelaanosiniciaisef,
+                    current_timestamp );
+            end;
+        $$ language 'plpgsql';
+
+
+
+        create trigger fazer_beckap after update on configuracao
+        for each row execute procedure save_update_in_config();
+*/
