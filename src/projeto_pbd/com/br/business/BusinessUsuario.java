@@ -42,9 +42,15 @@ public class BusinessUsuario implements IBusinessUsuario {
         return this.daoUsuario.findAllNome(nome);
     }
 
+
     @Override
     public Usuario removeUsuario(Integer id) {
         return this.daoUsuario.remove (id);
+    }
+
+    @Override
+    public UsuarioLogado findAllUsuarioLogado() {
+        return this.daoUsuario.findAllUsuarioLogado();
     }
 
     @Override

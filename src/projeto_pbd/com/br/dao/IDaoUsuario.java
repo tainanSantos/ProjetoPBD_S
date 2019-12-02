@@ -17,6 +17,8 @@ public interface IDaoUsuario {
 
     public List<Usuarioview> findAllUsuarioview();
 
+    public UsuarioLogado findAllUsuarioLogado();
+
     public List<Usuarioview> findAllNome(String nome);
 
     public Usuario remove(Integer id);

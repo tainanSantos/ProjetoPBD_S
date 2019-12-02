@@ -16,5 +16,7 @@ public interface IBusinessAcompanhamentoPedagogico {
 
     public List<AcompanhamentoPedagogico> findAllStringAcompanhamentoPedagogicos(String nome);
 
+    public List<AcompanhamentoPedagogico> findByIdUsuarioPedagogoAcompanhamentoPedagogico(Integer idPedagogoLogado);
+
     public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id);
 }

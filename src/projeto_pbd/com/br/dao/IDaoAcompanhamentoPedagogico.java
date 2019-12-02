@@ -13,6 +13,8 @@ public interface IDaoAcompanhamentoPedagogico {
 
     public List<AcompanhamentoPedagogico> findByIdAlunoAcompanhamentoPedagogico(Integer idAluno);
 
+    public List<AcompanhamentoPedagogico> findByIdUsuarioPedagogoAcompanhamentoPedagogico(Integer idPedagogoLogado);
+
     public List<AcompanhamentoPedagogico> findAllAcompanhamentoPedagogicoList();
 
     public List<AcompanhamentoPedagogico> findAllStringAcompanhamentoPedagogicos(String nome);

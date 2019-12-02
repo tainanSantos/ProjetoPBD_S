@@ -71,13 +71,12 @@ public class Login implements Initializable {
             if (usuario != null) {
                 try {
 
-                    // o usuário logado eu vou usar na auditoria
-                    // quando for preciso
                     UsuarioLogado usuarioLogado = new UsuarioLogado();
                     usuarioLogado.setId(4);
                     usuarioLogado.setCpf(usuario.getCpf());
                     usuarioLogado.setEmail(usuario.getEmail());
                     usuarioLogado.setNome(usuario.getNome());
+                    usuarioLogado.setPessoa_id(usuario.getPessoa_id());
                     usuarioLogado.setTipodeacesso(usuario.getTipodeacesso());
 
                     Facade.getInstance().saveUsuarioLogado(usuarioLogado);

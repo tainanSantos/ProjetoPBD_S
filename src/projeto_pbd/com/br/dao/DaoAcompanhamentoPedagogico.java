@@ -1,5 +1,6 @@
 package projeto_pbd.com.br.dao;
 
+import projeto_pbd.com.br.façade.Facade;
 import projeto_pbd.com.br.modell.AcompanhamentoPedagogico;
 import projeto_pbd.com.br.sqlConnectionFactory.Conection;
 import projeto_pbd.com.br.util.SqlUtil;
@@ -71,6 +72,27 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
         return acompanhamentoPedagogicoList;
     }
 
+    @Override
+    public List<AcompanhamentoPedagogico> findByIdUsuarioPedagogoAcompanhamentoPedagogico(Integer idPedagogoLogado) {
+        System.out.println("Passamos aqui");
+
+        EntityManager em = new Conection().getEntityManager ();
+        List<AcompanhamentoPedagogico> acompanhamentoPedagogicoList = null;
+        try {
+            TypedQuery<AcompanhamentoPedagogico> query = em.createQuery(
+                    SqlUtil.BUSCAR_ACOMPANHAMNETO_POR_ID_USUARIO_LOGADO, AcompanhamentoPedagogico.class);
+            query.setParameter("pessoa_id", idPedagogoLogado);
+            acompanhamentoPedagogicoList = query.getResultList();
+
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }
+        finally {
+            em.close (); // fecha conexão
+        }
+        return acompanhamentoPedagogicoList;
+    }
+
 
     @Override
     public List<AcompanhamentoPedagogico> findAllAcompanhamentoPedagogicoList() {
@@ -111,6 +133,8 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
 
     @Override
     public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id) {
+
+
         EntityManager em = new Conection().getEntityManager ();
         AcompanhamentoPedagogico acompanhamentoPedagogico = null;
 
@@ -125,6 +149,14 @@ public class DaoAcompanhamentoPedagogico implements IDaoAcompanhamentoPedagogico
             em.close (); // fecha conexão
         }
         return acompanhamentoPedagogico;
+    }
+
+
+    public static void main(String[] args) {
+        DaoAcompanhamentoPedagogico daoAcompanhamentoPedagogico = new DaoAcompanhamentoPedagogico();
+        System.out.println(daoAcompanhamentoPedagogico.findByIdUsuarioPedagogoAcompanhamentoPedagogico(
+                Facade.getInstance().findAllUsuarioLogado().getPessoa_id()
+        ));
     }
 
 }

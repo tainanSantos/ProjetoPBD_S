@@ -13,6 +13,9 @@ public class AcompanhamentoPedagogico {
     @ManyToOne
     private Aluno aluno;
 
+
+    private Integer pessoa_id;
+
     private String dataAcompanhamento;
 
     private String secaoDetalhamento;
@@ -21,6 +24,14 @@ public class AcompanhamentoPedagogico {
 
     public AcompanhamentoPedagogico() {
 
+    }
+
+    public Integer getPessoa_id() {
+        return pessoa_id;
+    }
+
+    public void setPessoa_id(Integer pessoa_id) {
+        this.pessoa_id = pessoa_id;
     }
 
     public Integer getId() {

@@ -51,11 +51,12 @@ public class Principal implements Initializable {
     @FXML
     private MenuItem auditoriaMenuItem;
     @FXML
+    private MenuItem acompanhamentoMenuItem;
+    @FXML
     private MenuButton usuarioButton;
 
     @FXML
     private MenuItem cadastroUasuarioMenuItem;
-
     @FXML
     private MenuItem sairUsuarioMenuItem;
 
@@ -72,12 +73,14 @@ public class Principal implements Initializable {
                     break;
                 case ("Direção"):
                     acessorAreaAdiministrado();
+                    acompanhamentoMenuItem.setDisable(true);
                     break;
                 case ("Coordenação Pedagogica"):
                     acessorAreaAdiministrado();
                     break;
                 case ("Secretaria"):
                     acessorAreaAdiministrado();
+                    acompanhamentoMenuItem.setDisable(true);
                     break;
             }
         }
@@ -134,6 +137,9 @@ public class Principal implements Initializable {
         //MENU BUTTON
         if (event.getSource () == cadastroUasuarioMenuItem){
             Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
+        }
+        if (event.getSource() == acompanhamentoMenuItem){
+            Main.genericaStage(Main.PEDAGOGO_ACOMP_GERAR).show();
         }
 
         if (event.getSource () == auditoriaMenuItem){

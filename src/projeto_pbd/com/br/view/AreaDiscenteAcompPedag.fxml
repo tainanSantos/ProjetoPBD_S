@@ -54,19 +54,19 @@
          </font>
       </Label>
       <TextArea fx:id="detalalhamentoAcompamanhamentoText" layoutX="20.0" layoutY="176.0" prefHeight="69.0" prefWidth="720.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <CheckBox fx:id="acompanhamentoConcluidoBoolean" layoutX="20.0" layoutY="269.0" mnemonicParsing="false" onAction="#action" text="concluído    (só maracr se o atendimento já estiver concluído)">
+      <CheckBox fx:id="acompanhamentoConcluidoBoolean" layoutX="20.0" layoutY="265.0" mnemonicParsing="false" onAction="#action" text="concluído    (só maracr se o atendimento já estiver concluído)">
          <font>
             <Font size="10.0" />
          </font>
       </CheckBox>
-      <Button fx:id="salvarAcompanhamentoButton" layoutX="524.0" layoutY="264.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="98.0" text="Salvar" AnchorPane.rightAnchor="138.0" />
-      <TableView fx:id="acompanamentoPedagocicoTable" layoutX="86.0" layoutY="313.0" prefHeight="145.0" prefWidth="720.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <Button fx:id="salvarAcompanhamentoButton" blendMode="EXCLUSION" layoutX="449.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="133.0" text="Salvar" AnchorPane.rightAnchor="178.0" AnchorPane.topAnchor="20.0" />
+      <TableView fx:id="acompanamentoPedagocicoTable" layoutX="86.0" layoutY="313.0" prefHeight="154.0" prefWidth="720.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columns>
           <TableColumn fx:id="consuídaColum" prefWidth="127.0" text="concluída" />
           <TableColumn fx:id="detalhamentoColum" prefWidth="352.0" text="detalhamento" />
             <TableColumn fx:id="dataColum" prefWidth="240.0" text="data" />
         </columns>
       </TableView>
-      <Button fx:id="outrsAppButton" layoutX="642.0" layoutY="264.0" mnemonicParsing="false" onAction="#action" prefHeight="26.0" prefWidth="98.0" text="outros" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="gerarPdfButton" blendMode="EXCLUSION" layoutX="607.0" layoutY="26.0" mnemonicParsing="false" onAction="#gerarPdfAction" prefHeight="30.0" prefWidth="133.0" text="Gerar pdf" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>

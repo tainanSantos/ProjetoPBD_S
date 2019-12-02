@@ -14,6 +14,8 @@ import projeto_pbd.com.br.modell.Aluno;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ParcelasGerar implements Initializable {
@@ -59,7 +61,7 @@ public class ParcelasGerar implements Initializable {
 
 
 
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("/home/tainan/Área de Trabalho/"+aluno.getNome()+".pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("/home/tainan/Área de Trabalho/"+"Boleto_ "+aluno.getNome()+".pdf"));
             document.open();
 
 
@@ -68,55 +70,19 @@ public class ParcelasGerar implements Initializable {
             document.add(new Paragraph("\nALUNO:   "+ aluno.getNome()));
             document.add(new Paragraph("MATRÍCULA:   "+ aluno.getId()));
             document.add(new Paragraph("CURRÍCULO:   "+ aluno.getCurriculo().getNome()));
+            document.add(new Paragraph("DIA:   "+ getDateTime()));
             document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(0) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(1) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(2) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(3) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(4) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(5) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(6) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(7) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(8) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(9) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(10) + "         VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
-            document.add(new Paragraph("______________________________________________________________________________\n\n"));
-            document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(11) + "          VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
-            codBarras(writer,document);
-            document.add(new Paragraph("______________________________________________________________________________\n"));
+
+            int i = 0;
+            while(i<12){
+                document.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------------\n\n"));
+                document.add(new Paragraph("______________________________________________________________________________\n\n"));
+                document.add(new Paragraph("                                          DATA BOLETO GERADO:  "+ getDateTime()));
+                document.add(new Paragraph("                                          DATA VENCIMENTO:  "+ getDatas().get(i) + "         " +
+                        " VALOR:   R$ "+ aluno.getCurriculo().getValorParcela()+",00" ));
+                codBarras(writer,document);
+                i+=1;
+            }
 
             document.addSubject("Gerando PDF em Java");
             document.addKeywords("www.devmedia.com.br");
@@ -133,6 +99,7 @@ public class ParcelasGerar implements Initializable {
         Main.STAGE.close();
 
     }
+
 
 
     public static ArrayList<String> getDatas() {
@@ -173,6 +140,13 @@ public class ParcelasGerar implements Initializable {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
 }

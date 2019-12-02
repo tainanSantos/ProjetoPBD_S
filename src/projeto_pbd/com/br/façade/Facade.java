@@ -169,6 +169,11 @@ public class Facade implements IFacade {
     }
 
     @Override
+    public List<AcompanhamentoPedagogico> findByIdUsuarioPedagogoAcompanhamentoPedagogico(Integer idPedagogoLogado) {
+        return this.businessAcompanhamentoPedagogico.findByIdUsuarioPedagogoAcompanhamentoPedagogico(idPedagogoLogado);
+    }
+
+    @Override
     public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id) {
         return this.businessAcompanhamentoPedagogico.removeAcompanhamentoPedagogico(id);
     }
@@ -222,6 +227,11 @@ public class Facade implements IFacade {
     @Override
     public List<Usuarioview> findAllUsuarioNome(String nome) {
         return this.businessUsuario.findAllNome(nome);
+    }
+
+    @Override
+    public UsuarioLogado findAllUsuarioLogado() {
+        return this.businessUsuario.findAllUsuarioLogado();
     }
 
     @Override

@@ -55,6 +55,7 @@
       </MenuBar>
       <MenuButton fx:id="usuarioButton" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1173.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-radius: 5; -fx-background-color: #191970;" text="Usuário" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
         <items>
+            <MenuItem id="acompanhamentos" fx:id="acompanhamentoMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Acompanhamentos pdf" />
             <MenuItem id="cadastrarUsuario" fx:id="cadastroUasuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Gerenciar Usuário" />
             <MenuItem id="auditoria" fx:id="auditoriaMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Auditoria" />
             <MenuItem id="sair" fx:id="sairUsuarioMenuItem" mnemonicParsing="false" onAction="#actionEvent" text="Sair" />

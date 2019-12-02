@@ -41,6 +41,11 @@ public class BusinessAcompanhamentoPedagogico implements IBusinessAcompanhamento
     }
 
     @Override
+    public List<AcompanhamentoPedagogico> findByIdUsuarioPedagogoAcompanhamentoPedagogico(Integer idPedagogoLogado) {
+        return this.daoAcompanhamentoPedagogico.findByIdUsuarioPedagogoAcompanhamentoPedagogico(idPedagogoLogado);
+    }
+
+    @Override
     public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id) {
         return this.daoAcompanhamentoPedagogico.removeAcompanhamentoPedagogico(id);
     }

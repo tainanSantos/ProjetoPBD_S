@@ -38,6 +38,7 @@ public interface IFacade {
     public List<AcompanhamentoPedagogico> findByIdAlunoAcompanhamentoPedagogico(Integer idAluno);
     public List<AcompanhamentoPedagogico> findAllAcompanhamentoPedagogicoList();
     public List<AcompanhamentoPedagogico> findAllStringAcompanhamentoPedagogicos(String nome);
+    public List<AcompanhamentoPedagogico> findByIdUsuarioPedagogoAcompanhamentoPedagogico(Integer idPedagogoLogado);
     public AcompanhamentoPedagogico removeAcompanhamentoPedagogico(Integer id);
 
 
@@ -54,8 +55,10 @@ public interface IFacade {
     public Usuario findByIdUsuario(Integer id);
     public List<Usuarioview> findAllUsuario();
     public List<Usuarioview> findAllUsuarioNome(String nome);
+    public UsuarioLogado findAllUsuarioLogado();
     public Usuario removeUsuario(Integer id);
     public  Usuarioview validarLoginSenha(String email, String senha);
+
 
 
 

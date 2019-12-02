@@ -58,6 +58,7 @@ public class DaoUsuario implements IDaoUsuario {
     }
 
 
+
     @Override
     public Usuario findById(Integer id) {
         EntityManager em = new Conection().getEntityManager ();
@@ -88,6 +89,21 @@ public class DaoUsuario implements IDaoUsuario {
         }
 
         return usuarios;
+    }
+
+    @Override
+    public UsuarioLogado findAllUsuarioLogado() {
+        EntityManager em = new Conection().getEntityManager ();
+        UsuarioLogado usuarioLogado = null;
+        try {
+            TypedQuery<UsuarioLogado> query = em.createQuery(SqlUtil.BUSCAR_USUARIO_LOGADO, UsuarioLogado.class);
+            usuarioLogado = query.getSingleResult();
+        }catch (Exception e ){
+            em.getTransaction ().rollback ();
+        }finally {
+            em.close (); // fecha conexão
+        }
+        return usuarioLogado;
     }
 
 
@@ -165,7 +181,7 @@ public class DaoUsuario implements IDaoUsuario {
 
     public static void main(String[] args) {
         DaoUsuario daoUsuario = new DaoUsuario();
-        System.out.println(daoUsuario.findAllUsuarioview());
+        System.out.println(daoUsuario.findAllUsuarioLogado());
     }
 
 }

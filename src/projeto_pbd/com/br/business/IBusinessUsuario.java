@@ -20,6 +20,8 @@ public interface IBusinessUsuario {
 
     public Usuario removeUsuario(Integer id);
 
+    public UsuarioLogado findAllUsuarioLogado();
+
     public  Usuarioview validarLoginSenha(String email, String senha);
 
 }

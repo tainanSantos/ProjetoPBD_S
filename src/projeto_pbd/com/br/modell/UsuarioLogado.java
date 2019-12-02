@@ -9,11 +9,13 @@ public class UsuarioLogado {
 
     @Id
     private Integer id;
+    private Integer pessoa_id;
     private String nome;
     private String cpf;
     private String email;
     private String tipodeacesso;
     private LocalDate datamodificacao;
+
 
     public UsuarioLogado() {
     }
@@ -53,6 +55,14 @@ public class UsuarioLogado {
 
     public String getTipodeacesso() {
         return tipodeacesso;
+    }
+
+    public Integer getPessoa_id() {
+        return pessoa_id;
+    }
+
+    public void setPessoa_id(Integer pessoa_id) {
+        this.pessoa_id = pessoa_id;
     }
 
     public void setTipodeacesso(String tipodeacesso) {
