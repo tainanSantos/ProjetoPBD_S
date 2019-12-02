@@ -114,7 +114,7 @@ public class CadastroNotas implements Initializable {
                 Aluno aluno = null;
                 aluno = (Aluno) userData;
                 nomeAlunoLabel.setText(aluno.getNome());
-                matriculaAlunoLabel.setText(String.valueOf(aluno.getCurriculo().getId()));
+                matriculaAlunoLabel.setText(""+(aluno.getId()));
                 turmaAlunoLabel.setText(aluno.getTurma().getNomeTurma());
                 carregarTabelaNotas(Facade.getInstance().findAllNotas(aluno.getId()));
             }

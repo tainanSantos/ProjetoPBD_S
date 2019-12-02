@@ -93,4 +93,8 @@ public interface IFacade {
     public Configuracao findByIdConfiguracao(Integer id);
     public List<Configuracao> findAllConfiguracao();
     public Configuracao removeConfiguracao(Integer id);
+
+    //Auditoria
+    public List<AuditoriaUsuarios> findAllAuditoriasUser();
+
 }

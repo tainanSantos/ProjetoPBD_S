@@ -143,28 +143,5 @@ public class Nota {
     }
 
 
-//    public static void main(String[] args) {
-//
-//        Document document = new Document();
-//        try {
-//
-//            PdfWriter.getInstance(document,
-//                    new FileOutputStream("/home/tainan/PDF_DevMedia.pdf"));
-//            document.open();
-//
-//            // adicionando um parágrafo ao documento
-//            document.add(new Paragraph("Gerando PDF em Java - metadados"));
-//            document.addSubject("Gerando PDF em Java");
-//            document.addKeywords("www.devmedia.com.br");
-//            document.addCreator("iText");
-//            document.addAuthor("Davi Gomes da Costa");
-//        }
-//        catch(DocumentException de) {
-//            System.err.println(de.getMessage());
-//        }
-//        catch(IOException ioe) {
-//            System.err.println(ioe.getMessage());
-//        }
-//        document.close();
-//    }
+
 }

@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="projeto_pbd.com.br.control.Auditoria"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="461.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Auditoria">
+   <children>
+      <ScrollPane layoutX="20.0" layoutY="132.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="132.0">
+         <content>
+            <TableView fx:id="auditoriaTable" prefHeight="291.0" prefWidth="1450.0" stylesheets="@../../../stily.css">
+              <columns>
+                <TableColumn fx:id="usuarioColumn" prefWidth="75.0" text="usuario " />
+                <TableColumn fx:id="cpfuserColumn" prefWidth="75.0" text="cpf user" />
+                  <TableColumn fx:id="emailUserColumn" prefWidth="75.0" text="email user" />
+                  <TableColumn fx:id="pessoaColumn" prefWidth="75.0" text="pessoa" />
+                  <TableColumn fx:id="cpfPessoaColumn" prefWidth="75.0" text="cpf pessoa" />
+                  <TableColumn fx:id="emailPessoaColumn" prefWidth="75.0" text="email pessoa" />
+                  <TableColumn fx:id="dataauditoriaColum" prefWidth="75.0" text="data auditoria" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label layoutX="37.0" layoutY="30.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1e1b1b;" text="   Auditoria" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow color="#909090" />
+         </effect>
+      </Label>
+      <TextField fx:id="pesquisaText" layoutX="20.0" layoutY="96.0" prefHeight="26.0" prefWidth="456.0" promptText="pesquisa" AnchorPane.leftAnchor="20.0" />
+   </children>
 </AnchorPane>

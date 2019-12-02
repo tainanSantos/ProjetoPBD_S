@@ -239,7 +239,7 @@
                   <DropShadow color="#808080" />
                </effect>
               </Label>
-            <TableView fx:id="usuarioTable" layoutX="20.0" layoutY="475.0" prefHeight="258.0" prefWidth="994.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <TableView fx:id="usuarioTable" layoutX="20.0" layoutY="475.0" prefHeight="258.0" prefWidth="994.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
               <columns>
                   <TableColumn fx:id="statusColum" prefWidth="70.0" text="status" />
                   <TableColumn fx:id="nomeColum" prefWidth="190.0" text="nome" />

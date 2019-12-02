@@ -31,9 +31,6 @@ public class Mensagem {
         return JOptionPane.showConfirmDialog(null, titulo, mensagem, JOptionPane.YES_NO_OPTION);
     }
 
-    public static void main(String[] args) {
-        mensagmeSucesso("Ola", "Mesa");
-    }
 
     public static void mensagemErro(String mensagemString) {
         // TODO Auto-generated method stub

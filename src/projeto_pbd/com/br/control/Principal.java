@@ -49,6 +49,8 @@ public class Principal implements Initializable {
     @FXML
     private MenuItem configuracoeMenuItem;
     @FXML
+    private MenuItem auditoriaMenuItem;
+    @FXML
     private MenuButton usuarioButton;
 
     @FXML
@@ -95,6 +97,7 @@ public class Principal implements Initializable {
 
     public void acessorAreaAdiministrado(){
         cadastroUasuarioMenuItem.setDisable(true);
+        auditoriaMenuItem.setDisable(true);
     }
 
 
@@ -131,6 +134,10 @@ public class Principal implements Initializable {
         //MENU BUTTON
         if (event.getSource () == cadastroUasuarioMenuItem){
             Main.genericaStage (Main.CADASTRAR_USUARIO_DO_SISTEMA).show ();
+        }
+
+        if (event.getSource () == auditoriaMenuItem){
+            Main.genericaStage (Main.AUDITORIA).show ();
         }
        
         if (event.getSource () == sairUsuarioMenuItem){
