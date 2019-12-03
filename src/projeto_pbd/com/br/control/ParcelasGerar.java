@@ -67,10 +67,10 @@ public class ParcelasGerar implements Initializable {
 
             // adicionando um parágrafo ao documento
             document.add(new Paragraph("______________________________________________________________________________"));
-            document.add(new Paragraph("\nALUNO:   "+ aluno.getNome()));
-            document.add(new Paragraph("MATRÍCULA:   "+ aluno.getId()));
+            document.add(new Paragraph("\nALUNO (A):   "+ aluno.getNome()));
+            document.add(new Paragraph("Nª MATRÍCULA:   "+ aluno.getId()));
             document.add(new Paragraph("CURRÍCULO:   "+ aluno.getCurriculo().getNome()));
-            document.add(new Paragraph("DIA:   "+ getDateTime()));
+            document.add(new Paragraph("DATA DA MATRÍCULA:   "+ getDateTime()));
             document.add(new Paragraph("______________________________________________________________________________\n\n"));
 
             int i = 0;

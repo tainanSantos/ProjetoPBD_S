@@ -120,9 +120,13 @@ public class AreaDiscente implements Initializable {
     @FXML
     private Button addNotasAlunoButton;
     @FXML
+    private Button historicoEscolarButton;
+    @FXML
     private Label maiorDeIdadeMensagemLabel1;
     @FXML
     private RadioButton maiorDeIdadeRadioButton;
+    @FXML
+    private Button gerarBoletoButton;
 
 
     //USAR NA AREA DA PESQUISA
@@ -451,13 +455,13 @@ public class AreaDiscente implements Initializable {
 //            Mensagem.mensagemSucesso("Cadastro Realizado com Sucesso! " +
 //                    "O Boleto com as Mensalidades Será Gerado!");
             limparCampos();
+
             try {
                 Main.genericaStage(Main.GERAR_PARCELAS).show();
-                Main.changeScreen("area do discente", aluno);
+                Main.changeScreen("area do discente", alunosTable.getSelectionModel().getSelectedItem());
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
             // TA DANDO UM ERRO NA ATUALIZAÇÃO DO TELEFONE
             // TÁ ATUALIZANDO DE FORMA ERRADA!
@@ -555,9 +559,32 @@ public class AreaDiscente implements Initializable {
     }
 
 
+
+
+
     @FXML
     void selectedEvent(ActionEvent event) {
 
+    }
+
+
+    @FXML
+    public void gerarHistoricoPdfAction(ActionEvent event){
+        Mensagem.mensagemErro("Não implementado ainda :( !");
+    }
+
+
+    @FXML
+    public void gerarBoletoPdfAction(ActionEvent event){
+        if (alunosTable.getSelectionModel().getSelectedItem()!= null) {
+            try {
+                Main.genericaStage(Main.GERAR_PARCELAS).show();
+                Main.changeScreen("area do discente", alunosTable.getSelectionModel().getSelectedItem());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else Mensagem.mensagemErro(
+                "Um aluno deve ser selecionado para que uma nova via do boleto seja gerda!");
     }
 
 }

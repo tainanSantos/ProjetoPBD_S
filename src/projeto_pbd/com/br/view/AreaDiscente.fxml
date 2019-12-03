@@ -515,9 +515,9 @@
                               </AnchorPane>
                            </content>
                         </ScrollPane>
-                        <AnchorPane prefHeight="457.0" prefWidth="272.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutY="62.0" prefHeight="395.0" prefWidth="233.0" style=": 50,10,10,10;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="62.0">
                            <children>
-                              <GridPane prefHeight="119.0" prefWidth="170.0" vgap="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="40.0">
+                              <GridPane layoutX="30.0" layoutY="37.0" prefHeight="170.0" prefWidth="173.0" vgap="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
@@ -525,9 +525,10 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button fx:id="novoAlunoButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="317.0" style="-fx-background-color: #DCDCDC;" text="Novo Cadastro" textFill="#3c3c3c">
+                                    <Button fx:id="novoAlunoButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="317.0" style="-fx-background-color: #686262;" text="Novo Cadastro" textFill="WHITE">
                                        <cursor>
                                           <Cursor fx:constant="CLOSED_HAND" />
                                        </cursor>
@@ -535,7 +536,23 @@
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="acompanhamentoButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="314.0" style="-fx-background-color: #DCDCDC;" text="Acompanhamento" textFill="#3c3c3c" GridPane.rowIndex="1">
+                                    <Button fx:id="acompanhamentoButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#action" prefHeight="33.0" prefWidth="314.0" style="-fx-background-color: #686262;" text="Acompanhamento" textFill="WHITE" GridPane.rowIndex="1">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="historicoEscolarButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#gerarHistoricoPdfAction" prefHeight="33.0" prefWidth="314.0" style="-fx-background-color: #686262;" text="Gerar Historico PDF" textFill="WHITE" GridPane.rowIndex="2">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="gerarBoletoButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#gerarBoletoPdfAction" prefHeight="33.0" prefWidth="314.0" style="-fx-background-color: #686262;" text="Gerar Boleto PDF" textFill="WHITE" GridPane.rowIndex="3">
                                        <cursor>
                                           <Cursor fx:constant="CLOSED_HAND" />
                                        </cursor>
@@ -547,7 +564,7 @@
                               </GridPane>
                            </children>
                            <effect>
-                              <DropShadow color="#b5b5b5" />
+                              <DropShadow color="#948787" />
                            </effect>
                         </AnchorPane>
                      </children></AnchorPane>

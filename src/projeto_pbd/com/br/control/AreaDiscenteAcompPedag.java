@@ -167,12 +167,12 @@ public class AreaDiscenteAcompPedag implements Initializable {
             document.open();
 
             document.add(new Paragraph("______________________________________________________________________________"));
-            document.add(new Paragraph("ALUNO:   "+ aluno.getNome()));
-            document.add(new Paragraph("MATRÍCULA:   "+ aluno.getId()));
+            document.add(new Paragraph("ALUNO (A):   "+ aluno.getNome()));
+            document.add(new Paragraph("Nª MATRÍCULA:   "+ aluno.getId()));
             document.add(new Paragraph("CURRÍCULO:   "+ aluno.getCurriculo().getNome()));
             document.add(new Paragraph("DIA DE EMIÇÃO:   "+ getDateTime()));
             document.add(new Paragraph("\nPEDAGOGO:   "+ Facade.getInstance().findAllUsuarioLogado().getNome()));
-            document.add(new Paragraph("EMAIL PEDAGOGO:   "+ Facade.getInstance().findAllUsuarioLogado().getEmail()));
+            document.add(new Paragraph("E-MAIL PEDAGOGO:   "+ Facade.getInstance().findAllUsuarioLogado().getEmail()));
 
             document.add(new Paragraph("______________________________________________________________________________\n\n"));
 
