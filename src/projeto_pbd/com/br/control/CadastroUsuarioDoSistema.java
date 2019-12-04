@@ -4,13 +4,14 @@ package projeto_pbd.com.br.control;
 /*
 * com retorno   PROSSIDURE
 * sem retorno   FUNÇÃO
-* */
+*/
+
 
 /*
-* a estory procidure é uma função que não esta assosciada a tabela
-* gatilho é uma função assonciada a tabela que quando acontecer alguma coisa na tebela ele é invocado
-*   o gatilho quando chama a função ele altera alguam coisa na tabela
-*   o gatilho vai fazer o LOG e ALTERAÇÃO DO SISTEMA
+A estory procidure é uma função que não esta assosciada a tabela
+    gatilho é uma função assonciada a tabela que quando acontecer alguma coisa na tebela ele é invocado
+    o gatilho quando chama a função ele altera alguam coisa na tabela
+    o gatilho vai fazer o LOG e ALTERAÇÃO DO SISTEMA.
 */
 
 

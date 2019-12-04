@@ -2,186 +2,185 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaDiscenteInformacoes">
-   <children>
-      <TableView layoutX="167.0" layoutY="139.0" prefHeight="340.0" prefWidth="1290.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="ano " />
-          <TableColumn prefWidth="75.0" text="semestre" />
-            <TableColumn prefWidth="75.0" text="codigo" />
-            <TableColumn prefWidth="75.0" text=" disciplina " />
-            <TableColumn prefWidth="75.0" text="carga h." />
-            <TableColumn prefWidth="75.0" text="nota final" />
-            <TableColumn prefWidth="75.0" text="situaçao" />
-            <TableColumn prefWidth="75.0" text="media" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-      <GridPane hgap="10.0" layoutX="83.0" layoutY="8.0" prefHeight="40.0" prefWidth="806.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="162.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="328.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="75.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="101.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="112.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+<ScrollPane prefHeight="509.0" prefWidth="1332.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.AreaDiscenteInformacoes">
+   <content>
+      <AnchorPane prefHeight="500.0" prefWidth="1314.0">
          <children>
-            <Label text="cpf">
+            <TableView layoutX="20.0" layoutY="235.0" prefHeight="245.0" prefWidth="1274.0" stylesheets="@../../../stily.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="235.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ano " />
+                <TableColumn prefWidth="75.0" text="semestre" />
+                  <TableColumn prefWidth="75.0" text="codigo" />
+                  <TableColumn prefWidth="75.0" text=" disciplina " />
+                  <TableColumn prefWidth="75.0" text="carga h." />
+                  <TableColumn prefWidth="75.0" text="nota final" />
+                  <TableColumn prefWidth="75.0" text="situaçao" />
+                  <TableColumn prefWidth="75.0" text="media" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <GridPane hgap="10.0" layoutX="20.0" layoutY="104.0" prefHeight="40.0" prefWidth="806.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="104.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="162.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="328.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="75.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="101.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="112.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="cpf">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="nome do(a) aluno(a)" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="sexo" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="turno" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="periodo " GridPane.columnIndex="4">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" layoutX="20.0" layoutY="164.0" prefHeight="40.0" prefWidth="806.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="164.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="90.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="91.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="420.0" minWidth="10.0" prefWidth="72.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="107.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="114.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="288.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="natural de">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="UF" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="14.0" prefWidth="96.0" text="pais" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="data nascimento " GridPane.columnIndex="3">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="RG" GridPane.columnIndex="4">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="nome da mae ou do pai" GridPane.columnIndex="5">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label text="..." GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <Label layoutX="20.0" layoutY="22.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #494040;" text="   Histórico " textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="22.0">
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
-            </Label>
-            <Label text="nome do(a) aluno(a)" GridPane.columnIndex="1">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="sexo" GridPane.columnIndex="2">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="turno" GridPane.columnIndex="3">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="periodo " GridPane.columnIndex="4">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="4" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
+               <effect>
+                  <DropShadow color="#8a7878" />
+               </effect>
             </Label>
          </children>
-      </GridPane>
-      <GridPane hgap="10.0" layoutX="93.0" layoutY="18.0" prefHeight="40.0" prefWidth="806.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="90.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="91.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="420.0" minWidth="10.0" prefWidth="72.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="107.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="114.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="288.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label text="natural de">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="UF" GridPane.columnIndex="1">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label prefHeight="14.0" prefWidth="96.0" text="pais" GridPane.columnIndex="2">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="data nascimento " GridPane.columnIndex="3">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="RG" GridPane.columnIndex="4">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="nome da mae ou do pai" GridPane.columnIndex="5">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="4" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label text="..." GridPane.columnIndex="5" GridPane.rowIndex="1">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-      <GridPane hgap="20.0" layoutX="132.0" layoutY="122.0" prefHeight="30.0" prefWidth="693.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#acompanhamentoPedagogico" prefHeight="26.0" prefWidth="220.0" text="Acompanhamento Pedagógico" />
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#gerarHostoricoPDF" prefHeight="26.0" prefWidth="220.0" text="Gerra Histórico pdf" GridPane.columnIndex="2" />
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#adicionarNotas" prefHeight="26.0" prefWidth="220.0" text="Adcionar Notas" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </content>
+</ScrollPane>

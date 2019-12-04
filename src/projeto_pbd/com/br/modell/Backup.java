@@ -15,15 +15,15 @@ public class Backup {
 		//ta para salvar em linux e windows, mas se quiser pode deixar só para Windows
 		//aqui vc só muda o nome do banco e esse caminho até o pg_dump
 		if (System.getProperty("os.name").equalsIgnoreCase("Linux")) {
-			pb = new ProcessBuilder("/usr/bin/pg_dump", "--file", diretorio, "--host", "localhost", "--port", "5432",
+			pb = new ProcessBuilder("/usr/bin/pg_dump", "--file", diretorio+"/backup.backup", "--host", "localhost", "--port", "5432",
 					"--username", "postgres", "--no-password", "--verbose", "--format=t", "--blobs", "testes_pbd");
 
 
 		} else if (System.getProperty("os.name").equalsIgnoreCase("Windows"))
 			pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\10\\bin\\pg_dump.exe", "-i", "-h", "localhost",
-					"-p", "5432", "-U", "postgres", "-F", "c", "-b", "-v", "-f", diretorio, "testes_pbd");
+					"-p", "5432", "-U", "postgres", "-F", "c", "-b", "-v", "-f", diretorio+"/backup.backup", "testes_pbd");
 
-		pb.environment().put("PGPASSWORD", "admin");
+		pb.environment().put("PGPASSWORD", "postgres");
 		pb.redirectErrorStream(true);
 		p = pb.start();
 		final InputStreamReader isr = new InputStreamReader(p.getInputStream());

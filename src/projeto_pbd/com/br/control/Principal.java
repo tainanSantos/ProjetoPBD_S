@@ -6,15 +6,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import projeto_pbd.Main;
-import projeto_pbd.com.br.msg.Mensagem;
+import projeto_pbd.com.br.modell.Backup;
+import sun.awt.windows.ThemeReader;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
-public class Principal implements Initializable {
+public class Principal extends Thread implements Initializable {
 
     // perceba que o control fora da pasta view
     // deixa a trasição entre telas um pouco mais lenta
@@ -45,6 +51,8 @@ public class Principal implements Initializable {
     @FXML
     private MenuItem areaProfessorMenuItem;
     @FXML
+    private MenuItem backupMenuItem;
+    @FXML
     private MenuItem cacadastroCurriculoMenuItem;
     @FXML
     private MenuItem configuracoeMenuItem;
@@ -60,10 +68,14 @@ public class Principal implements Initializable {
     @FXML
     private MenuItem sairUsuarioMenuItem;
 
+    private DirectoryChooser chooser;
     //__________________________________________________________________________________________________________________
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        start();
+        chooser = new DirectoryChooser();
 
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
@@ -101,6 +113,7 @@ public class Principal implements Initializable {
     public void acessorAreaAdiministrado(){
         cadastroUasuarioMenuItem.setDisable(true);
         auditoriaMenuItem.setDisable(true);
+        backupMenuItem.setDisable(true);
     }
 
 
@@ -151,10 +164,45 @@ public class Principal implements Initializable {
             Main.stageLogin ().show ();
         }
 
+
+
+        if (event.getSource() == backupMenuItem){
+
+            File file = chooser.showDialog(Main.stagePrincipal());
+
+            if(file != null){
+                Backup.backup(file.getAbsolutePath());
+            }
+        }
+
+    }
+
+    @Override
+    public void run() {
+        super.run();
+        boolean valor = true;
+        while (valor){
+            if (valor == true) {
+                try {
+                    Thread.sleep(1000);
+                    if (getHorarioAtual().equalsIgnoreCase("16:05:00")){
+                        Backup.backup("/home/tainan/Documentos/");
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 
 
-
-
-
+    public String getHorarioAtual() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        Date hora = Calendar.getInstance().getTime(); // Ou qualquer outra forma que tem
+        String dataFormatada = sdf.format(hora);
+        return dataFormatada;
+    }
 }

@@ -46,16 +46,13 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        carregandoProgressIndicator.setVisible(false);
 
     }
-
 
     public void limparCampos(){
         emailRedefinirSenhaText.clear();
         senhaPadraoRedefinirSenhaText.clear();
         novaSenhaRedefinirSenhaText.clear();
-
     }
 
     //__________________________________________________________________________________________________________________
@@ -79,10 +76,8 @@ public class Login implements Initializable {
                 Usuarioview usuario = null;
                 usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
                         (senhaLoginText.getText()));
-
                 if (usuario != null) {
                     try {
-
                         UsuarioLogado usuarioLogado = new UsuarioLogado();
                         usuarioLogado.setId(4);
                         usuarioLogado.setCpf(usuario.getCpf());
@@ -92,13 +87,11 @@ public class Login implements Initializable {
                         usuarioLogado.setTipodeacesso(usuario.getTipodeacesso());
 
                         Facade.getInstance().saveUsuarioLogado(usuarioLogado);
-
                         Main.setUsuarioLogado(usuario);
                         Main.setTipoUsuario(usuario.getTipodeacesso()); // tipo de usuário que tá acessando o banco
                         Main.stageLogin().close();
                         Main.stagePrincipal().show();
                         Main.stagePrincipal().setMaximized(true);
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -106,7 +99,6 @@ public class Login implements Initializable {
                     Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
             }
         }
-
     }
 
 

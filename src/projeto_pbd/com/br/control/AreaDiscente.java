@@ -587,7 +587,11 @@ public class AreaDiscente implements Initializable {
 
     @FXML
     public void gerarHistoricoPdfAction(ActionEvent event){
-        Mensagem.mensagemErro("Não implementado ainda :( !");
+        try {
+            Main.genericaStage(Main.GERRA_HISTORICO).show();
+        } catch (IOException e) {
+            Mensagem.mensagemErro("Erro ao carregar Histórico!");
+        }
     }
 
 
