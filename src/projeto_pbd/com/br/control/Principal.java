@@ -97,8 +97,6 @@ public class Principal extends Thread implements Initializable {
             }
         }
 
-
-
 //         criar um método estático em uma class fora só para carregar as mensagens d Tooltip
 //        usuarioButton.setTooltip (new Tooltip ("Usuário do Sistem"));
 //        labelArgusAcad.setTooltip (new Tooltip ("Sistema para Escola de Ensiono Funadamental e Médio"));
@@ -118,7 +116,6 @@ public class Principal extends Thread implements Initializable {
 
 
     public void actionEvent(ActionEvent event) throws IOException {
-
 
         if (event.getSource () == cacadastroCurriculoMenuItem){
             this.anchorPanePrincipal.getChildren().clear();
@@ -181,18 +178,25 @@ public class Principal extends Thread implements Initializable {
     public void run() {
         super.run();
         boolean valor = true;
+        int i = 0;
         while (valor){
-            if (valor == true) {
-                try {
-                    Thread.sleep(1000);
-                    if (getHorarioAtual().equalsIgnoreCase("16:05:00")){
-                        Backup.backup("/home/tainan/Documentos/");
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            try {
+                i+=1;
+                System.out.println("  ---- " +i + " ---- ");
+                Thread.sleep(1000);
+                if (getHorarioAtual().equalsIgnoreCase("16:23:00")){
+                    Backup.backup("/home/tainan/Documentos/");
+                    valor = false;
+                    break;
                 }
+                if (!Main.STAGE_PRINCIPAL.isShowing()){
+                    valor = false;
+                    break;
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         }
