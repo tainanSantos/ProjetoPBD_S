@@ -35,4 +35,5 @@ public class SqlUtil {
 
     public static final String BUSCAR_NOTA_POR_ID_ALUNO =  "select d from DisciplinaNotasView d where d.pessoa_id = :pessoa_id ";
 
+
 }

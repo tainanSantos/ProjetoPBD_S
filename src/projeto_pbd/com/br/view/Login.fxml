@@ -44,7 +44,7 @@
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Button blendMode="EXCLUSION" layoutX="100.0" layoutY="292.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="40.0" prefWidth="86.0" text="Entrar" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="292.0" />
+            <Button fx:id="entrarButton" blendMode="EXCLUSION" layoutX="100.0" layoutY="292.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="40.0" prefWidth="86.0" text="Entrar" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="292.0" />
             <Label layoutX="130.0" layoutY="379.0" onMousePressed="#recuperarSenha" text="esqueceu sua senha? " textFill="#e49610" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="379.0">
                <font>
                   <Font name="System Bold" size="10.0" />
@@ -151,5 +151,22 @@
          </effect>
       </Label>
       <ProgressIndicator fx:id="carregandoProgressIndicator" layoutX="549.0" layoutY="181.0" prefHeight="100.0" prefWidth="100.0" visible="false" />
+      <AnchorPane fx:id="panel" layoutX="443.0" layoutY="132.0" prefHeight="201.0" prefWidth="277.0" style="-fx-background-color: #DCDCDC;" visible="false">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="93.0" layoutX="93.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="91.0">
+               <image>
+                  <Image url="@../../../img/loading-gif-transparent-10.gif" />
+               </image>
+            </ImageView>
+            <Label layoutX="46.0" layoutY="154.0" text="Carregando ...">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#726f6f" />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

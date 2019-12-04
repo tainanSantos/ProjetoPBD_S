@@ -233,15 +233,19 @@ public class CadastroNotas implements Initializable {
                     nota.setStatus(true);
                 }
                 else{
-                    if (!vaFinalText.getText().equalsIgnoreCase("null")) {
-                        Double mediaFinal = (nota.getMedia() + Double.parseDouble(vaFinalText.getText()))/2;
+                    try {
+                        if (!vaFinalText.getText().equalsIgnoreCase("null")) {
+                            Double mediaFinal = (nota.getMedia() + Double.parseDouble(vaFinalText.getText())) / 2;
 
-                        if (mediaFinal >= 7) {
-                            nota.setResultado("AP");
-                        } else {
-                            nota.setResultado("RP");
+                            if (mediaFinal >= 7) {
+                                nota.setResultado("AP");
+                            } else {
+                                nota.setResultado("RP");
+                            }
+                            nota.setMedia(mediaFinal);
                         }
-                        nota.setMedia(mediaFinal);
+                    }catch (NumberFormatException e){
+                        vaFinalText.setText(null);
                     }
                 }
             } else

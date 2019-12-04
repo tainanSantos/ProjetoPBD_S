@@ -167,6 +167,7 @@ public class AreaDiscente implements Initializable {
             }
         }
 
+        carregarTabelaAlunos(Facade.getInstance().findAllAluno()); // vai retorn
 
         this.comboboxUf.setItems (FXCollections.observableArrayList (this.listUfsAlun));
         this.comboboxUf1Resp.setItems(FXCollections.observableArrayList (this.listUfsAlun));
@@ -399,8 +400,14 @@ public class AreaDiscente implements Initializable {
 
             if (aluno.getCurriculo()==null)
                 aluno.setCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem());
-            if (aluno.getTurma()==null)
+            if (aluno.getTurma()==null) {
                 aluno.setTurma(turmaComboBox.getSelectionModel().getSelectedItem()); // salvando a turma do aluno
+                // a linha a seguir é só pra atualizxar a quantidade de alunos
+                Turma turma =  null;
+                turma = Facade.getInstance().findByIdTurma(turmaComboBox.getSelectionModel().getSelectedItem().getId());
+                turma.setQtdAlunos(turma.getQtdAlunos()+1);
+                Facade.getInstance().saveTurma(turma);
+            }
 
             telefone1Aluno.setNumero(telefoneUmText.getText());
             telefone2Aluno.setNumero(telefoneDoisText.getText());

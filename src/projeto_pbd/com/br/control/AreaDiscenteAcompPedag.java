@@ -65,9 +65,9 @@ public class AreaDiscenteAcompPedag implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if (Main.getUsuarioLogado().getTipodeacesso().equalsIgnoreCase("Coordenação Pedagogica")) {
-            pedagogoLogadoText.setText(Main.getUsuarioLogado().getEmail());
-        }else pedagogoLogadoText.clear();
+//        if (Main.getUsuarioLogado().getTipodeacesso().equalsIgnoreCase("Coordenação Pedagogica")) {
+//            pedagogoLogadoText.setText(Main.getUsuarioLogado().getEmail());
+//        }else pedagogoLogadoText.clear();
 
         if (Main.getTipoUsuario()!=null) {
             switch (Main.getTipoUsuario()) {
@@ -89,6 +89,7 @@ public class AreaDiscenteAcompPedag implements Initializable {
            public void onScreenchanged(String newScene, Object userData) {
                aluno = (Aluno) userData;
                alunoAcompanhamentoText.setText(aluno.getNome());
+               pedagogoLogadoText.setText(Facade.getInstance().findAllUsuarioLogado().getNome());
                pedagogoLogadoText.setText(Facade.getInstance().findAllUsuarioLogado().getNome());
                // setar o pedagoggo que tpá logado no sistema também
                carregarTabela(Facade.getInstance().findByIdAlunoAcompanhamentoPedagogico(aluno.getId()));

@@ -3,10 +3,7 @@ package projeto_pbd.com.br.control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import projeto_pbd.Main;
@@ -15,7 +12,6 @@ import projeto_pbd.com.br.modell.Usuario;
 import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.msg.Mensagem;
-import sun.awt.windows.ThemeReader;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,6 +38,8 @@ public class Login implements Initializable {
     private TextField novaSenhaRedefinirSenhaText;
     @FXML
     private ProgressIndicator carregandoProgressIndicator;
+    @FXML
+    private Button entrarButton;
 
 
     //__________________________________________________________________________________________________________________
@@ -62,46 +60,51 @@ public class Login implements Initializable {
 
     //__________________________________________________________________________________________________________________
 
-    public void fazerLogin() throws InterruptedException {
-        carregandoProgressIndicator.setVisible(true);
+    @FXML
+    public void fazerLogin(ActionEvent event) throws InterruptedException {
+        panel.setVisible(true);
+
+        if (event.getSource() == entrarButton) {
+            panel.setVisible(true);
 
 
-        if (Facade.getInstance().findAllUsuario().isEmpty()) { // se não estiver vazia aí sim eu vou chamar isso aqui!
-            try {
-                Main.stageLogin().close();
-                Main.stagePrincipal().show();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-        else {
-            Usuarioview usuario= null;
-            usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
-                    (senhaLoginText.getText()));
-
-            if (usuario != null) {
+            if (Facade.getInstance().findAllUsuario().isEmpty()) { // se não estiver vazia aí sim eu vou chamar isso aqui!
                 try {
-
-                    UsuarioLogado usuarioLogado = new UsuarioLogado();
-                    usuarioLogado.setId(4);
-                    usuarioLogado.setCpf(usuario.getCpf());
-                    usuarioLogado.setEmail(usuario.getEmail());
-                    usuarioLogado.setNome(usuario.getNome());
-                    usuarioLogado.setPessoa_id(usuario.getPessoa_id());
-                    usuarioLogado.setTipodeacesso(usuario.getTipodeacesso());
-
-                    Facade.getInstance().saveUsuarioLogado(usuarioLogado);
-
-                    Main.setUsuarioLogado(usuario);
-                    Main.setTipoUsuario(usuario.getTipodeacesso()); // tipo de usuário que tá acessando o banco
                     Main.stageLogin().close();
                     Main.stagePrincipal().show();
-                    Main.stagePrincipal().setMaximized(true);
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } else Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
+            } else {
+                Usuarioview usuario = null;
+                usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
+                        (senhaLoginText.getText()));
+
+                if (usuario != null) {
+                    try {
+
+                        UsuarioLogado usuarioLogado = new UsuarioLogado();
+                        usuarioLogado.setId(4);
+                        usuarioLogado.setCpf(usuario.getCpf());
+                        usuarioLogado.setEmail(usuario.getEmail());
+                        usuarioLogado.setNome(usuario.getNome());
+                        usuarioLogado.setPessoa_id(usuario.getPessoa_id());
+                        usuarioLogado.setTipodeacesso(usuario.getTipodeacesso());
+
+                        Facade.getInstance().saveUsuarioLogado(usuarioLogado);
+
+                        Main.setUsuarioLogado(usuario);
+                        Main.setTipoUsuario(usuario.getTipodeacesso()); // tipo de usuário que tá acessando o banco
+                        Main.stageLogin().close();
+                        Main.stagePrincipal().show();
+                        Main.stagePrincipal().setMaximized(true);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else
+                    Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
+            }
         }
 
     }
@@ -138,6 +141,7 @@ public class Login implements Initializable {
         }else{
             Mensagem.mensagemErro("Login o Senha Inválido, Por favor! Verifique os dados e tente novamente.");
         }
+
     }
 
 
