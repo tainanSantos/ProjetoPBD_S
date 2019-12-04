@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,6 +17,11 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_pbd.com.br.control.Configuracoes">
    <children>
+      <ImageView fitHeight="646.0" fitWidth="1685.0" layoutX="471.0" layoutY="86.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-325.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../img/aaa__.jpg" />
+         </image>
+      </ImageView>
       <Label layoutX="20.0" layoutY="113.0" text="Configurações de Curriculo" AnchorPane.leftAnchor="20.0">
          <font>
             <Font name="System Bold" size="13.0" />

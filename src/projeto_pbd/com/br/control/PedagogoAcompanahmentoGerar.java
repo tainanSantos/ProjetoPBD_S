@@ -4,7 +4,6 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -73,26 +72,26 @@ public class PedagogoAcompanahmentoGerar implements Initializable {
             document.open();
 
             document.add(new Paragraph("______________________________________________________________________________"));
-            document.add(new Paragraph("\nPEDAGOGO:   "+ usuarioLogado.getNome()));
-            document.add(new Paragraph("EMAIL PEDAGOGO:   "+ usuarioLogado.getEmail()));
-            document.add(new Paragraph("CPF PEDAGOGO:   "+ usuarioLogado.getCpf()));
+            document.add(new Paragraph("\nPEDAGOGO (A):   "+ usuarioLogado.getNome()));
+            document.add(new Paragraph("E-MAIL PEDAGOGO (A):   "+ usuarioLogado.getEmail()));
+            document.add(new Paragraph("CPF PEDAGOGO (A):   "+ usuarioLogado.getCpf()));
 
             document.add(new Paragraph("______________________________________________________________________________\n\n"));
 
             int i = 0;
             while(i < acompanhamentoPedagogicos.size()){
                 document.add(new Paragraph("\n\n______________________________________________________________________________"));
-                document.add(new Paragraph("ALUNO:  "+ acompanhamentoPedagogicos.get(i).getAluno().getNome()));
+                document.add(new Paragraph("ALUNO (A):  "+ acompanhamentoPedagogicos.get(i).getAluno().getNome()));
                 document.add(new Paragraph("DATA DO ACOMPANHAMENTO:  "+ acompanhamentoPedagogicos.get(i).getDataAcompanhamento()));
                 document.add(new Paragraph("DETALHAMENTO DA SESSÃO DO ACOMPANHAMENTO:  \n"+ acompanhamentoPedagogicos.get(i).getSecaoDetalhamento()));
-                document.add(new Paragraph("DETALHAMENTO SESÂO CONCLUÍDA:  "+ acompanhamentoPedagogicos.get(i).getConcluida()));
+                document.add(new Paragraph("DETALHAMENTO SESSÂO CONCLUÍDA:  "+ acompanhamentoPedagogicos.get(i).getConcluida()));
                 i+=1;
             }
 
             document.addSubject("Gerando PDF em Java");
             document.addKeywords("www.devmedia.com.br");
             document.addCreator("iText");
-            document.addAuthor("Davi Gomes da Costa");
+            document.addAuthor("Tainan Santos Silva");
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

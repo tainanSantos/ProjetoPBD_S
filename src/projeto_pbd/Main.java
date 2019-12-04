@@ -38,6 +38,7 @@ public class Main extends Application {
 	public static final String TURMA_GERENCIAMENTO = "com/br/view/TurmaGerenciamento.fxml";
 	public static final String REDEFINIR_SENHA_ADMIN = "com/br/view/RedefinirSenha.fxml";
 	public static final String GERAR_PARCELAS = "com/br/view/ParcelasGerar.fxml";
+	public static final String GIF_CARREGANDO = "com/br/view/GifCarregando.fxml";
 
 
 	//__________________________________________________________________________________________________________________

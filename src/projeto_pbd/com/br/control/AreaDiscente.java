@@ -345,6 +345,8 @@ public class AreaDiscente implements Initializable {
             Telefone telefone1Responsavel = new Telefone();
             Telefone telefone2Responsavel = new Telefone();
 
+            boolean cadastrarNotas = true;
+
             // o currícilo tem as disciplinas e as disciplinas tem as notas
             // ver na tabela de disciplinas qual as disciplinas que tá com o id daquele currículo
             // pegar a referencia de cada disciplina e salvar a nota com o id da disciplina e do aluno
@@ -375,6 +377,8 @@ public class AreaDiscente implements Initializable {
                 telefoneList = Facade.getInstance().findAllIdTelefone(responsavel.getId());
                 telefone1Responsavel.setId(telefoneList.get(0).getId());
                 telefone2Responsavel.setId(telefoneList.get(1).getId());
+
+                cadastrarNotas = false;
             }
 
             enderecoAluno.setLogradouro (logradouroText.getText ());
@@ -442,15 +446,15 @@ public class AreaDiscente implements Initializable {
             //__________________________________________________________________________________________________________
 
             // 1 - buscar as disciplinas que tenham esse ID
-            for(Disciplina d: Facade.getInstance().findAllIdCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem().getId())){
-                Nota nota = new Nota();
-                nota.setAluno(aluno);
-                nota.setDisciplina(d);
-                Facade.getInstance().saveNota(nota);
+            // se eu for só atualizar o aluno, então não devo cadastrar as notas novamente
+            if (cadastrarNotas) {
+                for (Disciplina d : Facade.getInstance().findAllIdCurriculo(curriculoComboBox.getSelectionModel().getSelectedItem().getId())) {
+                    Nota nota = new Nota();
+                    nota.setAluno(aluno);
+                    nota.setDisciplina(d);
+                    Facade.getInstance().saveNota(nota);
+                }
             }
-
-            //__________________________________________________________________________________________________________
-
 
 //            Mensagem.mensagemSucesso("Cadastro Realizado com Sucesso! " +
 //                    "O Boleto com as Mensalidades Será Gerado!");
@@ -458,7 +462,7 @@ public class AreaDiscente implements Initializable {
 
             try {
                 Main.genericaStage(Main.GERAR_PARCELAS).show();
-                Main.changeScreen("area do discente", alunosTable.getSelectionModel().getSelectedItem());
+                Main.changeScreen("area do discente", aluno);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -466,6 +470,12 @@ public class AreaDiscente implements Initializable {
             // TA DANDO UM ERRO NA ATUALIZAÇÃO DO TELEFONE
             // TÁ ATUALIZANDO DE FORMA ERRADA!
         }
+
+
+
+        //______________________________________________________________________________________________________________
+
+
 
         if (event.getSource() == apagraAlunoButton){
             // não sei se isso aqui precisa

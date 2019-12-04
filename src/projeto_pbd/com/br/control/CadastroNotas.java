@@ -183,21 +183,19 @@ public class CadastroNotas implements Initializable {
             nota.setAluno(aluno)    ;
             nota.setDisciplina(disciplina);
 
-            nota.setStatus(true);
+            nota.setStatus(false);
 
             nota.setPrimeiraVa(validarIntegerCampoText(va1Text.getText()));
             nota.setSegundaVa(validarIntegerCampoText(va2Text.getText()));
             nota.setTerceiraVa(validarIntegerCampoText(va3Text.getText()));
             nota.setQuartaVa(validarIntegerCampoText(va4Text.getText()));
             nota.setFinalVa(validarIntegerCampoText(vaFinalText.getText()));
-            disciplina.setStatus(true);
 
             List<Double> integerList = new ArrayList<>();
             integerList.add(nota.getPrimeiraVa());
             integerList.add(nota.getSegundaVa());
             integerList.add(nota.getTerceiraVa());
             integerList.add(nota.getQuartaVa());
-            integerList.add(nota.getFinalVa());
 
 
             // implantar as regras de negócioa aqui
@@ -230,17 +228,22 @@ public class CadastroNotas implements Initializable {
             }
 
             if (caount >= 3) {
-                if (nota.getMedia() >= 7)
+                if (nota.getMedia() >= 7) {
                     nota.setResultado("AM");
+                    nota.setStatus(true);
+                }
                 else{
-                    if ((nota.getMedia()+ Double.parseDouble(vaFinalText.getText()))>=7){
-                        nota.setResultado("AP");
-                    }
-                    else {
-                        nota.setResultado("RP");
+                    if (!vaFinalText.getText().equalsIgnoreCase("null")) {
+                        Double mediaFinal = (nota.getMedia() + Double.parseDouble(vaFinalText.getText()))/2;
+
+                        if (mediaFinal >= 7) {
+                            nota.setResultado("AP");
+                        } else {
+                            nota.setResultado("RP");
+                        }
+                        nota.setMedia(mediaFinal);
                     }
                 }
-
             } else
                 nota.setResultado("ND");
 

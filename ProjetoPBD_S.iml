@@ -52,5 +52,6 @@
     <orderEntry type="library" name="byte-buddy-1.9.11 (2)" level="project" />
     <orderEntry type="library" name="antlr-2.7.7 (2)" level="project" />
     <orderEntry type="library" name="itextpdf-5.4.0" level="project" />
+    <orderEntry type="library" name="jfoenix" level="project" />
   </component>
 </module>

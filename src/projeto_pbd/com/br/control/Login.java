@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +15,7 @@ import projeto_pbd.com.br.modell.Usuario;
 import projeto_pbd.com.br.modell.UsuarioLogado;
 import projeto_pbd.com.br.modell.Usuarioview;
 import projeto_pbd.com.br.msg.Mensagem;
+import sun.awt.windows.ThemeReader;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +26,8 @@ public class Login implements Initializable {
 
     @FXML
     private AnchorPane anchorPaneLoginLogin;
+    @FXML
+    private AnchorPane panel;
     @FXML
     private AnchorPane anchorPaneLoginRedefinirSenha;
     @FXML
@@ -35,11 +40,15 @@ public class Login implements Initializable {
     private TextField senhaPadraoRedefinirSenhaText;
     @FXML
     private TextField novaSenhaRedefinirSenhaText;
+    @FXML
+    private ProgressIndicator carregandoProgressIndicator;
+
 
     //__________________________________________________________________________________________________________________
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        carregandoProgressIndicator.setVisible(false);
 
     }
 
@@ -53,7 +62,9 @@ public class Login implements Initializable {
 
     //__________________________________________________________________________________________________________________
 
-    public void fazerLogin()  {
+    public void fazerLogin() throws InterruptedException {
+        carregandoProgressIndicator.setVisible(true);
+
 
         if (Facade.getInstance().findAllUsuario().isEmpty()) { // se não estiver vazia aí sim eu vou chamar isso aqui!
             try {
@@ -62,8 +73,8 @@ public class Login implements Initializable {
             }catch (IOException e){
                 e.printStackTrace();
             }
-        }else {
-
+        }
+        else {
             Usuarioview usuario= null;
             usuario = Facade.getInstance().validarLoginSenha(emailLoginText.getText(),
                     (senhaLoginText.getText()));

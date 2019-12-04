@@ -164,7 +164,7 @@ public class CadastroCurriculoEDisciplina implements Initializable {
         }
         disciplina.setNome(disciplinaText.getText());
         disciplina.setCargaHoaria(Double.parseDouble(cargaHorariaText.getText()));
-        disciplina.setStatus(true);
+        disciplina.setStatus(false);
 
         disciplina = Facade.getInstance().saveDisciplina(disciplina);
 

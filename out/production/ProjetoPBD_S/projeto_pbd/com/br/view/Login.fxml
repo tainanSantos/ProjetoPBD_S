@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -149,5 +150,6 @@
             <DropShadow color="#838383" />
          </effect>
       </Label>
+      <ProgressIndicator fx:id="carregandoProgressIndicator" layoutX="549.0" layoutY="181.0" prefHeight="100.0" prefWidth="100.0" progress="0.0" />
    </children>
 </AnchorPane>

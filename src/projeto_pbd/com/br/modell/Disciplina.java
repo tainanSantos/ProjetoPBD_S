@@ -17,6 +17,7 @@ public class Disciplina {
     @ManyToOne
     private Curriculo curriculo;
 
+    // é para dizer se o aluno está ou nao aprovado na disciplina
     private Boolean status;
 
     public Disciplina(){
